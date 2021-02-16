@@ -1,0 +1,76 @@
+{
+  "apartment": [
+    {
+      "id": 0,
+      "price": 0,
+      "description": "Вагончик"
+    },
+    {
+      "id": 1,
+      "price": 30,
+      "description": "Однокомнаятная квартира"
+    },
+    {
+      "id": 2,
+      "price": 45,
+      "description": "Двухкомнатная квартира"
+    },
+    {
+      "id": 3,
+      "price": 60,
+      "description": "Трёхкомнатная квартира"
+    },
+    {
+      "id": 4,
+      "price": 80,
+      "description": "Загородный дом"
+    },
+    {
+      "id": 5,
+      "price": 95,
+      "description": "Особняк"
+    },
+    {
+      "id": 6,
+      "price": 150,
+      "description": "Дворец"
+    }
+  ],
+  "furniture": [
+    {
+      "id": 0,
+      "price": 0,
+      "description": "Нарисованная"
+    },
+    {
+      "id": 1,
+      "price": 15,
+      "description": "Подержанная"
+    },
+    {
+      "id": 2,
+      "price": 25,
+      "description": "Дачная"
+    },
+    {
+      "id": 3,
+      "price": 30,
+      "description": "ДСП"
+    },
+    {
+      "id": 4,
+      "price": 40,
+      "description": "Ламинированная"
+    },
+    {
+      "id": 5,
+      "price": 55,
+      "description": "Офисная"
+    },
+    {
+      "id": 6,
+      "price": 70,
+      "description": "Элитная"
+    }
+  ]
+}

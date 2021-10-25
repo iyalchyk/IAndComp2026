@@ -1,5 +1,5 @@
 {
-  "apartment": [
+  "apartments": [
     {
       "id": 0,
       "price": 0,
@@ -71,6 +71,60 @@
       "id": 6,
       "price": 70,
       "description": "Элитная"
+    }
+  ],
+  "kitchens": [
+    {
+      "id": 0,
+      "price": 0,
+      "description": "На коленках"
+    },
+    {
+      "id": 1,
+      "price": 10,
+      "description": "Маленькая"
+    },
+    {
+      "id": 2,
+      "price": 15,
+      "description": "Оборудованная"
+    },
+    {
+      "id": 3,
+      "price": 20,
+      "description": "Комфортная"
+    },
+    {
+      "id": 4,
+      "price": 40,
+      "description": "Сверкомфортная"
+    }
+  ],
+  "bathrooms": [
+    {
+      "id": 0,
+      "price": 0,
+      "description": "Воображаемая"
+    },
+    {
+      "id": 1,
+      "price": 5,
+      "description": "Ведро"
+    },
+    {
+      "id": 2,
+      "price": 15,
+      "description": "Стандартная"
+    },
+    {
+      "id": 3,
+      "price": 20,
+      "description": "Джакузи"
+    },
+    {
+      "id": 4,
+      "price": 30,
+      "description": "Бассейн"
     }
   ]
 }

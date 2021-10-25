@@ -1,12 +1,6 @@
 import {
-    Shop, Player, home_button_handler
+    Shop, Player, activate_status_panel
 } from "./global.js"
-
-function housing_button_handler() {
-    $(".switchable").hide();
-    $("#housing_panel").show();
-    $("#home_button").show();
-}
 
 function buy_apartment_button_handler() {
     let next_apartment_id = Player.housing.apartment["id"] + 1;
@@ -23,11 +17,10 @@ function buy_apartment_button_handler() {
         // no more apartments
         $("#buy_apartment_button").prop('disabled', true);
     }
-    home_button_handler()
+    activate_status_panel()
 }
 
 function buy_apartment_button_mouseenter_handler() {
-    console.log("!!!")
     let next_apartment_id = Player.housing.apartment["id"] + 1;
     let next_apartment = Shop["apartments"][next_apartment_id];
     if (next_apartment) {
@@ -39,8 +32,16 @@ function buy_apartment_button_mouseenter_handler() {
 
 }
 
+function housing_panel_setup() {
+    $("#buy_apartment_button").on({
+        click: buy_apartment_button_handler,
+        mouseenter: buy_apartment_button_mouseenter_handler,
+        mouseleave: function() {
+            $("#housing_panel_price_label").text("-");
+        }
+    })
+}
+
 export {
-    housing_button_handler,
-    buy_apartment_button_handler,
-    buy_apartment_button_mouseenter_handler
+    housing_panel_setup
 }

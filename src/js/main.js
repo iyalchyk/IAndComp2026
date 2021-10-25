@@ -1,18 +1,20 @@
 import {
-    World, Player, home_button_handler
-} from "./global.js"
+    World, Player, activate_status_panel
+} from "./global.js";
 
-import {
-        housing_button_handler,
-        buy_apartment_button_handler,
-        buy_apartment_button_mouseenter_handler
-} from './housing_panel.js';
+import { buttons_panel_setup } from './buttons_panel.js';
+import { housing_panel_setup } from './housing_panel.js';
+import { status_panel_setup } from "./status_panel.js";
 
 $(function () {
     const TIME_QUANT = 1500;
     const HOURS_IN_DAY = 6;
     const MOOD_DEDUCTION_FREQ = 3;
     const SATIETY_DEDUCTION_FREQ = 3;
+
+    const PANEL_SETUP_FUNCS = [
+        buttons_panel_setup, housing_panel_setup, status_panel_setup
+    ]
 
     function update_world_state() {
         const time_label = time_counter_to_time(World.time);
@@ -46,26 +48,10 @@ $(function () {
         update_world_state()
     }
 
-
-
-    // $('#housing_panel').load('housing_panel.html');
-
-    $("#housing_button").on({
-        click: housing_button_handler
-    })
-    $("#buy_apartment_button").on({
-        click: buy_apartment_button_handler,
-        mouseenter: buy_apartment_button_mouseenter_handler,
-        mouseleave: function() {
-            $("#housing_panel_price_label").text("-");
-        }
-    })
-    $("#home_button").on({
-        click: home_button_handler
-    })
-
-    home_button_handler()
-
+    for (const panel_setup_fn of PANEL_SETUP_FUNCS) {
+        panel_setup_fn()
+    }
+    activate_status_panel()
     update_world_state();
     setInterval(next_hour_handler, TIME_QUANT);
 });

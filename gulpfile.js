@@ -2,6 +2,7 @@ const { src, dest, series, watch } = require('gulp');
 const del = require('del')
 const njk = require('gulp-nunjucks-render')
 const beautify = require('gulp-beautify')
+const concat = require('gulp-concat');
 
 const configuration = {
     paths: {
@@ -9,6 +10,7 @@ const configuration = {
             html: 'src/html',
             css: 'src/css',
             js: 'src/js'
+            //js_list: ['src/js/global.js', 'src/js/housing_panel.js', 'src/js/main.js'],
         },
         assets: 'assets',
         dist: 'dist'
@@ -36,6 +38,9 @@ function css() {
 }
 
 function js() {
+    // return src(configuration.paths.src.js_list)
+    //     .pipe(concat('main.js'))
+    //     .pipe(dest(configuration.paths.dist + '/js'))
     return src(configuration.paths.src.js + '/**')
         .pipe(dest(configuration.paths.dist + '/js'))
 }

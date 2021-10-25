@@ -1,5 +1,5 @@
 import {
-    World, Shop, Player, home_button_handler
+    Shop, Player, home_button_handler
 } from "./global.js"
 
 function housing_button_handler() {
@@ -19,7 +19,7 @@ function buy_apartment_button_handler() {
     Player.housing.apartment = next_apartment;
     $("#apartment").text(next_apartment["description"]);
     $("#money").text(Player.money);
-    if (next_apartment_id + 1 == Shop["apartments"].length) {
+    if (next_apartment_id + 1 === Shop["apartments"].length) {
         // no more apartments
         $("#buy_apartment_button").prop('disabled', true);
     }

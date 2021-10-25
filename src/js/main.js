@@ -1,5 +1,5 @@
 import {
-    World, Shop, Player, home_button_handler
+    World, Player, home_button_handler
 } from "./global.js"
 
 import {
@@ -8,7 +8,7 @@ import {
         buy_apartment_button_mouseenter_handler
 } from './housing_panel.js';
 
-$(function (events, handler) {
+$(function () {
     const TIME_QUANT = 1500;
     const HOURS_IN_DAY = 6;
     const MOOD_DEDUCTION_FREQ = 3;
@@ -50,14 +50,20 @@ $(function (events, handler) {
 
     // $('#housing_panel').load('housing_panel.html');
 
-    $("#housing_button").on("click", housing_button_handler)
-    $("#buy_apartment_button").on("click", buy_apartment_button_handler)
-    $("#home_button").on("click", home_button_handler)
-
-    $("#buy_apartment_button").on("mouseenter", buy_apartment_button_mouseenter_handler)
-    $("#buy_apartment_button").on("mouseleave", function() {
-        $("#housing_panel_price_label").text("-");
+    $("#housing_button").on({
+        click: housing_button_handler
     })
+    $("#buy_apartment_button").on({
+        click: buy_apartment_button_handler,
+        mouseenter: buy_apartment_button_mouseenter_handler,
+        mouseleave: function() {
+            $("#housing_panel_price_label").text("-");
+        }
+    })
+    $("#home_button").on({
+        click: home_button_handler
+    })
+
     home_button_handler()
 
     update_world_state();

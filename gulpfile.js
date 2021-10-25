@@ -47,7 +47,7 @@ function js() {
 
 function assets() {
     return src(configuration.paths.assets + '/**')
-        .pipe(dest(configuration.paths.dist + '/img'))
+        .pipe(dest(configuration.paths.dist + '/assets'))
 }
 
 function watchFiles() {

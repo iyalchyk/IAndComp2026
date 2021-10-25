@@ -16,7 +16,7 @@ const Player = {
 };
 
 let Shop = null
-$.getJSON("js/assortment.json", function(data) {
+$.getJSON("assets/data/assortment.json", function(data) {
     Shop = data;
     Player.housing.apartment = Shop["apartments"][0];
     Player.housing.furniture = Shop["furniture"][0];

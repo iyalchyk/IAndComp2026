@@ -1,6 +1,6 @@
 import {
     Shop, Player, activate_status_panel
-} from "./global.js"
+} from "../global.js"
 
 function buy_apartment_button_handler() {
     let next_apartment_id = Player.housing.apartment["id"] + 1;

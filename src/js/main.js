@@ -2,9 +2,9 @@ import {
     World, Player, activate_status_panel
 } from "./global.js";
 
-import { buttons_panel_setup } from './buttons_panel.js';
-import { housing_panel_setup } from './housing_panel.js';
-import { status_panel_setup } from "./status_panel.js";
+import { buttons_panel_setup } from './partials/buttons_panel.js';
+import { housing_panel_setup } from './partials/housing_panel.js';
+import { status_panel_setup } from "./partials/status_panel.js";
 
 $(function () {
     const TIME_QUANT = 1500;

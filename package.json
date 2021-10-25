@@ -1,0 +1,27 @@
+{
+  "name": "meandcomp",
+  "version": "1.0.0",
+  "description": "My remake of the old game \"I and Computer\"",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-beautify": "^3.0.0",
+    "gulp-nunjucks-render": "^2.2.3"
+  },
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yalchik/MeAndComp.git"
+  },
+  "author": "Ilya Yalchyk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yalchik/MeAndComp/issues"
+  },
+  "homepage": "https://github.com/yalchik/MeAndComp#readme"
+}

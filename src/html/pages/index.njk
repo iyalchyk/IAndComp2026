@@ -2,37 +2,37 @@
 
 <html lang="ru">
 <head>
-  <meta charset="utf-8">
-  <title>Я и Компьютер</title>
+    <meta charset="utf-8">
+    <title>Я и Компьютер</title>
 
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="https://unpkg.com/98.css@0.1.4/build/98.css" />
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://unpkg.com/98.css@0.1.4/build/98.css"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 
 <body>
 
-  <div class="window">
+<div class="window">
     <div class="title-bar">
-      <div class="title-bar-text">
-         Я и Компьютер
-      </div>
-      <div class="title-bar-controls">
-        <button aria-label="Minimize"></button>
-        <button aria-label="Maximize"></button>
-        <button aria-label="Close"></button>
-      </div>
+        <div class="title-bar-text">
+            Я и Компьютер
+        </div>
+        <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+        </div>
     </div>
     <div class="menu">
-      <span class="new_game">Новая игра</span>
-<!--      <span class="new_game">Помощь</span>-->
+        <span class="new_game">Новая игра</span>
+        <!--      <span class="new_game">Помощь</span>-->
     </div>
     <div class="status_bar">
       <span class="date">
         <label>Дата: </label>
         <label id="date">21/2/21</label>
       </span>
-      <span class="time">
+        <span class="time">
         <label>Время: </label>
         <label id="time">20:00</label>
       </span>
@@ -41,10 +41,10 @@
     {% include "partials/housing_panel.html" %}
     {% include "partials/buttons_panel.html" %}
     <button id="home_button">Вернуться</button>
-  </div>
+</div>
 
-  <div id="footer"></div>
-  <script src="js/main.js" type="module"></script>
+<div id="footer"></div>
+<script src="js/main.js" type="module"></script>
 
 </body>
 

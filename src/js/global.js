@@ -9,11 +9,13 @@ let Player = {
     money: 1600,
     mood: 30,
     satiety: 30,
-    housing: {
+    property: {
         apartment: null,
         furniture: null,
         kitchen: null,
-        bathroom: null
+        bathroom: null,
+        clothes: null,
+        car: null
     }
 };
 
@@ -21,24 +23,31 @@ function preprocess_shop_assortment(data) {
     let processed_data = {}
     for (const category_str in data) {
         let category_arr = data[category_str]
-        for (let i = 0; i < category_arr.length - 1; ++i) {
-            category_arr[i].next = category_arr[i+1]
-            category_arr[i+1].prev = category_arr[i]
+        if (category_arr instanceof Array) {
+            for (let i = 0; i < category_arr.length - 1; ++i) {
+                category_arr[i].next = category_arr[i+1]
+                category_arr[i+1].prev = category_arr[i]
+            }
+            category_arr[0].prev = null
+            category_arr[category_arr.length - 1].next = null
         }
-        category_arr[0].prev = null
-        category_arr[category_arr.length - 1].next = null
         processed_data[category_str] = category_arr
     }
     return processed_data
 }
 
+function init_player() {
+    Player.property.apartment = Shop["apartment"][0];
+    Player.property.furniture = Shop["furniture"][0];
+    Player.property.kitchen = Shop["kitchen"][0];
+    Player.property.bathroom = Shop["bathroom"][0];
+}
+
 let Shop = null
 $.getJSON(ASSORTMENT_URL, function(data) {
     Shop = preprocess_shop_assortment(data);
-    Player.housing.apartment = Shop["apartment"][0];
-    Player.housing.furniture = Shop["furniture"][0];
-    Player.housing.kitchen = Shop["kitchen"][0];
-    Player.housing.bathroom = Shop["bathroom"][0];
+    console.log(Shop)
+    init_player()
     }).fail(function(e, e2) {
         console.log("An error has occurred.", e, e2);
     });

@@ -12,13 +12,13 @@ const BUTTON_ID_TO_ASSORTMENT_MAP = {
 function buy_housing_handler(event) {
     let assortment_str = BUTTON_ID_TO_ASSORTMENT_MAP[this.id]
     let assortment_label_id = `#${assortment_str}`
-    let next_apartment = Player.housing[assortment_str].next;
+    let next_apartment = Player.property[assortment_str].next;
     if (Player.money < next_apartment["price"]) {
         alert("No money")
         return
     }
     Player.money -= next_apartment["price"];
-    Player.housing[assortment_str] = next_apartment;
+    Player.property[assortment_str] = next_apartment;
     $(assortment_label_id).text(next_apartment["description"]);
     $("#money").text(Player.money);
     if (!next_apartment.next) {
@@ -31,7 +31,7 @@ function buy_housing_handler(event) {
 
 function set_price_label_handler() {
     let assortment_str = BUTTON_ID_TO_ASSORTMENT_MAP[this.id]
-    let next_assortment_id = Player.housing[assortment_str]["id"] + 1; //
+    let next_assortment_id = Player.property[assortment_str]["id"] + 1; //
     let next_assortment_obj = Shop[assortment_str][next_assortment_id];
     if (next_assortment_obj) {
         $("#housing_panel_price_label").text(next_assortment_obj["price"]);

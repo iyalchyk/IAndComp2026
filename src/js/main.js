@@ -4,6 +4,7 @@ import {
 
 import { buttons_panel_setup } from './partials/buttons_panel.js';
 import { housing_panel_setup } from './partials/housing_panel.js';
+import { shop_panel_setup } from './partials/shop_panel.js';
 import { status_panel_setup } from "./partials/status_panel.js";
 
 $(function () {
@@ -13,7 +14,7 @@ $(function () {
     const SATIETY_DEDUCTION_FREQ = 3;
 
     const PANEL_SETUP_FUNCS = [
-        buttons_panel_setup, housing_panel_setup, status_panel_setup
+        buttons_panel_setup, housing_panel_setup, shop_panel_setup, status_panel_setup
     ]
 
     function update_world_state() {

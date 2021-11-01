@@ -1,10 +1,12 @@
-const World = {
+const ASSORTMENT_URL = "assets/data/assortment.json"
+
+let World = {
     time: 0
 };
 
-const Player = {
+let Player = {
     salary: 10,
-    money: 160,
+    money: 1600,
     mood: 30,
     satiety: 30,
     housing: {
@@ -15,13 +17,28 @@ const Player = {
     }
 };
 
+function preprocess_shop_assortment(data) {
+    let processed_data = {}
+    for (const category_str in data) {
+        let category_arr = data[category_str]
+        for (let i = 0; i < category_arr.length - 1; ++i) {
+            category_arr[i].next = category_arr[i+1]
+            category_arr[i+1].prev = category_arr[i]
+        }
+        category_arr[0].prev = null
+        category_arr[category_arr.length - 1].next = null
+        processed_data[category_str] = category_arr
+    }
+    return processed_data
+}
+
 let Shop = null
-$.getJSON("assets/data/assortment.json", function(data) {
-    Shop = data;
-    Player.housing.apartment = Shop["apartments"][0];
+$.getJSON(ASSORTMENT_URL, function(data) {
+    Shop = preprocess_shop_assortment(data);
+    Player.housing.apartment = Shop["apartment"][0];
     Player.housing.furniture = Shop["furniture"][0];
-    Player.housing.kitchen = Shop["kitchens"][0];
-    Player.housing.bathroom = Shop["bathrooms"][0];
+    Player.housing.kitchen = Shop["kitchen"][0];
+    Player.housing.bathroom = Shop["bathroom"][0];
     }).fail(function(e, e2) {
         console.log("An error has occurred.", e, e2);
     });
@@ -30,6 +47,10 @@ function activate_status_panel() {
     $(".switchable").hide();
     $("#status_panel").show();
     $("#home_button").hide();
+}
+
+function reverse(obj) {
+    return Object.entries(obj).reduce((acc, [key, value]) => (acc[value] = key, acc), {})
 }
 
 export {

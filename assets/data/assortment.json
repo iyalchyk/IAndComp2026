@@ -1,5 +1,5 @@
 {
-  "apartments": [
+  "apartment": [
     {
       "id": 0,
       "price": 0,
@@ -73,7 +73,7 @@
       "description": "Элитная"
     }
   ],
-  "kitchens": [
+  "kitchen": [
     {
       "id": 0,
       "price": 0,
@@ -100,7 +100,7 @@
       "description": "Сверкомфортная"
     }
   ],
-  "bathrooms": [
+  "bathroom": [
     {
       "id": 0,
       "price": 0,

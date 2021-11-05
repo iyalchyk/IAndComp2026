@@ -1,6 +1,7 @@
 const BUTTON_TO_PANEL_ID_MAP = {
     housing_button: "housing_panel",
-    shop_button: "shop_panel"
+    shop_button: "shop_panel",
+    entertainment_button: "entertainment_panel"
 };
 
 function panel_button_handler() {
@@ -12,7 +13,7 @@ function panel_button_handler() {
 }
 
 function buttons_panel_setup() {
-    $("#housing_button, #shop_button").on({
+    $("#housing_button, #shop_button, #entertainment_button").on({
         click: panel_button_handler
     });
 }

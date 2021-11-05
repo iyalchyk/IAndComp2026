@@ -170,5 +170,13 @@
       "price": 200,
       "description": "Mercedes"
     }
-  ]
+  ],
+  "party": {
+    "price": 5,
+    "mood": 5
+  },
+  "disco": {
+    "price": 8,
+    "mood": 9
+  }
 }

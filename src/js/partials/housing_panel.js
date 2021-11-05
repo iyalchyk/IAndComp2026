@@ -1,5 +1,5 @@
 import {
-    Shop, Player, activate_status_panel
+    Shop, Player, activate_status_panel, update_player_view
 } from "../global.js"
 
 const BUTTON_ID_TO_ASSORTMENT_MAP = {
@@ -20,21 +20,21 @@ function buy_housing_handler(event) {
     Player.money -= next_apartment["price"];
     Player.property[assortment_str] = next_apartment;
     $(assortment_label_id).text(next_apartment["description"]);
-    $("#money").text(Player.money);
     if (!next_apartment.next) {
         // no more apartments
         $(event.target).prop('disabled', true);
         reset_price_label_handler();
     }
-    activate_status_panel()
+    update_player_view();
+    activate_status_panel();
 }
 
 function set_price_label_handler() {
-    let assortment_str = BUTTON_ID_TO_ASSORTMENT_MAP[this.id]
-    let next_assortment_id = Player.property[assortment_str]["id"] + 1; //
-    let next_assortment_obj = Shop[assortment_str][next_assortment_id];
-    if (next_assortment_obj) {
-        $("#housing_panel_price_label").text(next_assortment_obj["price"]);
+    let assortment_str = BUTTON_ID_TO_ASSORTMENT_MAP[this.id];
+    let assortment_obj = Player.property[assortment_str];
+    let next_item_obj = assortment_obj ? assortment_obj.next : Shop[assortment_str][0];
+    if (next_item_obj) {
+        $("#housing_panel_price_label").text(next_item_obj["price"]);
     }
     else {
         $("#housing_panel_price_label").text("-");

@@ -58,6 +58,13 @@ function activate_status_panel() {
     $("#home_button").hide();
 }
 
+function update_player_view() {
+    $("#money").text(Player.money);
+    $("#mood").text(Player.mood);
+    $("#entertainment_panel_mood_value_label").text(Player.mood);
+    $("#satiety").text(Player.satiety);
+}
+
 function reverse(obj) {
     return Object.entries(obj).reduce((acc, [key, value]) => (acc[value] = key, acc), {})
 }
@@ -66,5 +73,6 @@ export {
     World,
     Shop,
     Player,
-    activate_status_panel
+    activate_status_panel,
+    update_player_view
 }

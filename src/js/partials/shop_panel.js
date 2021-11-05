@@ -1,5 +1,5 @@
 import {
-    Shop, Player, activate_status_panel
+    Shop, Player, activate_status_panel, update_player_view
 } from "../global.js"
 
 const BUTTON_ID_TO_ASSORTMENT_MAP = {
@@ -19,8 +19,7 @@ function buy_food_handler() {
     }
     Player.money -= assortment_obj["price"];
     Player.satiety += assortment_obj["satiety"];
-    $("#money").text(Player.money);
-    $("#satiety").text(Player.satiety);
+    update_player_view();
 }
 
 function buy_property_handler(event) {
@@ -35,12 +34,12 @@ function buy_property_handler(event) {
     Player.property[assortment_str] = next_item;
     let assortment_label_id = `#${assortment_str}`
     $(assortment_label_id).text(next_item["description"]);
-    $("#money").text(Player.money);
     if (!next_item.next) {
         $(event.target).prop('disabled', true);
         reset_price_label_handler();
     }
-    activate_status_panel()
+    update_player_view();
+    activate_status_panel();
 }
 
 function set_price_label_handler() {

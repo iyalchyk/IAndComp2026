@@ -51,7 +51,7 @@ function assets() {
 }
 
 function watchFiles() {
-    watch('src/**/*', series(html, css, js))
+    watch('src/**/*', series(html, css, js, assets))
 }
 
 exports.build = series(clean, html, css, js, assets)

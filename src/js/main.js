@@ -1,10 +1,11 @@
 import {
-    World, Player, activate_status_panel
+    World, Player, activate_status_panel, update_player_view
 } from "./global.js";
 
 import { buttons_panel_setup } from './partials/buttons_panel.js';
 import { housing_panel_setup } from './partials/housing_panel.js';
 import { shop_panel_setup } from './partials/shop_panel.js';
+import { entertainment_panel_setup } from './partials/entertainment_panel.js';
 import { status_panel_setup } from "./partials/status_panel.js";
 
 $(function () {
@@ -14,15 +15,12 @@ $(function () {
     const SATIETY_DEDUCTION_FREQ = 3;
 
     const PANEL_SETUP_FUNCS = [
-        buttons_panel_setup, housing_panel_setup, shop_panel_setup, status_panel_setup
+        buttons_panel_setup, housing_panel_setup, shop_panel_setup, entertainment_panel_setup, status_panel_setup
     ]
 
-    function update_world_state() {
+    function update_time_state() {
         const time_label = time_counter_to_time(World.time);
         $("#time").text(time_label);
-        $("#money").text(Player.money);
-        $("#mood").text(Player.mood);
-        $("#satiety").text(Player.satiety);
     }
 
     function time_counter_to_time(time_counter) {
@@ -46,13 +44,15 @@ $(function () {
         if (World.time % SATIETY_DEDUCTION_FREQ === 0) {
             Player.satiety -= 2
         }
-        update_world_state()
+        update_time_state();
+        update_player_view();
     }
 
     for (const panel_setup_fn of PANEL_SETUP_FUNCS) {
         panel_setup_fn()
     }
-    activate_status_panel()
-    update_world_state();
+    activate_status_panel();
+    update_time_state();
+    update_player_view();
     setInterval(next_hour_handler, TIME_QUANT);
 });

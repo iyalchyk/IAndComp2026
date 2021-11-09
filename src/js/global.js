@@ -9,6 +9,8 @@ let Player = {
     money: 1600,
     mood: 30,
     satiety: 30,
+    groundbait: 0,
+    fish: 0,
     property: {
         apartment: null,
         furniture: null,
@@ -63,6 +65,8 @@ function update_player_view() {
     $("#mood").text(Player.mood);
     $("#entertainment_panel_mood_value_label").text(Player.mood);
     $("#satiety").text(Player.satiety);
+    $("#hobby_panel_groundbait_amount_label").text(Player.groundbait);
+    $("#hobby_panel_fish_amount_label").text(Player.fish);
 }
 
 function reverse(obj) {

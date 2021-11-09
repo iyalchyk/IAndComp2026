@@ -178,5 +178,17 @@
   "disco": {
     "price": 8,
     "mood": 9
+  },
+  "groundbait": {
+    "price": 5
+  },
+  "fishing_rod": {
+    "price": 12
+  },
+  "fishing_tackle": {
+    "price": 10
+  },
+  "fishing": {
+    "price": 5
   }
 }

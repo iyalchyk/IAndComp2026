@@ -9,6 +9,7 @@ import { entertainment_panel_setup } from './partials/entertainment_panel.js';
 import { hobby_panel_setup } from "./partials/hobby_panel.js";
 import { education_panel_setup, update_education_state } from "./partials/education_panel.js";
 import { job_panel_setup } from "./partials/job_panel.js";
+import { bank_panel_setup, update_bank_state } from "./partials/bank_panel.js";
 import { status_panel_setup } from "./partials/status_panel.js";
 
 $(function () {
@@ -26,6 +27,7 @@ $(function () {
         hobby_panel_setup,
         education_panel_setup,
         job_panel_setup,
+        bank_panel_setup,
         status_panel_setup
     ]
 
@@ -59,6 +61,7 @@ $(function () {
         }
         update_time_state();
         update_education_state();
+        update_bank_state();
         update_player_view();
     }
 

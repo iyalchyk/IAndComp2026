@@ -37,6 +37,9 @@ let Player = {
         school: 0,
         english_course: 0,
         computer_course: 0
+    },
+    bank: {
+        money: 0
     }
 };
 

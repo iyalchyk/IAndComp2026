@@ -17,18 +17,6 @@ const BUTTON_ID_STATE_LABELS_MAP = {
     go_to_computer_course_button_false: "Закончить ходить на компьютерные курсы"
 };
 
-const SCHOOL_LEVEL_DESCRIPTION_MAP = {
-
-};
-
-const ENGLISH_COURSE_DESCRIPTION_MAP = {
-
-};
-
-const COMPUTER_COURSE_DESCRIPTION_MAP = {
-
-};
-
 function go_education_handler(event) {
     let assortment_str = BUTTON_ID_TO_ASSORTMENT_MAP[this.id];
     let button_label_key = `${this.id}_${Player.activities[assortment_str]}`;

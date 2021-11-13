@@ -1,104 +1,128 @@
 {
   "apartment": [
     {
+      "level": 0,
       "price": 0,
       "description": "Вагончик"
     },
     {
+      "level": 1,
       "price": 30,
-      "description": "Однокомнаятная квартира"
+      "description": "Однокомнатная квартира"
     },
     {
+      "level": 2,
       "price": 45,
       "description": "Двухкомнатная квартира"
     },
     {
+      "level": 3,
       "price": 60,
       "description": "Трёхкомнатная квартира"
     },
     {
+      "level": 4,
       "price": 80,
       "description": "Загородный дом"
     },
     {
+      "level": 5,
       "price": 95,
       "description": "Особняк"
     },
     {
+      "level": 6,
       "price": 150,
       "description": "Дворец"
     }
   ],
   "furniture": [
     {
+      "level": 0,
       "price": 0,
       "description": "Нарисованная"
     },
     {
+      "level": 1,
       "price": 15,
       "description": "Подержанная"
     },
     {
+      "level": 2,
       "price": 25,
       "description": "Дачная"
     },
     {
+      "level": 3,
       "price": 30,
       "description": "ДСП"
     },
     {
+      "level": 4,
       "price": 40,
       "description": "Ламинированная"
     },
     {
+      "level": 5,
       "price": 55,
       "description": "Офисная"
     },
     {
+      "level": 6,
       "price": 70,
       "description": "Элитная"
     }
   ],
   "kitchen": [
     {
+      "level": 0,
       "price": 0,
       "description": "На коленках"
     },
     {
+      "level": 1,
       "price": 10,
       "description": "Маленькая"
     },
     {
+      "level": 2,
       "price": 15,
       "description": "Оборудованная"
     },
     {
+      "level": 3,
       "price": 20,
       "description": "Комфортная"
     },
     {
+      "level": 4,
       "price": 40,
       "description": "Сверкомфортная"
     }
   ],
   "bathroom": [
     {
+      "level": 0,
       "price": 0,
       "description": "Воображаемая"
     },
     {
+      "level": 1,
       "price": 5,
       "description": "Ведро"
     },
     {
+      "level": 2,
       "price": 15,
       "description": "Стандартная"
     },
     {
+      "level": 3,
       "price": 20,
       "description": "Джакузи"
     },
     {
+      "level": 4,
       "price": 30,
       "description": "Бассейн"
     }
@@ -117,56 +141,69 @@
   },
   "clothes": [
     {
+      "level": 0,
       "price": 5,
       "description": "Дешевый спортивный костюм"
     },
     {
+      "level": 1,
       "price": 10,
       "description": "Летняя одежда"
     },
     {
+      "level": 2,
       "price": 15,
       "description": "Новые джинсы и футболка"
     },
     {
+      "level": 3,
       "price": 20,
       "description": "Костюм (брюки и пиджак)"
     },
     {
+      "level": 4,
       "price": 25,
       "description": "Куртка"
     },
     {
+      "level": 5,
       "price": 30,
       "description": "Красивая рубашка и брюки"
     },
     {
+      "level": 6,
       "price": 30,
       "description": "Супер футболка, кепка, шорты и т.д."
     },
     {
+      "level": 7,
       "price": 35,
       "description": "Одежда последней моды"
     }
   ],
   "car": [
     {
+      "level": 1,
       "price": 30,
       "description": "Пятёрка 2105"
     },
     {
+      "level": 2,
       "price": 60,
       "description": "Девятка 21093"
     },
     {
+      "level": 3,
       "price": 70,
       "description": "Десятка 2110"
     },
     {
+      "level": 4,
       "price": 80,
       "description": "Волга 3110"
     },
     {
+      "level": 5,
       "price": 200,
       "description": "Mercedes"
     }
@@ -202,5 +239,78 @@
   "computer_course": {
     "price": 8,
     "durations": [60, 60, 120, 120, 150, 200, 180, 120]
+  },
+  "job": {
+    "porter": {
+      "salary": 10,
+      "requirements": {
+        "school": 1,
+        "clothes": 1,
+        "bathroom": 1
+      },
+      "description": "Эта работа очень проста. Вам просто необходимо таскать всякие тяжёлые ящики"
+    },
+    "taxi_driver": {
+      "salary": 20,
+      "requirements": {
+        "school": 1,
+        "english_course": 1,
+        "computer_course": 1,
+        "clothes": 1,
+        "apartment": 2,
+        "furniture": 1,
+        "programming": 1
+      },
+      "description": "здесь вы должны просто напросто перевозить людей"
+    },
+    "gardener": {
+      "salary": 25,
+      "requirements": {
+        "school": 2,
+        "computer_course": 2,
+        "clothes": 2,
+        "apartment": 3,
+        "kitchen": 1,
+        "programming": 2,
+        "car": 1,
+        "fish": 20
+      },
+      "description": "вам нужно будет сажать цветочки и т.д."
+    },
+    "junior_dev": {
+      "salary": 30,
+      "requirements": {},
+      "description": "эта работа более серёзная, чем остальные"
+    },
+    "middle_dev": {
+      "salary": 35,
+      "requirements": {},
+      "description": "на этой работе вы будете составлять программы для разных фирм"
+    },
+    "internet_provider": {
+      "salary": 40,
+      "requirements": {},
+      "description": "здесь вам необходимо работать с интернетом"
+    },
+    "web_master": {
+      "salary": 45,
+      "requirements": {},
+      "description": "создавайте стильные информативные сайты"
+    },
+    "hacker": {
+      "salary": 50,
+      "requirements": {},
+      "description": "здесь ваши хакерские задания усложняются"
+    },
+    "graphical_designer": {
+      "salary": 60,
+      "requirements": {},
+      "description": "вы будете создавать текстуры, 3D графику и остальную графику"
+    },
+    "computer_president": {
+      "salary": 70,
+      "requirements": {},
+      "description": "это самая замечательная работа. Вы сможете командовать всеми комп. филиалами"
+    }
   }
 }

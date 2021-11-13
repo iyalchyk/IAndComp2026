@@ -86,6 +86,8 @@ function update_player_view() {
     $("#satiety").text(Player.satiety);
     $("#hobby_panel_groundbait_amount_label").text(Player.consumables.groundbait);
     $("#hobby_panel_fish_amount_label").text(Player.experience.fish);
+    $("#salary").text(Player.salary);
+    $("#job").text(Player.job);
 }
 
 function reverse(obj) {

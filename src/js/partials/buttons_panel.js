@@ -3,7 +3,8 @@ const BUTTON_TO_PANEL_ID_MAP = {
     shop_button: "shop_panel",
     entertainment_button: "entertainment_panel",
     hobby_button: "hobby_panel",
-    education_button: "education_panel"
+    education_button: "education_panel",
+    job_button: "job_panel"
 };
 
 function panel_button_handler() {
@@ -15,7 +16,8 @@ function panel_button_handler() {
 }
 
 function buttons_panel_setup() {
-    $("#housing_button, #shop_button, #entertainment_button, #hobby_button, #education_button").on({
+    $("#housing_button, #shop_button, #entertainment_button, #hobby_button, #education_button, " +
+        "#job_button").on({
         click: panel_button_handler
     });
 }

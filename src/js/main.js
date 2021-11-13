@@ -11,6 +11,7 @@ import { education_panel_setup, update_education_state } from "./partials/educat
 import { job_panel_setup } from "./partials/job_panel.js";
 import { bank_panel_setup, update_bank_state } from "./partials/bank_panel.js";
 import { hardware_panel_setup } from "./partials/hardware_panel.js";
+import { software_panel_setup } from "./partials/software_panel.js";
 import { status_panel_setup } from "./partials/status_panel.js";
 
 $(function () {
@@ -30,6 +31,7 @@ $(function () {
         job_panel_setup,
         bank_panel_setup,
         hardware_panel_setup,
+        software_panel_setup,
         status_panel_setup
     ]
 

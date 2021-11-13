@@ -111,13 +111,47 @@ div.education_status {
     width: 224px;
 }
 
+div.system_software {
+    position: absolute;
+    top: 77px;
+    width: 150px;
+}
+
+div.programming_software {
+    position: absolute;
+    top: 77px;
+    left: 160px;
+    width: 150px;
+}
+
+div.graphics_software {
+    position: absolute;
+    top: 77px;
+    left: 317px;
+    width: 150px;
+}
+
+div.internet_software {
+    position: absolute;
+    top: 222px;
+    left: 160px;
+    width: 150px;
+}
+
+div.antivirus_software {
+    position: absolute;
+    top: 222px;
+    left: 317px;
+    width: 150px;
+}
+
 #housing_panel {
     position: absolute;
     top: 77px;
     width: 100%;
 }
 
-#housing_panel
+#housing_panel,
 div.buttons_box {
     display: flex;
     align-items: center;
@@ -126,6 +160,7 @@ div.buttons_box {
 
 div.buttons_box div button {
     display: block;
+    width: 100%;
 }
 
 div#buttons_panel {
@@ -150,8 +185,8 @@ div#buttons_panel div button {
     background: url('/assets/images/win98ru_footer.png') no-repeat;
     width: 1152px;
     height: 28px;
-    bottom: 0px;
-    left: 0px;
+    bottom: 0;
+    left: 0;
     position: fixed;
 }
 
@@ -162,7 +197,7 @@ div.panel {
     width: 100%;
 }
 
-div.panel
+div.panel,
 div.buttons_box {
     display: flex;
     align-items: center;

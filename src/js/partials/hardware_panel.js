@@ -44,15 +44,15 @@ function set_property_price_label_handler() {
     let assortment_obj = Player.property[assortment_str];
     let next_item_obj = assortment_obj ? assortment_obj.next : Shop[assortment_str][0];
     if (next_item_obj) {
-        $("#shop_panel_price_label").text(next_item_obj["price"]);
+        $("#hardware_panel_price_label").text(next_item_obj["price"]);
     }
     else {
-        $("#shop_panel_price_label").text("-");
+        $("#hardware_panel_price_label").text("-");
     }
 }
 
 function reset_price_label_handler() {
-    $("#shop_panel_price_label").text("-");
+    $("#hardware_panel_price_label").text("-");
 }
 
 function hardware_panel_setup() {

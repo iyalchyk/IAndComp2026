@@ -338,182 +338,418 @@
   },
   "CPU": [
     {
+      "level": 1,
       "price": 15,
       "description": "Intel 486"
     },
     {
+      "level": 2,
       "price": 20,
       "description": "Pentium 166"
     },
     {
+      "level": 3,
       "price": 30,
       "description": "Pentium 233 MMX"
     },
     {
+      "level": 4,
       "price": 45,
       "description": "Pentium II 650"
     },
     {
+      "level": 5,
       "price": 55,
       "description": "Pentium III 800"
     },
     {
+      "level": 6,
       "price": 70,
       "description": "Pentium IV"
     }
   ],
   "monitor": [
     {
+      "level": 1,
       "price": 15,
       "description": "14\""
     },
     {
+      "level": 2,
       "price": 30,
       "description": "15\""
     },
     {
+      "level": 3,
       "price": 45,
       "description": "17\""
     }
   ],
   "printer": [
     {
+      "level": 1,
       "price": 11,
       "description": "матричный"
     },
     {
+      "level": 2,
       "price": 30,
       "description": "струйный"
     },
     {
+      "level": 3,
       "price": 40,
       "description": "лазерный"
     }
   ],
   "scanner": [
     {
+      "level": 1,
       "price": 20,
       "description": "ручной"
     },
     {
+      "level": 2,
       "price": 30,
       "description": "планшетный"
     }
   ],
   "modem": [
     {
+      "level": 1,
       "price": 10,
       "description": "36.6"
     },
     {
+      "level": 2,
       "price": 15,
       "description": "56k"
     },
     {
+      "level": 3,
       "price": 20,
       "description": "V90"
     }
   ],
   "HDD": [
     {
+      "level": 1,
       "price": 10,
       "description": "10 Gb"
     },
     {
+      "level": 2,
       "price": 15,
       "description": "20 Gb"
     },
     {
+      "level": 3,
       "price": 20,
       "description": "30 Gb"
     },
     {
+      "level": 4,
       "price": 30,
       "description": "40 Gb"
     },
     {
+      "level": 5,
       "price": 40,
       "description": "50 Gb"
     },
     {
+      "level": 6,
       "price": 50,
       "description": "60 Gb"
     }
   ],
   "CDROM": [
     {
+      "level": 1,
       "price": 10,
       "description": "16x Speed"
     },
     {
+      "level": 2,
       "price": 15,
       "description": "32x Speed"
     },
     {
+      "level": 3,
       "price": 20,
       "description": "40x Speed"
     },
     {
+      "level": 4,
       "price": 30,
       "description": "48x Speed"
     },
     {
+      "level": 5,
       "price": 40,
       "description": "56x Speed"
     }
   ],
   "RAM": [
     {
+      "level": 1,
       "price": 10,
       "description": "32 Mb"
     },
     {
+      "level": 2,
       "price": 15,
       "description": "64 Mb"
     },
     {
+      "level": 3,
       "price": 20,
       "description": "128 Mb"
     },
     {
+      "level": 4,
       "price": 30,
       "description": "256 Mb"
     },
     {
+      "level": 5,
       "price": 40,
       "description": "512 Mb"
     }
   ],
   "sound_card": [
     {
+      "level": 1,
       "price": 10,
       "description": "16 KHz"
     },
     {
+      "level": 2,
       "price": 20,
       "description": "22 KHz"
     },
     {
+      "level": 3,
       "price": 30,
       "description": "44 KHz"
     }
   ],
   "video_card": [
     {
+      "level": 1,
       "price": 10,
       "description": "8 Mb S3 Savage 4"
     },
     {
+      "level": 2,
       "price": 20,
       "description": "16 Mb Riva TNT"
     },
     {
+      "level": 3,
       "price": 30,
       "description": "32 Mb GeForce 2"
     },
     {
+      "level": 4,
       "price": 70,
       "description": "64 Mb GeForce 2 MX"
     }
-  ]
+  ],
+  "OS": [
+    {
+      "level": 1,
+      "price": 3,
+      "description": "Norton Commander",
+      "requirements": {
+        "CPU": 1,
+        "monitor": 1,
+        "HDD": 1,
+        "CDROM": 1,
+        "RAM": 1,
+        "video_card": 1
+      }
+    },
+    {
+      "level": 2,
+      "price": 8,
+      "description": "Windows 3.11",
+      "requirements": {
+        "CPU": 2,
+        "monitor": 1,
+        "HDD": 2,
+        "CDROM": 2,
+        "RAM": 2,
+        "video_card": 1,
+        "sound_card": 1,
+        "printer": 1
+      }
+    },
+    {
+      "level": 3,
+      "price": 10,
+      "description": "Windows 95",
+      "requirements": {
+        "CPU": 3,
+        "monitor": 1,
+        "HDD": 3,
+        "CDROM": 3,
+        "RAM": 3,
+        "video_card": 1,
+        "sound_card": 1,
+        "printer": 1
+      }
+    },
+    {
+      "level": 4,
+      "price": 17,
+      "description": "Windows 98",
+      "requirements": {
+        "CPU": 4,
+        "monitor": 1,
+        "HDD": 4,
+        "CDROM": 4,
+        "RAM": 4,
+        "video_card": 2,
+        "sound_card": 2,
+        "printer": 1
+      }
+    },
+    {
+      "level": 5,
+      "price": 25,
+      "description": "Windows 2000",
+      "requirements": {
+        "CPU": 5,
+        "monitor": 2,
+        "HDD": 5,
+        "CDROM": 5,
+        "RAM": 5,
+        "video_card": 3,
+        "sound_card": 3,
+        "printer": 2
+      }
+    }
+  ],
+  "compiler": [
+    {
+      "level": 1,
+      "price": 5,
+      "description": "Basic",
+      "requirements": {
+        "OS": 1
+      }
+    },
+    {
+      "level": 2,
+      "price": 7,
+      "description": "Pascal",
+      "requirements": {
+        "OS": 1,
+        "CPU": 2,
+        "HDD": 2
+      }
+    },
+    {
+      "level": 3,
+      "price": 15,
+      "description": "Visual Basic",
+      "requirements": {
+        "OS": 3,
+        "video_card": 2
+      }
+    },
+    {
+      "level": 4,
+      "price": 20,
+      "description": "Visual C++",
+      "requirements": {
+        "OS": 3,
+        "RAM": 4,
+        "video_card": 2
+      }
+    }
+  ],
+  "graphics": [
+    {
+      "level": 1,
+      "price": 4,
+      "description": "Corel Xara",
+      "requirements": {
+        "OS": 2
+      }
+    },
+    {
+      "level": 2,
+      "price": 10,
+      "description": "Photoshop",
+      "requirements": {
+        "OS": 3,
+        "video_card": 2
+      }
+    },
+    {
+      "level": 3,
+      "price": 15,
+      "description": "3D Studio Max II",
+      "requirements": {
+        "OS": 4,
+        "monitor": 2,
+        "HDD": 5,
+        "video_card": 3,
+        "printer": 2
+      }
+    },
+    {
+      "level": 4,
+      "price": 25,
+      "description": "3D Studio Max III",
+      "requirements": {
+        "OS": 5,
+        "CPU": 6,
+        "monitor": 3,
+        "HDD": 6,
+        "video_card": 4,
+        "printer": 3
+      }
+    }
+  ],
+  "antivirus": [
+    {
+      "level": 1,
+      "price": 5,
+      "description": "Kaspersky",
+      "requirements": {
+        "OS": 3
+      }
+    },
+    {
+      "level": 2,
+      "price": 20,
+      "description": "IVP",
+      "requirements": {
+        "OS": 5
+      }
+    }
+  ],
+  "internet": {
+    "browser": {
+      "price": 15,
+      "requirements": {
+        "OS": 3
+      }
+    },
+    "dialer": {
+      "price": 5,
+      "requirements": {
+        "OS": 3
+      }
+    },
+    "downloader": {
+      "price": 7,
+      "requirements": {
+        "OS": 3
+      }
+    }
+  }
 }

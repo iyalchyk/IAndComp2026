@@ -5,7 +5,8 @@ const BUTTON_TO_PANEL_ID_MAP = {
     hobby_button: "hobby_panel",
     education_button: "education_panel",
     job_button: "job_panel",
-    bank_button: "bank_panel"
+    bank_button: "bank_panel",
+    hardware_button: "hardware_panel"
 };
 
 function panel_button_handler() {
@@ -18,7 +19,7 @@ function panel_button_handler() {
 
 function buttons_panel_setup() {
     $("#housing_button, #shop_button, #entertainment_button, #hobby_button, #education_button, " +
-        "#job_button, #bank_button").on({
+        "#job_button, #bank_button, #hardware_button").on({
         click: panel_button_handler
     });
 }

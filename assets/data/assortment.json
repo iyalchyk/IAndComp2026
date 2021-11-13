@@ -230,15 +230,38 @@
   },
   "school": {
     "price": 6,
-    "durations": [5, 6, 160, 130]
+    "durations": [
+      5,
+      6,
+      160,
+      130
+    ]
   },
   "english_course": {
     "price": 8,
-    "durations": [120, 120, 90, 170, 150, 210, 160, 120]
+    "durations": [
+      120,
+      120,
+      90,
+      170,
+      150,
+      210,
+      160,
+      120
+    ]
   },
   "computer_course": {
     "price": 8,
-    "durations": [60, 60, 120, 120, 150, 200, 180, 120]
+    "durations": [
+      60,
+      60,
+      120,
+      120,
+      150,
+      200,
+      180,
+      120
+    ]
   },
   "job": {
     "porter": {
@@ -312,5 +335,185 @@
       "requirements": {},
       "description": "это самая замечательная работа. Вы сможете командовать всеми комп. филиалами"
     }
-  }
+  },
+  "CPU": [
+    {
+      "price": 15,
+      "description": "Intel 486"
+    },
+    {
+      "price": 20,
+      "description": "Pentium 166"
+    },
+    {
+      "price": 30,
+      "description": "Pentium 233 MMX"
+    },
+    {
+      "price": 45,
+      "description": "Pentium II 650"
+    },
+    {
+      "price": 55,
+      "description": "Pentium III 800"
+    },
+    {
+      "price": 70,
+      "description": "Pentium IV"
+    }
+  ],
+  "monitor": [
+    {
+      "price": 15,
+      "description": "14\""
+    },
+    {
+      "price": 30,
+      "description": "15\""
+    },
+    {
+      "price": 45,
+      "description": "17\""
+    }
+  ],
+  "printer": [
+    {
+      "price": 11,
+      "description": "матричный"
+    },
+    {
+      "price": 30,
+      "description": "струйный"
+    },
+    {
+      "price": 40,
+      "description": "лазерный"
+    }
+  ],
+  "scanner": [
+    {
+      "price": 20,
+      "description": "ручной"
+    },
+    {
+      "price": 30,
+      "description": "планшетный"
+    }
+  ],
+  "modem": [
+    {
+      "price": 10,
+      "description": "36.6"
+    },
+    {
+      "price": 15,
+      "description": "56k"
+    },
+    {
+      "price": 20,
+      "description": "V90"
+    }
+  ],
+  "HDD": [
+    {
+      "price": 10,
+      "description": "10 Gb"
+    },
+    {
+      "price": 15,
+      "description": "20 Gb"
+    },
+    {
+      "price": 20,
+      "description": "30 Gb"
+    },
+    {
+      "price": 30,
+      "description": "40 Gb"
+    },
+    {
+      "price": 40,
+      "description": "50 Gb"
+    },
+    {
+      "price": 50,
+      "description": "60 Gb"
+    }
+  ],
+  "CDROM": [
+    {
+      "price": 10,
+      "description": "16x Speed"
+    },
+    {
+      "price": 15,
+      "description": "32x Speed"
+    },
+    {
+      "price": 20,
+      "description": "40x Speed"
+    },
+    {
+      "price": 30,
+      "description": "48x Speed"
+    },
+    {
+      "price": 40,
+      "description": "56x Speed"
+    }
+  ],
+  "RAM": [
+    {
+      "price": 10,
+      "description": "32 Mb"
+    },
+    {
+      "price": 15,
+      "description": "64 Mb"
+    },
+    {
+      "price": 20,
+      "description": "128 Mb"
+    },
+    {
+      "price": 30,
+      "description": "256 Mb"
+    },
+    {
+      "price": 40,
+      "description": "512 Mb"
+    }
+  ],
+  "sound_card": [
+    {
+      "price": 10,
+      "description": "16 KHz"
+    },
+    {
+      "price": 20,
+      "description": "22 KHz"
+    },
+    {
+      "price": 30,
+      "description": "44 KHz"
+    }
+  ],
+  "video_card": [
+    {
+      "price": 10,
+      "description": "8 Mb S3 Savage 4"
+    },
+    {
+      "price": 20,
+      "description": "16 Mb Riva TNT"
+    },
+    {
+      "price": 30,
+      "description": "32 Mb GeForce 2"
+    },
+    {
+      "price": 70,
+      "description": "64 Mb GeForce 2 MX"
+    }
+  ]
 }

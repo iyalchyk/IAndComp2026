@@ -17,7 +17,7 @@ function buy_groundbait_handler() {
         return
     }
     Player.money -= assortment_obj["price"];
-    Player.groundbait += 1;
+    Player.consumables.groundbait += 1;
     update_player_view();
 }
 
@@ -63,21 +63,23 @@ function go_fishing_button_handler () {
         alert("No money")
         return
     }
-    if (!Player.property["fishing_rod"]) {
+    if (!Player.property.fishing_rod) {
         alert("No fishing rod")
         return
     }
-    if (!Player.property["fishing_tackle"]) {
+    if (!Player.property.fishing_tackle) {
         alert("No fishing tackle")
         return
     }
     let fish_amount = getRandomInt(0, 10)
-    if (Player.groundbait) {
-        Player.groundbait -= 1
+    if (Player.consumables.groundbait) {
+        Player.consumables.groundbait -= 1
         fish_amount *= 2
     }
     alert("Amount of fish: " + fish_amount)
-    Player.fish += fish_amount
+    Player.experience.fish += fish_amount
+    Player.mood += fish_amount % 5
+    Player.satiety += fish_amount % 6
     update_player_view();
 }
 

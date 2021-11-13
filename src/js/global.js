@@ -9,15 +9,34 @@ let Player = {
     money: 1600,
     mood: 30,
     satiety: 30,
-    groundbait: 0,
-    fish: 0,
     property: {
         apartment: null,
         furniture: null,
         kitchen: null,
         bathroom: null,
         clothes: null,
-        car: null
+        car: null,
+        fishing_rod: null,
+        fishing_tackle: null
+    },
+    consumables: {
+        groundbait: 0
+    },
+    experience: {
+        fish: 0,
+        school: 0,
+        english_course: 0,
+        computer_course: 0
+    },
+    activities: {
+        school: false,
+        english_course: false,
+        computer_course: false
+    },
+    levels: {
+        school: 0,
+        english_course: 0,
+        computer_course: 0
     }
 };
 
@@ -65,8 +84,8 @@ function update_player_view() {
     $("#mood").text(Player.mood);
     $("#entertainment_panel_mood_value_label").text(Player.mood);
     $("#satiety").text(Player.satiety);
-    $("#hobby_panel_groundbait_amount_label").text(Player.groundbait);
-    $("#hobby_panel_fish_amount_label").text(Player.fish);
+    $("#hobby_panel_groundbait_amount_label").text(Player.consumables.groundbait);
+    $("#hobby_panel_fish_amount_label").text(Player.experience.fish);
 }
 
 function reverse(obj) {

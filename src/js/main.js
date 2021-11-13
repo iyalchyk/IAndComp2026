@@ -7,11 +7,13 @@ import { housing_panel_setup } from './partials/housing_panel.js';
 import { shop_panel_setup } from './partials/shop_panel.js';
 import { entertainment_panel_setup } from './partials/entertainment_panel.js';
 import { hobby_panel_setup } from "./partials/hobby_panel.js";
+import { education_panel_setup, update_education_state } from "./partials/education_panel.js";
 import { status_panel_setup } from "./partials/status_panel.js";
 
 $(function () {
     const TIME_QUANT = 1500;
-    const HOURS_IN_DAY = 6;
+    const HOURS_IN_DAY = 12;
+    const SALARY_ADDITION_FREQ = HOURS_IN_DAY;  // we get salary once a day at midnight
     const MOOD_DEDUCTION_FREQ = 3;
     const SATIETY_DEDUCTION_FREQ = 3;
 
@@ -21,6 +23,7 @@ $(function () {
         shop_panel_setup,
         entertainment_panel_setup,
         hobby_panel_setup,
+        education_panel_setup,
         status_panel_setup
     ]
 
@@ -41,16 +44,19 @@ $(function () {
     function next_hour_handler() {
         World.time++;
         if (World.time === HOURS_IN_DAY) {
-            World.time = 0
+            World.time = 0;
+        }
+        if (World.time % SALARY_ADDITION_FREQ === 0) {
             Player.money += Player.salary;
         }
         if (World.time % MOOD_DEDUCTION_FREQ === 0) {
-            Player.mood -= 2
+            Player.mood -= 2;
         }
         if (World.time % SATIETY_DEDUCTION_FREQ === 0) {
-            Player.satiety -= 2
+            Player.satiety -= 2;
         }
         update_time_state();
+        update_education_state();
         update_player_view();
     }
 

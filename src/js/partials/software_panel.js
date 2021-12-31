@@ -85,6 +85,12 @@ function find_software_category(button_id) {
         software_level: software_level
     };
 }
+
+function check_software_requirement(software_requirement_key, software_requirement_val) {
+    let player_val = Player.property[software_requirement_key] ? Player.property[software_requirement_key].level : null;
+    return player_val && player_val >= software_requirement_val;
+}
+
 function buy_software_handler() {
     let software_category_level_obj = find_software_category(this.id);
     let assortment_str = software_category_level_obj.software_category;
@@ -95,6 +101,15 @@ function buy_software_handler() {
             alert("No money")
             return
         }
+        let software_requirements = next_item["requirements"];
+        for (const software_requirement_key in software_requirements) {
+            let software_requirement_val = software_requirements[software_requirement_key];
+            let software_requirement_status = check_software_requirement(software_requirement_key, software_requirement_val)
+            if (!software_requirement_status) {
+                alert(`${software_requirement_key} should be at least ${software_requirement_val}!`);
+                return;
+            }
+        }
         Player.money -= next_item["price"];
         Player.property[assortment_str] = next_item;
         let buttons_arr = find_previous_buttons(assortment_str, assortment_level);
@@ -104,7 +119,6 @@ function buy_software_handler() {
         update_software_view(assortment_str);
         reset_price_label_handler();
     }
-
 }
 
 function set_property_price_label_handler() {

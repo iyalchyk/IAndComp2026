@@ -1,4 +1,6 @@
-import {Player, Shop} from "../global.js"
+import {
+    Player, Shop
+} from "../global.js"
 
 const INSTALL_OS_BUTTONS = [
     "install_norton_commander_button", "install_windows_3_11_button", "install_windows_95_button",
@@ -37,17 +39,13 @@ function find_previous_buttons(software_category, software_level) {
     let buttons_arr = null;
     if (software_category === "OS") {
         buttons_arr = INSTALL_OS_BUTTONS;
-    }
-    else if (software_category === "compiler") {
+    } else if (software_category === "compiler") {
         buttons_arr = INSTALL_COMPILER_BUTTONS;
-    }
-    else if (software_category === "graphics") {
+    } else if (software_category === "graphics") {
         buttons_arr = INSTALL_GRAPHICS_BUTTONS;
-    }
-    else if (software_category === "antivirus") {
+    } else if (software_category === "antivirus") {
         buttons_arr = INSTALL_ANTIVIRUS_BUTTONS;
-    }
-    else if (software_category === "internet") {
+    } else if (software_category === "internet") {
         for (const button_id in BUTTON_ID_TO_ASSORTMENT_MAP) {
             if (software_level === BUTTON_ID_TO_ASSORTMENT_MAP[button_id]) {
                 return [button_id];
@@ -63,20 +61,16 @@ function find_software_category(button_id) {
     if (INSTALL_OS_BUTTONS.includes(button_id)) {
         software_category = "OS";
         software_level = INSTALL_OS_BUTTONS.indexOf(button_id);
-    }
-    else if (INSTALL_COMPILER_BUTTONS.includes(button_id)) {
+    } else if (INSTALL_COMPILER_BUTTONS.includes(button_id)) {
         software_category = "compiler";
         software_level = INSTALL_COMPILER_BUTTONS.indexOf(button_id);
-    }
-    else if (INSTALL_GRAPHICS_BUTTONS.includes(button_id)) {
+    } else if (INSTALL_GRAPHICS_BUTTONS.includes(button_id)) {
         software_category = "graphics";
         software_level = INSTALL_GRAPHICS_BUTTONS.indexOf(button_id);
-    }
-    else if (INSTALL_INTERNET_BUTTONS.includes(button_id)) {
+    } else if (INSTALL_INTERNET_BUTTONS.includes(button_id)) {
         software_category = "internet";
         software_level = BUTTON_ID_TO_ASSORTMENT_MAP[button_id];
-    }
-    else if (INSTALL_ANTIVIRUS_BUTTONS.includes(button_id)) {
+    } else if (INSTALL_ANTIVIRUS_BUTTONS.includes(button_id)) {
         software_category = "antivirus";
         software_level = INSTALL_ANTIVIRUS_BUTTONS.indexOf(button_id);
     }
@@ -87,7 +81,7 @@ function find_software_category(button_id) {
 }
 
 function check_software_requirement(software_requirement_key, software_requirement_val) {
-    let player_val = Player.property[software_requirement_key] ? Player.property[software_requirement_key].level : null;
+    let player_val = Player.property[software_requirement_key] ? Player.property[software_requirement_key]["level"] : null;
     return player_val && player_val >= software_requirement_val;
 }
 

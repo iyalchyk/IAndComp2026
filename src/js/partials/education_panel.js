@@ -1,5 +1,5 @@
 import {
-    Shop, Player, activate_status_panel, update_player_view
+    Shop, Player, update_player_view
 } from "../global.js"
 
 const BUTTON_ID_TO_ASSORTMENT_MAP = {
@@ -70,8 +70,9 @@ function update_education_state() {
             Player.levels[activity_str] += 1;
             Player.experience[activity_str] = 0;
             Player.money -= Shop[activity_str]["price"];
-            $(`#${activity_str}_level`).text(Player.levels[activity_str]);
-            if (Player.levels[activity_str] == Shop[activity_str]["durations"].length) {
+            let activity_level_elem = $(`#${activity_str}_level`)
+            activity_level_elem.text(Player.levels[activity_str]);
+            if (Player.levels[activity_str] === Shop[activity_str]["durations"].length) {
                 alert("You reached maximum level in " + activity_str);
                 $(`#go_to_${activity_str}_button`).prop('disabled', true);
                 $(`#${activity_str}_status`).text("Закончил");
@@ -80,7 +81,7 @@ function update_education_state() {
             else {
                 alert("You got a new level in " + activity_str);
             }
-            $(`#${activity_str}_level`).text("" + Player.levels[activity_str]);
+            activity_level_elem.text("" + Player.levels[activity_str]);
         }
         else if (Player.experience[activity_str] % HOURS_IN_DAY === 0) {
             Player.money -= Shop[activity_str]["price"];

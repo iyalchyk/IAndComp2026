@@ -1,4 +1,6 @@
-import {activate_status_panel} from "../global.js";
+import {
+    activate_status_panel
+} from "../global.js";
 
 function status_panel_setup() {
     $("#home_button").on({

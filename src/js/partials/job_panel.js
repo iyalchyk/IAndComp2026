@@ -23,7 +23,7 @@ function check_job_requirement(job_requirement_key, job_requirement_val) {
         player_val = Player.levels[job_requirement_key];
     }
     else if (property_arr.includes(job_requirement_key)) {
-        player_val = Player.property[job_requirement_key] ? Player.property[job_requirement_key].level : null;
+        player_val = Player.property[job_requirement_key] ? Player.property[job_requirement_key]["level"] : null;
     }
     else {
         alert("Unknown job requirement " + job_requirement_key);
@@ -32,7 +32,7 @@ function check_job_requirement(job_requirement_key, job_requirement_val) {
     return player_val && player_val >= job_requirement_val;
 }
 
-function job_button_handler(event) {
+function job_button_handler() {
     let job_str = BUTTON_ID_TO_ASSORTMENT_MAP[this.id];
     let job_obj = Shop["job"][job_str];
     let job_requirements = job_obj["requirements"];

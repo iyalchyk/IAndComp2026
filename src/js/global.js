@@ -93,9 +93,9 @@ function update_player_view() {
     $("#job").text(Player.job);
 }
 
-function reverse(obj) {
-    return Object.entries(obj).reduce((acc, [key, value]) => (acc[value] = key, acc), {})
-}
+// function reverse(obj) {
+//     return Object.entries(obj).reduce((acc, [key, value]) => (acc[value] = key, acc), {})
+// }
 
 export {
     World,

@@ -1,5 +1,5 @@
 import {
-    Shop, Player, activate_status_panel, update_player_view
+    Shop, Player, update_player_view
 } from "../global.js"
 
 const BUTTON_ID_TO_ASSORTMENT_MAP = {

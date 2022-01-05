@@ -1,27 +1,24 @@
-const BUTTON_TO_PANEL_ID_MAP = {
-    housing_button: "housing_panel",
-    shop_button: "shop_panel",
-    entertainment_button: "entertainment_panel",
-    hobby_button: "hobby_panel",
-    education_button: "education_panel",
-    job_button: "job_panel",
-    bank_button: "bank_panel",
-    hardware_button: "hardware_panel",
-    software_button: "software_panel"
-};
-
-function panel_button_handler() {
-    let panel_str = BUTTON_TO_PANEL_ID_MAP[this.id]
-    let panel_id = `#${panel_str}`
+function panel_button_click_handler() {
     $(".switchable").hide();
-    $(panel_id).show();
+    $(this.name).show();
     $("#home_button").show();
 }
 
 function buttons_panel_setup() {
-    $("#housing_button, #shop_button, #entertainment_button, #hobby_button, #education_button, " +
-        "#job_button, #bank_button, #hardware_button, #software_button").on({
-        click: panel_button_handler
+    $(
+        "#housing_button, " +
+        "#shop_button, " +
+        "#entertainment_button, " +
+        "#hobby_button, " +
+        "#education_button, " +
+        "#job_button, " +
+        "#bank_button, " +
+        "#hardware_button, " +
+        "#software_button, " +
+        "#intrenet_button, " +
+        "#hacking_button"
+    ).on({
+        click: panel_button_click_handler
     });
 }
 

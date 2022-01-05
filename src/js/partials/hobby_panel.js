@@ -1,54 +1,6 @@
 import {
-    Shop, Player, update_player_view
+    World, Player, Interface
 } from "../global.js"
-
-const BUTTON_ID_TO_ASSORTMENT_MAP = {
-    buy_groundbait_button: "groundbait",
-    buy_fishing_rod_button: "fishing_rod",
-    buy_fishing_tackle_button: "fishing_tackle",
-    go_fishing_button: "fishing"
-}
-
-function buy_groundbait_handler() {
-    let assortment_str = BUTTON_ID_TO_ASSORTMENT_MAP[this.id]
-    let assortment_obj = Shop[assortment_str]
-    if (Player.money < assortment_obj["price"]) {
-        alert("No money")
-        return
-    }
-    Player.money -= assortment_obj["price"];
-    Player.consumables.groundbait += 1;
-    update_player_view();
-}
-
-function buy_hobby_equipment_handler(event) {
-    let assortment_str = BUTTON_ID_TO_ASSORTMENT_MAP[this.id]
-    let assortment_obj = Shop[assortment_str]
-    if (Player.money < assortment_obj["price"]) {
-        alert("No money")
-        return
-    }
-    Player.money -= assortment_obj["price"];
-    Player.property[assortment_str] = true
-    $(event.target).prop('disabled', true);
-    reset_price_label_handler();
-    update_player_view();
-}
-
-function set_price_label_handler() {
-    let assortment_str = BUTTON_ID_TO_ASSORTMENT_MAP[this.id]
-    let assortment_obj = Shop[assortment_str]
-    if (assortment_obj) {
-        $("#hobby_panel_price_label").text(assortment_obj["price"]);
-    }
-    else {
-        $("#hobby_panel_price_label").text("-");
-    }
-}
-
-function reset_price_label_handler() {
-    $("#hobby_panel_price_label").text("-");
-}
 
 function getRandomInt(min, max) {
     min = Math.ceil(min);
@@ -56,49 +8,163 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function go_fishing_button_handler () {
-    let assortment_str = BUTTON_ID_TO_ASSORTMENT_MAP[this.id]
-    let assortment_obj = Shop[assortment_str]
-    if (Player.money < assortment_obj["price"]) {
-        alert("No money")
-        return
+Interface.hobby = {
+    update_view_fish: function() {
+        $("#hobby_panel_fish_amount_label").text(Player.hobby.fish);
+    },
+    update_view_groundbight: function() {
+        $("#hobby_panel_groundbait_amount_label").text(Player.hobby.groundbait);
+    },
+    update_view_fishing_rod: function() {
+        $("#buy_fishing_rod_button").prop('disabled', Player.hobby.fishing_rod);
+    },
+    update_view_fishing_tackle: function() {
+        $("#buy_fishing_tackle_button").prop('disabled', Player.hobby.fishing_tackle);
+    },
+    update_all: function() {
+        this.update_view_fish();
+        this.update_view_groundbight();
+        this.update_view_fishing_rod();
+        this.update_view_fishing_tackle();
+    },
+    update_price_label: function(property_type) {
+        let property_obj = Player.hobby[property_type];
+        let assortment_obj = World["hobby"][property_type];
+        let price_label = assortment_obj && !property_obj ? assortment_obj["price"] : World["interface"]["no_price"];
+        $("#hobby_panel_price_label").text(price_label);
+    },
+    reset_price_label: function () {
+        $("#hobby_panel_price_label").text(World["interface"]["no_price"]);
+    },
+    alert_no_fishing_rod: function() {
+        alert("No fishing rod");
+    },
+    alert_no_fishing_tackle: function() {
+        alert("No fishing tackle");
+    },
+    alert_fish_amount: function(fish_amount) {
+        alert("Amount of fish: " + fish_amount);
     }
-    if (!Player.property.fishing_rod) {
-        alert("No fishing rod")
-        return
+};
+
+Player.hobby = {
+    fish: 0,
+    groundbait: 0,
+    fishing_rod: false,
+    fishing_tackle: false,
+    get_attributes: function() {
+        return ["fish", "groundbait", "fishing_rod", "fishing_tackle"];
+    },
+    add_fish: function(fish) {
+        this.fish += fish;
+        Interface.hobby.update_view_fish();
+    },
+    add_groundbight: function() {
+        this.groundbait += 1;
+        Interface.hobby.update_view_groundbight();
+    },
+    subtract_groundbight: function() {
+        this.groundbait -= 1;
+        Interface.hobby.update_view_groundbight();
+    },
+    add_fishing_rod: function() {
+        this.fishing_rod = true;
+        Interface.hobby.update_view_fishing_rod();
+    },
+    add_fishing_tackle: function() {
+        this.fishing_tackle = true;
+        Interface.hobby.update_view_fishing_tackle();
+    },
+    buy_groundbait: function() {
+        let groundbait_obj = World["hobby"].groundbait;
+        let groundbait_price = groundbait_obj["price"];
+        if (Player["status"].money < groundbait_price) {
+            Interface.status.alert_no_money();
+            return;
+        }
+        Player["status"].subtract_money(groundbait_price);
+        Player.hobby.add_groundbight();
+    },
+    buy_fishing_equipment: function(fishing_equipment_type) {
+        let fishing_eqipment_obj = World["hobby"].fishing_rod;
+        let fishing_eqipment_price = fishing_eqipment_obj["price"];
+        if (Player["status"].money < fishing_eqipment_price) {
+            Interface.status.alert_no_money();
+            return;
+        }
+        Player["status"].subtract_money(fishing_eqipment_price);
+        if (fishing_equipment_type === "fishing_rod") {
+            Player.hobby.add_fishing_rod();
+        }
+        else if (fishing_equipment_type === "fishing_tackle") {
+            Player.hobby.add_fishing_tackle();
+        }
+        Interface.hobby.update_price_label(fishing_equipment_type);
+    },
+    go_fishing: function() {
+        let fishing_obj = World["hobby"].fishing;
+        let fishing_price = fishing_obj["price"];
+        if (Player["status"].money < fishing_price) {
+            Interface.status.alert_no_money();
+            return;
+        }
+        if (!Player.hobby.fishing_rod) {
+            Interface.hobby.alert_no_fishing_rod();
+            return;
+        }
+        if (!Player.hobby.fishing_tackle) {
+            Interface.hobby.alert_no_fishing_tackle();
+            return;
+        }
+        let fish_amount = getRandomInt(0, 10);
+        if (Player.hobby.groundbait) {
+            Player.hobby.subtract_groundbight();
+            fish_amount *= 2;
+        }
+        Player.hobby.add_fish(fish_amount);
+        Player["status"].add_mood(fish_amount % 5);
+        Player["status"].add_satiety(fish_amount % 6);
+        Interface.hobby.alert_fish_amount(fish_amount);
     }
-    if (!Player.property.fishing_tackle) {
-        alert("No fishing tackle")
-        return
-    }
-    let fish_amount = getRandomInt(0, 10)
-    if (Player.consumables.groundbait) {
-        Player.consumables.groundbait -= 1
-        fish_amount *= 2
-    }
-    alert("Amount of fish: " + fish_amount)
-    Player.experience.fish += fish_amount
-    Player.mood += fish_amount % 5
-    Player.satiety += fish_amount % 6
-    update_player_view();
+};
+
+function buy_groundbait_button_click_handler() {
+    Player.hobby.buy_groundbait();
+}
+
+function buy_equipment_button_click_handler() {
+    Player.hobby.buy_fishing_equipment(this.name);
+}
+
+function hobby_button_mouseenter_handler() {
+    Interface.hobby.update_price_label(this.name);
+}
+
+function hobby_button_mouseleave_handler() {
+    Interface.hobby.reset_price_label();
+}
+
+function go_fishing_button_click_handler () {
+    Player.hobby.go_fishing();
 }
 
 function hobby_panel_setup() {
     $("#buy_groundbait_button").on({
-        click: buy_groundbait_handler,
-        mouseenter: set_price_label_handler,
-        mouseleave: reset_price_label_handler
+        click: buy_groundbait_button_click_handler,
+        mouseenter: hobby_button_mouseenter_handler,
+        mouseleave: hobby_button_mouseleave_handler
     });
     $("#buy_fishing_rod_button, #buy_fishing_tackle_button").on({
-        click: buy_hobby_equipment_handler,
-        mouseenter: set_price_label_handler,
-        mouseleave: reset_price_label_handler
+        click: buy_equipment_button_click_handler,
+        mouseenter: hobby_button_mouseenter_handler,
+        mouseleave: hobby_button_mouseleave_handler
     });
     $("#go_fishing_button").on({
-        click: go_fishing_button_handler,
-        mouseenter: set_price_label_handler,
-        mouseleave: reset_price_label_handler
+        click: go_fishing_button_click_handler,
+        mouseenter: hobby_button_mouseenter_handler,
+        mouseleave: hobby_button_mouseleave_handler
     });
+    Interface.hobby.update_all();
 }
 
 export {

@@ -1,0 +1,876 @@
+{
+  "constants": {
+    "TIME_QUANT": 500,
+    "HOURS_IN_DAY": 24,
+    "SALARY_ADDITION_FREQ": 24,
+    "MOOD_DEDUCTION_FREQ": 12,
+    "SATIETY_DEDUCTION_FREQ": 12
+  },
+  "interface": {
+    "no_property": "Пока нет",
+    "no_price": "-"
+  },
+  "housing": {
+    "apartment": [
+      {
+        "level": 0,
+        "price": 0,
+        "short_desc": "1",
+        "long_desc": "Однокомнатная квартира"
+      },
+      {
+        "level": 1,
+        "price": 30,
+        "short_desc": "2",
+        "long_desc": "Двухкомнатная квартира"
+      },
+      {
+        "level": 2,
+        "price": 45,
+        "short_desc": "3",
+        "long_desc": "Трёхкомнатная квартира"
+      },
+      {
+        "level": 3,
+        "price": 60,
+        "short_desc": "4",
+        "long_desc": "Четырёхкомнатная квартира"
+      },
+      {
+        "id": "house",
+        "level": 4,
+        "price": 80,
+        "short_desc": "Дом",
+        "long_desc": "Загородный дом"
+      },
+      {
+        "id": "estate",
+        "level": 5,
+        "price": 95,
+        "short_desc": "Особняк",
+        "long_desc": "Особняк"
+      },
+      {
+        "id": "palace",
+        "level": 6,
+        "price": 150,
+        "short_desc": "Дворец",
+        "long_desc": "Дворец"
+      }
+    ],
+    "furniture": [
+      {
+        "level": 1,
+        "price": 15,
+        "short_desc": "Подержанная",
+        "long_desc": "Подержанная"
+      },
+      {
+        "level": 2,
+        "price": 25,
+        "short_desc": "Дачная",
+        "long_desc": "Дачная"
+      },
+      {
+        "level": 3,
+        "price": 30,
+        "short_desc": "ДСП",
+        "long_desc": "ДСП"
+      },
+      {
+        "level": 4,
+        "price": 40,
+        "short_desc": "Ламинированная",
+        "long_desc": "Ламинированная"
+      },
+      {
+        "level": 5,
+        "price": 55,
+        "short_desc": "Офисная",
+        "long_desc": "Офисная"
+      },
+      {
+        "level": 6,
+        "price": 70,
+        "short_desc": "Элитная",
+        "long_desc": "Элитная"
+      }
+    ],
+    "kitchen": [
+      {
+        "level": 1,
+        "price": 10,
+        "short_desc": "Маленькая",
+        "long_desc": "Маленькая"
+      },
+      {
+        "level": 2,
+        "price": 15,
+        "short_desc": "Оборудованная",
+        "long_desc": "Оборудованная"
+      },
+      {
+        "level": 3,
+        "price": 20,
+        "short_desc": "Комфортная",
+        "long_desc": "Комфортная"
+      },
+      {
+        "level": 4,
+        "price": 40,
+        "short_desc": "Сверкомфортная",
+        "long_desc": "Сверкомфортная"
+      }
+    ],
+    "bathroom": [
+      {
+        "level": 1,
+        "price": 5,
+        "short_desc": "Ведро",
+        "long_desc": "Ведро"
+      },
+      {
+        "level": 2,
+        "price": 15,
+        "short_desc": "Стандартная",
+        "long_desc": "Стандартная"
+      },
+      {
+        "level": 3,
+        "price": 20,
+        "short_desc": "Джакузи",
+        "long_desc": "Джакузи"
+      },
+      {
+        "level": 4,
+        "price": 30,
+        "short_desc": "Бассейн",
+        "long_desc": "Бассейн"
+      }
+    ]
+  },
+  "shop": {
+    "breakfast": {
+      "price": 5,
+      "satiety": 5
+    },
+    "lunch": {
+      "price": 8,
+      "satiety": 8
+    },
+    "dinner": {
+      "price": 6,
+      "satiety": 6
+    },
+    "clothes": [
+      {
+        "level": 0,
+        "price": 0,
+        "short_desc": "Дряхлая",
+        "long_desc": ""
+      },
+      {
+        "level": 1,
+        "price": 5,
+        "short_desc": "Спорт. костюм",
+        "long_desc": "Дешевый спортивный костюм"
+      },
+      {
+        "level": 2,
+        "price": 10,
+        "short_desc": "Летняя",
+        "long_desc": "Летняя одежда"
+      },
+      {
+        "level": 3,
+        "price": 15,
+        "short_desc": "Джинсы",
+        "long_desc": "Новые джинсы и футболка"
+      },
+      {
+        "level": 4,
+        "price": 20,
+        "short_desc": "Костюм",
+        "long_desc": "Костюм (брюки и пиджак)"
+      },
+      {
+        "level": 5,
+        "price": 25,
+        "short_desc": "Куртка",
+        "long_desc": "Куртка"
+      },
+      {
+        "level": 6,
+        "price": 30,
+        "short_desc": "Рубашка и брюки",
+        "long_desc": "Красивая рубашка и брюки"
+      },
+      {
+        "level": 7,
+        "price": 30,
+        "short_desc": "Супер",
+        "long_desc": "Супер футболка, кепка, шорты и т.д."
+      },
+      {
+        "level": 8,
+        "price": 35,
+        "short_desc": "Последней моды",
+        "long_desc": "Одежда последней моды"
+      }
+    ],
+    "car": [
+      {
+        "level": 0,
+        "price": 0,
+        "short_desc": "Нет машины",
+        "long_desc": ""
+      },
+      {
+        "level": 1,
+        "price": 30,
+        "short_desc": "Пятёрка 2105",
+        "long_desc": "Пятёрка 2105"
+      },
+      {
+        "level": 2,
+        "price": 60,
+        "short_desc": "Девятка 21093",
+        "long_desc": "Девятка 21093"
+      },
+      {
+        "level": 3,
+        "price": 70,
+        "short_desc": "Десятка 2110",
+        "long_desc": "Десятка 2110"
+      },
+      {
+        "level": 4,
+        "price": 80,
+        "short_desc": "Волга 3110",
+        "long_desc": "Волга 3110"
+      },
+      {
+        "level": 5,
+        "price": 200,
+        "short_desc": "Mercedes",
+        "long_desc": "Mercedes"
+      }
+    ]
+  },
+  "entertainment": {
+    "party": {
+      "price": 5,
+      "mood": 5
+    },
+    "disco": {
+      "price": 8,
+      "mood": 9
+    }
+  },
+  "hobby": {
+    "groundbait": {
+      "price": 8
+    },
+    "fishing_rod": {
+      "price": 30
+    },
+    "fishing_tackle": {
+      "price": 20
+    },
+    "fishing": {
+      "price": 10
+    }
+  },
+  "education": {
+    "attending_true": "Посещаю",
+    "attending_false": "Не хожу",
+    "finished_true": "Закончил",
+    "school": {
+      "price": 6,
+      "durations": [
+        5,
+        6
+      ],
+      "descriptions": [
+        "Начальное",
+        "Неполное среднее",
+        "Среднее",
+        "Неполное высшее",
+        "Высшее"
+      ],
+      "button_false": "Пойти в вечернюю школу",
+      "button_true": "Закончить ходить в вечернюю школу"
+    },
+    "english_course": {
+      "price": 8,
+      "durations": [
+        120,
+        120,
+        90,
+        170,
+        150,
+        210,
+        160,
+        120
+      ],
+      "descriptions": [
+        "Не знаю",
+        "1 уровень",
+        "2 уровень",
+        "3 уровень",
+        "4 уровень",
+        "5 уровень",
+        "6 уровень",
+        "7 уровень",
+        "8 уровень"
+      ],
+      "button_false": "Пойти в вечернюю школу",
+      "button_true": "Закончить ходить в вечернюю школу"
+    },
+    "computer_course": {
+      "price": 8,
+      "durations": [
+        60,
+        60,
+        120,
+        120,
+        150,
+        200,
+        180,
+        120
+      ],
+      "descriptions": [
+        "Чайник",
+        "Любитель",
+        "Новичок",
+        "Программист",
+        "Почти хакер",
+        "Хакер",
+        "Администратор",
+        "Профессионал",
+        "Сверх профессионал"
+      ],
+      "button_false": "Пойти в вечернюю школу",
+      "button_true": "Закончить ходить в вечернюю школу"
+    }
+  },
+  "job": {
+    "unemployed": {
+      "salary": 0,
+      "title": "Пока нет",
+      "description": "",
+      "requirements": {}
+    },
+    "porter": {
+      "salary": 10,
+      "title": "Грузчик",
+      "description": "Эта работа очень проста. Вам просто необходимо таскать всякие тяжёлые ящики",
+      "requirements": {}
+    },
+    "taxi_driver": {
+      "salary": 20,
+      "title": "Таксист",
+      "description": "здесь вы должны просто напросто перевозить людей",
+      "requirements": {
+        "school": 1,
+        "clothes": 1,
+        "bathroom": 1
+      }
+    },
+    "gardener": {
+      "salary": 25,
+      "title": "Садовник",
+      "description": "вам нужно будет сажать цветочки и т.д.",
+      "requirements": {
+        "school": 1,
+        "english_course": 1,
+        "computer_course": 1,
+        "clothes": 1,
+        "apartment": 2,
+        "furniture": 1,
+        "compiler": 1
+      }
+    },
+    "junior_dev": {
+      "salary": 30,
+      "title": "Начинающий программист",
+      "description": "эта работа более серёзная, чем остальные",
+      "requirements": {
+        "school": 2,
+        "computer_course": 2,
+        "clothes": 2,
+        "apartment": 3,
+        "kitchen": 1,
+        "compiler": 2,
+        "car": 1,
+        "fish": 20
+      }
+    },
+    "middle_dev": {
+      "salary": 35,
+      "title": "Программист",
+      "description": "на этой работе вы будете составлять программы для разных фирм",
+      "requirements": {}
+    },
+    "internet_provider": {
+      "salary": 40,
+      "title": "Провайдер",
+      "description": "здесь вам необходимо работать с интернетом",
+      "requirements": {}
+    },
+    "web_master": {
+      "salary": 45,
+      "title": "Веб-мастер",
+      "description": "создавайте стильные информативные сайты",
+      "requirements": {}
+    },
+    "hacker": {
+      "salary": 50,
+      "title": "Хакер",
+      "description": "здесь ваши хакерские задания усложняются",
+      "requirements": {}
+    },
+    "graphical_designer": {
+      "salary": 60,
+      "title": "Графический дизайнер",
+      "description": "вы будете создавать текстуры, 3D графику и остальную графику",
+      "requirements": {}
+    },
+    "computer_president": {
+      "salary": 70,
+      "title": "Компьютерный президент",
+      "description": "это самая замечательная работа. Вы сможете командовать всеми комп. филиалами",
+      "requirements": {}
+    }
+  },
+  "bank": {},
+  "hardware": {
+    "CPU": [
+      {
+        "level": 1,
+        "price": 15,
+        "description": "Intel 486"
+      },
+      {
+        "level": 2,
+        "price": 20,
+        "description": "Pentium 166"
+      },
+      {
+        "level": 3,
+        "price": 30,
+        "description": "Pentium 233 MMX"
+      },
+      {
+        "level": 4,
+        "price": 45,
+        "description": "Pentium II 650"
+      },
+      {
+        "level": 5,
+        "price": 55,
+        "description": "Pentium III 800"
+      },
+      {
+        "level": 6,
+        "price": 70,
+        "description": "Pentium IV"
+      }
+    ],
+    "monitor": [
+      {
+        "level": 1,
+        "price": 15,
+        "description": "14\""
+      },
+      {
+        "level": 2,
+        "price": 30,
+        "description": "15\""
+      },
+      {
+        "level": 3,
+        "price": 45,
+        "description": "17\""
+      }
+    ],
+    "printer": [
+      {
+        "level": 1,
+        "price": 11,
+        "description": "матричный"
+      },
+      {
+        "level": 2,
+        "price": 30,
+        "description": "струйный"
+      },
+      {
+        "level": 3,
+        "price": 40,
+        "description": "лазерный"
+      }
+    ],
+    "scanner": [
+      {
+        "level": 1,
+        "price": 20,
+        "description": "ручной"
+      },
+      {
+        "level": 2,
+        "price": 30,
+        "description": "планшетный"
+      }
+    ],
+    "modem": [
+      {
+        "level": 1,
+        "price": 10,
+        "description": "36.6"
+      },
+      {
+        "level": 2,
+        "price": 15,
+        "description": "56k"
+      },
+      {
+        "level": 3,
+        "price": 20,
+        "description": "V90"
+      }
+    ],
+    "HDD": [
+      {
+        "level": 1,
+        "price": 10,
+        "description": "10 Gb"
+      },
+      {
+        "level": 2,
+        "price": 15,
+        "description": "20 Gb"
+      },
+      {
+        "level": 3,
+        "price": 20,
+        "description": "30 Gb"
+      },
+      {
+        "level": 4,
+        "price": 30,
+        "description": "40 Gb"
+      },
+      {
+        "level": 5,
+        "price": 40,
+        "description": "50 Gb"
+      },
+      {
+        "level": 6,
+        "price": 50,
+        "description": "60 Gb"
+      }
+    ],
+    "CDROM": [
+      {
+        "level": 1,
+        "price": 10,
+        "description": "16x Speed"
+      },
+      {
+        "level": 2,
+        "price": 15,
+        "description": "32x Speed"
+      },
+      {
+        "level": 3,
+        "price": 20,
+        "description": "40x Speed"
+      },
+      {
+        "level": 4,
+        "price": 30,
+        "description": "48x Speed"
+      },
+      {
+        "level": 5,
+        "price": 40,
+        "description": "56x Speed"
+      }
+    ],
+    "RAM": [
+      {
+        "level": 1,
+        "price": 10,
+        "description": "32 Mb"
+      },
+      {
+        "level": 2,
+        "price": 15,
+        "description": "64 Mb"
+      },
+      {
+        "level": 3,
+        "price": 20,
+        "description": "128 Mb"
+      },
+      {
+        "level": 4,
+        "price": 30,
+        "description": "256 Mb"
+      },
+      {
+        "level": 5,
+        "price": 40,
+        "description": "512 Mb"
+      }
+    ],
+    "sound_card": [
+      {
+        "level": 1,
+        "price": 10,
+        "description": "16 KHz"
+      },
+      {
+        "level": 2,
+        "price": 20,
+        "description": "22 KHz"
+      },
+      {
+        "level": 3,
+        "price": 30,
+        "description": "44 KHz"
+      }
+    ],
+    "video_card": [
+      {
+        "level": 1,
+        "price": 10,
+        "description": "8 Mb S3 Savage 4"
+      },
+      {
+        "level": 2,
+        "price": 20,
+        "description": "16 Mb Riva TNT"
+      },
+      {
+        "level": 3,
+        "price": 30,
+        "description": "32 Mb GeForce 2"
+      },
+      {
+        "level": 4,
+        "price": 70,
+        "description": "64 Mb GeForce 2 MX"
+      }
+    ]
+  },
+  "software": {
+    "OS": {
+      "norton_commander": {
+        "level": 1,
+        "price": 3,
+        "description": "Norton Commander",
+        "requirements": {
+          "CPU": 1,
+          "monitor": 1,
+          "HDD": 1,
+          "CDROM": 1,
+          "RAM": 1,
+          "video_card": 1
+        }
+      },
+      "windows_3_11": {
+        "level": 2,
+        "price": 8,
+        "description": "Windows 3.11",
+        "requirements": {
+          "CPU": 2,
+          "monitor": 1,
+          "HDD": 2,
+          "CDROM": 2,
+          "RAM": 2,
+          "video_card": 1,
+          "sound_card": 1,
+          "printer": 1
+        }
+      },
+      "windows_95": {
+        "level": 3,
+        "price": 10,
+        "description": "Windows 95",
+        "requirements": {
+          "CPU": 3,
+          "monitor": 1,
+          "HDD": 3,
+          "CDROM": 3,
+          "RAM": 3,
+          "video_card": 1,
+          "sound_card": 1,
+          "printer": 1
+        }
+      },
+      "windows_98": {
+        "level": 4,
+        "price": 17,
+        "description": "Windows 98",
+        "requirements": {
+          "CPU": 4,
+          "monitor": 1,
+          "HDD": 4,
+          "CDROM": 4,
+          "RAM": 4,
+          "video_card": 2,
+          "sound_card": 2,
+          "printer": 1
+        }
+      },
+      "windows_2000": {
+        "level": 5,
+        "price": 25,
+        "description": "Windows 2000",
+        "requirements": {
+          "CPU": 5,
+          "monitor": 2,
+          "HDD": 5,
+          "CDROM": 5,
+          "RAM": 5,
+          "video_card": 3,
+          "sound_card": 3,
+          "printer": 2
+        }
+      }
+    },
+    "compiler": {
+      "basic": {
+        "level": 1,
+        "price": 5,
+        "description": "Basic",
+        "requirements": {
+          "OS": 1
+        }
+      },
+      "pascal": {
+        "level": 2,
+        "price": 7,
+        "description": "Pascal",
+        "requirements": {
+          "OS": 1,
+          "CPU": 2,
+          "HDD": 2
+        }
+      },
+      "visual_basic": {
+        "level": 3,
+        "price": 15,
+        "description": "Visual Basic",
+        "requirements": {
+          "OS": 3,
+          "video_card": 2
+        }
+      },
+      "visual_cpp": {
+        "level": 4,
+        "price": 20,
+        "description": "Visual C++",
+        "requirements": {
+          "OS": 3,
+          "RAM": 4,
+          "video_card": 2
+        }
+      }
+    },
+    "graphics": {
+      "corel_xara": {
+        "level": 1,
+        "price": 4,
+        "description": "Corel Xara",
+        "requirements": {
+          "OS": 2
+        }
+      },
+      "photoshop": {
+        "level": 2,
+        "price": 10,
+        "description": "Photoshop",
+        "requirements": {
+          "OS": 3,
+          "video_card": 2
+        }
+      },
+      "3ds_max_2": {
+        "level": 3,
+        "price": 15,
+        "description": "3D Studio Max II",
+        "requirements": {
+          "OS": 4,
+          "monitor": 2,
+          "HDD": 5,
+          "video_card": 3,
+          "printer": 2
+        }
+      },
+      "3ds_max_3": {
+        "level": 4,
+        "price": 25,
+        "description": "3D Studio Max III",
+        "requirements": {
+          "OS": 5,
+          "CPU": 6,
+          "monitor": 3,
+          "HDD": 6,
+          "video_card": 4,
+          "printer": 3
+        }
+      }
+    },
+    "antivirus": {
+      "kaspersky": {
+        "level": 1,
+        "price": 5,
+        "description": "Kaspersky",
+        "requirements": {
+          "OS": 3
+        }
+      },
+      "ivp": {
+        "level": 2,
+        "price": 20,
+        "description": "IVP",
+        "requirements": {
+          "OS": 5
+        }
+      }
+    },
+    "browser": {
+      "browser": {
+        "level": 1,
+        "price": 15,
+        "requirements": {
+          "OS": 3
+        }
+      }
+    },
+    "dialer": {
+      "dialer": {
+        "level": 1,
+        "price": 5,
+        "requirements": {
+          "OS": 3
+        }
+      }
+    },
+    "downloader": {
+      "downloader": {
+        "level": 1,
+        "price": 7,
+        "requirements": {
+          "OS": 3
+        }
+      }
+    }
+  },
+  "internet": {},
+  "hacking": {}
+}

@@ -1,45 +1,55 @@
 import {
-    Shop, Player, update_player_view
+    World, Player, Interface
 } from "../global.js"
 
-const BUTTON_ID_TO_ASSORTMENT_MAP = {
-    go_party_button: "party",
-    go_disco_button: "disco"
+Interface.entertainment = {
+    update_price_mood_labels: function(entertainment_type) {
+        let entertainment_obj = World["entertainment"][entertainment_type];
+        let price_label = entertainment_obj ? entertainment_obj["price"] : World["interface"]["no_price"];
+        let mood_change_label = entertainment_obj ? entertainment_obj["mood"] : World["interface"]["no_price"];
+        $("#entertainment_panel_price_label").text(price_label);
+        $("#entertainment_panel_mood_change_label").text(mood_change_label);
+    },
+    reset_price_mood_labels: function () {
+        $("#entertainment_panel_price_label").text(World["interface"]["no_price"]);
+        $("#entertainment_panel_mood_change_label").text(World["interface"]["no_price"]);
+    }
+};
+
+Player.entertainment = {
+    get_attributes: function() {
+        return [];
+    },
+    go_entertainment: function(entertainment_type) {
+        let entertainment_obj = World["entertainment"][entertainment_type];
+        let entertainment_price = entertainment_obj["price"];
+        let entertainment_mood = entertainment_obj["mood"];
+        if (Player["status"].money < entertainment_price) {
+            Interface.status.alert_no_money();
+            return;
+        }
+        Player["status"].subtract_money(entertainment_price);
+        Player["status"].add_mood(entertainment_mood);
+    }
+};
+
+function go_entertainment_button_click_handler() {
+    Player.entertainment.go_entertainment(this.name);
 }
 
-function go_entertainment_handler() {
-    let assortment_str = BUTTON_ID_TO_ASSORTMENT_MAP[this.id]
-    let assortment_obj = Shop[assortment_str]
-    if (Player.money < assortment_obj["price"]) {
-        alert("No money")
-        return
-    }
-    Player.money -= assortment_obj["price"];
-    Player.mood += assortment_obj["mood"];
-    update_player_view();
+function go_entertainment_button_mouseenter_handler() {
+    Interface.entertainment.update_price_mood_labels(this.name);
 }
 
-function set_price_label_handler() {
-    let assortment_str = BUTTON_ID_TO_ASSORTMENT_MAP[this.id]
-    let assortment_obj = Shop[assortment_str]
-    if (assortment_obj) {
-        $("#entertainment_panel_price_label").text(assortment_obj["price"]);
-        $("#entertainment_panel_mood_change_label").text(assortment_obj["mood"]);
-    }
-    else {
-        $("#entertainment_panel_price_label").text("-");
-    }
-}
-
-function reset_price_label_handler() {
-    $("#entertainment_panel_price_label").text("-");
+function go_entertainment_button_mouseleave_handler() {
+    Interface.entertainment.reset_price_mood_labels();
 }
 
 function entertainment_panel_setup() {
     $("#go_party_button, #go_disco_button").on({
-        click: go_entertainment_handler,
-        mouseenter: set_price_label_handler,
-        mouseleave: reset_price_label_handler
+        click: go_entertainment_button_click_handler,
+        mouseenter: go_entertainment_button_mouseenter_handler,
+        mouseleave: go_entertainment_button_mouseleave_handler
     });
 }
 

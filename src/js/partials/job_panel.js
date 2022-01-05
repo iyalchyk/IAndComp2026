@@ -1,78 +1,106 @@
 import {
-    Shop, Player, activate_status_panel, update_player_view
+    World, Player, Interface
 } from "../global.js"
 
-const BUTTON_ID_TO_ASSORTMENT_MAP = {
-    job_porter_button: "porter",
-    job_taxi_driver_button: "taxi_driver",
-    job_gardener_button: "gardener",
-    job_junior_dev_button: "junior_dev",
-    job_middle_dev_button: "middle_dev",
-    job_internet_provider_button: "internet_provider",
-    job_web_master_button: "web_master",
-    job_hacker_button: "hacker",
-    job_graphical_designer_button: "graphical_designer",
-    job_computer_president_button: "computer_president"
+Interface.job = {
+    update_view_title_salary: function() {
+        let job_id = Player.job.id;
+        let job_salary = Player.job.salary;
+        let job_title = World["job"][job_id].title;
+        $("#job").text(job_title);
+        $("#salary").text(job_salary);
+    },
+    disable_prev_jobs: function(job_id) {
+        let job_obj = World["job"][job_id];
+        let job_salary = job_obj["salary"];
+        let all_job_ids_arr = Object.keys(World["job"]);
+        for (const other_job_id of all_job_ids_arr) {
+            let other_job_salary = World["job"][other_job_id]["salary"];
+            if (job_salary >= other_job_salary) {
+                $(`#job_${other_job_id}_button`).prop('disabled', true);
+            }
+        }
+    },
+    update_job_labels: function(job_id) {
+        let job_obj = World["job"][job_id];
+        let job_salary = job_obj["salary"];
+        let job_description = job_obj["description"];
+        let job_requirements = JSON.stringify(job_obj["requirements"]);
+        $("#job_panel_salary_label").text(job_salary);
+        $("#job_panel_description_label").text(job_description);
+        $("#job_panel_requirements_label").text(job_requirements);
+    },
+    reset_job_labels: function() {
+        $("#job_panel_salary_label").text("-");
+        $("#job_panel_description_label").text("");
+        $("#job_panel_requirements_label").text("");
+    },
+    alert_new_job: function(job_id) {
+        alert("You are now " + job_id);
+    },
+    alert_requirement: function(job_requirement_key, job_requirement_val) {
+        alert(`${job_requirement_key} should be at least ${job_requirement_val}!`);
+    }
 };
 
-function check_job_requirement(job_requirement_key, job_requirement_val) {
-    let player_val = null;
-    const levels_arr = ["school", "english_course", "computer_course"];
-    const property_arr = ["apartment", "furniture", "kitchen", "bathroom", "clothes", "car"];
-    if (levels_arr.includes(job_requirement_key)) {
-        player_val = Player.levels[job_requirement_key];
-    }
-    else if (property_arr.includes(job_requirement_key)) {
-        player_val = Player.property[job_requirement_key] ? Player.property[job_requirement_key]["level"] : null;
-    }
-    else {
-        alert("Unknown job requirement " + job_requirement_key);
-        return false;
-    }
-    return player_val && player_val >= job_requirement_val;
-}
-
-function job_button_handler() {
-    let job_str = BUTTON_ID_TO_ASSORTMENT_MAP[this.id];
-    let job_obj = Shop["job"][job_str];
-    let job_requirements = job_obj["requirements"];
-    for (const job_requirement_key in job_requirements) {
-        let job_requirement_val = job_requirements[job_requirement_key];
-        let job_requirement_status = check_job_requirement(job_requirement_key, job_requirement_val)
-        if (!job_requirement_status) {
-            alert(`${job_requirement_key} should be at least ${job_requirement_val}!`);
-            return;
+Player.job = {
+    id: "unemployed",
+    salary: 0,
+    get_attributes: function() {
+        return ["id", "salary"];
+    },
+    set_title_salary: function(job_id, job_salary) {
+        this.id = job_id;
+        this.salary = job_salary;
+        Interface.job.update_view_title_salary();
+    },
+    apply_for_new_job: function(job_id) {
+        let job_obj = World["job"][job_id];
+        let job_requirements = job_obj["requirements"];
+        for (const job_requirement_key in job_requirements) {
+            let job_requirement_val = job_requirements[job_requirement_key];
+            let job_requirement_status = Player.check_requirement(job_requirement_key, job_requirement_val);
+            if (!job_requirement_status) {
+                Interface.job.alert_requirement(job_requirement_key, job_requirement_val);
+                return;
+            }
         }
+        Player.job.set_title_salary(job_id, job_obj.salary);
+        Interface.job.disable_prev_jobs(job_id);
+        Interface.job.alert_new_job(job_id);
     }
-    Player.job = job_str;
-    Player.salary = job_obj.salary;
-    alert("You are now " + job_str);
-    update_player_view();
-    activate_status_panel();
+};
+
+function job_button_click_handler() {
+    Player.job.apply_for_new_job(this.name);
 }
 
-function set_salary_label_handler() {
-    let job_str = BUTTON_ID_TO_ASSORTMENT_MAP[this.id];
-    let job_obj = Shop["job"][job_str];
-    $("#job_panel_salary_label").text(job_obj["salary"]);
-    $("#job_panel_description_label").text(job_obj["description"]);
-    $("#job_panel_requirements_label").text(JSON.stringify(job_obj["requirements"]));
+function job_button_mouseenter_handler() {
+    Interface.job.update_job_labels(this.name);
 }
 
-function reset_salary_label_handler() {
-    $("#job_panel_salary_label").text("-");
-    $("#job_panel_description_label").text("");
-    $("#job_panel_requirements_label").text("");
+function job_button_mouseleave_handler() {
+    Interface.job.reset_job_labels();
 }
 
 function job_panel_setup() {
-    $("#job_porter_button, #job_taxi_driver_button, #job_gardener_button, #job_junior_dev_button, " +
-        "#job_middle_dev_button, #job_internet_provider_button, #job_web_master_button, #job_hacker_button, " +
-        "#job_graphical_designer_button, #job_computer_president_button").on({
-        click: job_button_handler,
-        mouseenter: set_salary_label_handler,
-        mouseleave: reset_salary_label_handler
+    $(
+        "#job_porter_button, " +
+        "#job_taxi_driver_button, " +
+        "#job_gardener_button, " +
+        "#job_junior_dev_button, " +
+        "#job_middle_dev_button, " +
+        "#job_internet_provider_button, " +
+        "#job_web_master_button, " +
+        "#job_hacker_button, " +
+        "#job_graphical_designer_button, " +
+        "#job_computer_president_button"
+    ).on({
+        click: job_button_click_handler,
+        mouseenter: job_button_mouseenter_handler,
+        mouseleave: job_button_mouseleave_handler
     });
+    Interface.job.update_view_title_salary();
 }
 
 export {

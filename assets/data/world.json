@@ -288,8 +288,10 @@
     "school": {
       "price": 6,
       "durations": [
-        5,
-        6
+        60,
+        20,
+        160,
+        130
       ],
       "descriptions": [
         "Начальное",
@@ -364,13 +366,13 @@
     "porter": {
       "salary": 10,
       "title": "Грузчик",
-      "description": "Эта работа очень проста. Вам просто необходимо таскать всякие тяжёлые ящики",
+      "description": "Эта работа очень проста. Вам просто необходимо таскать всякие тяжёлые ящики.",
       "requirements": {}
     },
     "taxi_driver": {
       "salary": 20,
       "title": "Таксист",
-      "description": "здесь вы должны просто напросто перевозить людей",
+      "description": "Здесь вы должны просто напросто перевозить людей.",
       "requirements": {
         "school": 1,
         "clothes": 1,
@@ -380,7 +382,7 @@
     "gardener": {
       "salary": 25,
       "title": "Садовник",
-      "description": "вам нужно будет сажать цветочки и т.д.",
+      "description": "Вам нужно будет сажать цветочки и т.д.",
       "requirements": {
         "school": 1,
         "english_course": 1,
@@ -394,7 +396,7 @@
     "junior_dev": {
       "salary": 30,
       "title": "Начинающий программист",
-      "description": "эта работа более серёзная, чем остальные",
+      "description": "Эта работа более серёзная, чем остальные.",
       "requirements": {
         "school": 2,
         "computer_course": 2,
@@ -409,38 +411,107 @@
     "middle_dev": {
       "salary": 35,
       "title": "Программист",
-      "description": "на этой работе вы будете составлять программы для разных фирм",
-      "requirements": {}
+      "description": "На этой работе вы будете составлять программы для разных фирм.",
+      "requirements": {
+        "school": 2,
+        "computer_course": 3,
+        "english_course": 3,
+        "clothes": 3,
+        "furniture": 2,
+        "bathroom": 2,
+        "compiler": 2,
+        "graphics": 1,
+        "modem": 1
+      }
     },
     "internet_provider": {
       "salary": 40,
       "title": "Провайдер",
-      "description": "здесь вам необходимо работать с интернетом",
-      "requirements": {}
+      "description": "Здесь вам необходимо работать с интернетом.",
+      "requirements": {
+        "school": 3,
+        "computer_course": 3,
+        "english_course": 4,
+        "clothes": 4,
+        "car": 2,
+        "apartment": 3,
+        "compiler": 3,
+        "graphics": 2,
+        "modem": 2
+      }
     },
     "web_master": {
       "salary": 45,
       "title": "Веб-мастер",
-      "description": "создавайте стильные информативные сайты",
-      "requirements": {}
+      "description": "Создавайте стильные информативные сайты.",
+      "requirements": {
+        "school": 3,
+        "computer_course": 3,
+        "english_course": 5,
+        "clothes": 4,
+        "car": 2,
+        "furniture": 3,
+        "kitchen": 2,
+        "compiler": 3,
+        "graphics": 2,
+        "modem": 3,
+        "scanner": 1
+      }
     },
     "hacker": {
       "salary": 50,
       "title": "Хакер",
-      "description": "здесь ваши хакерские задания усложняются",
-      "requirements": {}
+      "description": "Здесь ваши хакерские задания усложнятся.",
+      "requirements": {
+        "school": 5,
+        "computer_course": 5,
+        "english_course": 6,
+        "clothes": 6,
+        "car": 3,
+        "apartment": 4,
+        "furniture": 4,
+        "bathroom": 3,
+        "compiler": 3,
+        "modem": 3,
+        "fish": 40
+      }
     },
     "graphical_designer": {
       "salary": 60,
       "title": "Графический дизайнер",
-      "description": "вы будете создавать текстуры, 3D графику и остальную графику",
-      "requirements": {}
+      "description": "Вы будете создавать текстуры, 3D объекты и остальную графику.",
+      "requirements": {
+        "school": 5,
+        "computer_course": 6,
+        "english_course": 7,
+        "clothes": 7,
+        "car": 4,
+        "apartment": 5,
+        "furniture": 5,
+        "kitchen": 3,
+        "graphics": 3,
+        "scanner": 2
+      }
     },
     "computer_president": {
       "salary": 70,
       "title": "Компьютерный президент",
-      "description": "это самая замечательная работа. Вы сможете командовать всеми комп. филиалами",
-      "requirements": {}
+      "description": "Это самая замечательная работа. Вы сможете командовать всеми компьютерными фирмами.",
+      "requirements": {
+        "school": 5,
+        "computer_course": 8,
+        "english_course": 8,
+        "clothes": 8,
+        "car": 5,
+        "apartment": 6,
+        "furniture": 6,
+        "kitchen": 4,
+        "bathroom": 4,
+        "compiler": 4,
+        "graphics": 4,
+        "modem": 3,
+        "fish": 70
+      }
     }
   },
   "bank": {},

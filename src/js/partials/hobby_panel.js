@@ -10,7 +10,7 @@ function getRandomInt(min, max) {
 
 Interface.hobby = {
     update_view_fish: function() {
-        $("#hobby_panel_fish_amount_label").text(Player.hobby.fish);
+        $("#hobby_panel_fish_amount_label").text(Player.hobby.fish.level);
     },
     update_view_groundbight: function() {
         $("#hobby_panel_groundbait_amount_label").text(Player.hobby.groundbait);
@@ -48,7 +48,9 @@ Interface.hobby = {
 };
 
 Player.hobby = {
-    fish: 0,
+    fish: {
+        level: 0
+    },
     groundbait: 0,
     fishing_rod: false,
     fishing_tackle: false,
@@ -56,7 +58,7 @@ Player.hobby = {
         return ["fish", "groundbait", "fishing_rod", "fishing_tackle"];
     },
     add_fish: function(fish) {
-        this.fish += fish;
+        this.fish.level += fish;
         Interface.hobby.update_view_fish();
     },
     add_groundbight: function() {

@@ -1,0 +1,10 @@
+div#buttons_panel {
+    position: absolute;
+    top: 47px;
+    right: 20px;
+}
+
+div#buttons_panel div button {
+    width: 172px;
+    height: 26px;
+}

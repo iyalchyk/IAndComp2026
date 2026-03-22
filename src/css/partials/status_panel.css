@@ -1,0 +1,81 @@
+div.status_bar {
+    position: absolute;
+    top: 54px;
+    width: 465px;
+    height: 17px;
+    background-color: #c0c0c0;
+    margin-left: 15px;
+    border: none;
+    box-shadow: inset -1px -1px #ffffff, inset 1px 1px #0a0a0a, inset -2px -2px #808080, inset 2px 2px #dfdfdf;
+}
+
+div.status_bar span {
+    margin-left: 100px;
+    font-weight: bold;
+}
+
+div.status_box {
+    background-color: #c0c0c0;
+    margin-left: 15px;
+}
+
+div.status_box legend {
+    color: #0000c0;
+}
+
+div.status_box fieldset label:nth-of-type(1) {
+    font-weight: bold;
+}
+
+div.status_box fieldset label:nth-of-type(2) {
+}
+
+div.status_box fieldset div {
+}
+
+div.personal_status {
+    position: absolute;
+    top: 77px;
+    width: 224px;
+}
+
+div.computer_status {
+    position: absolute;
+    top: 243px;
+    width: 224px;
+}
+
+div.housing_status {
+    position: absolute;
+    top: 77px;
+    left: 244px;
+    width: 224px;
+}
+
+div.software_status {
+    position: absolute;
+    top: 220px;
+    left: 244px;
+    width: 224px;
+}
+
+div.internet_status {
+    position: absolute;
+    top: 326px;
+    left: 244px;
+    width: 224px;
+}
+
+div.job_status {
+    position: absolute;
+    top: 375px;
+    left: 244px;
+    width: 224px;
+}
+
+div.education_status {
+    position: absolute;
+    top: 425px;
+    left: 244px;
+    width: 224px;
+}

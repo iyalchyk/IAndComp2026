@@ -1,0 +1,33 @@
+div.system_software {
+    position: absolute;
+    top: 77px;
+    width: 150px;
+}
+
+div.programming_software {
+    position: absolute;
+    top: 77px;
+    left: 160px;
+    width: 150px;
+}
+
+div.graphics_software {
+    position: absolute;
+    top: 77px;
+    left: 317px;
+    width: 150px;
+}
+
+div.internet_software {
+    position: absolute;
+    top: 222px;
+    left: 160px;
+    width: 150px;
+}
+
+div.antivirus_software {
+    position: absolute;
+    top: 222px;
+    left: 317px;
+    width: 150px;
+}

@@ -79,6 +79,61 @@
             <button id="slot_home_button">&lt;&lt; Назад</button>
         </div>
     </div>
+    <div id="arcanoid_popup" style="display: none;">
+        <div class="arcanoid_container">
+            <div class="arcanoid_top_row">
+                <div class="arcanoid_field_wrapper">
+                    <div class="info_box">Арканоид</div>
+                    <canvas id="arcanoid_canvas" width="300" height="200"></canvas>
+                    <div class="arcanoid_controls_row">
+                        <button id="arcanoid_left_button" class="arcanoid_arrow_btn">&larr;</button>
+                        <button id="arcanoid_right_button" class="arcanoid_arrow_btn">&rarr;</button>
+                    </div>
+                </div>
+                <div class="arcanoid_right_panel">
+                    <button id="arcanoid_home_button">&lt;&lt; Назад</button>
+                    <button id="arcanoid_start_button">Начать игру</button>
+                    <div class="arcanoid_timer_box">
+                        <label>Время: </label>
+                        <label id="arcanoid_time_label">30</label>
+                    </div>
+                </div>
+            </div>
+            <div class="arcanoid_bottom_row">
+                <fieldset class="arcanoid_option_group">
+                    <legend>Выбор ракетки</legend>
+                    <label><input type="radio" name="arcanoid_paddle" value="0" checked>
+                        <span class="arcanoid_paddle_preview" style="background: linear-gradient(180deg, #ff00ff, #00ffff, #ff00ff);"></span>
+                    </label>
+                    <label><input type="radio" name="arcanoid_paddle" value="1">
+                        <span class="arcanoid_paddle_preview" style="background: linear-gradient(180deg, #00cc00, #ffff00, #00cc00);"></span>
+                    </label>
+                    <label><input type="radio" name="arcanoid_paddle" value="2">
+                        <span class="arcanoid_paddle_preview" style="background: linear-gradient(180deg, #ff4444, #ff8800, #ff4444);"></span>
+                    </label>
+                </fieldset>
+                <fieldset class="arcanoid_option_group">
+                    <legend>Мяч</legend>
+                    <label><input type="radio" name="arcanoid_ball" value="#ff6600" checked>
+                        <span class="arcanoid_ball_preview" style="background: #ff6600;"></span>
+                    </label>
+                    <label><input type="radio" name="arcanoid_ball" value="#00cc00">
+                        <span class="arcanoid_ball_preview" style="background: #00cc00;"></span>
+                    </label>
+                    <label><input type="radio" name="arcanoid_ball" value="#cc00cc">
+                        <span class="arcanoid_ball_preview" style="background: #cc00cc;"></span>
+                    </label>
+                </fieldset>
+                <div class="arcanoid_rules">
+                    Игровые правила. Чтобы начать игру нажмите кнопку «Начать игру».
+                    Управление осуществляется при помощи кнопок со стрелками или при помощи клавиатуры
+                    (кнопки вправо и влево). Если мячик касается пола тогда вы теряете 20$ и у вас
+                    ухудшается настроение. Если же вы продержитесь и не дадите коснуться пола мячику,
+                    тогда вы получаете 35$ и у вас сильно улучшается настроение.
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="price_box">
         <label>Цена: </label>
         <label id="entertainment_panel_price_label" class="price">-</label>

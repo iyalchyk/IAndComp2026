@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "My remake of the old game \"I and Computer\"",
   "main": "gulpfile.js",
-  "dependencies": {},
   "devDependencies": {
+    "browser-sync": "^3.0.4",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-beautify": "^3.0.0",

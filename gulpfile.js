@@ -3,6 +3,7 @@ const del = require('del')
 const njk = require('gulp-nunjucks-render')
 const beautify = require('gulp-beautify')
 const concat = require('gulp-concat');
+const browserSync = require('browser-sync').create();
 
 const configuration = {
     paths: {
@@ -50,9 +51,12 @@ function assets() {
         .pipe(dest(configuration.paths.dist + '/assets'))
 }
 
-function watchFiles() {
-    watch('src/**/*', series(html, css, js, assets))
+function serve() {
+    browserSync.init({
+        server: configuration.paths.dist
+    });
+    watch('src/**/*', series(html, css, js, assets)).on('change', browserSync.reload);
 }
 
 exports.build = series(clean, html, css, js, assets)
-exports.default = series(clean, html, css, js, assets, watchFiles)
+exports.default = series(clean, html, css, js, assets, serve)

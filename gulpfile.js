@@ -2,7 +2,7 @@ const { src, dest, series, watch } = require('gulp');
 const del = require('del')
 const njk = require('gulp-nunjucks-render')
 const beautify = require('gulp-beautify')
-const concat = require('gulp-concat');
+// const concat = require('gulp-concat');
 const browserSync = require('browser-sync').create();
 
 const configuration = {
@@ -47,15 +47,20 @@ function js() {
 }
 
 function assets() {
-    return src(configuration.paths.assets + '/**')
+    return src(configuration.paths.assets + '/**', { encoding: false })
         .pipe(dest(configuration.paths.dist + '/assets'))
+}
+
+function reload(cb) {
+    browserSync.reload();
+    cb();
 }
 
 function serve() {
     browserSync.init({
         server: configuration.paths.dist
     });
-    watch('src/**/*', series(html, css, js, assets)).on('change', browserSync.reload);
+    watch('src/**/*', series(html, css, js, assets, reload));
 }
 
 exports.build = series(clean, html, css, js, assets)

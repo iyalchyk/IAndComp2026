@@ -6,10 +6,11 @@
   "devDependencies": {
     "browser-sync": "^3.0.4",
     "del": "^6.0.0",
-    "gulp": "^4.0.2",
+    "gulp": "^5.0.1",
     "gulp-beautify": "^3.0.0",
     "gulp-concat": "^2.6.1",
-    "gulp-nunjucks-render": "^2.2.3"
+    "gulp-nunjucks-render": "^2.2.3",
+    "@types/jquery": "^3"
   },
   "scripts": {
     "start": "gulp",

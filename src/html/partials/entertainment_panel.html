@@ -39,6 +39,46 @@
             <button id="roulette_home_button">Выход</button>
         </div>
     </div>
+    <div id="slot_machine_popup" style="display: none;">
+        <div class="slot_container">
+            <div class="info_box">Рулетка 2</div>
+            <div class="slot_reels">
+                <div class="slot_reel" id="slot_reel_1">?</div>
+                <div class="slot_reel" id="slot_reel_2">?</div>
+                <div class="slot_reel" id="slot_reel_3">?</div>
+            </div>
+            <button id="slot_spin_button" disabled>Вращать</button>
+            <div class="slot_body">
+                <div class="slot_paytable">
+                    <table>
+                        <tr><th colspan="2">Выигрыш($):</th></tr>
+                        <tr><td>🍎🍎🍇</td><td>1</td></tr>
+                        <tr><td>🍔🍔🍇</td><td>2</td></tr>
+                        <tr><td>🍇🍇🍎</td><td>3</td></tr>
+                        <tr><td>🍔🍔🍎</td><td>4</td></tr>
+                        <tr><td>🍇🍇🍔</td><td>5</td></tr>
+                        <tr><td>🍎🍎🍔</td><td>6</td></tr>
+                        <tr><td>🍇🍇🍇</td><td>10</td></tr>
+                        <tr><td>🍎🍎🍎</td><td>15</td></tr>
+                        <tr><td>🍔🍔🍔</td><td>20</td></tr>
+                    </table>
+                </div>
+                <div class="slot_sidebar">
+                    <button id="slot_buy_button">Купить 5 вращений за 10$</button>
+                    <div class="slot_info_box">
+                        <label>Осталось </label>
+                        <label id="slot_spins_left">0</label>
+                        <label> вращений</label>
+                    </div>
+                    <div class="slot_info_box">
+                        <label>У вас денег($): </label>
+                        <label id="slot_money_label">0</label>
+                    </div>
+                </div>
+            </div>
+            <button id="slot_home_button">&lt;&lt; Назад</button>
+        </div>
+    </div>
     <div class="price_box">
         <label>Цена: </label>
         <label id="entertainment_panel_price_label" class="price">-</label>

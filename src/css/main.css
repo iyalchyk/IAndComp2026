@@ -406,3 +406,114 @@ div.buttons_box {
     margin-top: 8px;
     padding: 2px 20px;
 }
+
+/* Slot machine mini-game */
+#slot_machine_popup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+.slot_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding-top: 5px;
+}
+
+.slot_container .info_box {
+    font-weight: bold;
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+
+.slot_reels {
+    display: flex;
+    gap: 10px;
+    margin: 6px 0;
+}
+
+.slot_reel {
+    width: 70px;
+    height: 65px;
+    background-color: #ffffff;
+    border: 2px inset #808080;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+}
+
+#slot_spin_button {
+    margin: 4px 0;
+    padding: 2px 40px;
+    font-weight: bold;
+}
+
+.slot_body {
+    display: flex;
+    gap: 8px;
+    margin-top: 4px;
+    align-items: flex-start;
+}
+
+.slot_paytable {
+    border: 2px inset #808080;
+    background-color: #ffffff;
+    padding: 4px;
+}
+
+.slot_paytable table {
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+.slot_paytable th {
+    text-align: left;
+    font-size: 12px;
+    padding: 1px 4px;
+}
+
+.slot_paytable td {
+    padding: 1px 4px;
+    font-size: 13px;
+}
+
+.slot_paytable td:first-child {
+    font-size: 16px;
+    letter-spacing: -2px;
+}
+
+.slot_paytable td:last-child {
+    text-align: right;
+    font-weight: bold;
+}
+
+.slot_sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+#slot_buy_button {
+    padding: 4px 8px;
+    font-size: 11px;
+}
+
+.slot_info_box {
+    border: 2px inset #808080;
+    background-color: #ffffff;
+    padding: 4px 6px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+#slot_home_button {
+    margin-top: 6px;
+    padding: 2px 20px;
+}

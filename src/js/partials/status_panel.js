@@ -29,7 +29,7 @@ Interface.status = {
 };
 
 Player.status = {
-    money: 1600,
+    money: 16000,
     mood: 30,
     satiety: 30,
     get_attributes: function() {

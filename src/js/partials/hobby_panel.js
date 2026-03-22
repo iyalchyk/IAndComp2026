@@ -8,6 +8,15 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+// Fishing mini-game state
+var fishingGame = {
+    timer: null,
+    fishTimer: null,
+    timeLeft: 30,
+    caught: 0,
+    useGroundbait: false
+};
+
 Interface.hobby = {
     update_view_fish: function() {
         $("#hobby_panel_fish_amount_label").text(Player.hobby.fish.level);
@@ -37,13 +46,10 @@ Interface.hobby = {
         $("#hobby_panel_price_label").text(World["interface"]["no_price"]);
     },
     alert_no_fishing_rod: function() {
-        alert("No fishing rod");
+        alert("У вас нет удочки!");
     },
     alert_no_fishing_tackle: function() {
-        alert("No fishing tackle");
-    },
-    alert_fish_amount: function(fish_amount) {
-        alert("Amount of fish: " + fish_amount);
+        alert("У вас нет снастей!");
     }
 };
 
@@ -118,17 +124,116 @@ Player.hobby = {
             Interface.hobby.alert_no_fishing_tackle();
             return;
         }
-        let fish_amount = getRandomInt(0, 10);
-        if (Player.hobby.groundbait) {
+        Player["status"].subtract_money(fishing_price);
+
+        // Track groundbait usage for bonus
+        fishingGame.useGroundbait = false;
+        if (Player.hobby.groundbait > 0) {
             Player.hobby.subtract_groundbight();
-            fish_amount *= 2;
+            fishingGame.useGroundbait = true;
         }
-        Player.hobby.add_fish(fish_amount);
-        Player["status"].add_mood(fish_amount % 5);
-        Player["status"].add_satiety(fish_amount % 6);
-        Interface.hobby.alert_fish_amount(fish_amount);
+
+        // Show fishing game panel
+        $(".switchable").hide();
+        $("#fishing_game_panel").show();
+        $("#fishing_game_intro").show();
+        $("#fishing_game_play").hide();
+        $("#fishing_game_results").hide();
+        $("#home_button").hide();
+        $("#buttons_panel").hide();
+
+        // Update stats sidebar
+        $("#fishing_game_groundbait_label").text(fishingGame.useGroundbait ? "Да" : "Нет");
+        $("#fishing_game_caught_label").text("0");
+        $("#fishing_game_time_label").text("30");
     }
 };
+
+function startFishingGame() {
+    fishingGame.timeLeft = 30;
+    fishingGame.caught = 0;
+
+    $("#fishing_game_intro").hide();
+    $("#fishing_game_play").show();
+    $("#fishing_game_caught_label").text("0");
+    $("#fishing_game_time_label").text("30");
+
+    spawnFish();
+
+    // Countdown timer
+    fishingGame.timer = setInterval(function() {
+        fishingGame.timeLeft--;
+        $("#fishing_game_time_label").text(fishingGame.timeLeft);
+        if (fishingGame.timeLeft <= 0) {
+            endFishingGame();
+        }
+    }, 1000);
+
+    // Spawn new fish every 0.6 seconds
+    fishingGame.fishTimer = setInterval(function() {
+        spawnFish();
+    }, 600);
+}
+
+function spawnFish() {
+    var lake = $("#fishing_lake");
+    var lakeW = lake.width() - 40;
+    var lakeH = lake.height() - 20;
+
+    var x1 = getRandomInt(0, lakeW);
+    var y1 = getRandomInt(0, lakeH);
+    var fish1 = $("#fishing_fish");
+    fish1.css({ left: x1 + "px", top: y1 + "px" });
+    fish1.show();
+
+    if (fishingGame.useGroundbait) {
+        var x2 = getRandomInt(0, lakeW);
+        var y2 = getRandomInt(0, lakeH);
+        var fish2 = $("#fishing_fish2");
+        fish2.css({ left: x2 + "px", top: y2 + "px" });
+        fish2.show();
+    }
+}
+
+function catchFish() {
+    fishingGame.caught++;
+    $("#fishing_game_caught_label").text(fishingGame.caught);
+    $(this).hide();
+}
+
+function endFishingGame() {
+    clearInterval(fishingGame.timer);
+    clearInterval(fishingGame.fishTimer);
+    fishingGame.timer = null;
+    fishingGame.fishTimer = null;
+    $(".fishing_fish").hide();
+
+    var totalCatch = fishingGame.caught;
+
+    var moodBonus = Math.floor(totalCatch / 5);
+    var satietyBonus = Math.floor(totalCatch / 6);
+
+    Player.hobby.add_fish(totalCatch);
+    Player["status"].add_mood(moodBonus);
+    Player["status"].add_satiety(satietyBonus);
+
+    $("#fishing_result_fish").text(totalCatch);
+    $("#fishing_result_mood").text(moodBonus);
+    $("#fishing_result_satiety").text(satietyBonus);
+
+    $("#fishing_game_play").hide();
+    $("#fishing_game_results").show();
+}
+
+function goHomeFishing() {
+    $("#fishing_game_panel").hide();
+    $("#buttons_panel").show();
+    $("#home_button").show();
+    // Show status panel (home)
+    $(".switchable").hide();
+    $("#status_panel").show();
+    $("#home_button").hide();
+}
 
 function buy_groundbait_button_click_handler() {
     Player.hobby.buy_groundbait();
@@ -166,6 +271,9 @@ function hobby_panel_setup() {
         mouseenter: hobby_button_mouseenter_handler,
         mouseleave: hobby_button_mouseleave_handler
     });
+    $("#fishing_game_start_button").on("click", startFishingGame);
+    $(".fishing_fish").on("click", catchFish);
+    $("#fishing_game_home_button").on("click", goHomeFishing);
     Interface.hobby.update_all();
 }
 

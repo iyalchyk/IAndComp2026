@@ -14,17 +14,6 @@
         <label>Цена: </label>
         <label id="hobby_panel_price_label" class="price">-</label>
     </div>
-    <!--
-    <div class="price_box">
-        <label id="hobby_panel_fishing_rod_true_label" style="display: none;">У вас есть удочка</label>
-        <label id="hobby_panel_fishing_rod_false_label">У вас нет удочки</label>
-    </div>
-    <div class="price_box">
-        <label>У вас есть снасти</label>
-        <label id="hobby_panel_fishing_tackle_true_label" style="display: none;">У вас есть снасти</label>
-        <label id="hobby_panel_fishing_tackle_false_label">У вас нет снастей</label>
-    </div>
-    -->
     <div class="price_box">
         <label>У вас</label>
         <label id="hobby_panel_groundbait_amount_label" class="price">-</label>
@@ -33,5 +22,51 @@
     <div class="price_box">
         <label>Общее количество пойманной рыбы: </label>
         <label id="hobby_panel_fish_amount_label" class="price">-</label>
+    </div>
+</div>
+
+<div id="fishing_game_panel" class="switchable panel" style="display: none;">
+    <div id="fishing_game_intro">
+        <div class="info_box">Озеро "MAD FISH"</div>
+        <div class="fishing_game_text">
+            <p>Добро пожаловать на озеро "MAD FISH". Сейчас вам предстоит
+            попытаться порыбачить. После того, как вы нажмете на кнопку
+            "НАЧАТЬ", в озере будут появляться рыбы, на которых
+            надо будет нажимать. Рыбалка будет продолжаться 30 секунд.
+            Если вы нажмете на рыбу, это значит, что вы ее поймали.</p>
+        </div>
+        <button id="fishing_game_start_button">НАЧАТЬ</button>
+    </div>
+
+    <div id="fishing_game_play" style="display: none;">
+        <div id="fishing_lake">
+            <div id="fishing_fish" class="fishing_fish" style="display: none;"></div>
+            <div id="fishing_fish2" class="fishing_fish" style="display: none;"></div>
+        </div>
+    </div>
+
+    <div id="fishing_game_results" style="display: none;">
+        <div class="info_box">Результаты рыбалки</div>
+        <div class="fishing_game_text">
+            <p>Вам удалось поймать рыб: <label id="fishing_result_fish">0</label></p>
+            <p>У вас улучшилось настроение на: <label id="fishing_result_mood">0</label></p>
+            <p>Сила пойманной рыбы: сытость у вас увеличилась на: <label id="fishing_result_satiety">0</label></p>
+        </div>
+        <button id="fishing_game_home_button">Поехать домой</button>
+    </div>
+
+    <div class="fishing_game_stats">
+        <div class="price_box">
+            <label>Поймано рыбы</label>
+            <label id="fishing_game_caught_label" class="price">0</label>
+        </div>
+        <div class="price_box">
+            <label>Прикормка</label>
+            <label id="fishing_game_groundbait_label" class="price">0</label>
+        </div>
+        <div class="price_box">
+            <label>Время</label>
+            <label id="fishing_game_time_label" class="price">30</label>
+        </div>
     </div>
 </div>

@@ -9,7 +9,7 @@ function getRandomInt(min, max) {
 }
 
 // Fishing mini-game state
-var fishingGame = {
+let fishingGame = {
     timer: null,
     fishTimer: null,
     timeLeft: 30,
@@ -189,29 +189,29 @@ function startFishingGame() {
 }
 
 function spawnFish() {
-    var lake = $("#fishing_lake");
-    var lakeW = lake.width() - 40;
-    var lakeH = lake.height() - 20;
+    const lake = $("#fishing_lake");
+    const lakeW = lake.width() - 40;
+    const lakeH = lake.height() - 20;
 
-    var x1 = getRandomInt(0, lakeW);
-    var y1 = getRandomInt(0, lakeH);
-    var fish1 = $("#fishing_fish");
+    const x1 = getRandomInt(0, lakeW);
+    const y1 = getRandomInt(0, lakeH);
+    const fish1 = $("#fishing_fish");
     fish1.css({ left: x1 + "px", top: y1 + "px" });
     fish1.show();
 
     if (fishingGame.useGroundbait) {
-        var x2 = getRandomInt(0, lakeW);
-        var y2 = getRandomInt(0, lakeH);
-        var fish2 = $("#fishing_fish2");
+        const x2 = getRandomInt(0, lakeW);
+        const y2 = getRandomInt(0, lakeH);
+        const fish2 = $("#fishing_fish2");
         fish2.css({ left: x2 + "px", top: y2 + "px" });
         fish2.show();
     }
 }
 
-function catchFish() {
+function catchFish(event) {
     fishingGame.caught++;
     $("#fishing_game_caught_label").text(fishingGame.caught);
-    $(this).hide();
+    $(event.currentTarget).hide();
 }
 
 function endFishingGame() {
@@ -221,10 +221,10 @@ function endFishingGame() {
     fishingGame.fishTimer = null;
     $(".fishing_fish").hide();
 
-    var totalCatch = fishingGame.caught;
+    const totalCatch = fishingGame.caught;
 
-    var moodBonus = Math.floor(totalCatch / 5);
-    var satietyBonus = Math.floor(totalCatch / 6);
+    const moodBonus = Math.floor(totalCatch / 5);
+    const satietyBonus = Math.floor(totalCatch / 6);
 
     Player.hobby.add_fish(totalCatch);
     Player["status"].add_mood(moodBonus);
@@ -241,7 +241,6 @@ function endFishingGame() {
 function goHomeFishing() {
     $("#fishing_game_panel").hide();
     $("#buttons_panel").show();
-    $("#home_button").show();
     // Show status panel (home)
     $(".switchable").hide();
     $("#status_panel").show();

@@ -124,6 +124,19 @@ Player.hobby = {
             Interface.hobby.alert_no_fishing_tackle();
             return;
         }
+        // Check if player has a car, otherwise offer bus
+        if (!Player["shop"].car || Player["shop"].car.level === 0) {
+            let takeBus = confirm("Требуется машина. Хотите ли вы поехать на автобусе?\n\nДо озера Мад Фиш пушком не дойдёшь. Без машины вам не удастся добраться до него. Но вы можете сесть на автобус, заплатив за билет 10$ и доехать до озера, либо купить собственную машину в магазине.\nХотите ли вы поехать на автобусе?");
+            if (!takeBus) {
+                return;
+            }
+            if (Player["status"].money < fishing_price + 10) {
+                Interface.status.alert_no_money();
+                return;
+            }
+            Player["status"].subtract_money(10);
+        }
+
         Player["status"].subtract_money(fishing_price);
 
         // Track groundbait usage for bonus

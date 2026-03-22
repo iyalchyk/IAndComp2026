@@ -42,17 +42,27 @@ Player.status = {
     set_mood: function(mood) {
         this.mood = mood;
         Interface.status.update_view_mood();
+        if (this.mood <= -40) {
+            alert("+СМЕРТЬ+\n\nК сожалению, вы умерли от тоски.");
+            location.reload();
+        } else if (this.mood <= -30) {
+            alert("ОПАСНОСТЬ!!!\n\nВнимание опасность! Вам необходимо развлечся. ВНИМАНИЕ: если ваше настроение достигнет -40, тогда вас постигнет любая смерть!!!");
+        }
     },
     set_satiety: function(satiety) {
         this.satiety = satiety;
         Interface.status.update_view_satiety();
+        if (this.mood <= -30) {
+            alert("+СМЕРТЬ+\n\nК сожалению, вы умерли от голода.");
+            location.reload();
+        } else if (this.satiety <= -20) {
+            alert("ОПАСНОСТЬ!!!\n\nВнимание опасность голода! Вам необходимо сходить в Бытовой магазин и поесть вдоволь. ВНИМАНИЕ: если ваше состояние сытости достигнет -30, тогда вам постигнет лютая смерть!!!");
+        }
     },
     add_money: function(money_diff) {
-        // console.log("=> add_money", money_diff, this.money, typeof money_diff)
         this.set_money(this.money + money_diff);
     },
     subtract_money: function(money_diff) {
-        // console.log("=> subtract_money", money_diff, this.money, typeof money_diff)
         this.set_money(this.money - money_diff);
     },
     add_mood: function(mood_diff) {

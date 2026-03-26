@@ -1,5 +1,5 @@
 body {
-    background-image: url('/assets/images/win98ru_base.png');
+    background-image: url('/assets/images/background/win98ru_base.png');
     background-repeat: no-repeat;
 }
 
@@ -50,7 +50,7 @@ div.buttons_box div button {
 }
 
 #footer {
-    background: url('/assets/images/win98ru_footer.png') no-repeat;
+    background: url('/assets/images/background/win98ru_footer.png') no-repeat;
     width: 1152px;
     height: 28px;
     bottom: 0;

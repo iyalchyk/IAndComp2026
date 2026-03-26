@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="150" viewBox="0 0 200 150">
+  <rect width="200" height="150" fill="#e8eef7"/>
+  <rect x="0" y="125" width="200" height="25" fill="#d2b48c"/>
+  <!-- Basic chipboard desk/table -->
+  <!-- Table top -->
+  <rect x="30" y="55" width="140" height="10" fill="#d4a76a" stroke="#333" stroke-width="2"/>
+  <!-- Chipboard texture dots -->
+  <circle cx="50" cy="59" r="1" fill="#b8956a" opacity="0.5"/>
+  <circle cx="80" cy="57" r="1" fill="#b8956a" opacity="0.5"/>
+  <circle cx="110" cy="60" r="1" fill="#b8956a" opacity="0.5"/>
+  <circle cx="140" cy="58" r="1" fill="#b8956a" opacity="0.5"/>
+  <!-- Left panel leg -->
+  <rect x="35" y="65" width="10" height="55" fill="#d4a76a" stroke="#333" stroke-width="2"/>
+  <!-- Right panel leg -->
+  <rect x="155" y="65" width="10" height="55" fill="#d4a76a" stroke="#333" stroke-width="2"/>
+  <!-- Bottom shelf -->
+  <rect x="35" y="100" width="130" height="8" fill="#d4a76a" stroke="#333" stroke-width="1.5"/>
+  <!-- Edge banding -->
+  <line x1="30" y1="65" x2="170" y2="65" stroke="#c4944a" stroke-width="1"/>
+</svg>

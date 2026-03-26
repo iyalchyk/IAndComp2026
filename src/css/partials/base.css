@@ -38,6 +38,11 @@ div.buttons_box {
     flex-direction: column;
 }
 
+div.buttons_box div button {
+    display: block;
+    width: 100%;
+}
+
 #home_button {
     position: absolute;
     left: 15px;

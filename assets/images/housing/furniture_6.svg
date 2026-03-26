@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="150" viewBox="0 0 200 150">
+  <rect width="200" height="150" fill="#e8eef7"/>
+  <rect x="0" y="125" width="200" height="25" fill="#d2b48c"/>
+  <!-- Fancy armchair -->
+  <!-- Chair back - ornate -->
+  <path d="M55,25 Q100,15 145,25 L145,70 Q100,75 55,70 Z" fill="#8b0000" stroke="#333" stroke-width="2"/>
+  <!-- Chair wings -->
+  <path d="M55,30 Q35,45 40,70 L55,70 Z" fill="#8b0000" stroke="#333" stroke-width="2"/>
+  <path d="M145,30 Q165,45 160,70 L145,70 Z" fill="#8b0000" stroke="#333" stroke-width="2"/>
+  <!-- Seat cushion -->
+  <rect x="45" y="70" width="110" height="18" rx="5" fill="#a00000" stroke="#333" stroke-width="2"/>
+  <!-- Armrests -->
+  <path d="M40,70 Q35,72 38,88 L50,88 L50,70 Z" fill="#8b0000" stroke="#333" stroke-width="2"/>
+  <path d="M160,70 Q165,72 162,88 L150,88 L150,70 Z" fill="#8b0000" stroke="#333" stroke-width="2"/>
+  <!-- Ornate button tufting -->
+  <circle cx="80" cy="45" r="3" fill="#d4a017" stroke="#333" stroke-width="1"/>
+  <circle cx="100" cy="40" r="3" fill="#d4a017" stroke="#333" stroke-width="1"/>
+  <circle cx="120" cy="45" r="3" fill="#d4a017" stroke="#333" stroke-width="1"/>
+  <circle cx="90" cy="58" r="3" fill="#d4a017" stroke="#333" stroke-width="1"/>
+  <circle cx="110" cy="58" r="3" fill="#d4a017" stroke="#333" stroke-width="1"/>
+  <!-- Carved legs -->
+  <path d="M52,88 Q48,100 42,120 Q40,125 45,125" fill="none" stroke="#6b4226" stroke-width="4"/>
+  <path d="M52,88 Q48,100 42,120 Q40,125 45,125" fill="none" stroke="#333" stroke-width="1.5"/>
+  <path d="M148,88 Q152,100 158,120 Q160,125 155,125" fill="none" stroke="#6b4226" stroke-width="4"/>
+  <path d="M148,88 Q152,100 158,120 Q160,125 155,125" fill="none" stroke="#333" stroke-width="1.5"/>
+</svg>

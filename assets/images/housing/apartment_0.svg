@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="150" viewBox="0 0 200 150">
+  <rect width="200" height="150" fill="#e8eef7"/>
+  <!-- Ground -->
+  <rect x="0" y="120" width="200" height="30" fill="#8fbc8f"/>
+  <!-- Small building -->
+  <rect x="60" y="40" width="80" height="80" fill="#c4b59a" stroke="#333" stroke-width="2"/>
+  <!-- Roof -->
+  <polygon points="55,40 100,10 145,40" fill="#8b4513" stroke="#333" stroke-width="2"/>
+  <!-- Single window -->
+  <rect x="85" y="55" width="30" height="25" fill="#87ceeb" stroke="#333" stroke-width="2"/>
+  <line x1="100" y1="55" x2="100" y2="80" stroke="#333" stroke-width="1.5"/>
+  <line x1="85" y1="67" x2="115" y2="67" stroke="#333" stroke-width="1.5"/>
+  <!-- Door -->
+  <rect x="88" y="95" width="24" height="25" fill="#6b4226" stroke="#333" stroke-width="2"/>
+  <circle cx="107" cy="108" r="2" fill="#d4a017"/>
+</svg>

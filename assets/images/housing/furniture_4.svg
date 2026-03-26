@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="150" viewBox="0 0 200 150">
+  <rect width="200" height="150" fill="#e8eef7"/>
+  <rect x="0" y="125" width="200" height="25" fill="#d2b48c"/>
+  <!-- Laminated nice table -->
+  <!-- Table top with shine -->
+  <rect x="25" y="50" width="150" height="12" rx="2" fill="#e8c88a" stroke="#333" stroke-width="2"/>
+  <!-- Shine/gloss effect -->
+  <rect x="30" y="52" width="80" height="3" rx="1" fill="#fff8dc" opacity="0.6"/>
+  <!-- Elegant legs -->
+  <rect x="35" y="62" width="8" height="58" rx="2" fill="#d4a76a" stroke="#333" stroke-width="2"/>
+  <rect x="157" y="62" width="8" height="58" rx="2" fill="#d4a76a" stroke="#333" stroke-width="2"/>
+  <!-- Drawer -->
+  <rect x="55" y="62" width="90" height="18" fill="#e8c88a" stroke="#333" stroke-width="1.5"/>
+  <!-- Drawer handle -->
+  <rect x="90" y="68" width="20" height="4" rx="2" fill="#d4a017" stroke="#333" stroke-width="1"/>
+  <!-- Subtle leg details -->
+  <rect x="33" y="115" width="12" height="5" rx="1" fill="#d4a76a" stroke="#333" stroke-width="1"/>
+  <rect x="155" y="115" width="12" height="5" rx="1" fill="#d4a76a" stroke="#333" stroke-width="1"/>
+</svg>

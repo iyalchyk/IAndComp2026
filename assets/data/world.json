@@ -16,46 +16,53 @@
         "level": 0,
         "price": 0,
         "short_desc": "1",
-        "long_desc": "Однокомнатная квартира"
+        "long_desc": "Однокомнатная квартира",
+        "image": "assets/images/housing/apartment_0.svg"
       },
       {
         "level": 1,
         "price": 30,
         "short_desc": "2",
-        "long_desc": "Двухкомнатная квартира"
+        "long_desc": "Двухкомнатная квартира",
+        "image": "assets/images/housing/apartment_1.svg"
       },
       {
         "level": 2,
         "price": 45,
         "short_desc": "3",
-        "long_desc": "Трёхкомнатная квартира"
+        "long_desc": "Трёхкомнатная квартира",
+        "image": "assets/images/housing/apartment_2.svg"
       },
       {
         "level": 3,
         "price": 60,
         "short_desc": "4",
-        "long_desc": "Четырёхкомнатная квартира"
+        "long_desc": "Четырёхкомнатная квартира",
+        "image": "assets/images/housing/apartment_3.svg"
       },
       {
         "id": "house",
         "level": 4,
         "price": 80,
         "short_desc": "Дом",
-        "long_desc": "Загородный дом"
+        "long_desc": "Загородный дом",
+        "image": "assets/images/housing/apartment_4.svg"
       },
       {
         "id": "estate",
         "level": 5,
         "price": 95,
         "short_desc": "Особняк",
-        "long_desc": "Особняк"
+        "long_desc": "Особняк",
+        "image": "assets/images/housing/apartment_5.svg"
       },
       {
         "id": "palace",
         "level": 6,
         "price": 150,
         "short_desc": "Дворец",
-        "long_desc": "Дворец"
+        "long_desc": "Дворец",
+        "image": "assets/images/housing/apartment_6.svg"
       }
     ],
     "furniture": [
@@ -63,37 +70,43 @@
         "level": 1,
         "price": 15,
         "short_desc": "Подержанная",
-        "long_desc": "Подержанная"
+        "long_desc": "Подержанная",
+        "image": "assets/images/housing/furniture_1.svg"
       },
       {
         "level": 2,
         "price": 25,
         "short_desc": "Дачная",
-        "long_desc": "Дачная"
+        "long_desc": "Дачная",
+        "image": "assets/images/housing/furniture_2.svg"
       },
       {
         "level": 3,
         "price": 30,
         "short_desc": "ДСП",
-        "long_desc": "ДСП"
+        "long_desc": "ДСП",
+        "image": "assets/images/housing/furniture_3.svg"
       },
       {
         "level": 4,
         "price": 40,
         "short_desc": "Ламинированная",
-        "long_desc": "Ламинированная"
+        "long_desc": "Ламинированная",
+        "image": "assets/images/housing/furniture_4.svg"
       },
       {
         "level": 5,
         "price": 55,
         "short_desc": "Офисная",
-        "long_desc": "Офисная"
+        "long_desc": "Офисная",
+        "image": "assets/images/housing/furniture_5.svg"
       },
       {
         "level": 6,
         "price": 70,
         "short_desc": "Элитная",
-        "long_desc": "Элитная"
+        "long_desc": "Элитная",
+        "image": "assets/images/housing/furniture_6.svg"
       }
     ],
     "kitchen": [
@@ -101,25 +114,29 @@
         "level": 1,
         "price": 10,
         "short_desc": "Маленькая",
-        "long_desc": "Маленькая"
+        "long_desc": "Маленькая",
+        "image": "assets/images/housing/kitchen_1.svg"
       },
       {
         "level": 2,
         "price": 15,
         "short_desc": "Оборудованная",
-        "long_desc": "Оборудованная"
+        "long_desc": "Оборудованная",
+        "image": "assets/images/housing/kitchen_2.svg"
       },
       {
         "level": 3,
         "price": 20,
         "short_desc": "Комфортная",
-        "long_desc": "Комфортная"
+        "long_desc": "Комфортная",
+        "image": "assets/images/housing/kitchen_3.svg"
       },
       {
         "level": 4,
         "price": 40,
         "short_desc": "Сверкомфортная",
-        "long_desc": "Сверкомфортная"
+        "long_desc": "Сверкомфортная",
+        "image": "assets/images/housing/kitchen_4.svg"
       }
     ],
     "bathroom": [
@@ -127,25 +144,29 @@
         "level": 1,
         "price": 5,
         "short_desc": "Ведро",
-        "long_desc": "Ведро"
+        "long_desc": "Ведро",
+        "image": "assets/images/housing/bathroom_1.svg"
       },
       {
         "level": 2,
         "price": 15,
         "short_desc": "Стандартная",
-        "long_desc": "Стандартная"
+        "long_desc": "Стандартная",
+        "image": "assets/images/housing/bathroom_2.svg"
       },
       {
         "level": 3,
         "price": 20,
         "short_desc": "Джакузи",
-        "long_desc": "Джакузи"
+        "long_desc": "Джакузи",
+        "image": "assets/images/housing/bathroom_3.svg"
       },
       {
         "level": 4,
         "price": 30,
         "short_desc": "Бассейн",
-        "long_desc": "Бассейн"
+        "long_desc": "Бассейн",
+        "image": "assets/images/housing/bathroom_4.svg"
       }
     ]
   },

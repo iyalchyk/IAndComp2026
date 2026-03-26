@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="150" viewBox="0 0 200 150">
+  <rect width="200" height="150" fill="#e8eef7"/>
+  <rect x="0" y="125" width="200" height="25" fill="#d2b48c"/>
+  <!-- Small stove -->
+  <rect x="65" y="45" width="70" height="80" rx="3" fill="#e0e0e0" stroke="#333" stroke-width="2"/>
+  <!-- Stove top -->
+  <rect x="65" y="45" width="70" height="12" fill="#c0c0c0" stroke="#333" stroke-width="2"/>
+  <!-- Burners -->
+  <circle cx="85" cy="51" r="6" fill="none" stroke="#555" stroke-width="2"/>
+  <circle cx="115" cy="51" r="6" fill="none" stroke="#555" stroke-width="2"/>
+  <!-- Oven door -->
+  <rect x="72" y="70" width="56" height="40" rx="2" fill="#d0d0d0" stroke="#333" stroke-width="2"/>
+  <!-- Oven handle -->
+  <rect x="82" y="73" width="36" height="4" rx="2" fill="#999" stroke="#333" stroke-width="1"/>
+  <!-- Oven window -->
+  <rect x="82" y="82" width="36" height="22" rx="2" fill="#444" stroke="#333" stroke-width="1.5"/>
+  <!-- Knobs -->
+  <circle cx="75" cy="63" r="3" fill="#999" stroke="#333" stroke-width="1"/>
+  <circle cx="88" cy="63" r="3" fill="#999" stroke="#333" stroke-width="1"/>
+  <circle cx="112" cy="63" r="3" fill="#999" stroke="#333" stroke-width="1"/>
+  <circle cx="125" cy="63" r="3" fill="#999" stroke="#333" stroke-width="1"/>
+</svg>

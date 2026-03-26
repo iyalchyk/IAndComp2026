@@ -40,6 +40,20 @@ Interface.housing = {
     },
     reset_price_label: function () {
         $("#housing_panel_price_label").text(World["interface"]["no_price"]);
+    },
+    show_preview: function (property_type) {
+        let property_obj = Player.housing[property_type];
+        let next_property_obj = property_obj ? property_obj.next : World["housing"][property_type][0];
+        if (next_property_obj) {
+            $("#housing_preview_desc").text(next_property_obj["long_desc"]);
+            if (next_property_obj["image"]) {
+                $("#housing_preview_image").attr("src", next_property_obj["image"]);
+            }
+        }
+    },
+    reset_preview: function () {
+        $("#housing_preview_image").attr("src", "assets/images/housing/store.svg");
+        $("#housing_preview_desc").text("Покупайте и обустраивайте вашу квартиру");
     }
 };
 
@@ -78,8 +92,10 @@ Player.housing = {
         Player["status"].subtract_money(next_property_price);
         Player.housing.set_property(property_type, next_property_obj);
         Interface.housing.update_price_label(property_type);
+        Interface.housing.show_preview(property_type);
         if (!Player.housing[property_type].next) {
             Interface.housing.disable_button(button_id);
+            Interface.housing.reset_preview();
         }
     }
 };
@@ -90,10 +106,12 @@ function buy_housing_button_click_handler(event) {
 
 function buy_housing_button_mouseenter_handler() {
     Interface.housing.update_price_label(this.name);
+    Interface.housing.show_preview(this.name);
 }
 
 function buy_housing_button_mouseleave_handler() {
     Interface.housing.reset_price_label();
+    Interface.housing.reset_preview();
 }
 
 function housing_panel_setup() {

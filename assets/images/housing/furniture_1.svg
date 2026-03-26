@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="150" viewBox="0 0 200 150">
+  <rect width="200" height="150" fill="#e8eef7"/>
+  <!-- Floor -->
+  <rect x="0" y="125" width="200" height="25" fill="#d2b48c"/>
+  <!-- Worn chair - backrest -->
+  <rect x="72" y="35" width="56" height="8" rx="3" fill="#a0855b" stroke="#333" stroke-width="2"/>
+  <rect x="75" y="43" width="50" height="40" rx="2" fill="#b8956a" stroke="#333" stroke-width="2"/>
+  <!-- Scratches/wear marks -->
+  <line x1="82" y1="50" x2="88" y2="55" stroke="#8b7355" stroke-width="1" opacity="0.6"/>
+  <line x1="105" y1="48" x2="112" y2="54" stroke="#8b7355" stroke-width="1" opacity="0.6"/>
+  <line x1="95" y1="60" x2="100" y2="68" stroke="#8b7355" stroke-width="1" opacity="0.6"/>
+  <!-- Seat -->
+  <rect x="70" y="83" width="60" height="14" rx="3" fill="#b8956a" stroke="#333" stroke-width="2"/>
+  <!-- Legs -->
+  <rect x="75" y="97" width="6" height="28" fill="#8b7355" stroke="#333" stroke-width="1.5"/>
+  <rect x="119" y="97" width="6" height="28" fill="#8b7355" stroke="#333" stroke-width="1.5"/>
+  <!-- Front legs -->
+  <rect x="75" y="97" width="6" height="28" fill="#8b7355" stroke="#333" stroke-width="1.5"/>
+  <rect x="119" y="97" width="6" height="28" fill="#8b7355" stroke="#333" stroke-width="1.5"/>
+</svg>

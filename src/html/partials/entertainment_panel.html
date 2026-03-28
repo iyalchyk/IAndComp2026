@@ -1,15 +1,46 @@
 <div id="entertainment_panel" class="switchable panel">
-    <div class="buttons_box">
-        <div>
-            <button id="go_party_button" name="party">Сходить на вечеринку</button>
-            <button id="go_disco_button" name="disco">Сходить на дискотеку</button>
-            <button id="go_roulette_button" name="roulette">Рулетка</button>
-            <button id="go_slot_machine_button" name="slot_machine">Однорукий бандит</button>
-            <button id="go_arcanoid_button" name="arcanoid">Игровой автомат "Арканоид"</button>
+    <div class="entertainment_main">
+        <div class="entertainment_layout">
+            <div class="entertainment_left_col">
+                <div class="entertainment_section entertainment_leisure">
+                    <fieldset>
+                        <legend>Отдых</legend>
+                        <button id="go_party_button" name="party">Сходить на вечеринку</button>
+                        <button id="go_disco_button" name="disco">Сходить на дискотеку</button>
+                    </fieldset>
+                </div>
+                <div class="entertainment_section entertainment_casino">
+                    <fieldset>
+                        <legend>Казино</legend>
+                        <button id="go_roulette_button" name="roulette">Рулетка</button>
+                        <button id="go_slot_machine_button" name="slot_machine">Рулетка 2</button>
+                        <button id="go_arcanoid_button" name="arcanoid">Игровой автомат "Арканоид"</button>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="entertainment_right_col">
+                <div class="entertainment_desc_box">
+                    <label id="entertainment_desc_label">Здесь вы сможете заработать деньги. Поиграть в игровые автоматы поднять себе настроение и т.д.</label>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="info_box">
-        Развлечения
+        <div class="entertainment_info_section">
+            <fieldset>
+                <legend>Информация</legend>
+                <div class="field-row">
+                    <label>Цена:</label>
+                    <label id="entertainment_panel_price_label">-</label>
+                </div>
+                <div class="field-row">
+                    <label>Поднять настроение на:</label>
+                    <label id="entertainment_panel_mood_change_label">-</label>
+                </div>
+                <div class="field-row">
+                    <label>Настроение:</label>
+                    <label id="entertainment_panel_mood_value_label">?</label>
+                </div>
+            </fieldset>
+        </div>
     </div>
     <div id="roulette_popup" style="display: none;">
         <div class="roulette_container">
@@ -133,17 +164,5 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="price_box">
-        <label>Цена: </label>
-        <label id="entertainment_panel_price_label" class="price">-</label>
-    </div>
-    <div class="price_box">
-        <label>Поднять настроение на: </label>
-        <label id="entertainment_panel_mood_change_label" class="price">-</label>
-    </div>
-    <div class="price_box">
-        <label>Настроение: </label>
-        <label id="entertainment_panel_mood_value_label" class="price">-</label>
     </div>
 </div>

@@ -2,6 +2,16 @@ import {
     World, Player, Interface
 } from "../global.js"
 
+const entertainmentDescriptions = {
+    party: "Вечеринка — отличный способ поднять себе настроение и отдохнуть с друзьями.",
+    disco: "Дискотека — потанцуйте и повеселитесь на дискотеке!",
+    roulette: "Рулетка — испытайте удачу! Угадайте число и выиграйте ставку x3.",
+    slot_machine: "Однорукий бандит — купите вращения и попробуйте собрать выигрышную комбинацию.",
+    arcanoid: "Арканоид — продержите мячик в воздухе 30 секунд и получите 35$ и хорошее настроение!"
+};
+
+const defaultDescription = "Здесь вы сможете заработать деньги. Поиграть в игровые автоматы поднять себе настроение и т.д.";
+
 Interface.entertainment = {
     update_price_mood_labels: function(entertainment_type) {
         let entertainment_obj = World["entertainment"][entertainment_type];
@@ -13,6 +23,16 @@ Interface.entertainment = {
     reset_price_mood_labels: function () {
         $entertainmentPriceLabel.text(World["interface"]["no_price"]);
         $entertainmentMoodLabel.text(World["interface"]["no_price"]);
+    },
+    update_desc: function(entertainment_type) {
+        let desc = entertainmentDescriptions[entertainment_type] || defaultDescription;
+        $entertainmentDescLabel.text(desc);
+    },
+    reset_desc: function() {
+        $entertainmentDescLabel.text(defaultDescription);
+    },
+    update_current_mood: function() {
+        $entertainmentMoodValueLabel.text(Player["status"].mood);
     }
 };
 
@@ -30,6 +50,7 @@ Player.entertainment = {
         }
         Player["status"].subtract_money(entertainment_price);
         Player["status"].add_mood(entertainment_mood);
+        Interface.entertainment.update_current_mood();
     }
 };
 
@@ -39,21 +60,32 @@ function go_entertainment_button_click_handler() {
 
 function go_entertainment_button_mouseenter_handler() {
     Interface.entertainment.update_price_mood_labels(this.name);
+    Interface.entertainment.update_desc(this.name);
 }
 
 function go_entertainment_button_mouseleave_handler() {
     Interface.entertainment.reset_price_mood_labels();
+    Interface.entertainment.reset_desc();
+}
+
+function go_casino_button_mouseenter_handler() {
+    Interface.entertainment.update_desc(this.name);
+}
+
+function go_casino_button_mouseleave_handler() {
+    Interface.entertainment.reset_desc();
 }
 
 let rouletteAnimTimer = null;
 
 // Cached jQuery selectors (initialized in entertainment_panel_setup)
-let $entertainmentPriceLabel, $entertainmentMoodLabel;
+let $entertainmentPriceLabel, $entertainmentMoodLabel, $entertainmentMoodValueLabel;
+let $entertainmentDescLabel;
 let $roulettePopup, $rouletteDisplay, $rouletteYourNumber, $rouletteCasinoNumber;
 let $rouletteWinnings, $rouletteNumberInput, $rouletteBetInput, $rouletteStartButton;
 let $slotReel1, $slotReel2, $slotReel3, $slotMachinePopup;
 let $slotSpinButton, $slotBuyButton, $slotSpinsLeftLabel, $slotMoneyLabel;
-let $entertainmentPanelSections;
+let $entertainmentMainSection;
 let $arcanoidPopup, $arcanoidTimeLabel, $arcanoidStartButton;
 let $arcanoidArrowButtons, $arcanoidPaddleBallInputs;
 let $arcanoidPaddleInputs, $arcanoidBallInputs;
@@ -169,7 +201,7 @@ function open_slot_machine() {
     $slotReel1.text("?");
     $slotReel2.text("?");
     $slotReel3.text("?");
-    $entertainmentPanelSections.hide();
+    $entertainmentMainSection.hide();
     $slotMachinePopup.show();
     update_slot_ui();
 }
@@ -180,7 +212,7 @@ function close_slot_machine() {
         slotAnimTimer = null;
     }
     $slotMachinePopup.hide();
-    $entertainmentPanelSections.show();
+    $entertainmentMainSection.show();
 }
 
 function buy_slot_spins() {
@@ -468,7 +500,7 @@ function arcanoid_apply_options() {
 }
 
 function open_arcanoid() {
-    $entertainmentPanelSections.hide();
+    $entertainmentMainSection.hide();
     $arcanoidPopup.show();
     arcanoid.timeLeft = 25;
     $arcanoidTimeLabel.text("30");
@@ -495,13 +527,15 @@ function open_arcanoid() {
 function close_arcanoid() {
     arcanoid_stop();
     $arcanoidPopup.hide();
-    $entertainmentPanelSections.show();
+    $entertainmentMainSection.show();
 }
 
 function entertainment_panel_setup() {
     // Initialize cached selectors
     $entertainmentPriceLabel = $("#entertainment_panel_price_label");
     $entertainmentMoodLabel = $("#entertainment_panel_mood_change_label");
+    $entertainmentMoodValueLabel = $("#entertainment_panel_mood_value_label");
+    $entertainmentDescLabel = $("#entertainment_desc_label");
     $roulettePopup = $("#roulette_popup");
     $rouletteDisplay = $("#roulette_display");
     $rouletteYourNumber = $("#roulette_your_number_box");
@@ -518,7 +552,7 @@ function entertainment_panel_setup() {
     $slotBuyButton = $("#slot_buy_button");
     $slotSpinsLeftLabel = $("#slot_spins_left");
     $slotMoneyLabel = $("#slot_money_label");
-    $entertainmentPanelSections = $("#entertainment_panel > .buttons_box, #entertainment_panel > .info_box, #entertainment_panel > .price_box");
+    $entertainmentMainSection = $(".entertainment_main");
     $arcanoidPopup = $("#arcanoid_popup");
     $arcanoidTimeLabel = $("#arcanoid_time_label");
     $arcanoidStartButton = $("#arcanoid_start_button");
@@ -535,16 +569,28 @@ function entertainment_panel_setup() {
         mouseleave: go_entertainment_button_mouseleave_handler
     });
 
-    $("#go_roulette_button").on("click", open_roulette);
+    $("#go_roulette_button").on({
+        click: open_roulette,
+        mouseenter: go_casino_button_mouseenter_handler,
+        mouseleave: go_casino_button_mouseleave_handler
+    });
     $rouletteStartButton.on("click", start_roulette);
     $("#roulette_home_button").on("click", close_roulette);
 
-    $("#go_slot_machine_button").on("click", open_slot_machine);
+    $("#go_slot_machine_button").on({
+        click: open_slot_machine,
+        mouseenter: go_casino_button_mouseenter_handler,
+        mouseleave: go_casino_button_mouseleave_handler
+    });
     $slotSpinButton.on("click", spin_slot_machine);
     $slotBuyButton.on("click", buy_slot_spins);
     $("#slot_home_button").on("click", close_slot_machine);
 
-    $("#go_arcanoid_button").on("click", open_arcanoid);
+    $("#go_arcanoid_button").on({
+        click: open_arcanoid,
+        mouseenter: go_casino_button_mouseenter_handler,
+        mouseleave: go_casino_button_mouseleave_handler
+    });
     $arcanoidStartButton.on("click", start_arcanoid);
     $("#arcanoid_home_button").on("click", close_arcanoid);
 
@@ -555,6 +601,8 @@ function entertainment_panel_setup() {
     $arcanoidLeftButton.on("mouseup mouseleave touchend", function() { arcanoid.leftPressed = false; });
     $arcanoidRightButton.on("mousedown touchstart", function() { arcanoid.rightPressed = true; });
     $arcanoidRightButton.on("mouseup mouseleave touchend", function() { arcanoid.rightPressed = false; });
+
+    Interface.entertainment.update_current_mood();
 }
 
 export {

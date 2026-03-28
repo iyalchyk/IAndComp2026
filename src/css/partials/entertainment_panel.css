@@ -1,3 +1,98 @@
+/* Entertainment panel main layout */
+#entertainment_panel {
+    position: absolute;
+    top: 77px;
+    width: 100%;
+    height: 438px;
+    display: block;
+    background-color: #008040;
+}
+
+.entertainment_main {
+    padding: 8px;
+}
+
+.entertainment_layout {
+    display: flex;
+    gap: 8px;
+}
+
+.entertainment_left_col {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 300px;
+    flex-shrink: 0;
+}
+
+.entertainment_right_col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.entertainment_section fieldset {
+    margin: 0;
+    background-color: rgba(192, 192, 192, 0.15);
+}
+
+.entertainment_section legend {
+    color: #ffff00;
+    font-weight: bold;
+}
+
+.entertainment_leisure button,
+.entertainment_casino button {
+    width: 100%;
+    margin-bottom: 3px;
+}
+
+.entertainment_desc_box {
+    background-color: #ffe040;
+    border: 2px solid #c0a000;
+    padding: 10px;
+    margin-top: 8px;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.entertainment_desc_box label {
+    color: #c00000;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.entertainment_info_section {
+    margin-top: 8px;
+}
+
+.entertainment_info_section fieldset {
+    margin: 0;
+    background-color: rgba(192, 192, 192, 0.15);
+}
+
+.entertainment_info_section legend {
+    color: #ffff00;
+    font-weight: bold;
+}
+
+.entertainment_info_section .field-row {
+    margin: 2px 0;
+}
+
+.entertainment_info_section .field-row label:first-child {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.entertainment_info_section .field-row label:last-child {
+    color: #ffff00;
+    font-weight: bold;
+}
+
 /* Fishing mini-game */
 #fishing_game_panel {
     position: relative;

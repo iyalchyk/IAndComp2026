@@ -244,37 +244,43 @@
         "level": 0,
         "price": 0,
         "short_desc": "Нет машины",
-        "long_desc": ""
+        "long_desc": "",
+        "image": ""
       },
       {
         "level": 1,
         "price": 30,
         "short_desc": "Пятёрка 2105",
-        "long_desc": "Пятёрка 2105"
+        "long_desc": "Пятёрка 2105",
+        "image": "assets/images/shop/car_1.png"
       },
       {
         "level": 2,
         "price": 60,
         "short_desc": "Девятка 21093",
-        "long_desc": "Девятка 21093"
+        "long_desc": "Девятка 21093",
+        "image": "assets/images/shop/car_2.png"
       },
       {
         "level": 3,
         "price": 70,
         "short_desc": "Десятка 2110",
-        "long_desc": "Десятка 2110"
+        "long_desc": "Десятка 2110",
+        "image": "assets/images/shop/car_3.png"
       },
       {
         "level": 4,
         "price": 80,
         "short_desc": "Волга 3110",
-        "long_desc": "Волга 3110"
+        "long_desc": "Волга 3110",
+        "image": "assets/images/shop/car_4.png"
       },
       {
         "level": 5,
         "price": 200,
         "short_desc": "Mercedes",
-        "long_desc": "Mercedes"
+        "long_desc": "Mercedes",
+        "image": "assets/images/shop/car_5.png"
       }
     ]
   },

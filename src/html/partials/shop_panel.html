@@ -1,18 +1,63 @@
 <div id="shop_panel" class="switchable panel">
-    <div class="buttons_box">
-        <div>
-            <button id="buy_breakfast_button" name="breakfast">Купить завтрак</button>
-            <button id="buy_lunch_button" name="lunch">Купить обед</button>
-            <button id="buy_dinner_button" name="dinner">Купить ужин</button>
-            <button id="buy_clothes_button" name="clothes">Купить одежду</button>
-            <button id="buy_car_button" name="car">Купить машину</button>
+    <div class="shop_layout">
+        <div class="shop_left_col">
+            <div class="shop_section shop_canteen">
+                <fieldset>
+                    <legend>Столовая</legend>
+                    <div class="shop_canteen_buttons">
+                        <button id="buy_breakfast_button" name="breakfast">Купить завтрак</button>
+                        <button id="buy_lunch_button" name="lunch">Купить обед</button>
+                        <button id="buy_dinner_button" name="dinner">Купить ужин</button>
+                    </div>
+                    <div class="shop_canteen_info">
+                        <div class="field-row">
+                            <label>Прибавление сытости:</label>
+                            <label id="shop_food_satiety_label">-</label>
+                        </div>
+                        <div class="field-row">
+                            <label>Текущая сытость:</label>
+                            <label id="shop_current_satiety_label">?</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="shop_section shop_clothes">
+                <fieldset>
+                    <legend>Одежда</legend>
+                    <button id="buy_clothes_button" name="clothes">Купить одежду</button>
+                    <div class="field-row">
+                        <label id="shop_clothes_desc_label"></label>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <div class="shop_right_col">
+            <div class="shop_section shop_cars">
+                <fieldset>
+                    <legend>Машины</legend>
+                    <div class="shop_car_image_container">
+                        <img id="shop_car_image" src="/assets/images/shop/car_placeholder.png" alt="car">
+                    </div>
+                    <button id="buy_car_button" name="car">Купить машину</button>
+                    <div class="field-row">
+                        <label>Марка:</label>
+                        <label id="shop_car_brand_label">-</label>
+                    </div>
+                    <div class="field-row">
+                        <label>Сейчас у вас:</label>
+                        <label id="shop_car_current_label">-</label>
+                    </div>
+                </fieldset>
+            </div>
         </div>
     </div>
-    <div class="info_box">
-        Магазины
-    </div>
-    <div class="price_box">
-        <label>Цена: </label>
-        <label id="shop_panel_price_label" class="price">-</label>
+    <div class="shop_price_section">
+        <fieldset>
+            <legend>Цена</legend>
+            <div class="field-row shop_price_row">
+                <label>Стоимость покупки:</label>
+                <label id="shop_panel_price_label" class="price">-</label>
+            </div>
+        </fieldset>
     </div>
 </div>

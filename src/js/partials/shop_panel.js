@@ -13,9 +13,36 @@ Interface.shop = {
         let label = property ? property["short_desc"] : World["interface"]["no_property"];
         $("#car").text(label);
     },
+    update_clothes_desc: function() {
+        let cur = Player.shop["clothes"];
+        let next = cur ? cur.next : World["shop"]["clothes"][0];
+        let desc = next ? next["long_desc"] : "Куплено всё";
+        $("#shop_clothes_desc_label").text(desc);
+    },
+    update_car_labels: function() {
+        let cur = Player.shop["car"];
+        let next = cur ? cur.next : World["shop"]["car"][0];
+        let brand = next ? next["long_desc"] : "Куплено всё";
+        let current_car = cur ? cur["long_desc"] : "";
+        let current_label = current_car || "Нет машины";
+        $("#shop_car_brand_label").text(brand);
+        $("#shop_car_current_label").text(current_label);
+        this.update_car_image(next);
+    },
+    update_car_image: function(next_car) {
+        let level = next_car ? next_car["level"] : null;
+        let src = level ? `/assets/images/shop/car_${level}.png` : "/assets/images/shop/car_placeholder.png";
+        $("#shop_car_image").attr("src", src);
+    },
+    update_current_satiety: function() {
+        $("#shop_current_satiety_label").text(Player["status"].satiety);
+    },
     update_all: function() {
         this.update_view_clothes();
         this.update_view_car();
+        this.update_clothes_desc();
+        this.update_car_labels();
+        this.update_current_satiety();
     },
     disable_button: function (button_id) {
         $(button_id).prop('disabled', true);
@@ -31,8 +58,16 @@ Interface.shop = {
         let price_label = food_obj ? food_obj["price"] : World["interface"]["no_price"];
         $("#shop_panel_price_label").text(price_label);
     },
+    update_food_satiety_label: function(food_type) {
+        let food_obj = World["shop"][food_type];
+        let satiety_label = food_obj ? food_obj["satiety"] : "-";
+        $("#shop_food_satiety_label").text(satiety_label);
+    },
     reset_price_label: function () {
         $("#shop_panel_price_label").text(World["interface"]["no_price"]);
+    },
+    reset_food_satiety_label: function() {
+        $("#shop_food_satiety_label").text("-");
     }
 };
 
@@ -43,10 +78,12 @@ Player.shop = {
     set_clothes: function(clothes_obj) {
         this.clothes = clothes_obj;
         Interface.shop.update_view_clothes();
+        Interface.shop.update_clothes_desc();
     },
     set_car: function(car_obj) {
         this.car = car_obj;
         Interface.shop.update_view_car();
+        Interface.shop.update_car_labels();
     },
     set_property: function(property_type, property_obj) {
         let property_setter_fn_name = `set_${property_type}`;
@@ -62,6 +99,7 @@ Player.shop = {
         }
         Player["status"].subtract_money(food_price);
         Player["status"].add_satiety(food_satiety);
+        Interface.shop.update_current_satiety();
     },
     buy_property: function(property_type, button_id) {
         let cur_property_obj = Player.shop[property_type];
@@ -90,6 +128,12 @@ function buy_property_button_click_handler(event) {
 
 function buy_food_button_mouseenter_handler() {
     Interface.shop.update_food_price_label(this.name);
+    Interface.shop.update_food_satiety_label(this.name);
+}
+
+function buy_food_button_mouseleave_handler() {
+    Interface.shop.reset_price_label();
+    Interface.shop.reset_food_satiety_label();
 }
 
 function buy_property_button_mouseenter_handler() {
@@ -104,7 +148,7 @@ function shop_panel_setup() {
     $("#buy_breakfast_button, #buy_lunch_button, #buy_dinner_button").on({
         click: buy_food_button_click_handler,
         mouseenter: buy_food_button_mouseenter_handler,
-        mouseleave: buy_property_button_mouseleave_handler
+        mouseleave: buy_food_button_mouseleave_handler
     });
     $("#buy_clothes_button, #buy_car_button").on({
         click: buy_property_button_click_handler,

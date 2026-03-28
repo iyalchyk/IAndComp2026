@@ -1,16 +1,49 @@
 <div id="education_panel" class="switchable panel">
-    <div class="buttons_box">
-        <div>
-            <button id="go_to_school_button" name="school">Пойти в вечернюю школу</button>
-            <button id="go_to_english_course_button" name="english_course">Записаться на курсы английского языка</button>
-            <button id="go_to_computer_course_button" name="computer_course">Записаться на компьютерные курсы</button>
+    <div class="education_layout">
+        <div class="education_left_col">
+            <div class="education_section education_courses">
+                <fieldset>
+                    <legend>Обучение</legend>
+                    <button id="go_to_school_button" name="school">Пойти в вечернюю школу</button>
+                    <button id="go_to_english_course_button" name="english_course">Записаться на курсы англ. яз.</button>
+                    <button id="go_to_computer_course_button" name="computer_course">Записаться на компьютерные курсы</button>
+                </fieldset>
+            </div>
+            <div class="education_section education_status">
+                <fieldset>
+                    <legend>Ваше образование</legend>
+                    <div class="field-row">
+                        <label>Школа:</label>
+                        <label id="school_education_status_label">?</label>
+                    </div>
+                    <div class="field-row">
+                        <label>Англ. яз.:</label>
+                        <label id="english_course_education_status_label">?</label>
+                    </div>
+                    <div class="field-row">
+                        <label>Комп. курсы:</label>
+                        <label id="computer_course_education_status_label">?</label>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <div class="education_right_col">
+            <div class="education_desc_box">
+                <label id="education_desc_label">Вы уже получаете в школе начальное образование. Также вы можете записаться на курсы английского языка и компьютерные курсы.</label>
+            </div>
         </div>
     </div>
-    <div class="info_box">
-        Обучение
-    </div>
-    <div class="price_box">
-        <label>Цена в день: </label>
-        <label id="education_panel_price_label" class="price">-</label>
+    <div class="education_info_section">
+        <fieldset>
+            <legend>Информация</legend>
+            <div class="field-row">
+                <label>Цена в день:</label>
+                <label id="education_panel_price_label">-</label>
+            </div>
+            <div class="field-row">
+                <label>Кратко:</label>
+                <label id="education_panel_brief_label">-</label>
+            </div>
+        </fieldset>
     </div>
 </div>

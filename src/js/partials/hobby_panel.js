@@ -8,6 +8,15 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+const hobbyDescriptions = {
+    groundbait: "Прикормка увеличивает количество рыб в озере. Если у вас есть прикормка, во время рыбалки будут появляться сразу 2 рыбы!",
+    fishing_rod: "Удочка — обязательный инструмент для рыбалки. Без неё на озеро не попасть.",
+    fishing_tackle: "Снасти — необходимы для рыбалки. Купите их перед поездкой на озеро.",
+    fishing: "Отправьтесь на озеро \"MAD FISH\" и попробуйте поймать как можно больше рыб за 30 секунд!"
+};
+
+const defaultDescription = "Рыбалка - это отличный способ поднять себе настроение, утолить голод (рыбою, которую вы поймали) и просто хорошо и весело отдохнуть. Рыбачьте и вы не пожалеете.";
+
 // Fishing mini-game state
 let fishingGame = {
     timer: null,
@@ -25,10 +34,14 @@ Interface.hobby = {
         $("#hobby_panel_groundbait_amount_label").text(Player.hobby.groundbait);
     },
     update_view_fishing_rod: function() {
-        $("#buy_fishing_rod_button").prop('disabled', Player.hobby.fishing_rod);
+        let has = Player.hobby.fishing_rod;
+        $("#buy_fishing_rod_button").prop('disabled', has);
+        $("#hobby_panel_fishing_rod_label").text(has ? "Есть" : "Нет");
     },
     update_view_fishing_tackle: function() {
-        $("#buy_fishing_tackle_button").prop('disabled', Player.hobby.fishing_tackle);
+        let has = Player.hobby.fishing_tackle;
+        $("#buy_fishing_tackle_button").prop('disabled', has);
+        $("#hobby_panel_fishing_tackle_label").text(has ? "Есть" : "Нет");
     },
     update_all: function() {
         this.update_view_fish();
@@ -44,6 +57,13 @@ Interface.hobby = {
     },
     reset_price_label: function () {
         $("#hobby_panel_price_label").text(World["interface"]["no_price"]);
+    },
+    update_desc: function(hobby_type) {
+        let desc = hobbyDescriptions[hobby_type] || defaultDescription;
+        $("#hobby_desc_label").text(desc);
+    },
+    reset_desc: function() {
+        $("#hobby_desc_label").text(defaultDescription);
     },
     alert_no_fishing_rod: function() {
         alert("У вас нет удочки!");
@@ -257,10 +277,12 @@ function buy_equipment_button_click_handler() {
 
 function hobby_button_mouseenter_handler() {
     Interface.hobby.update_price_label(this.name);
+    Interface.hobby.update_desc(this.name);
 }
 
 function hobby_button_mouseleave_handler() {
     Interface.hobby.reset_price_label();
+    Interface.hobby.reset_desc();
 }
 
 function go_fishing_button_click_handler () {

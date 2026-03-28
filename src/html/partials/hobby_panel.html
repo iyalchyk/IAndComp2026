@@ -1,27 +1,61 @@
 <div id="hobby_panel" class="switchable panel">
-    <div class="buttons_box">
-        <div>
-            <button id="buy_groundbait_button" name="groundbait">Купить пакет прикормки</button>
-            <button id="buy_fishing_rod_button" name="fishing_rod">Купить удочку</button>
-            <button id="buy_fishing_tackle_button" name="fishing_tackle">Купить снасти</button>
-            <button id="go_fishing_button" name="fishing">Отправиться на озеро MAD FISH</button>
+    <div class="hobby_layout">
+        <div class="hobby_left_col">
+            <div class="hobby_section hobby_shop">
+                <fieldset>
+                    <legend>Рыболовный магазин</legend>
+                    <div class="hobby_shop_layout">
+                        <div class="hobby_shop_image">
+                            <img src="/assets/images/hobby/fishing/fish_classic.png" alt="fish">
+                        </div>
+                        <div class="hobby_shop_buttons">
+                            <button id="buy_groundbait_button" name="groundbait">Купить пакет прикормки</button>
+                            <button id="buy_fishing_rod_button" name="fishing_rod">Купить удочку</button>
+                            <button id="buy_fishing_tackle_button" name="fishing_tackle">Купить снасти</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="hobby_section hobby_price">
+                <fieldset>
+                    <legend>Цена</legend>
+                    <div class="field-row">
+                        <label>Стоимость:</label>
+                        <label id="hobby_panel_price_label">-</label>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <div class="hobby_right_col">
+            <div class="hobby_desc_box">
+                <label id="hobby_desc_label">Рыбалка - это отличный способ поднять себе настроение, утолить голод (рыбою, которую вы поймали) и просто хорошо и весело отдохнуть. Рыбачьте и вы не пожалеете.</label>
+            </div>
         </div>
     </div>
-    <div class="info_box">
-        Хобби - Рыбалка
+    <div class="hobby_section hobby_inventory">
+        <fieldset>
+            <legend>Ваш рыболовный ящик</legend>
+            <div class="field-row">
+                <label>У вас</label>
+                <label id="hobby_panel_groundbait_amount_label">0</label>
+                <label>пакетов прикормки.</label>
+            </div>
+            <div class="field-row">
+                <label>Удочка:</label>
+                <label id="hobby_panel_fishing_rod_label">Нет</label>
+            </div>
+            <div class="field-row">
+                <label>Снасти:</label>
+                <label id="hobby_panel_fishing_tackle_label">Нет</label>
+            </div>
+            <div class="field-row">
+                <label>Общее кол-во пойманной рыбы:</label>
+                <label id="hobby_panel_fish_amount_label">0</label>
+            </div>
+        </fieldset>
     </div>
-    <div class="price_box">
-        <label>Цена: </label>
-        <label id="hobby_panel_price_label" class="price">-</label>
-    </div>
-    <div class="price_box">
-        <label>У вас</label>
-        <label id="hobby_panel_groundbait_amount_label" class="price">-</label>
-        <label>пакетов прикормки</label>
-    </div>
-    <div class="price_box">
-        <label>Общее количество пойманной рыбы: </label>
-        <label id="hobby_panel_fish_amount_label" class="price">-</label>
+    <div class="hobby_go_fishing">
+        <button id="go_fishing_button" name="fishing">Отправиться на озеро "MAD FISH"</button>
     </div>
 </div>
 

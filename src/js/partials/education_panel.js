@@ -2,6 +2,14 @@ import {
     World, Player, Interface
 } from "../global.js"
 
+const educationDescriptions = {
+    school: "Вечерняя школа — получите образование от начального до высшего. Это откроет вам путь к лучшим работам.",
+    english_course: "Курсы английского языка — повышайте свой уровень владения английским. Необходимо для продвижения по карьерной лестнице.",
+    computer_course: "Компьютерные курсы — изучайте компьютер от чайника до сверхпрофессионала. Обязательно для работы с компьютером."
+};
+
+const defaultDescription = "Вы уже получаете в школе начальное образование. Также вы можете записаться на курсы английского языка и компьютерные курсы.";
+
 Interface.education = {
     update_view_activity_status: function(activity_id) {
         let finish_flag = Player.education[activity_id].is_finished;
@@ -20,11 +28,29 @@ Interface.education = {
         let cur_level_label = level_labels[Player.education[activity_id].level];
         $(`#${activity_id}_level`).text(cur_level_label);
     },
+    update_education_status_labels: function() {
+        for (const activity_id of Player.education.get_attributes()) {
+            let level_labels = World["education"][activity_id]["descriptions"];
+            let cur_level = level_labels[Player.education[activity_id].level];
+            let attendance = Player.education[activity_id].is_attending;
+            let finished = Player.education[activity_id].is_finished;
+            let status;
+            if (finished) {
+                status = cur_level + " (Закончил)";
+            } else if (attendance) {
+                status = cur_level + " (Посещаю)";
+            } else {
+                status = cur_level;
+            }
+            $(`#${activity_id}_education_status_label`).text(status);
+        }
+    },
     update_all: function() {
         for (const activity_id of Player.education.get_attributes()) {
-            this.update_view_activity_status(activity_id)
+            this.update_view_activity_status(activity_id);
             this.update_view_activity_level(activity_id);
         }
+        this.update_education_status_labels();
     },
     update_price_label: function(activity_id) {
         let acitivity_obj = World["education"][activity_id];
@@ -33,6 +59,31 @@ Interface.education = {
     },
     reset_price_label: function () {
         $("#education_panel_price_label").text(World["interface"]["no_price"]);
+    },
+    update_brief_label: function(activity_id) {
+        let level_labels = World["education"][activity_id]["descriptions"];
+        let cur_level = level_labels[Player.education[activity_id].level];
+        let attendance = Player.education[activity_id].is_attending;
+        let finished = Player.education[activity_id].is_finished;
+        let brief;
+        if (finished) {
+            brief = "Вы закончили обучение. Уровень: " + cur_level;
+        } else if (attendance) {
+            brief = "Вы сейчас посещаете. Уровень: " + cur_level;
+        } else {
+            brief = "Не посещаете. Уровень: " + cur_level;
+        }
+        $("#education_panel_brief_label").text(brief);
+    },
+    reset_brief_label: function() {
+        $("#education_panel_brief_label").text("-");
+    },
+    update_desc: function(activity_id) {
+        let desc = educationDescriptions[activity_id] || defaultDescription;
+        $("#education_desc_label").text(desc);
+    },
+    reset_desc: function() {
+        $("#education_desc_label").text(defaultDescription);
     },
     alert_max_level: function(activity_id) {
         alert("You reached maximum level in " + activity_id);
@@ -67,6 +118,7 @@ Player.education = {
     toggle_activity: function(activity_id, attendance_flag) {
         this[activity_id].is_attending = attendance_flag;
         Interface.education.update_view_activity_status(activity_id);
+        Interface.education.update_education_status_labels();
     },
     incr_activity_experience: function(activity_id) {
         this[activity_id].experience += 1;
@@ -85,6 +137,7 @@ Player.education = {
             Interface.education.alert_new_level(activity_id);
         }
         Interface.education.update_view_activity_level(activity_id);
+        Interface.education.update_education_status_labels();
     },
     go_education: function(activity_id) {
         let is_attending = Player.education[activity_id].is_attending;
@@ -126,10 +179,14 @@ function go_education_button_click_handler() {
 
 function go_education_button_mouseenter_handler() {
     Interface.education.update_price_label(this.name);
+    Interface.education.update_desc(this.name);
+    Interface.education.update_brief_label(this.name);
 }
 
 function go_education_button_mouseleave_handler() {
     Interface.education.reset_price_label();
+    Interface.education.reset_desc();
+    Interface.education.reset_brief_label();
 }
 
 function education_panel_setup() {

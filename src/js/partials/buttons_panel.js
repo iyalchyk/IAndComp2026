@@ -1,5 +1,6 @@
 function panel_button_click_handler() {
     $(".switchable").hide();
+    $("#buttons_panel").hide();
     $(this.name).show();
     $("#home_button").show();
 }

@@ -21,6 +21,7 @@ Interface.status = {
     activate_status_panel: function() {
         $(".switchable").hide();
         $("#status_panel").show();
+        $("#buttons_panel").show();
         $("#home_button").hide();
     },
     alert_no_money: function() {

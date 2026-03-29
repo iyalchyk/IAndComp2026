@@ -25,7 +25,7 @@ Interface.status = {
         $("#home_button").hide();
     },
     alert_no_money: function() {
-        alert("No money");
+        $("#no_money_dialog").show();
     }
 };
 
@@ -95,6 +95,9 @@ function update_status_state() {
 function status_panel_setup() {
     $("#home_button").on({
         click: Interface.status.activate_status_panel
+    });
+    $("#no_money_dialog_ok").on("click", function() {
+        $("#no_money_dialog").hide();
     });
     Interface.status.update_all();
     Interface.status.activate_status_panel();

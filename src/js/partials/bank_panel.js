@@ -21,7 +21,7 @@ Interface.bank = {
         return parseInt($get_input.val());
     },
     alert_no_money: function() {
-        alert("Not enough money in the bank");
+        $("#no_money_dialog").show();
     }
 };
 

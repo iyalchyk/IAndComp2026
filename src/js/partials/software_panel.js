@@ -120,6 +120,7 @@ Player.software = {
             let requirement_val = software_requirements[requirement_key];
             let requirement_status = Player.check_requirement(requirement_key, requirement_val);
             if (!requirement_status) {
+                $("#software_config_dialog").show();
                 return;
             }
         }
@@ -152,6 +153,9 @@ function software_panel_setup() {
         click: install_software_button_click_handler,
         mouseenter: install_software_button_mouseenter_handler,
         mouseleave: install_software_button_mouseleave_handler
+    });
+    $("#software_config_dialog_ok").on("click", function() {
+        $("#software_config_dialog").hide();
     });
     Interface.software.update_all();
 }

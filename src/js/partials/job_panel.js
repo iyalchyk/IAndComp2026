@@ -55,6 +55,24 @@ function get_requirement_short_desc(key, level) {
     return level;
 }
 
+function build_requirements_html(requirements) {
+    let keys = Object.keys(requirements);
+    if (keys.length === 0) {
+        return '<div class="field-row"><label>Нет</label></div>';
+    }
+    let html = "";
+    for (const key of keys) {
+        let req_val = requirements[key];
+        let title = REQUIREMENT_TITLES[key] || key;
+        let met = Player.check_requirement(key, req_val);
+        let mark = met ? "\u2714" : "\u2718";
+        let color = met ? "#008000" : "#c00000";
+        let desc = get_requirement_short_desc(key, req_val);
+        html += `<div class="field-row" style="color:${color}">${mark} ${title}: ${desc}</div>`;
+    }
+    return html;
+}
+
 let $description_label;
 let $salary_label;
 let $requirements_list;
@@ -84,23 +102,8 @@ Interface.job = {
         }
     },
     build_requirements_html: function(job_id) {
-        let job_obj = World["job"][job_id];
-        let requirements = job_obj["requirements"];
-        let keys = Object.keys(requirements);
-        if (keys.length === 0) {
-            return '<div class="field-row"><label>Нет</label></div>';
-        }
-        let html = "";
-        for (const key of keys) {
-            let req_val = requirements[key];
-            let title = REQUIREMENT_TITLES[key] || key;
-            let met = Player.check_requirement(key, req_val);
-            let mark = met ? "\u2714" : "\u2718";
-            let color = met ? "#008000" : "#c00000";
-            let desc = get_requirement_short_desc(key, req_val);
-            html += `<div class="field-row" style="color:${color}">${mark} ${title}: ${desc}</div>`;
-        }
-        return html;
+        let requirements = World["job"][job_id]["requirements"];
+        return build_requirements_html(requirements);
     },
     update_job_labels: function(job_id) {
         let job_obj = World["job"][job_id];
@@ -174,5 +177,5 @@ function job_panel_setup() {
 }
 
 export {
-    job_panel_setup
+    job_panel_setup, build_requirements_html
 }

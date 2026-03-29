@@ -1,6 +1,7 @@
 import {
-    Player, Interface
+    World, Player, Interface
 } from "../global.js"
+import { build_requirements_html } from "./job_panel.js"
 
 let taxi_accident_occurred = false;
 let taxi_event = {
@@ -18,6 +19,21 @@ function open_panel(panel_selector) {
 
 function panel_button_click_handler() {
     open_panel(this.name);
+}
+
+function hack_button_click_handler() {
+    let requirements = World["hacking"]["requirements"];
+    for (const key in requirements) {
+        if (!Player.check_requirement(key, requirements[key])) {
+            let html = "Вы не соответствуете требованиям для хакерства:<br><br>" +
+                build_requirements_html(requirements);
+            $("#global_dialog_title").text("Не соответствуете требованиям");
+            $("#global_dialog_text").html(html);
+            $("#global_dialog").show();
+            return;
+        }
+    }
+    open_panel("#hacking_panel");
 }
 
 function bank_button_click_handler() {
@@ -85,13 +101,15 @@ function buttons_panel_setup() {
         "#job_button, " +
         "#hardware_button, " +
         "#software_button, " +
-        "#intrenet_button, " +
-        "#hack_button"
+        "#intrenet_button"
     ).on({
         click: panel_button_click_handler
     });
     $("#bank_button").on({
         click: bank_button_click_handler
+    });
+    $("#hack_button").on({
+        click: hack_button_click_handler
     });
     $("#bank_taxi_yes").on("click", function() {
         $("#bank_taxi_dialog").hide();

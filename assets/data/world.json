@@ -1054,6 +1054,9 @@
   },
   "internet": {},
   "hacking": {
+    "requirements": {
+      "computer_course": 5
+    },
     "tasks": [
       {
         "reward": 4,

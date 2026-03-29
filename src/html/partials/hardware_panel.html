@@ -1,24 +1,43 @@
 <div id="hardware_panel" class="switchable panel">
-    <div class="buttons_box">
-        <div>
-            <button id="buy_CPU_button" name="CPU">Купить процессор</button>
-            <button id="buy_monitor_button" name="monitor">Купить монитор</button>
-            <button id="buy_printer_button" name="printer">Купить принтер</button>
-            <button id="buy_scanner_button" name="scanner">Купить сканер</button>
-            <button id="buy_modem_button" name="modem">Купить модем</button>
-            <button id="buy_HDD_button" name="HDD">Купить винчестер</button>
-            <button id="buy_CDROM_button" name="CDROM">Купить CD-ROM</button>
-            <button id="buy_RAM_button" name="RAM">Купить память RAM</button>
-            <button id="buy_sound_card_button" name="sound_card">Купить звуковую карту</button>
-            <button id="buy_video_card_button" name="video_card">Купить видеокарту</button>
-            <button id="buy_all_button">Купить ВСЁ</button>
+    <div class="hardware_layout">
+        <div class="hardware_left_col">
+            <div class="hardware_section hardware_buttons">
+                <fieldset>
+                    <legend>Комплектующие</legend>
+                    <div class="hardware_buttons_list">
+                        <button id="buy_CPU_button" name="CPU"><span class="hw_btn_title">Купить процессор</span><span class="hw_btn_desc" id="hw_desc_CPU"></span></button>
+                        <button id="buy_monitor_button" name="monitor"><span class="hw_btn_title">Купить монитор</span><span class="hw_btn_desc" id="hw_desc_monitor"></span></button>
+                        <button id="buy_printer_button" name="printer"><span class="hw_btn_title">Купить принтер</span><span class="hw_btn_desc" id="hw_desc_printer"></span></button>
+                        <button id="buy_scanner_button" name="scanner"><span class="hw_btn_title">Купить сканер</span><span class="hw_btn_desc" id="hw_desc_scanner"></span></button>
+                        <button id="buy_modem_button" name="modem"><span class="hw_btn_title">Купить модем</span><span class="hw_btn_desc" id="hw_desc_modem"></span></button>
+                        <button id="buy_HDD_button" name="HDD"><span class="hw_btn_title">Купить винчестер</span><span class="hw_btn_desc" id="hw_desc_HDD"></span></button>
+                        <button id="buy_CDROM_button" name="CDROM"><span class="hw_btn_title">Купить CD-ROM</span><span class="hw_btn_desc" id="hw_desc_CDROM"></span></button>
+                        <button id="buy_RAM_button" name="RAM"><span class="hw_btn_title">Купить память RAM</span><span class="hw_btn_desc" id="hw_desc_RAM"></span></button>
+                        <button id="buy_sound_card_button" name="sound_card"><span class="hw_btn_title">Купить звук. карту</span><span class="hw_btn_desc" id="hw_desc_sound_card"></span></button>
+                        <button id="buy_video_card_button" name="video_card"><span class="hw_btn_title">Купить видеокарту</span><span class="hw_btn_desc" id="hw_desc_video_card"></span></button>
+                    </div>
+                </fieldset>
+            </div>
         </div>
-    </div>
-    <div class="info_box">
-        Компьютер
-    </div>
-    <div class="price_box">
-        <label>Цена: </label>
-        <label id="hardware_panel_price_label" class="price">-</label>
+        <div class="hardware_right_col">
+            <div class="hardware_section hardware_info_section">
+                <fieldset>
+                    <legend>Информация</legend>
+                    <div class="field-row">
+                        <label>Сейчас у вас:</label>
+                        <label id="hardware_panel_current_label">-</label>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="hardware_section hardware_price_section">
+                <fieldset>
+                    <legend>Цена</legend>
+                    <div class="field-row hardware_price_row">
+                        <label>Стоимость покупки:</label>
+                        <label id="hardware_panel_price_label" class="price">-</label>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
     </div>
 </div>

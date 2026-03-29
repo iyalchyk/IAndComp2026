@@ -2,6 +2,9 @@ import {
     World, Player, Interface
 } from "../global.js"
 
+let $price_label;
+let $current_label;
+
 Interface.hardware = {
     update_view_hardware: function(hardware_type) {
         let hardware_obj = Player.hardware[hardware_type];
@@ -11,19 +14,34 @@ Interface.hardware = {
     update_all: function () {
         for (const hardware_type of Player.hardware.get_attributes()) {
             this.update_view_hardware(hardware_type);
+            this.update_button_desc(hardware_type);
         }
     },
     disable_button: function (button_id) {
         $(button_id).prop('disabled', true);
     },
+    update_button_desc: function (property_type) {
+        let cur = Player.hardware[property_type];
+        let next = cur ? cur.next : World["hardware"][property_type][0];
+        let desc = next ? next["description"] : "—";
+        $(`#hw_desc_${property_type}`).text(desc);
+    },
     update_price_label: function (property_type) {
         let property_obj = Player.hardware[property_type];
         let next_property_obj = property_obj ? property_obj.next : World["hardware"][property_type][0];
         let price_label = next_property_obj ? next_property_obj["price"] : World["interface"]["no_price"];
-        $("#hardware_panel_price_label").text(price_label);
+        $price_label.text(price_label);
     },
     reset_price_label: function () {
-        $("#hardware_panel_price_label").text(World["interface"]["no_price"]);
+        $price_label.text(World["interface"]["no_price"]);
+    },
+    update_current_label: function (property_type) {
+        let cur = Player.hardware[property_type];
+        let current = cur ? cur["description"] : "нет";
+        $current_label.text(current);
+    },
+    reset_current_label: function () {
+        $current_label.text("-");
     }
 };
 
@@ -51,7 +69,9 @@ Player.hardware = {
         }
         Player["status"].subtract_money(next_property_price);
         Player.hardware.set_hardware(property_type, next_property_obj);
+        Interface.hardware.update_button_desc(property_type);
         Interface.hardware.update_price_label(property_type);
+        Interface.hardware.update_current_label(property_type);
         if (!Player.hardware[property_type].next) {
             Interface.hardware.disable_button(button_id);
         }
@@ -59,50 +79,29 @@ Player.hardware = {
 };
 
 function buy_hardware_button_click_handler(event) {
-    console.log("good", this.name, event.target)
     Player.hardware.buy_hardware(this.name, event.target);
 }
 
 function buy_hardware_button_mouseenter_handler() {
     Interface.hardware.update_price_label(this.name);
+    Interface.hardware.update_current_label(this.name);
 }
 
 function buy_hardware_button_mouseleave_handler() {
     Interface.hardware.reset_price_label();
-}
-
-function buy_all_button_click_handler() {
-    Player["status"].add_money(9999);
-    for (const hardware_type of Player.hardware.get_attributes()) {
-        for (let step = 0; step < World["hardware"][hardware_type].length; step++) {
-            let button = $(`#buy_${hardware_type}_button`).get()[0];
-            Player.hardware.buy_hardware(hardware_type, button);
-        }
-    }
+    Interface.hardware.reset_current_label();
 }
 
 function hardware_panel_setup() {
-    $(
-        "#buy_CPU_button, " +
-        "#buy_monitor_button, " +
-        "#buy_printer_button, " +
-        "#buy_scanner_button, " +
-        "#buy_modem_button, " +
-        "#buy_HDD_button, " +
-        "#buy_CDROM_button, " +
-        "#buy_RAM_button, " +
-        "#buy_sound_card_button, " +
-        "#buy_video_card_button"
-    ).on({
+    $price_label = $("#hardware_panel_price_label");
+    $current_label = $("#hardware_panel_current_label");
+
+    $(".hardware_buttons_list button").on({
         click: buy_hardware_button_click_handler,
         mouseenter: buy_hardware_button_mouseenter_handler,
         mouseleave: buy_hardware_button_mouseleave_handler
     });
-    $("#buy_all_button").on({
-        click: buy_all_button_click_handler
-    });
     Interface.hardware.update_all();
-
 }
 
 export {

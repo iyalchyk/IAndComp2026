@@ -2,26 +2,39 @@ import {
     World, Player, Interface
 } from "../global.js"
 
+const housingDescriptions = {
+    apartment: "Квартира — ваш дом. Улучшайте жилплощадь от однокомнатной до дворца!",
+    furniture: "Мебель — обустройте квартиру, чтобы жить с комфортом.",
+    kitchen: "Кухня — от маленькой до сверхкомфортной. Готовьте с удовольствием!",
+    bathroom: "Ванная — от ведра до бассейна. Роскошь начинается с малого."
+};
+
+const defaultHousingDescription = "Покупайте и обустраивайте вашу квартиру. Улучшайте мебель, кухню и ванную для комфортной жизни.";
+
 Interface.housing = {
     update_view_apartment: function () {
         let property = Player.housing["apartment"];
         let label = property ? property["short_desc"] : World["interface"]["no_property"];
         $("#apartment").text(label);
+        $("#housing_panel_apartment_label").text(property ? property["long_desc"] : "Нет");
     },
     update_view_furniture: function () {
         let property = Player.housing["furniture"];
         let label = property ? property["short_desc"] : World["interface"]["no_property"];
         $("#furniture").text(label);
+        $("#housing_panel_furniture_label").text(property ? property["long_desc"] : "Нет");
     },
     update_view_kitchen: function () {
         let property = Player.housing["kitchen"];
         let label = property ? property["short_desc"] : World["interface"]["no_property"];
         $("#kitchen").text(label);
+        $("#housing_panel_kitchen_label").text(property ? property["long_desc"] : "Нет");
     },
     update_view_bathroom: function () {
         let apartment = Player.housing["bathroom"];
         let label = apartment ? apartment["short_desc"] : World["interface"]["no_property"];
         $("#bathroom").text(label);
+        $("#housing_panel_bathroom_label").text(apartment ? apartment["long_desc"] : "Нет");
     },
     update_all: function () {
         this.update_view_apartment();
@@ -44,16 +57,24 @@ Interface.housing = {
     show_preview: function (property_type) {
         let property_obj = Player.housing[property_type];
         let next_property_obj = property_obj ? property_obj.next : World["housing"][property_type][0];
-        if (next_property_obj) {
-            $("#housing_preview_desc").text(next_property_obj["long_desc"]);
-            if (next_property_obj["image"]) {
-                $("#housing_preview_image").attr("src", next_property_obj["image"]);
-            }
+        if (next_property_obj && next_property_obj["image"]) {
+            $("#housing_preview_image").attr("src", next_property_obj["image"]);
         }
     },
     reset_preview: function () {
-        $("#housing_preview_image").attr("src", "assets/images/housing/store.svg");
-        $("#housing_preview_desc").text("Покупайте и обустраивайте вашу квартиру");
+        $("#housing_preview_image").attr("src", "/assets/images/housing/store.svg");
+    },
+    update_desc: function (property_type) {
+        let property_obj = Player.housing[property_type];
+        let next_property_obj = property_obj ? property_obj.next : World["housing"][property_type][0];
+        let desc = housingDescriptions[property_type] || defaultHousingDescription;
+        if (next_property_obj) {
+            desc += " Следующая покупка: " + next_property_obj["long_desc"] + ".";
+        }
+        $("#housing_preview_desc").text(desc);
+    },
+    reset_desc: function () {
+        $("#housing_preview_desc").text(defaultHousingDescription);
     }
 };
 
@@ -107,11 +128,13 @@ function buy_housing_button_click_handler(event) {
 function buy_housing_button_mouseenter_handler() {
     Interface.housing.update_price_label(this.name);
     Interface.housing.show_preview(this.name);
+    Interface.housing.update_desc(this.name);
 }
 
 function buy_housing_button_mouseleave_handler() {
     Interface.housing.reset_price_label();
     Interface.housing.reset_preview();
+    Interface.housing.reset_desc();
 }
 
 function housing_panel_setup() {

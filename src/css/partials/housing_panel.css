@@ -4,57 +4,117 @@
     width: 100%;
     height: 438px;
     display: block;
-    background: url('/assets/images/housing/background.svg') no-repeat center top;
-    background-size: cover;
+    background-color: #c0c0c0;
+}
+
+.housing_main {
+    padding: 8px;
 }
 
 .housing_layout {
     display: flex;
-    padding: 8px;
-    gap: 10px;
-    width: 490px;
+    gap: 8px;
 }
 
-.housing_buttons_col {
+.housing_left_col {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 8px;
+    width: 370px;
     flex-shrink: 0;
 }
 
-.housing_buttons_col button {
-    width: 100%;
-}
-
-.housing_preview_col {
+.housing_right_col {
     flex: 1;
     display: flex;
     flex-direction: column;
+}
+
+.housing_section fieldset {
+    margin: 0;
+}
+
+.housing_section legend {
+    color: #0000c0;
+    font-weight: bold;
+}
+
+.housing_shop_layout {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+.housing_shop_image {
+    width: 120px;
+    height: 110px;
+    border: 2px inset #808080;
+    background-color: #e8eef7;
+    display: flex;
     align-items: center;
-    gap: 4px;
+    justify-content: center;
+    flex-shrink: 0;
 }
 
-#housing_preview_image {
-    width: 200px;
-    height: 150px;
+.housing_shop_image img {
+    max-width: 100%;
+    max-height: 100%;
     object-fit: contain;
-    border: 1px solid #888;
-    background: #e8eef7;
-    display: block;
 }
 
-#housing_preview_desc {
-    font-size: 14px;
-    font-weight: bold;
-    color: black;
-    text-align: center;
-    padding: 4px;
-    min-height: 40px;
+.housing_shop_buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    flex: 1;
 }
 
-#housing_panel .price_box {
-    font-size: 14px;
+.housing_shop_buttons button {
+    width: 100%;
+}
+
+.housing_price .field-row label:first-child {
     font-weight: bold;
-    color: black;
-    text-align: center;
+}
+
+.housing_price .field-row label:last-child {
+    font-weight: bold;
+    color: #c00000;
+}
+
+.housing_desc_box {
+    background-color: #ffffff;
+    border: 2px inset #808080;
+    padding: 10px;
+    min-height: 100px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.housing_desc_box label {
+    font-style: italic;
+    font-size: 13px;
+    color: #333;
+}
+
+.housing_inventory {
+    padding: 0;
+    margin-top: 8px;
+}
+
+.housing_inventory fieldset {
+    background-color: #d8dff0;
+}
+
+.housing_inventory legend {
+    color: #00008b;
+    font-weight: bold;
+}
+
+.housing_inventory .field-row {
+    margin: 2px 0;
+}
+
+.housing_inventory .field-row label:first-child {
+    font-weight: bold;
 }

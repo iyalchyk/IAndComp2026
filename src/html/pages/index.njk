@@ -50,6 +50,39 @@
     {% include "partials/software_panel.html" %}
     {% include "partials/buttons_panel.html" %}
     <button id="home_button">Вернуться</button>
+    <div id="taxi_court_dialog" class="confirm_dialog_overlay" style="display: none;">
+        <div class="confirm_dialog">
+            <div class="title-bar">
+                <div class="title-bar-text">Суд?</div>
+            </div>
+            <div class="confirm_dialog_body">
+                <p>Ваш адвокат предлагает вам подать в суд на таксиста.</p>
+                <p>Если вы выиграете на суде, то сможете получить компенсацию за ущерб.</p>
+                <p>Если же вы проиграете, то, возможно, вам придётся заплатить штраф за беспокойство суда.</p>
+                <p><b>Желаете ли вы подать в суд на таксиста?</b></p>
+            </div>
+            <div class="confirm_dialog_buttons">
+                <button id="taxi_court_yes">Да</button>
+                <button id="taxi_court_no">Нет</button>
+            </div>
+        </div>
+    </div>
+    <div id="bank_taxi_dialog" class="confirm_dialog_overlay" style="display: none;">
+        <div class="confirm_dialog">
+            <div class="title-bar">
+                <div class="title-bar-text">Требуется машина</div>
+            </div>
+            <div class="confirm_dialog_body">
+                <p>Банк — это отличный способ сохранения и накопления денег. К сожалению, банк находится далеко от вашего дома и без машины вам не удастся доехать до него.</p>
+                <p>Но вы можете взять такси за 10$ и доехать до банка, либо купить собственную машину в магазине.</p>
+                <p><b>Хотите ли вы взять такси за 10$ и доехать до банка?</b></p>
+            </div>
+            <div class="confirm_dialog_buttons">
+                <button id="bank_taxi_yes">Да</button>
+                <button id="bank_taxi_no">Нет</button>
+            </div>
+        </div>
+    </div>
     <div id="global_dialog" class="confirm_dialog_overlay" style="display: none;">
         <div class="confirm_dialog">
             <div class="title-bar">

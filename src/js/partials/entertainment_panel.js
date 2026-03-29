@@ -44,6 +44,10 @@ Player.entertainment = {
         let entertainment_obj = World["entertainment"][entertainment_type];
         let entertainment_price = entertainment_obj["price"];
         let entertainment_mood = entertainment_obj["mood"];
+        if (Player["status"].mood > 150) {
+            Interface.show_dialog("Не хочу идти на дискотеку!", "Вы уже распухли от радости.");
+            return;
+        }
         if (Player["status"].money < entertainment_price) {
             Interface.status.alert_no_money();
             return;

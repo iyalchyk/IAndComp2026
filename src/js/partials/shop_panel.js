@@ -93,6 +93,10 @@ Player.shop = {
         let food_obj = World["shop"][food_type];
         let food_price = food_obj["price"];
         let food_satiety = food_obj["satiety"];
+        if (Player["status"].satiety > 100) {
+            Interface.show_dialog("Не хочу есть!", "Вы уже распухли от еды и не можете впихнуть в себя ещё.");
+            return;
+        }
         if (Player["status"].money < food_price) {
             Interface.status.alert_no_money();
             return;

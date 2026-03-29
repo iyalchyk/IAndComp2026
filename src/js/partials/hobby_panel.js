@@ -149,7 +149,8 @@ Player.hobby = {
             $("#bus_confirm_dialog").show();
             return;
         }
-        Player.hobby.start_fishing(fishing_price);
+        // Player has a car — ask to buy gas
+        $("#gas_confirm_dialog").show();
     },
     start_fishing: function(fishing_price) {
         Player["status"].subtract_money(fishing_price);
@@ -320,6 +321,20 @@ function hobby_panel_setup() {
     });
     $("#bus_confirm_no").on("click", function() {
         $("#bus_confirm_dialog").hide();
+    });
+    $("#gas_confirm_yes").on("click", function() {
+        $("#gas_confirm_dialog").hide();
+        let fishing_price = World["hobby"].fishing["price"];
+        let gas_price = 5;
+        if (Player["status"].money < fishing_price + gas_price) {
+            Interface.status.alert_no_money();
+            return;
+        }
+        Player["status"].subtract_money(gas_price);
+        Player.hobby.start_fishing(fishing_price);
+    });
+    $("#gas_confirm_no").on("click", function() {
+        $("#gas_confirm_dialog").hide();
     });
     Interface.hobby.update_all();
 }

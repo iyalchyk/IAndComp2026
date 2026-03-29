@@ -296,13 +296,16 @@
   },
   "hobby": {
     "groundbait": {
-      "price": 8
+      "price": 8,
+      "image": "assets/images/hobby/hobby_groundbait.png"
     },
     "fishing_rod": {
-      "price": 30
+      "price": 30,
+      "image": "assets/images/hobby/hobby_fishing_rod.png"
     },
     "fishing_tackle": {
-      "price": 20
+      "price": 20,
+      "image": "assets/images/hobby/hobby_fishing_tackle.png"
     },
     "fishing": {
       "price": 10

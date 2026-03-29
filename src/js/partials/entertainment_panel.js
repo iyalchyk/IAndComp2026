@@ -370,7 +370,6 @@ function arcanoid_update() {
             a.ballDY = -a.ballDY;
         } else {
             // Ball hit the floor - lose
-            a.running = false;
             a.lost = true;
             arcanoid_end(false);
             return;

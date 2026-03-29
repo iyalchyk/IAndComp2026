@@ -28,29 +28,11 @@ Interface.education = {
         let cur_level_label = level_labels[Player.education[activity_id].level];
         $(`#${activity_id}_level`).text(cur_level_label);
     },
-    update_education_status_labels: function() {
-        for (const activity_id of Player.education.get_attributes()) {
-            let level_labels = World["education"][activity_id]["descriptions"];
-            let cur_level = level_labels[Player.education[activity_id].level];
-            let attendance = Player.education[activity_id].is_attending;
-            let finished = Player.education[activity_id].is_finished;
-            let status;
-            if (finished) {
-                status = cur_level + " (Закончил)";
-            } else if (attendance) {
-                status = cur_level + " (Посещаю)";
-            } else {
-                status = cur_level;
-            }
-            $(`#${activity_id}_education_status_label`).text(status);
-        }
-    },
     update_all: function() {
         for (const activity_id of Player.education.get_attributes()) {
             this.update_view_activity_status(activity_id);
             this.update_view_activity_level(activity_id);
         }
-        this.update_education_status_labels();
     },
     update_price_label: function(activity_id) {
         let acitivity_obj = World["education"][activity_id];
@@ -118,7 +100,6 @@ Player.education = {
     toggle_activity: function(activity_id, attendance_flag) {
         this[activity_id].is_attending = attendance_flag;
         Interface.education.update_view_activity_status(activity_id);
-        Interface.education.update_education_status_labels();
     },
     incr_activity_experience: function(activity_id) {
         this[activity_id].experience += 1;
@@ -137,7 +118,6 @@ Player.education = {
             Interface.education.alert_new_level(activity_id);
         }
         Interface.education.update_view_activity_level(activity_id);
-        Interface.education.update_education_status_labels();
     },
     go_education: function(activity_id) {
         let is_attending = Player.education[activity_id].is_attending;

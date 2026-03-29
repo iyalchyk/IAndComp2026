@@ -25,12 +25,12 @@ Interface.status = {
         $("#home_button").hide();
     },
     alert_no_money: function() {
-        $("#no_money_dialog").show();
+        Interface.show_dialog("Внимание", "У вас не хватает денег на это");
     }
 };
 
 Player.status = {
-    money: 16000,
+    money: 160,
     mood: 30,
     satiety: 30,
     get_attributes: function() {
@@ -43,22 +43,20 @@ Player.status = {
     set_mood: function(mood) {
         this.mood = mood;
         Interface.status.update_view_mood();
-        // if (this.mood <= -40) {
-        //     alert("+СМЕРТЬ+\n\nК сожалению, вы умерли от тоски.");
-        //     location.reload();
-        // } else if (this.mood <= -30) {
-        //     alert("ОПАСНОСТЬ!!!\n\nВнимание опасность! Вам необходимо развлечся. ВНИМАНИЕ: если ваше настроение достигнет -40, тогда вас постигнет любая смерть!!!");
-        // }
+        if (this.mood <= -40) {
+            Interface.show_dialog("+СМЕРТЬ+", "К сожалению, вы умерли от тоски.", function() { location.reload(); });
+        } else if (this.mood <= -30) {
+            Interface.show_dialog("ОПАСНОСТЬ!!!", "Внимание опасность! Вам необходимо развлечся. ВНИМАНИЕ: если ваше настроение достигнет -40, тогда вас постигнет любая смерть!!!");
+        }
     },
     set_satiety: function(satiety) {
         this.satiety = satiety;
         Interface.status.update_view_satiety();
-        // if (this.mood <= -30) {
-        //     alert("+СМЕРТЬ+\n\nК сожалению, вы умерли от голода.");
-        //     location.reload();
-        // } else if (this.satiety <= -20) {
-        //     alert("ОПАСНОСТЬ!!!\n\nВнимание опасность голода! Вам необходимо сходить в Бытовой магазин и поесть вдоволь. ВНИМАНИЕ: если ваше состояние сытости достигнет -30, тогда вам постигнет лютая смерть!!!");
-        // }
+        if (this.satiety <= -30) {
+            Interface.show_dialog("+СМЕРТЬ+", "К сожалению, вы умерли от голода.", function() { location.reload(); });
+        } else if (this.satiety <= -20) {
+            Interface.show_dialog("ОПАСНОСТЬ!!!", "Внимание опасность голода! Вам необходимо сходить в Бытовой магазин и поесть вдоволь. ВНИМАНИЕ: если ваше состояние сытости достигнет -30, тогда вам постигнет лютая смерть!!!");
+        }
     },
     add_money: function(money_diff) {
         this.set_money(this.money + money_diff);
@@ -96,8 +94,12 @@ function status_panel_setup() {
     $("#home_button").on({
         click: Interface.status.activate_status_panel
     });
-    $("#no_money_dialog_ok").on("click", function() {
-        $("#no_money_dialog").hide();
+    $("#global_dialog_ok").on("click", function() {
+        $("#global_dialog").hide();
+        if (Interface._dialog_callback) {
+            Interface._dialog_callback();
+            Interface._dialog_callback = null;
+        }
     });
     Interface.status.update_all();
     Interface.status.activate_status_panel();

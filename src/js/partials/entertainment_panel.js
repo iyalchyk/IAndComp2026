@@ -115,11 +115,11 @@ function start_roulette() {
     let bet = parseInt($rouletteBetInput.val());
 
     if (isNaN(playerNumber) || playerNumber < 0 || playerNumber > 13) {
-        alert("Введите число от 0 до 13!");
+        Interface.show_dialog("Рулетка", "Введите число от 0 до 13!");
         return;
     }
     if (isNaN(bet) || bet < 1) {
-        alert("Введите ставку!");
+        Interface.show_dialog("Рулетка", "Введите ставку!");
         return;
     }
     if (Player["status"].money < bet) {
@@ -258,7 +258,7 @@ function spin_slot_machine() {
             let payout = get_slot_payout(finalReels[0], finalReels[1], finalReels[2]);
             if (payout > 0) {
                 Player["status"].add_money(payout);
-                alert("Вы выиграли " + payout + "$!");
+                Interface.show_dialog("Автомат", "Вы выиграли " + payout + "$!");
             }
 
             $slotBuyButton.prop("disabled", false);
@@ -408,11 +408,11 @@ function arcanoid_end(won) {
     if (won) {
         Player["status"].add_money(35);
         Player["status"].add_mood(20);
-        alert("Вы продержались! Вы получаете 35$ и настроение улучшилось!");
+        Interface.show_dialog("Арканоид", "Вы продержались! Вы получаете 35$ и настроение улучшилось!");
     } else {
         Player["status"].subtract_money(20);
         Player["status"].add_mood(-8);
-        alert("Мяч коснулся пола! Вы теряете 20$ и настроение ухудшилось.");
+        Interface.show_dialog("Арканоид", "Мяч коснулся пола! Вы теряете 20$ и настроение ухудшилось.");
     }
 
     $arcanoidStartButton.prop("disabled", false);

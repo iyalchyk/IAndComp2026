@@ -136,6 +136,7 @@ Player.job = {
             let job_requirement_val = job_requirements[job_requirement_key];
             let job_requirement_status = Player.check_requirement(job_requirement_key, job_requirement_val);
             if (!job_requirement_status) {
+                Interface.show_dialog("Не соответствуете требованиям", "Вы не соответствуете требованиям для этой вакансии");
                 return;
             }
         }

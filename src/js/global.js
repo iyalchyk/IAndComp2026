@@ -27,6 +27,14 @@ let Player = {
 
 let Interface = {
     // data is provided by partials
+
+    _dialog_callback: null,
+    show_dialog: function(title, text, callback) {
+        $("#global_dialog_title").text(title);
+        $("#global_dialog_text").text(text);
+        this._dialog_callback = callback || null;
+        $("#global_dialog").show();
+    }
 };
 
 export {

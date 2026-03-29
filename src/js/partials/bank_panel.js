@@ -21,7 +21,7 @@ Interface.bank = {
         return parseInt($get_input.val());
     },
     alert_no_money: function() {
-        $("#no_money_dialog").show();
+        Interface.show_dialog("Внимание", "У вас не хватает денег на счету");
     }
 };
 

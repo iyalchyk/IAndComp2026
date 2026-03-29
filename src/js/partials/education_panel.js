@@ -68,10 +68,10 @@ Interface.education = {
         $("#education_desc_label").text(defaultDescription);
     },
     alert_max_level: function(activity_id) {
-        alert("You reached maximum level in " + activity_id);
+        Interface.show_dialog("Обучение", "Вы достигли максимального уровня!");
     },
     alert_new_level: function(activity_id) {
-        alert("You got a new level in " + activity_id);
+        Interface.show_dialog("Обучение", "Вы получили новый уровень!");
     }
 };
 

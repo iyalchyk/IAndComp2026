@@ -50,16 +50,16 @@
     {% include "partials/software_panel.html" %}
     {% include "partials/buttons_panel.html" %}
     <button id="home_button">Вернуться</button>
-    <div id="no_money_dialog" class="confirm_dialog_overlay" style="display: none;">
+    <div id="global_dialog" class="confirm_dialog_overlay" style="display: none;">
         <div class="confirm_dialog">
             <div class="title-bar">
-                <div class="title-bar-text">Внимание</div>
+                <div class="title-bar-text" id="global_dialog_title"></div>
             </div>
             <div class="confirm_dialog_body">
-                <p>У вас не хватает денег на это</p>
+                <p id="global_dialog_text"></p>
             </div>
             <div class="confirm_dialog_buttons">
-                <button id="no_money_dialog_ok">OK</button>
+                <button id="global_dialog_ok">OK</button>
             </div>
         </div>
     </div>

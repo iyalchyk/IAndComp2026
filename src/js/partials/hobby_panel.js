@@ -66,10 +66,10 @@ Interface.hobby = {
         $("#hobby_desc_label").text(defaultDescription);
     },
     alert_no_fishing_rod: function() {
-        alert("У вас нет удочки!");
+        Interface.show_dialog("Внимание", "У вас нет удочки!");
     },
     alert_no_fishing_tackle: function() {
-        alert("У вас нет снастей!");
+        Interface.show_dialog("Внимание", "У вас нет снастей!");
     }
 };
 

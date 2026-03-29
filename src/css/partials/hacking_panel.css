@@ -1,0 +1,65 @@
+#hacking_panel {
+    position: absolute;
+    top: 77px;
+    width: 100%;
+    height: 438px;
+    display: block;
+    background-color: #c0c0c0;
+}
+
+.hacking_layout {
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    gap: 8px;
+}
+
+.hacking_header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.hacking_controls {
+    display: flex;
+    gap: 8px;
+}
+
+.hacking_controls button {
+    padding: 2px 12px;
+}
+
+.hacking_task_box {
+    background-color: #ffffff;
+    border: 2px inset #808080;
+    padding: 8px;
+    min-height: 120px;
+    overflow-y: auto;
+}
+
+.hacking_task_box label {
+    font-weight: bold;
+    white-space: pre-line;
+}
+
+#hacking_progress_container {
+    width: 100%;
+    height: 20px;
+    border: 2px inset #808080;
+    background-color: #ffffff;
+}
+
+#hacking_progress_bar {
+    height: 100%;
+    width: 0%;
+    background-color: #000080;
+}
+
+.hacking_back {
+    margin-top: auto;
+    padding-top: 8px;
+}
+
+.hacking_back button {
+    padding: 2px 12px;
+}

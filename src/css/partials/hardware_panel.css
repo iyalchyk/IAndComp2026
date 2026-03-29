@@ -57,6 +57,39 @@
     margin-left: 8px;
 }
 
+.hardware_image_box {
+    width: 120px;
+    height: 90px;
+    border: 2px inset #808080;
+    background-color: #e8eef7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-end;
+    flex-shrink: 0;
+}
+
+.hardware_image_box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.hardware_desc_box {
+    background-color: #ffffff;
+    border: 2px inset #808080;
+    padding: 10px;
+    min-height: 60px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.hardware_desc_box label {
+    font-style: italic;
+    font-size: 13px;
+    color: #333;
+}
+
 .hardware_info_section .field-row {
     margin: 2px 0;
 }

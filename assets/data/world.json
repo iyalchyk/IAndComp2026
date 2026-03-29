@@ -550,220 +550,300 @@
       {
         "level": 1,
         "price": 15,
-        "description": "Intel 486"
+        "short_desc": "25 MHz",
+        "long_desc": "Intel i486DX 25MHz SX328",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Intel_i486_DX_25MHz_SX328.jpg/500px-Intel_i486_DX_25MHz_SX328.jpg"
       },
       {
         "level": 2,
         "price": 20,
-        "description": "Pentium 166"
+        "short_desc": "166 MHz",
+        "long_desc": "Pentium 166",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/KL_Intel_Pentium_MMX.jpg/500px-KL_Intel_Pentium_MMX.jpg"
       },
       {
         "level": 3,
         "price": 30,
-        "description": "Pentium 233 MMX"
+        "short_desc": "233 MHz",
+        "long_desc": "Pentium 233 MMX",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Intel_Pentium_MMX_166_PGA_Front.jpg/500px-Intel_Pentium_MMX_166_PGA_Front.jpg"
       },
       {
         "level": 4,
         "price": 45,
-        "description": "Pentium II 650"
+        "short_desc": "650 MHz",
+        "long_desc": "Pentium II 650",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Pentium_II_300_Deschutes_-_SL2W8-4428.jpg/960px-Pentium_II_300_Deschutes_-_SL2W8-4428.jpg"
       },
       {
         "level": 5,
         "price": 55,
-        "description": "Pentium III 800"
+        "short_desc": "800 MHz",
+        "long_desc": "Pentium III 800",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Pentium_III_-_SL3ND_-_Slot_1-8546.jpg/960px-Pentium_III_-_SL3ND_-_Slot_1-8546.jpg"
       },
       {
         "level": 6,
         "price": 70,
-        "description": "Pentium IV"
+        "short_desc": "",
+        "long_desc": "Pentium IV",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Pentium_4-2%2C4GHz.JPG/960px-Pentium_4-2%2C4GHz.JPG"
       }
     ],
     "monitor": [
       {
         "level": 1,
         "price": 15,
-        "description": "14\""
+        "short_desc": "14\"",
+        "long_desc": "Samtron SC-428PLT 14\"",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Samtron_SC-428PLT_observe.jpg/960px-Samtron_SC-428PLT_observe.jpg"
       },
       {
         "level": 2,
         "price": 30,
-        "description": "15\""
+        "short_desc": "15\"",
+        "long_desc": "Samsung SyncMaster 500s 15\"",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Smaky-130--Museum-Enter-6094717_%28SyncMaster_crop%29.jpg/500px-Smaky-130--Museum-Enter-6094717_%28SyncMaster_crop%29.jpg"
       },
       {
         "level": 3,
         "price": 45,
-        "description": "17\""
+        "short_desc": "17\"",
+        "long_desc": "LG Studioworks 700S 17\"",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/LG_Monitor.jpg/960px-LG_Monitor.jpg"
       }
     ],
     "printer": [
       {
         "level": 1,
         "price": 11,
-        "description": "матричный"
+        "short_desc": "матричный",
+        "long_desc": "STAR LC-10 Dot Matrix Impact Printer",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Star-LC-10-printer-01.jpg/500px-Star-LC-10-printer-01.jpg"
       },
       {
         "level": 2,
         "price": 30,
-        "description": "струйный"
+        "short_desc": "струйный",
+        "long_desc": "Epson PM-700C",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Epson_PM-700C.jpg/960px-Epson_PM-700C.jpg"
       },
       {
         "level": 3,
         "price": 40,
-        "description": "лазерный"
+        "short_desc": "лазерный",
+        "long_desc": "KYOCERA FS-1110",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/2/2a/KYOCERA_FS-1110.jpg"
       }
     ],
     "scanner": [
       {
         "level": 1,
         "price": 20,
-        "description": "ручной"
+        "short_desc": "ручной",
+        "long_desc": "GeniScan GS4500",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Handscanner-platine.jpg"
       },
       {
         "level": 2,
         "price": 30,
-        "description": "планшетный"
+        "short_desc": "планшетный",
+        "long_desc": "Epson Perfection V330",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Epson_Perfection_V330_Photo-7858.jpg/500px-Epson_Perfection_V330_Photo-7858.jpg"
       }
     ],
     "modem": [
       {
         "level": 1,
         "price": 10,
-        "description": "36.6"
+        "short_desc": "36.6",
+        "long_desc": "36.6",
+        "image": ""
       },
       {
         "level": 2,
         "price": 15,
-        "description": "56k"
+        "short_desc": "56k",
+        "long_desc": "56k",
+        "image": ""
       },
       {
         "level": 3,
         "price": 20,
-        "description": "V90"
+        "short_desc": "V90",
+        "long_desc": "V90",
+        "image": ""
       }
     ],
     "HDD": [
       {
         "level": 1,
         "price": 10,
-        "description": "10 Gb"
+        "short_desc": "10 Gb",
+        "long_desc": "10 Gb",
+        "image": ""
       },
       {
         "level": 2,
         "price": 15,
-        "description": "20 Gb"
+        "short_desc": "20 Gb",
+        "long_desc": "20 Gb",
+        "image": ""
       },
       {
         "level": 3,
         "price": 20,
-        "description": "30 Gb"
+        "short_desc": "30 Gb",
+        "long_desc": "30 Gb",
+        "image": ""
       },
       {
         "level": 4,
         "price": 30,
-        "description": "40 Gb"
+        "short_desc": "40 Gb",
+        "long_desc": "40 Gb",
+        "image": ""
       },
       {
         "level": 5,
         "price": 40,
-        "description": "50 Gb"
+        "short_desc": "50 Gb",
+        "long_desc": "50 Gb",
+        "image": ""
       },
       {
         "level": 6,
         "price": 50,
-        "description": "60 Gb"
+        "short_desc": "60 Gb",
+        "long_desc": "60 Gb",
+        "image": ""
       }
     ],
     "CDROM": [
       {
         "level": 1,
         "price": 10,
-        "description": "16x Speed"
+        "short_desc": "16x Speed",
+        "long_desc": "16x Speed",
+        "image": ""
       },
       {
         "level": 2,
         "price": 15,
-        "description": "32x Speed"
+        "short_desc": "32x Speed",
+        "long_desc": "32x Speed",
+        "image": ""
       },
       {
         "level": 3,
         "price": 20,
-        "description": "40x Speed"
+        "short_desc": "40x Speed",
+        "long_desc": "40x Speed",
+        "image": ""
       },
       {
         "level": 4,
         "price": 30,
-        "description": "48x Speed"
+        "short_desc": "48x Speed",
+        "long_desc": "48x Speed",
+        "image": ""
       },
       {
         "level": 5,
         "price": 40,
-        "description": "56x Speed"
+        "short_desc": "56x Speed",
+        "long_desc": "56x Speed",
+        "image": ""
       }
     ],
     "RAM": [
       {
         "level": 1,
         "price": 10,
-        "description": "32 Mb"
+        "short_desc": "32 Mb",
+        "long_desc": "32 Mb",
+        "image": ""
       },
       {
         "level": 2,
         "price": 15,
-        "description": "64 Mb"
+        "short_desc": "64 Mb",
+        "long_desc": "64 Mb",
+        "image": ""
       },
       {
         "level": 3,
         "price": 20,
-        "description": "128 Mb"
+        "short_desc": "128 Mb",
+        "long_desc": "128 Mb",
+        "image": ""
       },
       {
         "level": 4,
         "price": 30,
-        "description": "256 Mb"
+        "short_desc": "256 Mb",
+        "long_desc": "256 Mb",
+        "image": ""
       },
       {
         "level": 5,
         "price": 40,
-        "description": "512 Mb"
+        "short_desc": "512 Mb",
+        "long_desc": "512 Mb",
+        "image": ""
       }
     ],
     "sound_card": [
       {
         "level": 1,
         "price": 10,
-        "description": "16 KHz"
+        "short_desc": "16 KHz",
+        "long_desc": "16 KHz",
+        "image": ""
       },
       {
         "level": 2,
         "price": 20,
-        "description": "22 KHz"
+        "short_desc": "22 KHz",
+        "long_desc": "22 KHz",
+        "image": ""
       },
       {
         "level": 3,
         "price": 30,
-        "description": "44 KHz"
+        "short_desc": "44 KHz",
+        "long_desc": "44 KHz",
+        "image": ""
       }
     ],
     "video_card": [
       {
         "level": 1,
         "price": 10,
-        "description": "8 Mb S3 Savage 4"
+        "short_desc": "8 Mb",
+        "long_desc": "8 Mb S3 Savage 4",
+        "image": ""
       },
       {
         "level": 2,
         "price": 20,
-        "description": "16 Mb Riva TNT"
+        "short_desc": "16 Mb",
+        "long_desc": "16 Mb Riva TNT",
+        "image": ""
       },
       {
         "level": 3,
         "price": 30,
-        "description": "32 Mb GeForce 2"
+        "short_desc": "32 Mb",
+        "long_desc": "32 Mb GeForce 2",
+        "image": ""
       },
       {
         "level": 4,
         "price": 70,
-        "description": "64 Mb GeForce 2 MX"
+        "short_desc": "64 Mb",
+        "long_desc": "64 Mb GeForce 2 MX",
+        "image": ""
       }
     ]
   },

@@ -4,11 +4,13 @@ import {
 
 let $price_label;
 let $current_label;
+let $desc_label;
+let $shop_image;
 
 Interface.hardware = {
     update_view_hardware: function(hardware_type) {
         let hardware_obj = Player.hardware[hardware_type];
-        let hardware_description = hardware_obj ? hardware_obj["description"] : World["interface"]["no_property"];
+        let hardware_description = hardware_obj ? hardware_obj["short_desc"] : World["interface"]["no_property"];
         $(`#${hardware_type}`).text(hardware_description);
     },
     update_all: function () {
@@ -23,7 +25,7 @@ Interface.hardware = {
     update_button_desc: function (property_type) {
         let cur = Player.hardware[property_type];
         let next = cur ? cur.next : World["hardware"][property_type][0];
-        let desc = next ? next["description"] : "—";
+        let desc = next ? next["short_desc"] : "—";
         $(`#hw_desc_${property_type}`).text(desc);
     },
     update_price_label: function (property_type) {
@@ -37,11 +39,35 @@ Interface.hardware = {
     },
     update_current_label: function (property_type) {
         let cur = Player.hardware[property_type];
-        let current = cur ? cur["description"] : "нет";
+        let current = cur ? cur["short_desc"] : "нет";
         $current_label.text(current);
     },
     reset_current_label: function () {
         $current_label.text("-");
+    },
+    update_desc: function (property_type) {
+        let cur = Player.hardware[property_type];
+        let next = cur ? cur.next : World["hardware"][property_type][0];
+        if (next && next["long_desc"]) {
+            $desc_label.text(next["long_desc"]);
+        } else {
+            $desc_label.text("");
+        }
+    },
+    reset_desc: function () {
+        $desc_label.text("");
+    },
+    update_image: function (property_type) {
+        let cur = Player.hardware[property_type];
+        let next = cur ? cur.next : World["hardware"][property_type][0];
+        if (next && next["image"]) {
+            $shop_image.attr("src", next["image"]);
+        } else {
+            $shop_image.attr("src", "");
+        }
+    },
+    reset_image: function () {
+        $shop_image.attr("src", "");
     }
 };
 
@@ -72,6 +98,8 @@ Player.hardware = {
         Interface.hardware.update_button_desc(property_type);
         Interface.hardware.update_price_label(property_type);
         Interface.hardware.update_current_label(property_type);
+        Interface.hardware.update_desc(property_type);
+        Interface.hardware.update_image(property_type);
         if (!Player.hardware[property_type].next) {
             Interface.hardware.disable_button(button_id);
         }
@@ -85,16 +113,22 @@ function buy_hardware_button_click_handler(event) {
 function buy_hardware_button_mouseenter_handler() {
     Interface.hardware.update_price_label(this.name);
     Interface.hardware.update_current_label(this.name);
+    Interface.hardware.update_desc(this.name);
+    Interface.hardware.update_image(this.name);
 }
 
 function buy_hardware_button_mouseleave_handler() {
     Interface.hardware.reset_price_label();
     Interface.hardware.reset_current_label();
+    Interface.hardware.reset_desc();
+    Interface.hardware.reset_image();
 }
 
 function hardware_panel_setup() {
     $price_label = $("#hardware_panel_price_label");
     $current_label = $("#hardware_panel_current_label");
+    $desc_label = $("#hardware_desc_label");
+    $shop_image = $("#hardware_shop_image");
 
     $(".hardware_buttons_list button").on({
         click: buy_hardware_button_click_handler,

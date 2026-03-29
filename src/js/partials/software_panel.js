@@ -29,7 +29,7 @@ function get_requirement_desc(key, level) {
     let data = World["hardware"][key];
     if (Array.isArray(data)) {
         let item = data.find(i => i.level === level);
-        return item ? item.description : level;
+        return item ? item.short_desc : level;
     }
     return level;
 }

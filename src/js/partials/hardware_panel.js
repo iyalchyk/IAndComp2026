@@ -107,7 +107,7 @@ Player.hardware = {
 };
 
 function buy_hardware_button_click_handler(event) {
-    Player.hardware.buy_hardware(this.name, event.target);
+    Player.hardware.buy_hardware(this.name, this);
 }
 
 function buy_hardware_button_mouseenter_handler() {

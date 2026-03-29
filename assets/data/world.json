@@ -585,8 +585,8 @@
       {
         "level": 6,
         "price": 70,
-        "short_desc": "",
-        "long_desc": "Pentium IV",
+        "short_desc": "2.4 GHz",
+        "long_desc": "Pentium IV 2.4 GHz",
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Pentium_4-2%2C4GHz.JPG/960px-Pentium_4-2%2C4GHz.JPG"
       }
     ],
@@ -656,104 +656,104 @@
       {
         "level": 1,
         "price": 10,
-        "short_desc": "36.6",
-        "long_desc": "36.6",
-        "image": ""
+        "short_desc": "33.6",
+        "long_desc": "US Robotics Sportster Voice 33.6 Faxmodem",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/a/a6/US_Robotics_33.6K_Modem_Front.JPG"
       },
       {
         "level": 2,
         "price": 15,
         "short_desc": "56k",
-        "long_desc": "56k",
-        "image": ""
+        "long_desc": "Trust Communicator 56K ESP-2",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Analog_Modem_56K.jpg/960px-Analog_Modem_56K.jpg"
       },
       {
         "level": 3,
         "price": 20,
         "short_desc": "V90",
-        "long_desc": "V90",
-        "image": ""
+        "long_desc": "Creatix V90",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Modem_creatix_front.jpg"
       }
     ],
     "HDD": [
       {
         "level": 1,
         "price": 10,
-        "short_desc": "10 Gb",
-        "long_desc": "10 Gb",
-        "image": ""
+        "short_desc": "120 Mb",
+        "long_desc": "Maxtor 7040A 120 Mb",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Maxtor_7040at_observe.jpg/960px-Maxtor_7040at_observe.jpg"
       },
       {
         "level": 2,
         "price": 15,
-        "short_desc": "20 Gb",
-        "long_desc": "20 Gb",
-        "image": ""
+        "short_desc": "1 Gb",
+        "long_desc": "Seagate Medalist ST31200",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Seagate_HD_ST31277A.png/960px-Seagate_HD_ST31277A.png"
       },
       {
         "level": 3,
         "price": 20,
-        "short_desc": "30 Gb",
-        "long_desc": "30 Gb",
-        "image": ""
+        "short_desc": "6 Gb",
+        "long_desc": "Western Digital Caviar AC36400",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/2/24/Seagate_ST36531A_face_20050821.jpg"
       },
       {
         "level": 4,
         "price": 30,
-        "short_desc": "40 Gb",
-        "long_desc": "40 Gb",
-        "image": ""
+        "short_desc": "10 Gb",
+        "long_desc": "Quantum Fireball Plus LM 10",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Quantum_Fireball_EX.png/960px-Quantum_Fireball_EX.png"
       },
       {
         "level": 5,
         "price": 40,
-        "short_desc": "50 Gb",
-        "long_desc": "50 Gb",
-        "image": ""
+        "short_desc": "22 Gb",
+        "long_desc": "IBM Deskstar 22GXP",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/IBM_DJNA-351520_Hard_Disk_A.jpg/960px-IBM_DJNA-351520_Hard_Disk_A.jpg"
       },
       {
         "level": 6,
         "price": 50,
-        "short_desc": "60 Gb",
-        "long_desc": "60 Gb",
-        "image": ""
+        "short_desc": "40 Gb",
+        "long_desc": "Seagate Barracuda ATA III 40Gb",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Seagate_Barracuda_ATA_1440420.jpg/960px-Seagate_Barracuda_ATA_1440420.jpg"
       }
     ],
     "CDROM": [
       {
         "level": 1,
         "price": 10,
-        "short_desc": "16x Speed",
-        "long_desc": "16x Speed",
-        "image": ""
+        "short_desc": "12x Speed",
+        "long_desc": "Toshiba XM-5702B 12x",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Mitsumi_FX400D.jpg/600px-Mitsumi_FX400D.jpg"
       },
       {
         "level": 2,
         "price": 15,
-        "short_desc": "32x Speed",
-        "long_desc": "32x Speed",
-        "image": ""
+        "short_desc": "24x Speed",
+        "long_desc": "Plextor PX-24CS 24x",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Plextor_PX-W8432Ti-3490.jpg/800px-Plextor_PX-W8432Ti-3490.jpg"
       },
       {
         "level": 3,
         "price": 20,
         "short_desc": "40x Speed",
-        "long_desc": "40x Speed",
-        "image": ""
+        "long_desc": "Asus CD-S400 40x",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/ASUS_CD-ROM_CD-S520-A4_20080821.jpg/800px-ASUS_CD-ROM_CD-S520-A4_20080821.jpg"
       },
       {
         "level": 4,
         "price": 30,
         "short_desc": "48x Speed",
-        "long_desc": "48x Speed",
-        "image": ""
+        "long_desc": "Samsung SC-148 48x",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Samsung_SW-252_CD-RW_drive.jpg/800px-Samsung_SW-252_CD-RW_drive.jpg"
       },
       {
         "level": 5,
         "price": 40,
-        "short_desc": "56x Speed",
-        "long_desc": "56x Speed",
-        "image": ""
+        "short_desc": "52x Speed",
+        "long_desc": "Lite-On LTN-526S 52x",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/LiteOn_SOHC-5236K02C.jpg/800px-LiteOn_SOHC-5236K02C.jpg"
       }
     ],
     "RAM": [
@@ -761,59 +761,59 @@
         "level": 1,
         "price": 10,
         "short_desc": "32 Mb",
-        "long_desc": "32 Mb",
-        "image": ""
+        "long_desc": "Toshiba TC514400 32 Mb",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/SIMM_FPM_4_MB_-_C0448721-7229.jpg/960px-SIMM_FPM_4_MB_-_C0448721-7229.jpg"
       },
       {
         "level": 2,
         "price": 15,
         "short_desc": "64 Mb",
-        "long_desc": "64 Mb",
-        "image": ""
+        "long_desc": "Crucial CT16M64S4D75 64 Mb",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/64MB_RAM_PC100.JPG/960px-64MB_RAM_PC100.JPG"
       },
       {
         "level": 3,
         "price": 20,
         "short_desc": "128 Mb",
-        "long_desc": "128 Mb",
-        "image": ""
+        "long_desc": "Samsung M368L1624DUS 128 Mb",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/SDRAM_128MB_133MHz.jpg/960px-SDRAM_128MB_133MHz.jpg"
       },
       {
         "level": 4,
         "price": 30,
         "short_desc": "256 Mb",
-        "long_desc": "256 Mb",
-        "image": ""
+        "long_desc": "Micron MT46V16M8 256 Mb",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/256MB_PC2100_DDR.JPG/960px-256MB_PC2100_DDR.JPG"
       },
       {
         "level": 5,
         "price": 40,
         "short_desc": "512 Mb",
-        "long_desc": "512 Mb",
-        "image": ""
+        "long_desc": "Kingston KVR333X64C25/512",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Kingston_KVR266X64C2-512_-_512MB_266MHz_DDR_Non-ECC_CL2_DIMM-7952.jpg/960px-Kingston_KVR266X64C2-512_-_512MB_266MHz_DDR_Non-ECC_CL2_DIMM-7952.jpg"
       }
     ],
     "sound_card": [
       {
         "level": 1,
         "price": 10,
-        "short_desc": "16 KHz",
-        "long_desc": "16 KHz",
-        "image": ""
+        "short_desc": "22 kHz",
+        "long_desc": "Sound Blaster Pro CT1330 22 kHz",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/d/da/CT1330A.jpg"
       },
       {
         "level": 2,
         "price": 20,
-        "short_desc": "22 KHz",
-        "long_desc": "22 KHz",
-        "image": ""
+        "short_desc": "44 kHz",
+        "long_desc": " Sound Blaster AWE64 Gold 44.1 kHz",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/KL_Creative_Labs_Soundblaster_AWE64_Gold_CT4390.jpg/800px-KL_Creative_Labs_Soundblaster_AWE64_Gold_CT4390.jpg"
       },
       {
         "level": 3,
         "price": 30,
-        "short_desc": "44 KHz",
-        "long_desc": "44 KHz",
-        "image": ""
+        "short_desc": "96 kHz",
+        "long_desc": "M-Audio Audiophile 2496 96kHz",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/M-Audio_Audiophile_24_96.jpg/800px-M-Audio_Audiophile_24_96.jpg"
       }
     ],
     "video_card": [
@@ -821,29 +821,29 @@
         "level": 1,
         "price": 10,
         "short_desc": "8 Mb",
-        "long_desc": "8 Mb S3 Savage 4",
-        "image": ""
+        "long_desc": "S3 Savage 4 8 Mb",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Savage4-PCI-video-card-01.jpg/800px-Savage4-PCI-video-card-01.jpg"
       },
       {
         "level": 2,
         "price": 20,
         "short_desc": "16 Mb",
-        "long_desc": "16 Mb Riva TNT",
-        "image": ""
+        "long_desc": "Riva TNT 16 Mb",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/NVidia_Riva_TNT.jpg/800px-NVidia_Riva_TNT.jpg"
       },
       {
         "level": 3,
         "price": 30,
         "short_desc": "32 Mb",
-        "long_desc": "32 Mb GeForce 2",
-        "image": ""
+        "long_desc": "GeForce 2 32 Mb",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Geforce2gts.jpg/800px-Geforce2gts.jpg"
       },
       {
         "level": 4,
         "price": 70,
         "short_desc": "64 Mb",
-        "long_desc": "64 Mb GeForce 2 MX",
-        "image": ""
+        "long_desc": "GeForce 2 MX 64 Mb ",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/GeForce_2_MX_400.JPG/800px-GeForce_2_MX_400.JPG"
       }
     ]
   },

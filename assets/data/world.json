@@ -490,7 +490,7 @@
       "title": "Хакер",
       "description": "Здесь ваши хакерские задания усложнятся.",
       "requirements": {
-        "school": 5,
+        "school": 4,
         "computer_course": 5,
         "english_course": 6,
         "clothes": 6,
@@ -508,7 +508,7 @@
       "title": "Графический дизайнер",
       "description": "Вы будете создавать текстуры, 3D объекты и остальную графику.",
       "requirements": {
-        "school": 5,
+        "school": 4,
         "computer_course": 6,
         "english_course": 7,
         "clothes": 7,
@@ -525,7 +525,7 @@
       "title": "Компьютерный президент",
       "description": "Это самая замечательная работа. Вы сможете командовать всеми компьютерными фирмами.",
       "requirements": {
-        "school": 5,
+        "school": 4,
         "computer_course": 8,
         "english_course": 8,
         "clothes": 8,

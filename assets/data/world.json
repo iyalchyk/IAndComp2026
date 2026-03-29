@@ -1,6 +1,6 @@
 {
   "constants": {
-    "TIME_QUANT": 500,
+    "TIME_QUANT": 1500,
     "HOURS_IN_DAY": 24,
     "SALARY_ADDITION_FREQ": 24,
     "MOOD_DEDUCTION_FREQ": 12,

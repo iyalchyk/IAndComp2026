@@ -2,20 +2,23 @@ import {
     Player, Interface
 } from "../global.js"
 
+let $money_label;
+let $profit_label;
+let $put_input;
+let $get_input;
+
 Interface.bank = {
     update_view: function() {
-        $("#bank_money_label").text(Player.bank.deposit);
-        $("#bank_profit_label").text(Player.bank.deposit / 20);
-        $("#bank_put_money_input").val("");
-        $("#bank_get_money_input").val("");
+        $money_label.text(Player.bank.deposit);
+        $profit_label.text(Player.bank.deposit / 20);
+        $put_input.val("");
+        $get_input.val("");
     },
     get_bank_put_money_input_val: function() {
-        let money_transfer_str = $("#bank_put_money_input").val();
-        return parseInt(money_transfer_str);
+        return parseInt($put_input.val());
     },
     get_bank_get_money_input_val: function() {
-        let money_transfer_str = $("#bank_get_money_input").val();
-        return parseInt(money_transfer_str);
+        return parseInt($get_input.val());
     },
     alert_no_money: function() {
         alert("Not enough money in the bank");
@@ -41,7 +44,6 @@ Player.bank = {
             Interface.bank.alert_no_money();
             return;
         }
-        console.log("get", money_transfer)
         Player["status"].add_money(money_transfer);
         Player.bank.deposit -= money_transfer;
         Interface.bank.update_view();
@@ -67,6 +69,11 @@ function bank_get_money_button_click_handler() {
 }
 
 function bank_panel_setup() {
+    $money_label = $("#bank_money_label");
+    $profit_label = $("#bank_profit_label");
+    $put_input = $("#bank_put_money_input");
+    $get_input = $("#bank_get_money_input");
+
     $("#bank_put_money_button").on({
         click: bank_put_money_button_click_handler
     });

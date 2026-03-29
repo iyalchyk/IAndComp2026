@@ -1,15 +1,39 @@
 <div id="bank_panel" class="switchable panel">
-    <label for="bank_put_money_input">Положить</label>
-    <input type="number" id="bank_put_money_input" min="1"/>
-    <button id="bank_put_money_button">OK</button>
-    <br/>
-    <label for="bank_get_money_input">Снять со счёта</label>
-    <input type="number" id="bank_get_money_input" min="1"/>
-    <button id="bank_get_money_button">OK</button>
-    <br/>
-    <label>У вас на счету: </label>
-    <label id="bank_money_label">?</label>
-    <br/>
-    <label>Прирост: </label>
-    <label id="bank_profit_label">?</label>
+    <div class="bank_layout">
+        <div class="bank_left_col">
+            <div class="bank_section bank_operations">
+                <fieldset>
+                    <legend>Операции</legend>
+                    <div class="bank_operation_row">
+                        <label for="bank_put_money_input">Положить</label>
+                        <input type="number" id="bank_put_money_input" min="1"/>
+                        <button id="bank_put_money_button">OK</button>
+                    </div>
+                    <div class="bank_operation_row">
+                        <label for="bank_get_money_input">Снять со счёта</label>
+                        <input type="number" id="bank_get_money_input" min="1"/>
+                        <button id="bank_get_money_button">OK</button>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="bank_section bank_info_section">
+                <fieldset>
+                    <legend>Информация</legend>
+                    <div class="field-row">
+                        <label>У вас на счету:</label>
+                        <label id="bank_money_label" class="bank_value">0</label>
+                    </div>
+                    <div class="field-row">
+                        <label>Прирост:</label>
+                        <label id="bank_profit_label" class="bank_value">0</label>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <div class="bank_right_col">
+            <div class="bank_desc_box">
+                <label>Добро пожаловать в банк! Здесь вы можете положить деньги на счёт или снять их. На вклад начисляется 5% в день.</label>
+            </div>
+        </div>
+    </div>
 </div>

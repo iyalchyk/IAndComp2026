@@ -86,7 +86,7 @@ function buttons_panel_setup() {
         "#hardware_button, " +
         "#software_button, " +
         "#intrenet_button, " +
-        "#hacking_button"
+        "#hack_button"
     ).on({
         click: panel_button_click_handler
     });

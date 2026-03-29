@@ -1053,5 +1053,71 @@
     }
   },
   "internet": {},
-  "hacking": {}
+  "hacking": {
+    "tasks": [
+      {
+        "reward": 4,
+        "description": "Это очень простое задание. Нужно просто взломать программу.",
+        "duration": 5,
+        "failure_probability": 0,
+        "delay_probability": 0.33
+      },
+      {
+        "reward": 5,
+        "description": "Вам необходимо взломать защите сервера и скачать файл из интернета.",
+        "duration": 5,
+        "failure_probability": 0.33,
+        "delay_probability": 0.33
+      },
+      {
+        "reward": 6,
+        "description": "Вам нужно поразить вирусами компьютеры крупной компании.",
+        "duration": 5,
+        "failure_probability": 0.33,
+        "delay_probability": 0.33
+      },
+      {
+        "reward": 7,
+        "description": "Вам нужно форматнуть диски банковской системы.",
+        "duration": 5,
+        "failure_probability": 0.33,
+        "delay_probability": 0.33
+      },
+      {
+        "reward": 8,
+        "description": "Вам требуется перечислить деньги из маленького магазина себе на счёт.",
+        "duration": 5,
+        "failure_probability": 0.33,
+        "delay_probability": 0.33
+      },
+      {
+        "reward": 9,
+        "description": "Вам надо скачать базу данных с банковского компьютера.",
+        "duration": 5,
+        "failure_probability": 0.33,
+        "delay_probability": 0.33
+      },
+      {
+        "reward": 10,
+        "description": "Вам требуется перечислить деньги со счёта в банке.",
+        "duration": 5,
+        "failure_probability": 0.33,
+        "delay_probability": 0.33
+      },
+      {
+        "reward": 11,
+        "description": "Вам требуется удалить спец файл с главного компьютера города.",
+        "duration": 5,
+        "failure_probability": 0.33,
+        "delay_probability": 0.33
+      },
+      {
+        "reward": 12,
+        "description": "Это очень сложное задание. Вам требуется скачать себе программу обороны.",
+        "duration": 5,
+        "failure_probability": 0.33,
+        "delay_probability": 0.33
+      }
+    ]
+  }
 }

@@ -1,0 +1,84 @@
+#education_panel {
+    position: absolute;
+    top: 77px;
+    width: 100%;
+    height: 438px;
+    display: block;
+    background-color: #c0c0c0;
+}
+
+.education_layout {
+    display: flex;
+    padding: 8px 8px 0 8px;
+    gap: 8px;
+}
+
+.education_left_col {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 320px;
+    flex-shrink: 0;
+}
+
+.education_right_col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.education_section fieldset {
+    margin: 0;
+}
+
+.education_section legend {
+    color: #0000c0;
+    font-weight: bold;
+}
+
+.education_courses button {
+    width: 100%;
+    margin-bottom: 3px;
+}
+
+.education_desc_box {
+    background-color: #ffffff;
+    border: 2px inset #808080;
+    padding: 10px;
+    min-height: 100px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.education_desc_box label {
+    font-style: italic;
+    font-size: 13px;
+    color: #333;
+}
+
+.education_info_section {
+    padding: 0 8px;
+    margin-top: 8px;
+}
+
+.education_info_section fieldset {
+    margin: 0;
+}
+
+.education_info_section legend {
+    color: #0000c0;
+    font-weight: bold;
+}
+
+.education_info_section .field-row {
+    margin: 2px 0;
+}
+
+.education_info_section .field-row label:first-child {
+    font-weight: bold;
+}
+
+.education_info_section .field-row label:last-child {
+    color: #c00000;
+    font-weight: bold;
+}

@@ -1,0 +1,82 @@
+<div id="internet_panel" class="switchable panel">
+    <div id="internet_provider_view" class="internet_view internet_scene">
+        <div class="internet_intro">
+            <h3 class="internet_provider_title">Провайдер</h3>
+            <label id="internet_panel_info_text"></label>
+        </div>
+        <div class="internet_controls">
+            <button id="internet_connect_button">Подключение</button>
+            <button id="internet_enter_button" disabled>Выход в интернет</button>
+        </div>
+        <div id="internet_sites_dialog" class="internet_sites_dialog" style="display: none;">
+            <div class="internet_sites_branch" aria-hidden="true"></div>
+            <button id="internet_open_anecdotes_button">Анекдот (www.ЯиК_анекдот.ru)</button>
+            <button id="internet_open_computer_button">Компьютер (www.ЯиК_комп.ru)</button>
+        </div>
+    </div>
+
+    <div id="internet_anecdotes_view" class="internet_view internet_anecdotes_view" style="display: none;">
+        <div class="internet_anecdotes_header">
+            <div class="internet_anecdotes_title">АНЕКДОТЫ</div>
+        </div>
+        <div class="internet_anecdotes_body">
+            <div class="internet_anecdotes_sidebar">
+                <button class="internet_anecdote_button" data-kind="random">СЛУЧАЙНЫЕ</button>
+                <button class="internet_anecdote_button" data-kind="day">АНЕКДОТЫ ДНЯ</button>
+                <button class="internet_anecdote_button" data-kind="week">АНЕКДОТЫ НЕДЕЛИ</button>
+                <div class="internet_anecdotes_sidebar_box">
+                    <div class="internet_anecdotes_visitors">
+                        Сегодня нас
+                        посетило :
+                        <span>1007 человек</span>
+                    </div>
+                    <hr>
+                    <button id="internet_anecdotes_download_button">Скачать базу анекдотов</button>
+                </div>
+            </div>
+            <div class="internet_anecdotes_content">
+                <div id="internet_anecdotes_placeholder" class="internet_anecdotes_placeholder">
+                    <div class="internet_smiley_face">
+                        <span class="internet_smiley_eye left"></span>
+                        <span class="internet_smiley_eye right"></span>
+                        <span class="internet_smiley_nose"></span>
+                        <span class="internet_smiley_mouth"></span>
+                    </div>
+                </div>
+                <div id="internet_anecdotes_text" class="internet_scroll_panel" style="display: none;"></div>
+            </div>
+        </div>
+        <div class="internet_anecdotes_footer">
+            <div id="internet_anecdotes_download_progress" class="internet_download_progress" style="visibility: hidden;">
+                <label id="internet_anecdotes_download_label">::: Скачивание [0%] :::</label>
+                <div class="internet_download_progress_container">
+                    <div id="internet_anecdotes_download_bar" class="internet_download_progress_bar"></div>
+                </div>
+            </div>
+            <div class="internet_anecdotes_footer_separator" aria-hidden="true"></div>
+            <div class="internet_anecdotes_footer_right">
+                <label>Прожжано часов: <span id="internet_anecdotes_hours_value">0</span></label>
+                <button class="internet_disconnect_button">Отключиться</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="internet_computer_view" class="internet_view internet_computer_view" style="display: none;">
+        <div class="internet_computer_sidebar">
+            <div class="internet_computer_sidebar_title">КОМПЬЮТЕР</div>
+            <div class="internet_computer_sidebar_line" aria-hidden="true"></div>
+            <div class="internet_computer_sidebar_hours">
+                Просижано часов:
+                <span id="internet_computer_hours_value">0</span>
+            </div>
+            <button class="internet_disconnect_button">Отключиться</button>
+        </div>
+        <div class="internet_computer_workspace">
+            <h2>КОМПЬЮТЕР</h2>
+            <div id="internet_computer_text" class="internet_scroll_panel internet_computer_text"></div>
+            <div class="internet_computer_shape blue top" aria-hidden="true"></div>
+            <div class="internet_computer_shape magenta middle" aria-hidden="true"></div>
+            <div class="internet_computer_shape yellow bottom" aria-hidden="true"></div>
+        </div>
+    </div>
+</div>

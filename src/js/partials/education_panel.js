@@ -119,6 +119,20 @@ Player.education = {
         }
         Interface.education.update_view_activity_level(activity_id);
     },
+    set_activity_max_level: function(activity_id) {
+        let max_level = World["education"][activity_id]["durations"].length;
+        this[activity_id].experience = 0;
+        this[activity_id].level = max_level;
+        this[activity_id].is_attending = false;
+        this[activity_id].is_finished = true;
+        Interface.education.update_view_activity_status(activity_id);
+        Interface.education.update_view_activity_level(activity_id);
+    },
+    set_all_max_levels: function() {
+        for (const activity_id of this.get_attributes()) {
+            this.set_activity_max_level(activity_id);
+        }
+    },
     go_education: function(activity_id) {
         let is_attending = Player.education[activity_id].is_attending;
         if (is_attending) {

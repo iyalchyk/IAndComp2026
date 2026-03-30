@@ -87,6 +87,10 @@ Player.hobby = {
         this.fish.level += fish;
         Interface.hobby.update_view_fish();
     },
+    set_fish: function(fish) {
+        this.fish.level = fish;
+        Interface.hobby.update_view_fish();
+    },
     add_groundbight: function() {
         this.groundbait += 1;
         Interface.hobby.update_view_groundbight();

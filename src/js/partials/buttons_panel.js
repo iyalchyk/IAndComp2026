@@ -79,6 +79,17 @@ function grant_all_software() {
     Interface.software.reset_requirements();
 }
 
+function grant_all_education() {
+    Player.education.set_all_max_levels();
+    Interface.education.reset_price_label();
+    Interface.education.reset_brief_label();
+    Interface.education.reset_desc();
+}
+
+function grant_bonus_fish() {
+    Player.hobby.set_fish(Math.max(Player.hobby.fish.level, 100));
+}
+
 function panel_button_click_handler() {
     open_panel(this.name);
 }
@@ -111,6 +122,8 @@ function buy_all_button_click_handler() {
     grant_all_shop();
     grant_all_hardware();
     grant_all_software();
+    grant_all_education();
+    grant_bonus_fish();
     Interface.show_dialog("Покупка завершена", "Игрок получил все предметы из разделов жилья, магазина, компьютера и программ.");
 }
 

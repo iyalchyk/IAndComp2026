@@ -41,7 +41,7 @@ div.personal_status {
 
 div.computer_status {
     position: absolute;
-    top: 243px;
+    top: 290px;
     width: 224px;
 }
 
@@ -68,14 +68,13 @@ div.internet_status {
 
 div.job_status {
     position: absolute;
-    top: 395px;
-    left: 244px;
+    top: 236px;
     width: 224px;
 }
 
 div.education_status {
     position: absolute;
-    top: 445px;
+    top: 395px;
     left: 244px;
     width: 224px;
 }

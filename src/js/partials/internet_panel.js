@@ -39,6 +39,26 @@ let currentView = "provider";
 let textAssetPromises = {};
 let anecdoteDownloadInterval = null;
 
+function clear_anecdote_download_interval() {
+    if (anecdoteDownloadInterval) {
+        clearInterval(anecdoteDownloadInterval);
+        anecdoteDownloadInterval = null;
+    }
+}
+
+function finalize_anecdotes_download(options = {}) {
+    clear_anecdote_download_interval();
+    Player.internet.anecdotes_download_in_progress = false;
+    if (options.downloaded) {
+        Player.internet.anecdotes_downloaded = true;
+    }
+    Interface.internet.hide_download_progress();
+    Interface.internet.update_download_controls();
+    if (options.dialog_title && options.dialog_text) {
+        Interface.show_dialog(options.dialog_title, options.dialog_text);
+    }
+}
+
 function load_text_asset(path) {
     if (!textAssetPromises[path]) {
         textAssetPromises[path] = fetch(path)
@@ -146,6 +166,7 @@ Player.internet = {
     connected: false,
     has_connected_once: false,
     hours_online: 0,
+    session_hours_online: 0,
     anecdotes_downloaded: false,
     anecdotes_download_in_progress: false,
     get_attributes: function() {
@@ -173,16 +194,36 @@ Player.internet = {
             this.has_connected_once = true;
         }
         this.connected = true;
+        this.session_hours_online = 0;
         Interface.internet.show_view("provider");
         Interface.internet.update_all();
         Interface.internet.update_download_controls();
     },
-    disconnect: function() {
-        if (this.anecdotes_download_in_progress) return;
+    disconnect: function(options = {}) {
+        let force = Boolean(options.force);
+        if (this.anecdotes_download_in_progress && !force) return;
+        if (this.anecdotes_download_in_progress) {
+            finalize_anecdotes_download();
+        }
         this.connected = false;
         Interface.internet.show_view("provider");
         Interface.internet.update_all();
         Interface.internet.update_download_controls();
+        if (options.dialog_title && options.dialog_text) {
+            Interface.show_dialog(options.dialog_title, options.dialog_text);
+        }
+    },
+    disconnect_due_to_no_money: function() {
+        let message = "\u0423 \u0432\u0430\u0441 \u0437\u0430\u043a\u043e\u043d\u0447\u0438\u043b\u0438\u0441\u044c \u0434\u0435\u043d\u044c\u0433\u0438, \u043f\u043e\u044d\u0442\u043e\u043c\u0443 \u0438\u043d\u0442\u0435\u0440\u043d\u0435\u0442 \u0431\u044b\u043b \u043e\u0442\u043a\u043b\u044e\u0447\u0435\u043d.\n" +
+            "\u0412\u044b \u043f\u0440\u043e\u0441\u0438\u0434\u0435\u043b\u0438 \u0432 \u0438\u043d\u0442\u0435\u0440\u043d\u0435\u0442\u0435 " + this.session_hours_online + " \u0447.";
+        if (this.anecdotes_download_in_progress) {
+            message += "\n\u0421\u043a\u0430\u0447\u0438\u0432\u0430\u043d\u0438\u0435 \u0431\u0430\u0437\u044b \u0430\u043d\u0435\u043a\u0434\u043e\u0442\u043e\u0432 \u043f\u0440\u0435\u0440\u0432\u0430\u043d\u043e.";
+        }
+        this.disconnect({
+            force: true,
+            dialog_title: "\u0418\u043d\u0442\u0435\u0440\u043d\u0435\u0442",
+            dialog_text: message
+        });
     }
 };
 
@@ -260,22 +301,15 @@ function anecdotes_download_button_click_handler() {
         Interface.internet.set_download_progress(percent);
 
         if (!hasDownloader && elapsed >= failAt) {
-            clearInterval(anecdoteDownloadInterval);
-            anecdoteDownloadInterval = null;
-            Player.internet.anecdotes_download_in_progress = false;
-            Interface.internet.hide_download_progress();
-            Interface.internet.update_download_controls();
+            finalize_anecdotes_download();
             Interface.show_dialog("Скачивание прервано", "Скачивание оборвалось. Установите качалку FlashGet, чтобы докачать базу анекдотов до конца.");
             return;
         }
 
         if (elapsed >= duration) {
-            clearInterval(anecdoteDownloadInterval);
-            anecdoteDownloadInterval = null;
-            Player.internet.anecdotes_download_in_progress = false;
-            Player.internet.anecdotes_downloaded = true;
-            Interface.internet.hide_download_progress();
-            Interface.internet.update_download_controls();
+            finalize_anecdotes_download({
+                downloaded: true
+            });
             Interface.show_dialog("Интернет", "База анекдотов успешно скачана.");
         }
     }, 50);
@@ -288,8 +322,16 @@ function disconnect_button_click_handler() {
 function update_internet_state() {
     if (!Player.internet.connected) return;
     Player.internet.hours_online++;
+    Player.internet.session_hours_online++;
+    let moneyBeforeCharge = Player.status.money;
     Player.status.subtract_money(5);
+    if (moneyBeforeCharge >= 0 && Player.status.money < 0) {
+        Player.status.set_money(0);
+    }
     Interface.internet.update_hours_labels();
+    if (Player.status.money <= 0) {
+        Player.internet.disconnect_due_to_no_money();
+    }
 }
 
 function internet_panel_setup() {

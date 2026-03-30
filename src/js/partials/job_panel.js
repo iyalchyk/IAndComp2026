@@ -14,6 +14,9 @@ const REQUIREMENT_TITLES = {
     bathroom: "Ванная",
     compiler: "Компилятор",
     graphics: "Графика",
+    browser: "Браузер",
+    dialer: "Звонилка",
+    downloader: "Закачка",
     modem: "Модем",
     scanner: "Сканер",
     fish: "Рыба"
@@ -31,6 +34,9 @@ const REQUIREMENT_SECTIONS = {
     bathroom: "housing",
     compiler: "software",
     graphics: "software",
+    browser: "software",
+    dialer: "software",
+    downloader: "software",
     modem: "hardware",
     scanner: "hardware",
     fish: null

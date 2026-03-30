@@ -5,6 +5,8 @@ div#buttons_panel {
 }
 
 div#buttons_panel div button {
+    display: block;
     width: 172px;
     height: 26px;
+    margin-bottom: 2px;
 }

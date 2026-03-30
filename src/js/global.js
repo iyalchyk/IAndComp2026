@@ -4,7 +4,7 @@ let World = {
     get_modules: function() {
         return [
             "time", "status", "housing", "shop", "entertainment", "hobby", "education",
-            "job", "bank", "hardware", "software"
+            "job", "bank", "hardware", "software", "internet"
         ];
     }
 };

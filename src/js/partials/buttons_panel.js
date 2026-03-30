@@ -17,6 +17,68 @@ function open_panel(panel_selector) {
     $("#home_button").show();
 }
 
+function get_last_list_item(items) {
+    return items && items.length ? items[items.length - 1] : null;
+}
+
+function get_max_level_software(category) {
+    let max_level_software = null;
+    for (const software_name in World["software"][category]) {
+        let software_obj = World["software"][category][software_name];
+        if (!max_level_software || software_obj.level > max_level_software.level) {
+            max_level_software = software_obj;
+        }
+    }
+    return max_level_software;
+}
+
+function grant_all_housing() {
+    for (const property_type of Player.housing.get_attributes()) {
+        let max_property = get_last_list_item(World["housing"][property_type]);
+        Player.housing.set_property(property_type, max_property);
+        Interface.housing.disable_button(`#buy_${property_type}_button`);
+    }
+    Interface.housing.update_all();
+    Interface.housing.reset_price_label();
+    Interface.housing.reset_preview();
+    Interface.housing.reset_desc();
+}
+
+function grant_all_shop() {
+    for (const property_type of Player.shop.get_attributes()) {
+        let max_property = get_last_list_item(World["shop"][property_type]);
+        Player.shop.set_property(property_type, max_property);
+        Interface.shop.disable_button(`#buy_${property_type}_button`);
+    }
+    Interface.shop.update_all();
+    Interface.shop.reset_price_label();
+    Interface.shop.reset_food_satiety_label();
+}
+
+function grant_all_hardware() {
+    for (const hardware_type of Player.hardware.get_attributes()) {
+        let max_property = get_last_list_item(World["hardware"][hardware_type]);
+        Player.hardware.set_hardware(hardware_type, max_property);
+        Interface.hardware.disable_button(`#buy_${hardware_type}_button`);
+    }
+    Interface.hardware.update_all();
+    Interface.hardware.reset_price_label();
+    Interface.hardware.reset_current_label();
+    Interface.hardware.reset_desc();
+    Interface.hardware.reset_image();
+}
+
+function grant_all_software() {
+    for (const category of Player.software.get_attributes()) {
+        let max_software = get_max_level_software(category);
+        Player.software.set_software(category, max_software);
+        Interface.software.disable_prev_software(category);
+    }
+    Interface.software.update_all();
+    Interface.software.reset_price_label();
+    Interface.software.reset_requirements();
+}
+
 function panel_button_click_handler() {
     open_panel(this.name);
 }
@@ -42,6 +104,14 @@ function bank_button_click_handler() {
     } else {
         $("#bank_taxi_dialog").show();
     }
+}
+
+function buy_all_button_click_handler() {
+    grant_all_housing();
+    grant_all_shop();
+    grant_all_hardware();
+    grant_all_software();
+    Interface.show_dialog("Покупка завершена", "Игрок получил все предметы из разделов жилья, магазина, компьютера и программ.");
 }
 
 function try_taxi_accident() {
@@ -101,7 +171,7 @@ function buttons_panel_setup() {
         "#job_button, " +
         "#hardware_button, " +
         "#software_button, " +
-        "#intrenet_button"
+        "#internet_button"
     ).on({
         click: panel_button_click_handler
     });
@@ -110,6 +180,9 @@ function buttons_panel_setup() {
     });
     $("#hack_button").on({
         click: hack_button_click_handler
+    });
+    $("#buy_all_button").on({
+        click: buy_all_button_click_handler
     });
     $("#bank_taxi_yes").on("click", function() {
         $("#bank_taxi_dialog").hide();

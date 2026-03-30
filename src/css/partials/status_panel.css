@@ -68,14 +68,14 @@ div.internet_status {
 
 div.job_status {
     position: absolute;
-    top: 375px;
+    top: 395px;
     left: 244px;
     width: 224px;
 }
 
 div.education_status {
     position: absolute;
-    top: 425px;
+    top: 445px;
     left: 244px;
     width: 224px;
 }

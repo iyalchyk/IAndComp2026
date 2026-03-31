@@ -5,7 +5,6 @@ import {
 let $task_label;
 let $get_task_button;
 let $execute_button;
-let $back_button;
 let $progress_container;
 let $progress_bar;
 
@@ -17,16 +16,13 @@ Interface.hacking = {
         if (executing) {
             $get_task_button.hide();
             $execute_button.hide();
-            $back_button.prop("disabled", true);
         } else if (current_task) {
             $get_task_button.text("Отказаться").show();
             $execute_button.show();
-            $back_button.prop("disabled", false);
             $task_label.text(current_task.description + "\nНаграда: " + current_task.reward + "$");
         } else {
             $get_task_button.text("Получить задание").show();
             $execute_button.hide();
-            $back_button.prop("disabled", false);
             $task_label.text("Задния нет ...");
         }
     }
@@ -99,7 +95,6 @@ function execute_button_click_handler() {
             current_task = null;
             $get_task_button.text("Получить задание").show();
             $execute_button.hide();
-            $back_button.prop("disabled", false);
         }
     }, 50);
 }
@@ -108,7 +103,6 @@ function hacking_panel_setup() {
     $task_label = $("#hacking_task_label");
     $get_task_button = $("#hacking_get_task_button");
     $execute_button = $("#hacking_execute_button");
-    $back_button = $("#hacking_back_button");
     $progress_container = $("#hacking_progress_container");
     $progress_bar = $("#hacking_progress_bar");
 
@@ -117,14 +111,6 @@ function hacking_panel_setup() {
     });
     $execute_button.on({
         click: execute_button_click_handler
-    });
-    $back_button.on({
-        click: function() {
-            if (executing) return;
-            $("#hacking_panel").hide();
-            $("#buttons_panel").show();
-            $("#home_button").show();
-        }
     });
 }
 

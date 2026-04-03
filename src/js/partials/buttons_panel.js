@@ -242,9 +242,6 @@ function buttons_panel_setup() {
     $("#hack_button").on({
         click: hack_button_click_handler
     });
-    $("#buy_all_button").on({
-        click: buy_all_button_click_handler
-    });
     $("#new_game_button").on({
         click: new_game_click_handler
     });

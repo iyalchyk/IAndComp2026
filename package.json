@@ -1,5 +1,5 @@
 {
-  "name": "meandcomp",
+  "name": "iandcomp2026",
   "version": "1.0.0",
   "description": "My remake of the old game \"I and Computer\"",
   "main": "gulpfile.js",
@@ -18,12 +18,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yalchik/MeAndComp.git"
+    "url": "git+https://github.com/yalchik/IAndComp2026.git"
   },
   "author": "Ilya Yalchyk",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/yalchik/MeAndComp/issues"
+    "url": "https://github.com/yalchik/IAndComp2026/issues"
   },
-  "homepage": "https://yalchik.github.io/MeAndComp/"
+  "homepage": "https://yalchik.github.io/IAndComp2026/"
 }

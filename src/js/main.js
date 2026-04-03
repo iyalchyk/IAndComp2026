@@ -1,7 +1,7 @@
 import { World } from "./global.js";
 import { load_assets } from "./data.js";
 import { time_panel_setup, update_time_state } from './partials/time_panel.js';
-import { buttons_panel_setup, update_taxi_event } from './partials/buttons_panel.js';
+import { buttons_panel_setup, show_about_game_dialog, update_taxi_event } from './partials/buttons_panel.js';
 import { housing_panel_setup } from './partials/housing_panel.js';
 import { shop_panel_setup } from './partials/shop_panel.js';
 import { entertainment_panel_setup } from './partials/entertainment_panel.js';
@@ -48,6 +48,7 @@ $(function () {
 
         next_hour_handler();
         activate_ui();
+        show_about_game_dialog();
         setInterval(next_hour_handler, World["constants"]["TIME_QUANT"]);
     }
 

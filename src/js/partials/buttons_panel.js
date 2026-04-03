@@ -127,6 +127,21 @@ function buy_all_button_click_handler() {
     Interface.show_dialog("Покупка завершена", "Игрок получил все предметы из разделов жилья, магазина, компьютера и программ.");
 }
 
+function new_game_click_handler() {
+    window.location.reload();
+}
+
+function show_about_game_dialog() {
+    Interface.show_dialog(
+        "Об игре",
+        'Перед вами браузерный ремейк старой игры "Я и Компьютер 2.2", гулявшей по компьютерам в начале 2000-х. В этой игре вам предстоит прожить путь от безработного любителя компьютеров до компьютерного президента, зарабатывать деньги, следить за уровнем сытости и настроения, и собирать свой компьютер мечты.\n\nАвтор игры: Леушев Юрий / GiNeag\nАвтор ремейка: Яльчик Илья\n\nИгра полностью бесплатна.'
+    );
+}
+
+function about_game_click_handler() {
+    show_about_game_dialog();
+}
+
 function try_taxi_accident() {
     if (taxi_accident_occurred) return false;
     if (Math.random() > 0.2) return false;
@@ -197,6 +212,12 @@ function buttons_panel_setup() {
     $("#buy_all_button").on({
         click: buy_all_button_click_handler
     });
+    $("#new_game_button").on({
+        click: new_game_click_handler
+    });
+    $("#about_game_button").on({
+        click: about_game_click_handler
+    });
     $("#bank_taxi_yes").on("click", function() {
         $("#bank_taxi_dialog").hide();
         if (Player["status"].money < 10) {
@@ -222,5 +243,5 @@ function buttons_panel_setup() {
 }
 
 export {
-    buttons_panel_setup, update_taxi_event
+    buttons_panel_setup, show_about_game_dialog, update_taxi_event
 }

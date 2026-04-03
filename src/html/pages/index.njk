@@ -99,6 +99,50 @@
             </div>
         </div>
     </div>
+    <div id="virus_dialog" class="confirm_dialog_overlay" style="display: none;">
+        <div class="confirm_dialog virus_dialog">
+            <div class="title-bar">
+                <div class="title-bar-text">Вирус</div>
+            </div>
+            <div class="confirm_dialog_body virus_dialog_body">
+                <div class="virus_dialog_frame">
+                    <div class="virus_dialog_icon" aria-hidden="true">
+                        <span class="virus_dialog_icon_face">!</span>
+                    </div>
+                    <div class="virus_dialog_message_box">
+                        <p class="virus_dialog_message">Ваш компьютер поразил вирус. Что делать будем?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="confirm_dialog_buttons virus_dialog_buttons">
+                <div class="virus_dialog_action">
+                    <button id="virus_dialog_spare" class="virus_action_button virus_action_button_spare">
+                        <span class="virus_action_button_inner">
+                            <span class="virus_spare_icon" aria-hidden="true">
+                                <span class="virus_spare_face">☺</span>
+                            </span>
+                            <span class="virus_button_label">Пусть<br>живёт</span>
+                        </span>
+                    </button>
+                </div>
+                <div class="virus_dialog_action">
+                    <button id="virus_dialog_kill" class="virus_action_button virus_action_button_kill">
+                        <span class="virus_action_button_inner">
+                            <span class="virus_kill_scene" aria-hidden="true">
+                                <span class="virus_kill_bird"></span>
+                                <span class="virus_kill_beak"></span>
+                                <span class="virus_kill_hammer"></span>
+                                <span class="virus_kill_stand"></span>
+                                <span class="virus_kill_monitor"></span>
+                            </span>
+                            <span class="virus_button_label">Убить</span>
+                        </span>
+                    </button>
+                    <p id="virus_dialog_requirement" class="virus_dialog_requirement" style="display: none;">Требуется антивирус.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div id="footer"></div>

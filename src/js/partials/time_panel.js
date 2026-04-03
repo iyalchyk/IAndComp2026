@@ -11,11 +11,13 @@ Interface.time = {
 
 Player.time = {
     cur_time: 0,
+    total_hours: 0,
 
     get_attributes: function() {
         return ["cur_time"];
     },
     incr_time: function() {
+        this.total_hours++;
         this.cur_time++;
         if (this.cur_time === World["constants"]["HOURS_IN_DAY"]) {
             this.cur_time = 0;

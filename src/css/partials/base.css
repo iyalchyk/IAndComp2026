@@ -57,6 +57,297 @@ div.menu .menu_button:active {
     white-space: pre-line;
 }
 
+.virus_dialog {
+    width: 430px;
+}
+
+.virus_dialog_body {
+    padding: 18px 20px 12px;
+}
+
+.virus_dialog_frame {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-height: 120px;
+    padding: 16px;
+    background: #d4d0c8;
+    box-shadow: inset -1px -1px #ffffff, inset 1px 1px #808080,
+                inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a;
+}
+
+.virus_dialog_icon {
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle at 32% 32%, #fff4a8 0, #ffe26f 32%, #e0b400 70%, #9a6a00 100%);
+    box-shadow: inset -1px -1px rgba(255, 255, 255, 0.7), inset 1px 1px rgba(70, 50, 0, 0.5),
+                1px 1px 0 #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.virus_dialog_icon_face {
+    font-family: "Times New Roman", serif;
+    font-size: 42px;
+    line-height: 1;
+    font-weight: bold;
+    color: #6a2000;
+    transform: translateY(-1px);
+}
+
+.virus_dialog_message_box {
+    flex: 1;
+    min-height: 72px;
+    padding: 12px 14px;
+    background: #ffffff;
+    box-shadow: inset -1px -1px #dfdfdf, inset 1px 1px #808080,
+                inset -2px -2px #ffffff, inset 2px 2px #0a0a0a;
+}
+
+.virus_dialog_message {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.35;
+    color: #000000;
+}
+
+.virus_dialog_buttons {
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 6px 20px 18px;
+    background: #c0c0c0;
+}
+
+.virus_dialog_action {
+    display: flex;
+    flex: 1 1 0;
+    min-width: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+}
+
+.virus_action_button {
+    box-sizing: border-box;
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    min-width: 0;
+    min-height: 78px;
+    padding: 8px 10px;
+    overflow: hidden;
+    background: #efefef;
+    color: #0049d8;
+    box-shadow: inset -1px -1px #808080, inset 1px 1px #ffffff,
+                inset -2px -2px #0a0a0a, inset 2px 2px #dfdfdf;
+}
+
+.virus_action_button:active {
+    padding: 8px 10px;
+}
+
+.virus_action_button_inner {
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    box-sizing: border-box;
+    min-width: 0;
+    background: #f3f3f3;
+}
+
+.virus_button_label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    min-width: 0;
+    font-size: 15px;
+    line-height: 1.05;
+    font-weight: bold;
+    text-align: center;
+    white-space: normal;
+    overflow-wrap: break-word;
+    color: #0049d8;
+    text-shadow: 1px 1px 0 #cfe0ff;
+}
+
+.virus_spare_icon {
+    position: relative;
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle at 34% 34%, #fff9bb 0, #ffe96f 40%, #f2be1a 74%, #cf8b00 100%);
+    box-shadow: inset -1px -1px rgba(255, 255, 255, 0.8), inset 1px 1px rgba(117, 84, 0, 0.5);
+}
+
+.virus_spare_icon::before,
+.virus_spare_icon::after {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    background:
+        linear-gradient(0deg, transparent 0 47%, #ff8a00 47% 53%, transparent 53% 100%),
+        linear-gradient(45deg, transparent 0 47%, #ff8a00 47% 53%, transparent 53% 100%),
+        linear-gradient(90deg, transparent 0 47%, #ff8a00 47% 53%, transparent 53% 100%),
+        linear-gradient(135deg, transparent 0 47%, #ff8a00 47% 53%, transparent 53% 100%);
+    z-index: -1;
+}
+
+.virus_spare_face {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: #5b3b00;
+}
+
+.virus_kill_scene {
+    position: relative;
+    width: 58px;
+    height: 42px;
+    flex-shrink: 0;
+}
+
+.virus_kill_bird {
+    position: absolute;
+    left: 3px;
+    bottom: 6px;
+    width: 16px;
+    height: 20px;
+    background: #3c55c7;
+    border-radius: 7px 8px 5px 10px;
+    box-shadow: -4px 4px 0 -2px #8b4d00;
+    transform: rotate(10deg);
+}
+
+.virus_kill_bird::before {
+    content: "";
+    position: absolute;
+    top: -7px;
+    left: 5px;
+    width: 9px;
+    height: 9px;
+    background: #3c55c7;
+    border-radius: 50%;
+}
+
+.virus_kill_bird::after {
+    content: "";
+    position: absolute;
+    left: 7px;
+    bottom: -8px;
+    width: 2px;
+    height: 10px;
+    background: #9a6100;
+    box-shadow: 5px 0 0 #9a6100;
+}
+
+.virus_kill_beak {
+    position: absolute;
+    left: 15px;
+    top: 6px;
+    width: 0;
+    height: 0;
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-left: 7px solid #ffb200;
+}
+
+.virus_kill_hammer {
+    position: absolute;
+    left: 18px;
+    top: 13px;
+    width: 18px;
+    height: 3px;
+    background: #cf1d17;
+    transform: rotate(-10deg);
+}
+
+.virus_kill_hammer::before {
+    content: "";
+    position: absolute;
+    left: -3px;
+    top: -2px;
+    width: 7px;
+    height: 7px;
+    background: #0f0f0f;
+}
+
+.virus_kill_stand {
+    position: absolute;
+    right: 6px;
+    bottom: 1px;
+    width: 22px;
+    height: 4px;
+    background: #cf1d17;
+}
+
+.virus_kill_stand::before {
+    content: "";
+    position: absolute;
+    left: 9px;
+    bottom: 4px;
+    width: 4px;
+    height: 13px;
+    background: #0f0f0f;
+}
+
+.virus_kill_monitor {
+    position: absolute;
+    right: 4px;
+    bottom: 17px;
+    width: 16px;
+    height: 11px;
+    background: #121212;
+    box-shadow: inset 0 0 0 1px #2c2c2c;
+}
+
+.virus_kill_monitor::before {
+    content: "";
+    position: absolute;
+    left: 5px;
+    bottom: -4px;
+    width: 6px;
+    height: 4px;
+    background: #121212;
+}
+
+.virus_action_button:disabled {
+    color: #6f6f6f;
+}
+
+.virus_action_button:disabled .virus_button_label {
+    color: #6f6f6f;
+    text-shadow: none;
+}
+
+.virus_action_button:disabled .virus_spare_icon,
+.virus_action_button:disabled .virus_kill_scene {
+    filter: grayscale(1);
+    opacity: 0.6;
+}
+
+.virus_dialog_requirement {
+    margin: 0;
+    font-size: 11px;
+    line-height: 1.2;
+    text-align: center;
+    color: #800000;
+    min-height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 div.panel {
     position: absolute;
     top: 77px;

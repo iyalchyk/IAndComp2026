@@ -13,6 +13,9 @@ const anecdoteAssets = {
     week: "assets/data/internet_anecdotes_03.txt"
 };
 const computerAsset = "assets/data/internet_computer.txt";
+const VIRUS_EVENT_PERIOD_HOURS = 72;
+const VIRUS_MIN_STOLEN_MONEY = 5;
+const VIRUS_MAX_STOLEN_MONEY = 30;
 const viewDisplays = {
     provider: "block",
     anecdotes: "flex",
@@ -35,9 +38,20 @@ let $downloadProgress;
 let $downloadProgressLabel;
 let $downloadProgressBar;
 let $disconnectButtons;
+let $virusDialog;
+let $virusKillButton;
+let $virusKillRequirement;
 let currentView = "provider";
 let textAssetPromises = {};
 let anecdoteDownloadInterval = null;
+
+function get_random_int(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function has_blocking_overlay() {
+    return $(".confirm_dialog_overlay:visible").not("#virus_dialog").length > 0;
+}
 
 function clear_anecdote_download_interval() {
     if (anecdoteDownloadInterval) {
@@ -169,8 +183,67 @@ Player.internet = {
     session_hours_online: 0,
     anecdotes_downloaded: false,
     anecdotes_download_in_progress: false,
+    virus_window_start_hour: null,
+    virus_scheduled_hour: null,
+    virus_dialog_open: false,
     get_attributes: function() {
         return [];
+    },
+    schedule_virus_event: function() {
+        if (!this.has_connected_once || this.virus_window_start_hour === null) return;
+        this.virus_scheduled_hour = this.virus_window_start_hour + get_random_int(1, VIRUS_EVENT_PERIOD_HOURS);
+    },
+    advance_virus_window: function() {
+        if (this.virus_window_start_hour === null) return;
+        this.virus_window_start_hour += VIRUS_EVENT_PERIOD_HOURS;
+        this.schedule_virus_event();
+    },
+    unlock_virus_events: function() {
+        if (this.virus_window_start_hour !== null) return;
+        this.virus_window_start_hour = Player.time.total_hours;
+        this.schedule_virus_event();
+    },
+    show_virus_dialog: function() {
+        let antivirus = Player.software.antivirus;
+        let hasAntivirus = Boolean(antivirus);
+
+        this.virus_dialog_open = true;
+        $virusKillButton.prop("disabled", !hasAntivirus);
+        $virusKillRequirement.toggle(!hasAntivirus);
+        $virusDialog.show();
+    },
+    finish_virus_event: function() {
+        this.virus_dialog_open = false;
+        $virusDialog.hide();
+        this.advance_virus_window();
+    },
+    steal_money_by_virus: function(messagePrefix) {
+        let stolenMoney = get_random_int(VIRUS_MIN_STOLEN_MONEY, VIRUS_MAX_STOLEN_MONEY);
+        Player.status.subtract_money(stolenMoney);
+        this.finish_virus_event();
+        Interface.show_dialog("Вирус", messagePrefix + " Вирус украл " + stolenMoney + "$.");
+    },
+    let_virus_live: function() {
+        this.steal_money_by_virus("Вы оставили вирус в покое.");
+    },
+    try_kill_virus: function() {
+        let antivirus = Player.software.antivirus;
+        if (!antivirus) return;
+
+        let successProbability = antivirus.level >= 2 ? 1 : 0.5;
+        if (Math.random() < successProbability) {
+            this.finish_virus_event();
+            Interface.show_dialog("Вирус", "Поздравляем! Вирус был уничтожен.");
+            return;
+        }
+
+        this.steal_money_by_virus("Антивирус не справился.");
+    },
+    maybe_trigger_virus_event: function() {
+        if (!this.has_connected_once || this.virus_scheduled_hour === null) return;
+        if (this.virus_dialog_open || has_blocking_overlay()) return;
+        if (Player.time.total_hours < this.virus_scheduled_hour) return;
+        this.show_virus_dialog();
     },
     connect: function() {
         let requirements = World["internet"]["requirements"];
@@ -192,6 +265,7 @@ Player.internet = {
             }
             Player.status.subtract_money(30);
             this.has_connected_once = true;
+            this.unlock_virus_events();
         }
         this.connected = true;
         this.session_hours_online = 0;
@@ -319,19 +393,30 @@ function disconnect_button_click_handler() {
     Player.internet.disconnect();
 }
 
+function virus_spare_button_click_handler() {
+    Player.internet.let_virus_live();
+}
+
+function virus_kill_button_click_handler() {
+    if ($(this).prop("disabled")) return;
+    Player.internet.try_kill_virus();
+}
+
 function update_internet_state() {
-    if (!Player.internet.connected) return;
-    Player.internet.hours_online++;
-    Player.internet.session_hours_online++;
-    let moneyBeforeCharge = Player.status.money;
-    Player.status.subtract_money(5);
-    if (moneyBeforeCharge >= 0 && Player.status.money < 0) {
-        Player.status.set_money(0);
+    if (Player.internet.connected) {
+        Player.internet.hours_online++;
+        Player.internet.session_hours_online++;
+        let moneyBeforeCharge = Player.status.money;
+        Player.status.subtract_money(5);
+        if (moneyBeforeCharge >= 0 && Player.status.money < 0) {
+            Player.status.set_money(0);
+        }
+        Interface.internet.update_hours_labels();
+        if (Player.status.money <= 0) {
+            Player.internet.disconnect_due_to_no_money();
+        }
     }
-    Interface.internet.update_hours_labels();
-    if (Player.status.money <= 0) {
-        Player.internet.disconnect_due_to_no_money();
-    }
+    Player.internet.maybe_trigger_virus_event();
 }
 
 function internet_panel_setup() {
@@ -351,6 +436,9 @@ function internet_panel_setup() {
     $downloadProgressLabel = $("#internet_anecdotes_download_label");
     $downloadProgressBar = $("#internet_anecdotes_download_bar");
     $disconnectButtons = $(".internet_disconnect_button");
+    $virusDialog = $("#virus_dialog");
+    $virusKillButton = $("#virus_dialog_kill");
+    $virusKillRequirement = $("#virus_dialog_requirement");
 
     $connectButton.on("click", connect_button_click_handler);
     $enterButton.on("click", enter_button_click_handler);
@@ -359,6 +447,8 @@ function internet_panel_setup() {
     $anecdoteButtons.on("click", anecdote_button_click_handler);
     $downloadButton.on("click", anecdotes_download_button_click_handler);
     $disconnectButtons.on("click", disconnect_button_click_handler);
+    $("#virus_dialog_spare").on("click", virus_spare_button_click_handler);
+    $virusKillButton.on("click", virus_kill_button_click_handler);
 
     Interface.internet.show_view("provider");
     Interface.internet.reset_anecdotes_view();

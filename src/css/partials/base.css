@@ -55,6 +55,32 @@ div.menu .menu_button:active {
 
 #global_dialog_text {
     white-space: pre-line;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+#global_dialog_language_buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.about_game_intro {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.about_game_intro_section + .about_game_intro_section {
+    padding-top: 10px;
+    border-top: 1px solid #808080;
+}
+
+.about_game_intro_title {
+    margin: 0 0 6px;
+}
+
+.about_game_intro_text {
+    white-space: pre-line;
 }
 
 .virus_dialog {

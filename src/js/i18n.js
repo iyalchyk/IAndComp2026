@@ -1,17 +1,49 @@
 let labels = {};
+let labels_by_locale = {};
+let current_locale = "ru";
 
-function load_labels(labels_file) {
+function set_locale(locale) {
+    if (!(locale in labels_by_locale)) {
+        return false;
+    }
+
+    current_locale = locale;
+    labels = labels_by_locale[locale] || {};
+    return true;
+}
+
+function load_labels(labels_file, locale = null) {
     return $.getJSON(labels_file, function(data) {
-        labels = data || {};
+        let loaded_labels = data || {};
+        let resolved_locale = locale || (loaded_labels.meta && loaded_labels.meta.lang) || current_locale;
+
+        labels_by_locale[resolved_locale] = loaded_labels;
+        if (resolved_locale === current_locale || !labels || !Object.keys(labels).length) {
+            set_locale(resolved_locale);
+        }
+    });
+}
+
+function load_label_sets(locale_files, default_locale = "ru") {
+    let requests = Object.entries(locale_files).map(function([locale, labels_file]) {
+        return load_labels(labels_file, locale);
+    });
+
+    return $.when.apply($, requests).done(function() {
+        set_locale(default_locale);
     });
 }
 
 function get_label(key, fallback = null) {
+    return get_locale_label(current_locale, key, fallback);
+}
+
+function get_locale_label(locale, key, fallback = null) {
     if (!key) {
         return fallback;
     }
 
-    let value = labels;
+    let value = labels_by_locale[locale] || {};
     for (const part of key.split(".")) {
         if (value == null || typeof value !== "object" || !(part in value)) {
             return fallback;
@@ -72,7 +104,10 @@ function apply_translations(root = document) {
 export {
     apply_translations,
     get_label,
+    get_locale_label,
+    load_label_sets,
     load_labels,
     resolve_translations,
+    set_locale,
     t
 };

@@ -95,13 +95,6 @@ function status_panel_setup() {
     $("#home_button").on({
         click: Interface.status.activate_status_panel
     });
-    $("#global_dialog_ok").on("click", function() {
-        $("#global_dialog").hide();
-        if (Interface._dialog_callback) {
-            Interface._dialog_callback();
-            Interface._dialog_callback = null;
-        }
-    });
     Interface.status.update_all();
     Interface.status.activate_status_panel();
 }

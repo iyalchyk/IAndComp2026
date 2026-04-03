@@ -2,7 +2,7 @@ import {
     World, Player, Interface
 } from "../global.js"
 import { build_requirements_html } from "./job_panel.js"
-import { t } from "../i18n.js";
+import { get_locale_label, t } from "../i18n.js";
 
 let taxi_accident_occurred = false;
 let taxi_event = {
@@ -130,6 +130,40 @@ function new_game_click_handler() {
     window.location.reload();
 }
 
+function escape_dialog_text(text) {
+    return $("<div>").text(text).html().replace(/\n/g, "<br>");
+}
+
+function build_about_game_intro_html() {
+    return [
+        '<div class="about_game_intro">',
+        '  <section class="about_game_intro_section">',
+        '    <h4 class="about_game_intro_title">Русский</h4>',
+        `    <div class="about_game_intro_text">${escape_dialog_text(get_locale_label("ru", "js.buttons.about_game", ""))}</div>`,
+        '  </section>',
+        '  <section class="about_game_intro_section">',
+        '    <h4 class="about_game_intro_title">English</h4>',
+        `    <div class="about_game_intro_text">${escape_dialog_text(get_locale_label("en", "js.buttons.about_game", ""))}</div>`,
+        '  </section>',
+        '</div>'
+    ].join("\n");
+}
+
+function show_startup_language_dialog(on_language_select) {
+    Interface.show_language_dialog(
+        "Об игре / About the game",
+        build_about_game_intro_html(),
+        {
+            en: function() {
+                on_language_select("en");
+            },
+            ru: function() {
+                on_language_select("ru");
+            }
+        }
+    );
+}
+
 function show_about_game_dialog() {
     Interface.show_dialog(
         t("dom.index.about_game_button"),
@@ -242,5 +276,5 @@ function buttons_panel_setup() {
 }
 
 export {
-    buttons_panel_setup, show_about_game_dialog, update_taxi_event
+    buttons_panel_setup, show_about_game_dialog, show_startup_language_dialog, update_taxi_event
 }

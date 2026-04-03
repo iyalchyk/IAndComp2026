@@ -1,8 +1,9 @@
 import { World } from "./global.js";
-import { load_assets } from "./data.js";
-import { apply_translations } from "./i18n.js";
+import { Interface } from "./global.js";
+import { apply_world_data, load_world_data } from "./data.js";
+import { apply_translations, load_label_sets, set_locale } from "./i18n.js";
 import { time_panel_setup, update_time_state } from './partials/time_panel.js';
-import { buttons_panel_setup, show_about_game_dialog, update_taxi_event } from './partials/buttons_panel.js';
+import { buttons_panel_setup, show_startup_language_dialog, update_taxi_event } from './partials/buttons_panel.js';
 import { housing_panel_setup } from './partials/housing_panel.js';
 import { shop_panel_setup } from './partials/shop_panel.js';
 import { entertainment_panel_setup } from './partials/entertainment_panel.js';
@@ -17,6 +18,7 @@ import { hacking_panel_setup } from "./partials/hacking_panel.js";
 import { status_panel_setup, update_status_state } from "./partials/status_panel.js";
 
 $(function () {
+    let is_game_started = false;
 
     function next_hour_handler() {
         update_time_state();
@@ -31,7 +33,14 @@ $(function () {
         $("#app").css("visibility", "visible");
     }
 
-    function init_game() {
+    function init_game(world_data, locale) {
+        if (is_game_started) {
+            return;
+        }
+
+        is_game_started = true;
+        set_locale(locale);
+        apply_world_data(world_data);
         apply_translations();
         time_panel_setup();
         status_panel_setup();
@@ -50,9 +59,31 @@ $(function () {
 
         next_hour_handler();
         activate_ui();
-        show_about_game_dialog();
         setInterval(next_hour_handler, World["constants"]["TIME_QUANT"]);
     }
 
-    load_assets("assets/data/world.json", "assets/data/labels_ru.json", init_game);
+    function show_startup_dialog(world_data) {
+        set_locale("ru");
+        apply_translations();
+        activate_ui();
+        show_startup_language_dialog(function(locale) {
+            init_game(world_data, locale);
+        });
+    }
+
+    Interface.initialize_dialog();
+
+    $.when(
+        load_world_data("assets/data/world.json"),
+        load_label_sets({
+            ru: "assets/data/labels_ru.json",
+            en: "assets/data/labels_en.json"
+        })
+    )
+        .done(function(worldResponse) {
+            show_startup_dialog(worldResponse[0]);
+        })
+        .fail(function(e, e2) {
+            console.log("An error has occurred.", e, e2);
+        });
 });

@@ -63,7 +63,6 @@ src/
   css/           Main CSS and panel-specific styles
   js/            Entry point, global singletons, and panel modules
 dist/            Generated static build
-screenshots/     Current UI reference screenshots
 gulpfile.js      Build pipeline
 ```
 
@@ -125,11 +124,6 @@ It is especially useful to re-check:
 - requirement checks for jobs, internet, and hacking;
 - asset loading and localization.
 
-## Screenshots
-
-![Internet panel](screenshots/1001_internet_initial_screen.png)
-
-![Hacking panel](screenshots/1101_hacking_initial_screen.png)
 
 ## License
 

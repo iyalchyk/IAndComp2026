@@ -1,21 +1,13 @@
 import {
     World, Player, Interface
 } from "../global.js"
+import { t } from "../i18n.js";
 
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
-const hobbyDescriptions = {
-    groundbait: "Прикормка увеличивает количество рыб в озере. Если у вас есть прикормка, во время рыбалки будут появляться сразу 2 рыбы!",
-    fishing_rod: "Удочка — обязательный инструмент для рыбалки. Без неё на озеро не попасть.",
-    fishing_tackle: "Снасти — необходимы для рыбалки. Купите их перед поездкой на озеро.",
-    fishing: "Отправьтесь на озеро \"MAD FISH\" и попробуйте поймать как можно больше рыб за 30 секунд!"
-};
-
-const defaultDescription = "Рыбалка - это отличный способ поднять себе настроение, утолить голод (рыбою, которую вы поймали) и просто хорошо и весело отдохнуть. Рыбачьте и вы не пожалеете.";
 
 // Fishing mini-game state
 let fishingGame = {
@@ -36,12 +28,12 @@ Interface.hobby = {
     update_view_fishing_rod: function() {
         let has = Player.hobby.fishing_rod;
         $("#buy_fishing_rod_button").prop('disabled', has);
-        $("#hobby_panel_fishing_rod_label").text(has ? "Есть" : "Нет");
+        $("#hobby_panel_fishing_rod_label").text(has ? t("common.yes") : t("common.no"));
     },
     update_view_fishing_tackle: function() {
         let has = Player.hobby.fishing_tackle;
         $("#buy_fishing_tackle_button").prop('disabled', has);
-        $("#hobby_panel_fishing_tackle_label").text(has ? "Есть" : "Нет");
+        $("#hobby_panel_fishing_tackle_label").text(has ? t("common.yes") : t("common.no"));
     },
     update_all: function() {
         this.update_view_fish();
@@ -59,17 +51,17 @@ Interface.hobby = {
         $("#hobby_panel_price_label").text(World["interface"]["no_price"]);
     },
     update_desc: function(hobby_type) {
-        let desc = hobbyDescriptions[hobby_type] || defaultDescription;
+        let desc = t(`js.hobby.descriptions.${hobby_type}`, {}, t("dom.hobby.default_description"));
         $("#hobby_desc_label").text(desc);
     },
     reset_desc: function() {
-        $("#hobby_desc_label").text(defaultDescription);
+        $("#hobby_desc_label").text(t("dom.hobby.default_description"));
     },
     alert_no_fishing_rod: function() {
-        Interface.show_dialog("Внимание", "У вас нет удочки!");
+        Interface.show_dialog(t("common.attention"), t("js.hobby.no_fishing_rod"));
     },
     alert_no_fishing_tackle: function() {
-        Interface.show_dialog("Внимание", "У вас нет снастей!");
+        Interface.show_dialog(t("common.attention"), t("js.hobby.no_fishing_tackle"));
     }
 };
 
@@ -148,25 +140,21 @@ Player.hobby = {
             Interface.hobby.alert_no_fishing_tackle();
             return;
         }
-        // Check if player has a car, otherwise offer bus
         if (!Player["shop"].car || Player["shop"].car.level === 0) {
             $("#bus_confirm_dialog").show();
             return;
         }
-        // Player has a car — ask to buy gas
         $("#gas_confirm_dialog").show();
     },
     start_fishing: function(fishing_price) {
         Player["status"].subtract_money(fishing_price);
 
-        // Track groundbait usage for bonus
         fishingGame.useGroundbait = false;
         if (Player.hobby.groundbait > 0) {
             Player.hobby.subtract_groundbight();
             fishingGame.useGroundbait = true;
         }
 
-        // Show fishing game panel
         $(".switchable").hide();
         $("#fishing_game_panel").show();
         $("#fishing_game_intro").show();
@@ -175,8 +163,7 @@ Player.hobby = {
         $("#home_button").hide();
         $("#buttons_panel").hide();
 
-        // Update stats sidebar
-        $("#fishing_game_groundbait_label").text(fishingGame.useGroundbait ? "Да" : "Нет");
+        $("#fishing_game_groundbait_label").text(fishingGame.useGroundbait ? t("common.yes") : t("common.no"));
         $("#fishing_game_caught_label").text("0");
         $("#fishing_game_time_label").text("30");
     }
@@ -193,7 +180,6 @@ function startFishingGame() {
 
     spawnFish();
 
-    // Countdown timer
     fishingGame.timer = setInterval(function() {
         fishingGame.timeLeft--;
         $("#fishing_game_time_label").text(fishingGame.timeLeft);
@@ -202,7 +188,6 @@ function startFishingGame() {
         }
     }, 1000);
 
-    // Spawn new fish every 0.6 seconds
     fishingGame.fishTimer = setInterval(function() {
         spawnFish();
     }, 600);
@@ -261,7 +246,6 @@ function endFishingGame() {
 function goHomeFishing() {
     $("#fishing_game_panel").hide();
     $("#buttons_panel").show();
-    // Show status panel (home)
     $(".switchable").hide();
     $("#status_panel").show();
     $("#home_button").hide();

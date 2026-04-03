@@ -1,14 +1,7 @@
 import {
     World, Player, Interface
 } from "../global.js"
-
-const educationDescriptions = {
-    school: "Вечерняя школа — получите образование от начального до высшего. Это откроет вам путь к лучшим работам.",
-    english_course: "Курсы английского языка — повышайте свой уровень владения английским. Необходимо для продвижения по карьерной лестнице.",
-    computer_course: "Компьютерные курсы — изучайте компьютер от чайника до сверхпрофессионала. Обязательно для работы с компьютером."
-};
-
-const defaultDescription = "Вы уже получаете в школе начальное образование. Также вы можете записаться на курсы английского языка и компьютерные курсы.";
+import { t } from "../i18n.js";
 
 Interface.education = {
     update_view_activity_status: function(activity_id) {
@@ -49,11 +42,11 @@ Interface.education = {
         let finished = Player.education[activity_id].is_finished;
         let brief;
         if (finished) {
-            brief = "Вы закончили обучение. Уровень: " + cur_level;
+            brief = t("js.education.brief_finished", { level: cur_level });
         } else if (attendance) {
-            brief = "Вы сейчас посещаете. Уровень: " + cur_level;
+            brief = t("js.education.brief_attending", { level: cur_level });
         } else {
-            brief = "Не посещаете. Уровень: " + cur_level;
+            brief = t("js.education.brief_not_attending", { level: cur_level });
         }
         $("#education_panel_brief_label").text(brief);
     },
@@ -61,17 +54,17 @@ Interface.education = {
         $("#education_panel_brief_label").text("-");
     },
     update_desc: function(activity_id) {
-        let desc = educationDescriptions[activity_id] || defaultDescription;
+        let desc = t(`js.education.descriptions.${activity_id}`, {}, t("js.education.default_description"));
         $("#education_desc_label").text(desc);
     },
     reset_desc: function() {
-        $("#education_desc_label").text(defaultDescription);
+        $("#education_desc_label").text(t("js.education.default_description"));
     },
     alert_max_level: function(activity_id) {
-        Interface.show_dialog("Обучение", "Вы достигли максимального уровня!");
+        Interface.show_dialog(t("common.education"), t("js.education.max_level"));
     },
     alert_new_level: function(activity_id) {
-        Interface.show_dialog("Обучение", "Вы получили новый уровень!");
+        Interface.show_dialog(t("common.education"), t("js.education.new_level"));
     }
 };
 

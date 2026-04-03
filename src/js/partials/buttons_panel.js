@@ -2,6 +2,7 @@ import {
     World, Player, Interface
 } from "../global.js"
 import { build_requirements_html } from "./job_panel.js"
+import { t } from "../i18n.js";
 
 let taxi_accident_occurred = false;
 let taxi_event = {
@@ -98,11 +99,9 @@ function hack_button_click_handler() {
     let requirements = World["hacking"]["requirements"];
     for (const key in requirements) {
         if (!Player.check_requirement(key, requirements[key])) {
-            let html = "Вы не соответствуете требованиям для хакерства:<br><br>" +
+            let html = t("js.buttons.hacking_requirements_html") +
                 build_requirements_html(requirements);
-            $("#global_dialog_title").text("Не соответствуете требованиям");
-            $("#global_dialog_text").html(html);
-            $("#global_dialog").show();
+            Interface.show_dialog_html(t("common.requirements_not_met"), html);
             return;
         }
     }
@@ -124,7 +123,7 @@ function buy_all_button_click_handler() {
     grant_all_software();
     grant_all_education();
     grant_bonus_fish();
-    Interface.show_dialog("Покупка завершена", "Игрок получил все предметы из разделов жилья, магазина, компьютера и программ.");
+    Interface.show_dialog(t("js.buttons.buy_all_done_title"), t("js.buttons.buy_all_done_text"));
 }
 
 function new_game_click_handler() {
@@ -133,8 +132,8 @@ function new_game_click_handler() {
 
 function show_about_game_dialog() {
     Interface.show_dialog(
-        "Об игре",
-        'Перед вами браузерный ремейк старой игры "Я и Компьютер 2.2", гулявшей по компьютерам в начале 2000-х. В этой игре вам предстоит прожить путь от безработного любителя компьютеров до компьютерного президента, зарабатывать деньги, следить за уровнем сытости и настроения, и собирать свой компьютер мечты.\n\nАвтор игры: Леушев Юрий / GiNeag\nАвтор ремейка: Яльчик Илья\n\nИгра полностью бесплатна.'
+        t("dom.index.about_game_button"),
+        t("js.buttons.about_game")
     );
 }
 
@@ -147,7 +146,7 @@ function try_taxi_accident() {
     if (Math.random() > 0.2) return false;
     taxi_accident_occurred = true;
     Interface.show_dialog(":-(((",
-        "Случилось несчастье. Таксист попал в аварию, и вы сильно пострадали. На лечение пришлось потратить большие деньги: 30$",
+        t("js.buttons.taxi_accident"),
         function() {
             Player["status"].subtract_money(30);
             taxi_event.state = "court_pending";
@@ -165,13 +164,13 @@ function show_verdict() {
     let roll = Math.floor(Math.random() * 3);
     if (roll === 0) {
         Player["status"].add_money(25);
-        Interface.show_dialog("Суд", "Поздравляю! Вы выиграли дело и получили компенсацию 25$.");
+        Interface.show_dialog(t("js.buttons.court_title"), t("js.buttons.court_win"));
     } else if (roll === 1) {
         Player["status"].subtract_money(15);
-        Interface.show_dialog("Суд", "К сожалению, вы проиграли и вам пришлось заплатить штраф 15$ за беспокойство суда.");
+        Interface.show_dialog(t("js.buttons.court_title"), t("js.buttons.court_loss"));
     } else {
         Player["status"].add_money(10);
-        Interface.show_dialog("Суд", "Вам не удалось ничего доказать, но и таксист ничего не доказал. Вам выплатили небольшую компенсацию 10$.");
+        Interface.show_dialog(t("js.buttons.court_title"), t("js.buttons.court_draw"));
     }
 }
 

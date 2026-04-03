@@ -1,5 +1,6 @@
 import { World } from "./global.js";
 import { load_assets } from "./data.js";
+import { apply_translations } from "./i18n.js";
 import { time_panel_setup, update_time_state } from './partials/time_panel.js';
 import { buttons_panel_setup, show_about_game_dialog, update_taxi_event } from './partials/buttons_panel.js';
 import { housing_panel_setup } from './partials/housing_panel.js';
@@ -31,6 +32,7 @@ $(function () {
     }
 
     function init_game() {
+        apply_translations();
         time_panel_setup();
         status_panel_setup();
         buttons_panel_setup();
@@ -52,5 +54,5 @@ $(function () {
         setInterval(next_hour_handler, World["constants"]["TIME_QUANT"]);
     }
 
-    load_assets("assets/data/world.json", init_game);
+    load_assets("assets/data/world.json", "assets/data/labels_ru.json", init_game);
 });

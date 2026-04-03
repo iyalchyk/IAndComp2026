@@ -1,4 +1,5 @@
 import { World } from "./global.js";
+import { load_labels, resolve_translations } from "./i18n.js";
 
 function preprocess_shop_assortment(data) {
     let processed_data = {};
@@ -21,11 +22,15 @@ function preprocess_shop_assortment(data) {
     return processed_data;
 }
 
-function load_assets(world_data_file, onload_fn) {
-    $.getJSON(world_data_file, function(world_data_obj) {
-        Object.assign(World, preprocess_shop_assortment(world_data_obj));
-        onload_fn();
-        }).fail(function(e, e2) {
+function load_assets(world_data_file, labels_file, onload_fn) {
+    $.when($.getJSON(world_data_file), load_labels(labels_file))
+        .done(function(worldResponse) {
+            let world_data_obj = worldResponse[0];
+            let resolved_world = resolve_translations(world_data_obj);
+            Object.assign(World, preprocess_shop_assortment(resolved_world));
+            onload_fn();
+        })
+        .fail(function(e, e2) {
             console.log("An error has occurred.", e, e2);
         });
 }

@@ -7,7 +7,9 @@
     "SATIETY_DEDUCTION_FREQ": 12
   },
   "interface": {
-    "no_property": "Пока нет",
+    "no_property": {
+      "i18n": "world.interface.no_property"
+    },
     "no_price": "-"
   },
   "housing": {
@@ -16,52 +18,72 @@
         "level": 0,
         "price": 0,
         "short_desc": "1",
-        "long_desc": "Однокомнатная квартира",
+        "long_desc": {
+          "i18n": "world.housing.apartment.0.long_desc"
+        },
         "image": "assets/images/housing/apartment_0.svg"
       },
       {
         "level": 1,
         "price": 30,
         "short_desc": "2",
-        "long_desc": "Двухкомнатная квартира",
+        "long_desc": {
+          "i18n": "world.housing.apartment.1.long_desc"
+        },
         "image": "assets/images/housing/apartment_1.svg"
       },
       {
         "level": 2,
         "price": 45,
         "short_desc": "3",
-        "long_desc": "Трёхкомнатная квартира",
+        "long_desc": {
+          "i18n": "world.housing.apartment.2.long_desc"
+        },
         "image": "assets/images/housing/apartment_2.svg"
       },
       {
         "level": 3,
         "price": 60,
         "short_desc": "4",
-        "long_desc": "Четырёхкомнатная квартира",
+        "long_desc": {
+          "i18n": "world.housing.apartment.3.long_desc"
+        },
         "image": "assets/images/housing/apartment_3.svg"
       },
       {
         "id": "house",
         "level": 4,
         "price": 80,
-        "short_desc": "Дом",
-        "long_desc": "Загородный дом",
+        "short_desc": {
+          "i18n": "world.housing.apartment.4.short_desc"
+        },
+        "long_desc": {
+          "i18n": "world.housing.apartment.4.long_desc"
+        },
         "image": "assets/images/housing/apartment_4.svg"
       },
       {
         "id": "estate",
         "level": 5,
         "price": 95,
-        "short_desc": "Особняк",
-        "long_desc": "Особняк",
+        "short_desc": {
+          "i18n": "world.housing.apartment.5.short_desc"
+        },
+        "long_desc": {
+          "i18n": "world.housing.apartment.5.long_desc"
+        },
         "image": "assets/images/housing/apartment_5.svg"
       },
       {
         "id": "palace",
         "level": 6,
         "price": 150,
-        "short_desc": "Дворец",
-        "long_desc": "Дворец",
+        "short_desc": {
+          "i18n": "world.housing.apartment.6.short_desc"
+        },
+        "long_desc": {
+          "i18n": "world.housing.apartment.6.long_desc"
+        },
         "image": "assets/images/housing/apartment_6.svg"
       }
     ],
@@ -69,43 +91,67 @@
       {
         "level": 1,
         "price": 15,
-        "short_desc": "Подержанная",
-        "long_desc": "Подержанная",
+        "short_desc": {
+          "i18n": "world.housing.furniture.0.short_desc"
+        },
+        "long_desc": {
+          "i18n": "world.housing.furniture.0.long_desc"
+        },
         "image": "assets/images/housing/furniture_1.svg"
       },
       {
         "level": 2,
         "price": 25,
-        "short_desc": "Дачная",
-        "long_desc": "Дачная",
+        "short_desc": {
+          "i18n": "world.housing.furniture.1.short_desc"
+        },
+        "long_desc": {
+          "i18n": "world.housing.furniture.1.long_desc"
+        },
         "image": "assets/images/housing/furniture_2.svg"
       },
       {
         "level": 3,
         "price": 30,
-        "short_desc": "ДСП",
-        "long_desc": "ДСП",
+        "short_desc": {
+          "i18n": "world.housing.furniture.2.short_desc"
+        },
+        "long_desc": {
+          "i18n": "world.housing.furniture.2.long_desc"
+        },
         "image": "assets/images/housing/furniture_3.svg"
       },
       {
         "level": 4,
         "price": 40,
-        "short_desc": "Ламинированная",
-        "long_desc": "Ламинированная",
+        "short_desc": {
+          "i18n": "world.housing.furniture.3.short_desc"
+        },
+        "long_desc": {
+          "i18n": "world.housing.furniture.3.long_desc"
+        },
         "image": "assets/images/housing/furniture_4.svg"
       },
       {
         "level": 5,
         "price": 55,
-        "short_desc": "Офисная",
-        "long_desc": "Офисная",
+        "short_desc": {
+          "i18n": "world.housing.furniture.4.short_desc"
+        },
+        "long_desc": {
+          "i18n": "world.housing.furniture.4.long_desc"
+        },
         "image": "assets/images/housing/furniture_5.svg"
       },
       {
         "level": 6,
         "price": 70,
-        "short_desc": "Элитная",
-        "long_desc": "Элитная",
+        "short_desc": {
+          "i18n": "world.housing.furniture.5.short_desc"
+        },
+        "long_desc": {
+          "i18n": "world.housing.furniture.5.long_desc"
+        },
         "image": "assets/images/housing/furniture_6.svg"
       }
     ],
@@ -113,29 +159,45 @@
       {
         "level": 1,
         "price": 10,
-        "short_desc": "Маленькая",
-        "long_desc": "Маленькая",
+        "short_desc": {
+          "i18n": "world.housing.kitchen.0.short_desc"
+        },
+        "long_desc": {
+          "i18n": "world.housing.kitchen.0.long_desc"
+        },
         "image": "assets/images/housing/kitchen_1.svg"
       },
       {
         "level": 2,
         "price": 15,
-        "short_desc": "Оборудованная",
-        "long_desc": "Оборудованная",
+        "short_desc": {
+          "i18n": "world.housing.kitchen.1.short_desc"
+        },
+        "long_desc": {
+          "i18n": "world.housing.kitchen.1.long_desc"
+        },
         "image": "assets/images/housing/kitchen_2.svg"
       },
       {
         "level": 3,
         "price": 20,
-        "short_desc": "Комфортная",
-        "long_desc": "Комфортная",
+        "short_desc": {
+          "i18n": "world.housing.kitchen.2.short_desc"
+        },
+        "long_desc": {
+          "i18n": "world.housing.kitchen.2.long_desc"
+        },
         "image": "assets/images/housing/kitchen_3.svg"
       },
       {
         "level": 4,
         "price": 40,
-        "short_desc": "Сверкомфортная",
-        "long_desc": "Сверкомфортная",
+        "short_desc": {
+          "i18n": "world.housing.kitchen.3.short_desc"
+        },
+        "long_desc": {
+          "i18n": "world.housing.kitchen.3.long_desc"
+        },
         "image": "assets/images/housing/kitchen_4.svg"
       }
     ],
@@ -143,29 +205,45 @@
       {
         "level": 1,
         "price": 5,
-        "short_desc": "Ведро",
-        "long_desc": "Ведро",
+        "short_desc": {
+          "i18n": "world.housing.bathroom.0.short_desc"
+        },
+        "long_desc": {
+          "i18n": "world.housing.bathroom.0.long_desc"
+        },
         "image": "assets/images/housing/bathroom_1.svg"
       },
       {
         "level": 2,
         "price": 15,
-        "short_desc": "Стандартная",
-        "long_desc": "Стандартная",
+        "short_desc": {
+          "i18n": "world.housing.bathroom.1.short_desc"
+        },
+        "long_desc": {
+          "i18n": "world.housing.bathroom.1.long_desc"
+        },
         "image": "assets/images/housing/bathroom_2.svg"
       },
       {
         "level": 3,
         "price": 20,
-        "short_desc": "Джакузи",
-        "long_desc": "Джакузи",
+        "short_desc": {
+          "i18n": "world.housing.bathroom.2.short_desc"
+        },
+        "long_desc": {
+          "i18n": "world.housing.bathroom.2.long_desc"
+        },
         "image": "assets/images/housing/bathroom_3.svg"
       },
       {
         "level": 4,
         "price": 30,
-        "short_desc": "Бассейн",
-        "long_desc": "Бассейн",
+        "short_desc": {
+          "i18n": "world.housing.bathroom.3.short_desc"
+        },
+        "long_desc": {
+          "i18n": "world.housing.bathroom.3.long_desc"
+        },
         "image": "assets/images/housing/bathroom_4.svg"
       }
     ]
@@ -187,92 +265,144 @@
       {
         "level": 0,
         "price": 0,
-        "short_desc": "Дряхлая",
+        "short_desc": {
+          "i18n": "world.shop.clothes.0.short_desc"
+        },
         "long_desc": ""
       },
       {
         "level": 1,
         "price": 5,
-        "short_desc": "Спорт. костюм",
-        "long_desc": "Дешевый спортивный костюм"
+        "short_desc": {
+          "i18n": "world.shop.clothes.1.short_desc"
+        },
+        "long_desc": {
+          "i18n": "world.shop.clothes.1.long_desc"
+        }
       },
       {
         "level": 2,
         "price": 10,
-        "short_desc": "Летняя",
-        "long_desc": "Летняя одежда"
+        "short_desc": {
+          "i18n": "world.shop.clothes.2.short_desc"
+        },
+        "long_desc": {
+          "i18n": "world.shop.clothes.2.long_desc"
+        }
       },
       {
         "level": 3,
         "price": 15,
-        "short_desc": "Джинсы",
-        "long_desc": "Новые джинсы и футболка"
+        "short_desc": {
+          "i18n": "world.shop.clothes.3.short_desc"
+        },
+        "long_desc": {
+          "i18n": "world.shop.clothes.3.long_desc"
+        }
       },
       {
         "level": 4,
         "price": 20,
-        "short_desc": "Костюм",
-        "long_desc": "Костюм (брюки и пиджак)"
+        "short_desc": {
+          "i18n": "world.shop.clothes.4.short_desc"
+        },
+        "long_desc": {
+          "i18n": "world.shop.clothes.4.long_desc"
+        }
       },
       {
         "level": 5,
         "price": 25,
-        "short_desc": "Куртка",
-        "long_desc": "Куртка"
+        "short_desc": {
+          "i18n": "world.shop.clothes.5.short_desc"
+        },
+        "long_desc": {
+          "i18n": "world.shop.clothes.5.long_desc"
+        }
       },
       {
         "level": 6,
         "price": 30,
-        "short_desc": "Рубашка и брюки",
-        "long_desc": "Красивая рубашка и брюки"
+        "short_desc": {
+          "i18n": "world.shop.clothes.6.short_desc"
+        },
+        "long_desc": {
+          "i18n": "world.shop.clothes.6.long_desc"
+        }
       },
       {
         "level": 7,
         "price": 30,
-        "short_desc": "Супер",
-        "long_desc": "Супер футболка, кепка, шорты и т.д."
+        "short_desc": {
+          "i18n": "world.shop.clothes.7.short_desc"
+        },
+        "long_desc": {
+          "i18n": "world.shop.clothes.7.long_desc"
+        }
       },
       {
         "level": 8,
         "price": 35,
-        "short_desc": "Последней моды",
-        "long_desc": "Одежда последней моды"
+        "short_desc": {
+          "i18n": "world.shop.clothes.8.short_desc"
+        },
+        "long_desc": {
+          "i18n": "world.shop.clothes.8.long_desc"
+        }
       }
     ],
     "car": [
       {
         "level": 0,
         "price": 0,
-        "short_desc": "Нет машины",
+        "short_desc": {
+          "i18n": "world.shop.car.0.short_desc"
+        },
         "long_desc": "",
         "image": ""
       },
       {
         "level": 1,
         "price": 30,
-        "short_desc": "Пятёрка 2105",
-        "long_desc": "Пятёрка 2105",
+        "short_desc": {
+          "i18n": "world.shop.car.1.short_desc"
+        },
+        "long_desc": {
+          "i18n": "world.shop.car.1.long_desc"
+        },
         "image": "assets/images/shop/car_1.png"
       },
       {
         "level": 2,
         "price": 60,
-        "short_desc": "Девятка 21093",
-        "long_desc": "Девятка 21093",
+        "short_desc": {
+          "i18n": "world.shop.car.2.short_desc"
+        },
+        "long_desc": {
+          "i18n": "world.shop.car.2.long_desc"
+        },
         "image": "assets/images/shop/car_2.png"
       },
       {
         "level": 3,
         "price": 70,
-        "short_desc": "Десятка 2110",
-        "long_desc": "Десятка 2110",
+        "short_desc": {
+          "i18n": "world.shop.car.3.short_desc"
+        },
+        "long_desc": {
+          "i18n": "world.shop.car.3.long_desc"
+        },
         "image": "assets/images/shop/car_3.png"
       },
       {
         "level": 4,
         "price": 80,
-        "short_desc": "Волга 3110",
-        "long_desc": "Волга 3110",
+        "short_desc": {
+          "i18n": "world.shop.car.4.short_desc"
+        },
+        "long_desc": {
+          "i18n": "world.shop.car.4.long_desc"
+        },
         "image": "assets/images/shop/car_4.png"
       },
       {
@@ -312,9 +442,15 @@
     }
   },
   "education": {
-    "attending_true": "Посещаю",
-    "attending_false": "Не хожу",
-    "finished_true": "Закончил",
+    "attending_true": {
+      "i18n": "world.education.attending_true"
+    },
+    "attending_false": {
+      "i18n": "world.education.attending_false"
+    },
+    "finished_true": {
+      "i18n": "world.education.finished_true"
+    },
     "school": {
       "price": 6,
       "durations": [
@@ -324,14 +460,28 @@
         130
       ],
       "descriptions": [
-        "Начальное",
-        "Неполное среднее",
-        "Среднее",
-        "Неполное высшее",
-        "Высшее"
+        {
+          "i18n": "world.education.school.descriptions.0"
+        },
+        {
+          "i18n": "world.education.school.descriptions.1"
+        },
+        {
+          "i18n": "world.education.school.descriptions.2"
+        },
+        {
+          "i18n": "world.education.school.descriptions.3"
+        },
+        {
+          "i18n": "world.education.school.descriptions.4"
+        }
       ],
-      "button_false": "Пойти в вечернюю школу",
-      "button_true": "Закончить ходить в вечернюю школу"
+      "button_false": {
+        "i18n": "world.education.school.button_false"
+      },
+      "button_true": {
+        "i18n": "world.education.school.button_true"
+      }
     },
     "english_course": {
       "price": 8,
@@ -346,18 +496,40 @@
         120
       ],
       "descriptions": [
-        "Не знаю",
-        "1 уровень",
-        "2 уровень",
-        "3 уровень",
-        "4 уровень",
-        "5 уровень",
-        "6 уровень",
-        "7 уровень",
-        "8 уровень"
+        {
+          "i18n": "world.education.english_course.descriptions.0"
+        },
+        {
+          "i18n": "world.education.english_course.descriptions.1"
+        },
+        {
+          "i18n": "world.education.english_course.descriptions.2"
+        },
+        {
+          "i18n": "world.education.english_course.descriptions.3"
+        },
+        {
+          "i18n": "world.education.english_course.descriptions.4"
+        },
+        {
+          "i18n": "world.education.english_course.descriptions.5"
+        },
+        {
+          "i18n": "world.education.english_course.descriptions.6"
+        },
+        {
+          "i18n": "world.education.english_course.descriptions.7"
+        },
+        {
+          "i18n": "world.education.english_course.descriptions.8"
+        }
       ],
-      "button_false": "Записаться на курсы англ. яз.",
-      "button_true": "Закончить ходить на курсы англ. яз."
+      "button_false": {
+        "i18n": "world.education.english_course.button_false"
+      },
+      "button_true": {
+        "i18n": "world.education.english_course.button_true"
+      }
     },
     "computer_course": {
       "price": 8,
@@ -372,37 +544,69 @@
         120
       ],
       "descriptions": [
-        "Чайник",
-        "Любитель",
-        "Новичок",
-        "Программист",
-        "Почти хакер",
-        "Хакер",
-        "Администратор",
-        "Профессионал",
-        "Сверх профессионал"
+        {
+          "i18n": "world.education.computer_course.descriptions.0"
+        },
+        {
+          "i18n": "world.education.computer_course.descriptions.1"
+        },
+        {
+          "i18n": "world.education.computer_course.descriptions.2"
+        },
+        {
+          "i18n": "world.education.computer_course.descriptions.3"
+        },
+        {
+          "i18n": "world.education.computer_course.descriptions.4"
+        },
+        {
+          "i18n": "world.education.computer_course.descriptions.5"
+        },
+        {
+          "i18n": "world.education.computer_course.descriptions.6"
+        },
+        {
+          "i18n": "world.education.computer_course.descriptions.7"
+        },
+        {
+          "i18n": "world.education.computer_course.descriptions.8"
+        }
       ],
-      "button_false": "Записаться на компьютерные курсы",
-      "button_true": "Закончить ходить на компьютерные курсы"
+      "button_false": {
+        "i18n": "world.education.computer_course.button_false"
+      },
+      "button_true": {
+        "i18n": "world.education.computer_course.button_true"
+      }
     }
   },
   "job": {
     "unemployed": {
       "salary": 0,
-      "title": "Пока нет",
+      "title": {
+        "i18n": "world.job.unemployed.title"
+      },
       "description": "",
       "requirements": {}
     },
     "porter": {
       "salary": 10,
-      "title": "Грузчик",
-      "description": "Эта работа очень проста. Вам просто необходимо таскать всякие тяжёлые ящики.",
+      "title": {
+        "i18n": "world.job.porter.title"
+      },
+      "description": {
+        "i18n": "world.job.porter.description"
+      },
       "requirements": {}
     },
     "taxi_driver": {
       "salary": 20,
-      "title": "Таксист",
-      "description": "Здесь вы должны просто напросто перевозить людей.",
+      "title": {
+        "i18n": "world.job.taxi_driver.title"
+      },
+      "description": {
+        "i18n": "world.job.taxi_driver.description"
+      },
       "requirements": {
         "school": 1,
         "clothes": 1,
@@ -411,8 +615,12 @@
     },
     "gardener": {
       "salary": 25,
-      "title": "Садовник",
-      "description": "Вам нужно будет сажать цветочки и т.д.",
+      "title": {
+        "i18n": "world.job.gardener.title"
+      },
+      "description": {
+        "i18n": "world.job.gardener.description"
+      },
       "requirements": {
         "school": 1,
         "english_course": 1,
@@ -425,8 +633,12 @@
     },
     "junior_dev": {
       "salary": 30,
-      "title": "Начинающий программист",
-      "description": "Эта работа более серёзная, чем остальные.",
+      "title": {
+        "i18n": "world.job.junior_dev.title"
+      },
+      "description": {
+        "i18n": "world.job.junior_dev.description"
+      },
       "requirements": {
         "school": 2,
         "computer_course": 2,
@@ -440,8 +652,12 @@
     },
     "middle_dev": {
       "salary": 35,
-      "title": "Программист",
-      "description": "На этой работе вы будете составлять программы для разных фирм.",
+      "title": {
+        "i18n": "world.job.middle_dev.title"
+      },
+      "description": {
+        "i18n": "world.job.middle_dev.description"
+      },
       "requirements": {
         "school": 2,
         "computer_course": 3,
@@ -456,8 +672,12 @@
     },
     "internet_provider": {
       "salary": 40,
-      "title": "Провайдер",
-      "description": "Здесь вам необходимо работать с интернетом.",
+      "title": {
+        "i18n": "world.job.internet_provider.title"
+      },
+      "description": {
+        "i18n": "world.job.internet_provider.description"
+      },
       "requirements": {
         "school": 3,
         "computer_course": 3,
@@ -472,8 +692,12 @@
     },
     "web_master": {
       "salary": 45,
-      "title": "Веб-мастер",
-      "description": "Создавайте стильные информативные сайты.",
+      "title": {
+        "i18n": "world.job.web_master.title"
+      },
+      "description": {
+        "i18n": "world.job.web_master.description"
+      },
       "requirements": {
         "school": 3,
         "computer_course": 3,
@@ -490,8 +714,12 @@
     },
     "hacker": {
       "salary": 50,
-      "title": "Хакер",
-      "description": "Здесь ваши хакерские задания усложнятся.",
+      "title": {
+        "i18n": "world.job.hacker.title"
+      },
+      "description": {
+        "i18n": "world.job.hacker.description"
+      },
       "requirements": {
         "school": 4,
         "computer_course": 5,
@@ -508,8 +736,12 @@
     },
     "graphical_designer": {
       "salary": 60,
-      "title": "Графический дизайнер",
-      "description": "Вы будете создавать текстуры, 3D объекты и остальную графику.",
+      "title": {
+        "i18n": "world.job.graphical_designer.title"
+      },
+      "description": {
+        "i18n": "world.job.graphical_designer.description"
+      },
       "requirements": {
         "school": 4,
         "computer_course": 6,
@@ -525,8 +757,12 @@
     },
     "computer_president": {
       "salary": 70,
-      "title": "Компьютерный президент",
-      "description": "Это самая замечательная работа. Вы сможете командовать всеми компьютерными фирмами.",
+      "title": {
+        "i18n": "world.job.computer_president.title"
+      },
+      "description": {
+        "i18n": "world.job.computer_president.description"
+      },
       "requirements": {
         "school": 4,
         "computer_course": 8,
@@ -617,21 +853,27 @@
       {
         "level": 1,
         "price": 11,
-        "short_desc": "матричный",
+        "short_desc": {
+          "i18n": "world.hardware.printer.0.short_desc"
+        },
         "long_desc": "STAR LC-10 Dot Matrix Impact Printer",
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Star-LC-10-printer-01.jpg/500px-Star-LC-10-printer-01.jpg"
       },
       {
         "level": 2,
         "price": 30,
-        "short_desc": "струйный",
+        "short_desc": {
+          "i18n": "world.hardware.printer.1.short_desc"
+        },
         "long_desc": "Epson PM-700C",
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Epson_PM-700C.jpg/960px-Epson_PM-700C.jpg"
       },
       {
         "level": 3,
         "price": 40,
-        "short_desc": "лазерный",
+        "short_desc": {
+          "i18n": "world.hardware.printer.2.short_desc"
+        },
         "long_desc": "KYOCERA FS-1110",
         "image": "https://upload.wikimedia.org/wikipedia/commons/2/2a/KYOCERA_FS-1110.jpg"
       }
@@ -640,14 +882,18 @@
       {
         "level": 1,
         "price": 20,
-        "short_desc": "ручной",
+        "short_desc": {
+          "i18n": "world.hardware.scanner.0.short_desc"
+        },
         "long_desc": "GeniScan GS4500",
         "image": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Handscanner-platine.jpg"
       },
       {
         "level": 2,
         "price": 30,
-        "short_desc": "планшетный",
+        "short_desc": {
+          "i18n": "world.hardware.scanner.1.short_desc"
+        },
         "long_desc": "Epson Perfection V330",
         "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Epson_Perfection_V330_Photo-7858.jpg/500px-Epson_Perfection_V330_Photo-7858.jpg"
       }
@@ -1069,63 +1315,81 @@
     "tasks": [
       {
         "reward": 4,
-        "description": "Это очень простое задание. Нужно просто взломать программу.",
+        "description": {
+          "i18n": "world.hacking.tasks.0.description"
+        },
         "duration": 5,
         "failure_probability": 0,
         "delay_probability": 0.33
       },
       {
         "reward": 5,
-        "description": "Вам необходимо взломать защите сервера и скачать файл из интернета.",
+        "description": {
+          "i18n": "world.hacking.tasks.1.description"
+        },
         "duration": 5,
         "failure_probability": 0.33,
         "delay_probability": 0.33
       },
       {
         "reward": 6,
-        "description": "Вам нужно поразить вирусами компьютеры крупной компании.",
+        "description": {
+          "i18n": "world.hacking.tasks.2.description"
+        },
         "duration": 5,
         "failure_probability": 0.33,
         "delay_probability": 0.33
       },
       {
         "reward": 7,
-        "description": "Вам нужно форматнуть диски банковской системы.",
+        "description": {
+          "i18n": "world.hacking.tasks.3.description"
+        },
         "duration": 5,
         "failure_probability": 0.33,
         "delay_probability": 0.33
       },
       {
         "reward": 8,
-        "description": "Вам требуется перечислить деньги из маленького магазина себе на счёт.",
+        "description": {
+          "i18n": "world.hacking.tasks.4.description"
+        },
         "duration": 5,
         "failure_probability": 0.33,
         "delay_probability": 0.33
       },
       {
         "reward": 9,
-        "description": "Вам надо скачать базу данных с банковского компьютера.",
+        "description": {
+          "i18n": "world.hacking.tasks.5.description"
+        },
         "duration": 5,
         "failure_probability": 0.33,
         "delay_probability": 0.33
       },
       {
         "reward": 10,
-        "description": "Вам требуется перечислить деньги со счёта в банке.",
+        "description": {
+          "i18n": "world.hacking.tasks.6.description"
+        },
         "duration": 5,
         "failure_probability": 0.33,
         "delay_probability": 0.33
       },
       {
         "reward": 11,
-        "description": "Вам требуется удалить спец файл с главного компьютера города.",
+        "description": {
+          "i18n": "world.hacking.tasks.7.description"
+        },
         "duration": 5,
         "failure_probability": 0.33,
         "delay_probability": 0.33
       },
       {
         "reward": 12,
-        "description": "Это очень сложное задание. Вам требуется скачать себе программу обороны.",
+        "description": {
+          "i18n": "world.hacking.tasks.8.description"
+        },
         "duration": 5,
         "failure_probability": 0.33,
         "delay_probability": 0.33

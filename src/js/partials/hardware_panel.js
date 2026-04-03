@@ -1,6 +1,7 @@
 import {
     World, Player, Interface
 } from "../global.js"
+import { t } from "../i18n.js";
 
 let $price_label;
 let $current_label;
@@ -25,7 +26,7 @@ Interface.hardware = {
     update_button_desc: function (property_type) {
         let cur = Player.hardware[property_type];
         let next = cur ? cur.next : World["hardware"][property_type][0];
-        let desc = next ? next["short_desc"] : "—";
+        let desc = next ? next["short_desc"] : t("common.em_dash");
         $(`#hw_desc_${property_type}`).text(desc);
     },
     update_price_label: function (property_type) {
@@ -39,7 +40,7 @@ Interface.hardware = {
     },
     update_current_label: function (property_type) {
         let cur = Player.hardware[property_type];
-        let current = cur ? cur["short_desc"] : "нет";
+        let current = cur ? cur["short_desc"] : t("common.no");
         $current_label.text(current);
     },
     reset_current_label: function () {

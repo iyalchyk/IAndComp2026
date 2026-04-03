@@ -34,6 +34,12 @@ let Interface = {
         $("#global_dialog_text").text(text);
         this._dialog_callback = callback || null;
         $("#global_dialog").show();
+    },
+    show_dialog_html: function(title, html, callback) {
+        $("#global_dialog_title").text(title);
+        $("#global_dialog_text").html(html);
+        this._dialog_callback = callback || null;
+        $("#global_dialog").show();
     }
 };
 

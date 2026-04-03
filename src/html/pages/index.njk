@@ -3,7 +3,7 @@
 <html lang="ru">
 <head>
     <meta charset="utf-8">
-    <title>Я и Компьютер</title>
+    <title>MeAndComp</title>
     <link rel="icon" href="assets/images/favicon_classic.png" type="image/png">
 
     <link rel="stylesheet" href="css/main.css">
@@ -16,7 +16,7 @@
 <div id="app" class="window" style="visibility: hidden">
     <div class="title-bar">
         <div class="title-bar-text">
-            Я и Компьютер
+            <span data-i18n="dom.index.window_title"></span>
         </div>
         <div class="title-bar-controls">
             <button aria-label="Minimize"></button>
@@ -25,17 +25,17 @@
         </div>
     </div>
     <div class="menu">
-        <button type="button" id="new_game_button" class="menu_button">Новая игра</button>
-        <button type="button" id="about_game_button" class="menu_button">Об игре</button>
-        <!--      <span class="new_game">Помощь</span>-->
+        <button type="button" id="new_game_button" class="menu_button" data-i18n="dom.index.new_game_button"></button>
+        <button type="button" id="about_game_button" class="menu_button" data-i18n="dom.index.about_game_button"></button>
+        <!--      <span class="new_game">Help</span>-->
     </div>
     <div class="status_bar">
       <span class="date">
-        <label>Дата: </label>
+        <label data-i18n="dom.index.date_label"></label>
         <label id="date">21/2/21</label>
       </span>
         <span class="time">
-        <label>Время: </label>
+        <label data-i18n="dom.index.time_label"></label>
         <label id="time">20:00</label>
       </span>
     </div>
@@ -52,37 +52,37 @@
     {% include "partials/internet_panel.html" %}
     {% include "partials/hacking_panel.html" %}
     {% include "partials/buttons_panel.html" %}
-    <button id="home_button">Вернуться</button>
+    <button id="home_button" data-i18n="dom.index.home_button"></button>
     <div id="taxi_court_dialog" class="confirm_dialog_overlay" style="display: none;">
         <div class="confirm_dialog">
             <div class="title-bar">
-                <div class="title-bar-text">Суд?</div>
+                <div class="title-bar-text" data-i18n="dom.index.taxi_court.title"></div>
             </div>
             <div class="confirm_dialog_body">
-                <p>Ваш адвокат предлагает вам подать в суд на таксиста.</p>
-                <p>Если вы выиграете на суде, то сможете получить компенсацию за ущерб.</p>
-                <p>Если же вы проиграете, то, возможно, вам придётся заплатить штраф за беспокойство суда.</p>
-                <p><b>Желаете ли вы подать в суд на таксиста?</b></p>
+                <p data-i18n="dom.index.taxi_court.line_1"></p>
+                <p data-i18n="dom.index.taxi_court.line_2"></p>
+                <p data-i18n="dom.index.taxi_court.line_3"></p>
+                <p><b data-i18n="dom.index.taxi_court.line_4"></b></p>
             </div>
             <div class="confirm_dialog_buttons">
-                <button id="taxi_court_yes">Да</button>
-                <button id="taxi_court_no">Нет</button>
+                <button id="taxi_court_yes" data-i18n="common.yes"></button>
+                <button id="taxi_court_no" data-i18n="common.no"></button>
             </div>
         </div>
     </div>
     <div id="bank_taxi_dialog" class="confirm_dialog_overlay" style="display: none;">
         <div class="confirm_dialog">
             <div class="title-bar">
-                <div class="title-bar-text">Требуется машина</div>
+                <div class="title-bar-text" data-i18n="dom.index.bank_taxi.title"></div>
             </div>
             <div class="confirm_dialog_body">
-                <p>Банк — это отличный способ сохранения и накопления денег. К сожалению, банк находится далеко от вашего дома и без машины вам не удастся доехать до него.</p>
-                <p>Но вы можете взять такси за 10$ и доехать до банка, либо купить собственную машину в магазине.</p>
-                <p><b>Хотите ли вы взять такси за 10$ и доехать до банка?</b></p>
+                <p data-i18n="dom.index.bank_taxi.line_1"></p>
+                <p data-i18n="dom.index.bank_taxi.line_2"></p>
+                <p><b data-i18n="dom.index.bank_taxi.line_3"></b></p>
             </div>
             <div class="confirm_dialog_buttons">
-                <button id="bank_taxi_yes">Да</button>
-                <button id="bank_taxi_no">Нет</button>
+                <button id="bank_taxi_yes" data-i18n="common.yes"></button>
+                <button id="bank_taxi_no" data-i18n="common.no"></button>
             </div>
         </div>
     </div>
@@ -95,14 +95,14 @@
                 <p id="global_dialog_text"></p>
             </div>
             <div class="confirm_dialog_buttons">
-                <button id="global_dialog_ok">OK</button>
+                <button id="global_dialog_ok" data-i18n="common.ok"></button>
             </div>
         </div>
     </div>
     <div id="virus_dialog" class="confirm_dialog_overlay" style="display: none;">
         <div class="confirm_dialog virus_dialog">
             <div class="title-bar">
-                <div class="title-bar-text">Вирус</div>
+                <div class="title-bar-text" data-i18n="dom.index.virus.title"></div>
             </div>
             <div class="confirm_dialog_body virus_dialog_body">
                 <div class="virus_dialog_frame">
@@ -110,7 +110,7 @@
                         <span class="virus_dialog_icon_face">!</span>
                     </div>
                     <div class="virus_dialog_message_box">
-                        <p class="virus_dialog_message">Ваш компьютер поразил вирус. Что делать будем?</p>
+                        <p class="virus_dialog_message" data-i18n="dom.index.virus.message"></p>
                     </div>
                 </div>
             </div>
@@ -121,7 +121,7 @@
                             <span class="virus_spare_icon" aria-hidden="true">
                                 <span class="virus_spare_face">☺</span>
                             </span>
-                            <span class="virus_button_label">Пусть<br>живёт</span>
+                            <span class="virus_button_label" data-i18n-html="dom.index.virus.spare_button"></span>
                         </span>
                     </button>
                 </div>
@@ -135,10 +135,10 @@
                                 <span class="virus_kill_stand"></span>
                                 <span class="virus_kill_monitor"></span>
                             </span>
-                            <span class="virus_button_label">Убить</span>
+                            <span class="virus_button_label" data-i18n="dom.index.virus.kill_button"></span>
                         </span>
                     </button>
-                    <p id="virus_dialog_requirement" class="virus_dialog_requirement" style="display: none;">Требуется антивирус.</p>
+                    <p id="virus_dialog_requirement" class="virus_dialog_requirement" style="display: none;" data-i18n="dom.index.virus.requirement"></p>
                 </div>
             </div>
         </div>

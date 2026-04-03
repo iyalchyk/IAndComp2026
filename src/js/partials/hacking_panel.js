@@ -1,6 +1,7 @@
 import {
     World, Player, Interface
 } from "../global.js"
+import { t } from "../i18n.js";
 
 let $task_label;
 let $get_task_button;
@@ -17,13 +18,13 @@ Interface.hacking = {
             $get_task_button.hide();
             $execute_button.hide();
         } else if (current_task) {
-            $get_task_button.text("Отказаться").show();
+            $get_task_button.text(t("js.hacking.cancel")).show();
             $execute_button.show();
-            $task_label.text(current_task.description + "\nНаграда: " + current_task.reward + "$");
+            $task_label.text(t("js.hacking.task_reward", { description: current_task.description, reward: current_task.reward }));
         } else {
-            $get_task_button.text("Получить задание").show();
+            $get_task_button.text(t("dom.hacking.get_task_button")).show();
             $execute_button.hide();
-            $task_label.text("Задния нет ...");
+            $task_label.text(t("dom.hacking.no_task"));
         }
     }
 };
@@ -44,12 +45,10 @@ function get_task_button_click_handler() {
     if (executing) return;
 
     if (current_task) {
-        // Отказаться
         Player["status"].subtract_money(5);
         current_task = null;
         Interface.hacking.update_view();
     } else {
-        // Получить задание
         current_task = get_random_task();
         Interface.hacking.update_view();
     }
@@ -66,7 +65,7 @@ function execute_button_click_handler() {
         duration *= 2;
     }
 
-    $task_label.text("Выполнение задания...");
+    $task_label.text(t("js.hacking.executing"));
     Interface.hacking.update_view();
 
     $progress_container.show();
@@ -86,14 +85,14 @@ function execute_button_click_handler() {
             if (Math.random() < task.failure_probability) {
                 let penalty = Math.floor(task.reward / 2);
                 Player["status"].subtract_money(penalty);
-                $task_label.text("Задание провалено! Вы потеряли " + penalty + "$");
+                $task_label.text(t("js.hacking.failed", { penalty: penalty }));
             } else {
                 Player["status"].add_money(task.reward);
-                $task_label.text("Задание выполнено! Вы получили " + task.reward + "$");
+                $task_label.text(t("js.hacking.completed", { reward: task.reward }));
             }
 
             current_task = null;
-            $get_task_button.text("Получить задание").show();
+            $get_task_button.text(t("dom.hacking.get_task_button")).show();
             $execute_button.hide();
         }
     }, 50);

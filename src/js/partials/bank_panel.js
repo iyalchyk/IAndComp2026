@@ -1,6 +1,7 @@
 import {
     Player, Interface
 } from "../global.js"
+import { t } from "../i18n.js";
 
 let $money_label;
 let $profit_label;
@@ -21,7 +22,7 @@ Interface.bank = {
         return parseInt($get_input.val());
     },
     alert_no_money: function() {
-        Interface.show_dialog("Внимание", "У вас не хватает денег на счету");
+        Interface.show_dialog(t("common.attention"), t("js.bank.no_money"));
     }
 };
 

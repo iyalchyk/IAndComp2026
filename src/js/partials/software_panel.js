@@ -1,20 +1,7 @@
 import {
     World, Player, Interface
 } from "../global.js"
-
-const REQUIREMENT_TITLES = {
-    CPU: "Процессор",
-    monitor: "Монитор",
-    printer: "Принтер",
-    scanner: "Сканер",
-    modem: "Модем",
-    HDD: "Винчестер",
-    CDROM: "CD-ROM",
-    RAM: "Память RAM",
-    sound_card: "Звук. карта",
-    video_card: "Видеокарта",
-    OS: "Система"
-};
+import { t } from "../i18n.js";
 
 function get_requirement_desc(key, level) {
     if (key === "OS") {
@@ -74,16 +61,16 @@ Interface.software = {
         let software_obj = World["software"][software_category][software_name];
         let requirements = software_obj["requirements"];
         if (!requirements) {
-            return '<div class="field-row"><label>Нет</label></div>';
+            return `<div class="field-row"><label>${t("common.no")}</label></div>`;
         }
         let keys = Object.keys(requirements);
         if (keys.length === 0) {
-            return '<div class="field-row"><label>Нет</label></div>';
+            return `<div class="field-row"><label>${t("common.no")}</label></div>`;
         }
         let html = "";
         for (const key of keys) {
             let req_val = requirements[key];
-            let title = REQUIREMENT_TITLES[key] || key;
+            let title = t(`common.requirement_titles.${key}`, {}, key);
             let met = Player.check_requirement(key, req_val);
             let mark = met ? "\u2714" : "\u2718";
             let color = met ? "#008000" : "#c00000";
@@ -120,7 +107,7 @@ Player.software = {
             let requirement_val = software_requirements[requirement_key];
             let requirement_status = Player.check_requirement(requirement_key, requirement_val);
             if (!requirement_status) {
-                Interface.show_dialog("Не подходит конфигурация компьютера", "Конфигурация вашего компьютера не подходит");
+                Interface.show_dialog(t("js.software.invalid_config_title"), t("js.software.invalid_config_text"));
                 return;
             }
         }

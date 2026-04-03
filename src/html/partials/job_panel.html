@@ -3,28 +3,28 @@
         <div class="job_left_col">
             <div class="job_section job_list">
                 <fieldset>
-                    <legend>Вакансии</legend>
-                    <button id="job_porter_button" name="porter">Грузчик — 10$/день</button>
-                    <button id="job_taxi_driver_button" name="taxi_driver">Таксист — 20$/день</button>
-                    <button id="job_gardener_button" name="gardener">Садовник — 25$/день</button>
-                    <button id="job_junior_dev_button" name="junior_dev">Нач. программист — 30$/день</button>
-                    <button id="job_middle_dev_button" name="middle_dev">Программист — 35$/день</button>
-                    <button id="job_internet_provider_button" name="internet_provider">Провайдер — 40$/день</button>
-                    <button id="job_web_master_button" name="web_master">Веб-мастер — 45$/день</button>
-                    <button id="job_hacker_button" name="hacker">Хакер — 50$/день</button>
-                    <button id="job_graphical_designer_button" name="graphical_designer">Граф. дизайнер — 60$/день</button>
-                    <button id="job_computer_president_button" name="computer_president">Комп. президент — 70$/день</button>
+                    <legend data-i18n="dom.job.jobs_legend"></legend>
+                    <button id="job_porter_button" name="porter"></button>
+                    <button id="job_taxi_driver_button" name="taxi_driver"></button>
+                    <button id="job_gardener_button" name="gardener"></button>
+                    <button id="job_junior_dev_button" name="junior_dev"></button>
+                    <button id="job_middle_dev_button" name="middle_dev"></button>
+                    <button id="job_internet_provider_button" name="internet_provider"></button>
+                    <button id="job_web_master_button" name="web_master"></button>
+                    <button id="job_hacker_button" name="hacker"></button>
+                    <button id="job_graphical_designer_button" name="graphical_designer"></button>
+                    <button id="job_computer_president_button" name="computer_president"></button>
                 </fieldset>
             </div>
             <div class="job_section job_info_section">
                 <fieldset>
-                    <legend>Информация</legend>
+                    <legend data-i18n="dom.job.info_legend"></legend>
                     <div class="field-row">
-                        <label>Текущая работа:</label>
-                        <label id="job_panel_current_label">Пока нет</label>
+                        <label data-i18n="dom.job.current_job"></label>
+                        <label id="job_panel_current_label"></label>
                     </div>
                     <div class="field-row">
-                        <label>Зарплата:</label>
+                        <label data-i18n="dom.job.salary"></label>
                         <label id="job_panel_salary_label">-</label>
                     </div>
                 </fieldset>
@@ -32,11 +32,11 @@
         </div>
         <div class="job_right_col">
             <div class="job_desc_box">
-                <label id="job_panel_description_label">Выберите вакансию из списка слева, чтобы увидеть описание и требования. Устройтесь на работу, чтобы получать зарплату каждый день.</label>
+                <label id="job_panel_description_label" data-i18n="dom.job.default_description"></label>
             </div>
             <div class="job_section job_requirements">
                 <fieldset>
-                    <legend>Требования</legend>
+                    <legend data-i18n="dom.job.requirements_legend"></legend>
                     <div id="job_panel_requirements_list"></div>
                 </fieldset>
             </div>

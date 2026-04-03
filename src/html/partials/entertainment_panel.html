@@ -4,39 +4,39 @@
             <div class="entertainment_left_col">
                 <div class="entertainment_section entertainment_leisure">
                     <fieldset>
-                        <legend>Отдых</legend>
-                        <button id="go_party_button" name="party">Сходить на вечеринку</button>
-                        <button id="go_disco_button" name="disco">Сходить на дискотеку</button>
+                        <legend data-i18n="dom.entertainment.leisure_legend"></legend>
+                        <button id="go_party_button" name="party" data-i18n="dom.entertainment.party_button"></button>
+                        <button id="go_disco_button" name="disco" data-i18n="dom.entertainment.disco_button"></button>
                     </fieldset>
                 </div>
                 <div class="entertainment_section entertainment_casino">
                     <fieldset>
-                        <legend>Казино</legend>
-                        <button id="go_roulette_button" name="roulette">Рулетка</button>
-                        <button id="go_slot_machine_button" name="slot_machine">Однорукий бандит</button>
-                        <button id="go_arcanoid_button" name="arcanoid">Игровой автомат "Арканоид"</button>
+                        <legend data-i18n="dom.entertainment.casino_legend"></legend>
+                        <button id="go_roulette_button" name="roulette" data-i18n="dom.entertainment.roulette_button"></button>
+                        <button id="go_slot_machine_button" name="slot_machine" data-i18n="dom.entertainment.slot_button"></button>
+                        <button id="go_arcanoid_button" name="arcanoid" data-i18n="dom.entertainment.arcanoid_button"></button>
                     </fieldset>
                 </div>
             </div>
             <div class="entertainment_right_col">
                 <div class="entertainment_desc_box">
-                    <label id="entertainment_desc_label">Здесь вы сможете заработать деньги. Поиграть в игровые автоматы поднять себе настроение и т.д.</label>
+                    <label id="entertainment_desc_label" data-i18n="dom.entertainment.default_description"></label>
                 </div>
             </div>
         </div>
         <div class="entertainment_info_section">
             <fieldset>
-                <legend>Информация</legend>
+                <legend data-i18n="dom.entertainment.info_legend"></legend>
                 <div class="field-row">
-                    <label>Цена:</label>
+                    <label data-i18n="dom.entertainment.price"></label>
                     <label id="entertainment_panel_price_label">-</label>
                 </div>
                 <div class="field-row">
-                    <label>Поднять настроение на:</label>
+                    <label data-i18n="dom.entertainment.mood_change"></label>
                     <label id="entertainment_panel_mood_change_label">-</label>
                 </div>
                 <div class="field-row">
-                    <label>Настроение:</label>
+                    <label data-i18n="dom.entertainment.mood"></label>
                     <label id="entertainment_panel_mood_value_label">?</label>
                 </div>
             </fieldset>
@@ -44,45 +44,45 @@
     </div>
     <div id="roulette_popup" style="display: none;">
         <div class="roulette_container">
-            <div class="info_box">Рулетка</div>
+            <div class="info_box" data-i18n="dom.entertainment.roulette_title"></div>
             <div class="roulette_display" id="roulette_display">00</div>
             <div class="roulette_inputs">
                 <div class="roulette_field">
-                    <label for="roulette_number_input">ваше число</label>
+                    <label for="roulette_number_input" data-i18n="dom.entertainment.roulette_number"></label>
                     <input type="number" id="roulette_number_input" min="0" max="13" value="0">
                 </div>
                 <div class="roulette_field">
-                    <label for="roulette_bet_input">ставка</label>
+                    <label for="roulette_bet_input" data-i18n="dom.entertainment.roulette_bet"></label>
                     <input type="number" id="roulette_bet_input" min="1" value="1">
                 </div>
             </div>
-            <button id="roulette_start_button">СТАРТ</button>
+            <button id="roulette_start_button" data-i18n="dom.entertainment.start_button"></button>
             <div class="roulette_result_area">
                 <div class="roulette_result_boxes">
                     <div class="roulette_result_box" id="roulette_your_number_box">-</div>
                     <div class="roulette_result_box" id="roulette_casino_number_box">-</div>
                 </div>
                 <div class="roulette_winnings">
-                    <label>ваш выигрыш составил: </label>
+                    <label data-i18n="dom.entertainment.roulette_winnings"></label>
                     <label id="roulette_winnings_label">0</label>
                 </div>
             </div>
-            <button id="roulette_home_button">Выход</button>
+            <button id="roulette_home_button" data-i18n="dom.entertainment.exit_button"></button>
         </div>
     </div>
     <div id="slot_machine_popup" style="display: none;">
         <div class="slot_container">
-            <div class="info_box">Рулетка 2</div>
+            <div class="info_box" data-i18n="dom.entertainment.slot_title"></div>
             <div class="slot_reels">
                 <div class="slot_reel" id="slot_reel_1">?</div>
                 <div class="slot_reel" id="slot_reel_2">?</div>
                 <div class="slot_reel" id="slot_reel_3">?</div>
             </div>
-            <button id="slot_spin_button" disabled>Вращать</button>
+            <button id="slot_spin_button" disabled data-i18n="dom.entertainment.slot_spin"></button>
             <div class="slot_body">
                 <div class="slot_paytable">
                     <table>
-                        <tr><th colspan="2">Выигрыш($):</th></tr>
+                        <tr><th colspan="2" data-i18n="dom.entertainment.slot_paytable"></th></tr>
                         <tr><td>🍎🍎🍇</td><td>1</td></tr>
                         <tr><td>🍔🍔🍇</td><td>2</td></tr>
                         <tr><td>🍇🍇🍎</td><td>3</td></tr>
@@ -95,26 +95,26 @@
                     </table>
                 </div>
                 <div class="slot_sidebar">
-                    <button id="slot_buy_button">Купить 5 вращений за 10$</button>
+                    <button id="slot_buy_button" data-i18n="dom.entertainment.slot_buy"></button>
                     <div class="slot_info_box">
-                        <label>Осталось </label>
+                        <label data-i18n="dom.entertainment.slot_spins_left_prefix"></label>
                         <label id="slot_spins_left">0</label>
-                        <label> вращений</label>
+                        <label data-i18n="dom.entertainment.slot_spins_left_suffix"></label>
                     </div>
                     <div class="slot_info_box">
-                        <label>У вас денег($): </label>
+                        <label data-i18n="dom.entertainment.slot_money"></label>
                         <label id="slot_money_label">0</label>
                     </div>
                 </div>
             </div>
-            <button id="slot_home_button">&lt;&lt; Назад</button>
+            <button id="slot_home_button" data-i18n="dom.entertainment.back_button"></button>
         </div>
     </div>
     <div id="arcanoid_popup" style="display: none;">
         <div class="arcanoid_container">
             <div class="arcanoid_top_row">
                 <div class="arcanoid_field_wrapper">
-                    <div class="info_box">Арканоид</div>
+                    <div class="info_box" data-i18n="dom.entertainment.arcanoid_title"></div>
                     <canvas id="arcanoid_canvas" width="300" height="200"></canvas>
                     <div class="arcanoid_controls_row">
                         <button id="arcanoid_left_button" class="arcanoid_arrow_btn">&larr;</button>
@@ -122,17 +122,17 @@
                     </div>
                 </div>
                 <div class="arcanoid_right_panel">
-                    <button id="arcanoid_home_button">&lt;&lt; Назад</button>
-                    <button id="arcanoid_start_button">Начать игру</button>
+                    <button id="arcanoid_home_button" data-i18n="dom.entertainment.back_button"></button>
+                    <button id="arcanoid_start_button" data-i18n="dom.entertainment.arcanoid_start"></button>
                     <div class="arcanoid_timer_box">
-                        <label>Время: </label>
+                        <label data-i18n="dom.entertainment.arcanoid_time"></label>
                         <label id="arcanoid_time_label">30</label>
                     </div>
                 </div>
             </div>
             <div class="arcanoid_bottom_row">
                 <fieldset class="arcanoid_option_group">
-                    <legend>Выбор ракетки</legend>
+                    <legend data-i18n="dom.entertainment.arcanoid_paddle"></legend>
                     <label><input type="radio" name="arcanoid_paddle" value="0" checked>
                         <span class="arcanoid_paddle_preview" style="background: linear-gradient(180deg, #ff00ff, #00ffff, #ff00ff);"></span>
                     </label>
@@ -144,7 +144,7 @@
                     </label>
                 </fieldset>
                 <fieldset class="arcanoid_option_group">
-                    <legend>Мяч</legend>
+                    <legend data-i18n="dom.entertainment.arcanoid_ball"></legend>
                     <label><input type="radio" name="arcanoid_ball" value="#ff6600" checked>
                         <span class="arcanoid_ball_preview" style="background: #ff6600;"></span>
                     </label>
@@ -155,13 +155,7 @@
                         <span class="arcanoid_ball_preview" style="background: #cc00cc;"></span>
                     </label>
                 </fieldset>
-                <div class="arcanoid_rules">
-                    Игровые правила. Чтобы начать игру нажмите кнопку «Начать игру».
-                    Управление осуществляется при помощи кнопок со стрелками или при помощи клавиатуры
-                    (кнопки вправо и влево). Если мячик касается пола тогда вы теряете 20$ и у вас
-                    ухудшается настроение. Если же вы продержитесь и не дадите коснуться пола мячику,
-                    тогда вы получаете 35$ и у вас сильно улучшается настроение.
-                </div>
+                <div class="arcanoid_rules" data-i18n="dom.entertainment.arcanoid_rules"></div>
             </div>
         </div>
     </div>

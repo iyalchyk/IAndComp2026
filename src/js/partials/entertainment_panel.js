@@ -1,16 +1,7 @@
 import {
     World, Player, Interface
 } from "../global.js"
-
-const entertainmentDescriptions = {
-    party: "Вечеринка — отличный способ поднять себе настроение и отдохнуть с друзьями.",
-    disco: "Дискотека — потанцуйте и повеселитесь на дискотеке!",
-    roulette: "Рулетка — испытайте удачу! Угадайте число и выиграйте ставку x3.",
-    slot_machine: "Однорукий бандит — купите вращения и попробуйте собрать выигрышную комбинацию.",
-    arcanoid: "Арканоид — продержите мячик в воздухе 30 секунд и получите 35$ и хорошее настроение!"
-};
-
-const defaultDescription = "Здесь вы сможете заработать деньги. Поиграть в игровые автоматы поднять себе настроение и т.д.";
+import { t } from "../i18n.js";
 
 Interface.entertainment = {
     update_price_mood_labels: function(entertainment_type) {
@@ -25,11 +16,11 @@ Interface.entertainment = {
         $entertainmentMoodLabel.text(World["interface"]["no_price"]);
     },
     update_desc: function(entertainment_type) {
-        let desc = entertainmentDescriptions[entertainment_type] || defaultDescription;
+        let desc = t(`js.entertainment.descriptions.${entertainment_type}`, {}, t("js.entertainment.default_description"));
         $entertainmentDescLabel.text(desc);
     },
     reset_desc: function() {
-        $entertainmentDescLabel.text(defaultDescription);
+        $entertainmentDescLabel.text(t("js.entertainment.default_description"));
     },
     update_current_mood: function() {
         $entertainmentMoodValueLabel.text(Player["status"].mood);
@@ -45,7 +36,7 @@ Player.entertainment = {
         let entertainment_price = entertainment_obj["price"];
         let entertainment_mood = entertainment_obj["mood"];
         if (Player["status"].mood > 150) {
-            Interface.show_dialog("Не хочу идти на дискотеку!", "Вы уже распухли от радости.");
+            Interface.show_dialog(t("js.entertainment.too_happy_title"), t("js.entertainment.too_happy_text"));
             return;
         }
         if (Player["status"].money < entertainment_price) {
@@ -119,11 +110,11 @@ function start_roulette() {
     let bet = parseInt($rouletteBetInput.val());
 
     if (isNaN(playerNumber) || playerNumber < 0 || playerNumber > 13) {
-        Interface.show_dialog("Рулетка", "Введите число от 0 до 13!");
+        Interface.show_dialog(t("dom.entertainment.roulette_title"), t("js.entertainment.roulette_number_error"));
         return;
     }
     if (isNaN(bet) || bet < 1) {
-        Interface.show_dialog("Рулетка", "Введите ставку!");
+        Interface.show_dialog(t("dom.entertainment.roulette_title"), t("js.entertainment.roulette_bet_error"));
         return;
     }
     if (Player["status"].money < bet) {
@@ -262,7 +253,7 @@ function spin_slot_machine() {
             let payout = get_slot_payout(finalReels[0], finalReels[1], finalReels[2]);
             if (payout > 0) {
                 Player["status"].add_money(payout);
-                Interface.show_dialog("Автомат", "Вы выиграли " + payout + "$!");
+                Interface.show_dialog(t("js.entertainment.slot_title"), t("js.entertainment.slot_win", { payout: payout }));
             }
 
             $slotBuyButton.prop("disabled", false);
@@ -411,11 +402,11 @@ function arcanoid_end(won) {
     if (won) {
         Player["status"].add_money(35);
         Player["status"].add_mood(20);
-        Interface.show_dialog("Арканоид", "Вы продержались! Вы получаете 35$ и настроение улучшилось!");
+        Interface.show_dialog(t("dom.entertainment.arcanoid_title"), t("js.entertainment.arcanoid_win"));
     } else {
         Player["status"].subtract_money(20);
         Player["status"].add_mood(-8);
-        Interface.show_dialog("Арканоид", "Мяч коснулся пола! Вы теряете 20$ и настроение ухудшилось.");
+        Interface.show_dialog(t("dom.entertainment.arcanoid_title"), t("js.entertainment.arcanoid_loss"));
     }
 
     $arcanoidStartButton.prop("disabled", false);

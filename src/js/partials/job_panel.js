@@ -1,26 +1,7 @@
 import {
     World, Player, Interface
 } from "../global.js"
-
-const REQUIREMENT_TITLES = {
-    school: "Школа",
-    english_course: "Англ. язык",
-    computer_course: "Комп. курсы",
-    clothes: "Одежда",
-    car: "Машина",
-    apartment: "Квартира",
-    furniture: "Мебель",
-    kitchen: "Кухня",
-    bathroom: "Ванная",
-    compiler: "Компилятор",
-    graphics: "Графика",
-    browser: "Браузер",
-    dialer: "Звонилка",
-    downloader: "Закачка",
-    modem: "Модем",
-    scanner: "Сканер",
-    fish: "Рыба"
-};
+import { t } from "../i18n.js";
 
 const REQUIREMENT_SECTIONS = {
     school: "education",
@@ -64,12 +45,12 @@ function get_requirement_short_desc(key, level) {
 function build_requirements_html(requirements) {
     let keys = Object.keys(requirements);
     if (keys.length === 0) {
-        return '<div class="field-row"><label>Нет</label></div>';
+        return `<div class="field-row"><label>${t("common.no")}</label></div>`;
     }
     let html = "";
     for (const key of keys) {
         let req_val = requirements[key];
-        let title = REQUIREMENT_TITLES[key] || key;
+        let title = t(`common.requirement_titles.${key}`, {}, key);
         let met = Player.check_requirement(key, req_val);
         let mark = met ? "\u2714" : "\u2718";
         let color = met ? "#008000" : "#c00000";
@@ -83,6 +64,26 @@ let $description_label;
 let $salary_label;
 let $requirements_list;
 let $current_label;
+
+function update_job_button_labels() {
+    const buttonIds = {
+        porter: "#job_porter_button",
+        taxi_driver: "#job_taxi_driver_button",
+        gardener: "#job_gardener_button",
+        junior_dev: "#job_junior_dev_button",
+        middle_dev: "#job_middle_dev_button",
+        internet_provider: "#job_internet_provider_button",
+        web_master: "#job_web_master_button",
+        hacker: "#job_hacker_button",
+        graphical_designer: "#job_graphical_designer_button",
+        computer_president: "#job_computer_president_button"
+    };
+
+    for (const [jobId, selector] of Object.entries(buttonIds)) {
+        let job = World["job"][jobId];
+        $(selector).text(t("js.job.button_label", { title: job.title, salary: job.salary }));
+    }
+}
 
 Interface.job = {
     update_view_title_salary: function() {
@@ -113,7 +114,7 @@ Interface.job = {
     },
     update_job_labels: function(job_id) {
         let job_obj = World["job"][job_id];
-        let job_salary = job_obj["salary"] + "$/день";
+        let job_salary = t("js.job.salary_per_day", { amount: job_obj["salary"] });
         let job_description = job_obj["description"];
         $salary_label.text(job_salary);
         $description_label.text(job_description);
@@ -121,7 +122,7 @@ Interface.job = {
     },
     reset_job_labels: function() {
         $salary_label.text("-");
-        $description_label.text("Выберите вакансию из списка слева, чтобы увидеть описание и требования. Устройтесь на работу, чтобы получать зарплату каждый день.");
+        $description_label.text(t("dom.job.default_description"));
         $requirements_list.empty();
     }
 };
@@ -145,7 +146,7 @@ Player.job = {
             let job_requirement_val = job_requirements[job_requirement_key];
             let job_requirement_status = Player.check_requirement(job_requirement_key, job_requirement_val);
             if (!job_requirement_status) {
-                Interface.show_dialog("Не соответствуете требованиям", "Вы не соответствуете требованиям для этой вакансии");
+                Interface.show_dialog(t("common.requirements_not_met"), t("js.job.requirements_not_met"));
                 return;
             }
         }
@@ -178,6 +179,7 @@ function job_panel_setup() {
         mouseenter: job_button_mouseenter_handler,
         mouseleave: job_button_mouseleave_handler
     });
+    update_job_button_labels();
     Interface.job.update_view_title_salary();
     Interface.job.update_current_job_label();
 }

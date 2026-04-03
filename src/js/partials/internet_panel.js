@@ -2,17 +2,8 @@ import {
     World, Player, Interface
 } from "../global.js";
 import { build_requirements_html } from "./job_panel.js";
+import { get_label, t } from "../i18n.js";
 
-const disconnectedText = "Добро пожаловать к самому лучшему провайдеру.\nЗдесь вы можете подключиться к интернету за 5$ в час. Мы предлагаем вам самые лучшие страницы мира.\n" +
-    "Самая знаменитая страница анекдотов и страница о компьютере. Подключайтесь, не пожалеете. При первом подключении необходимо заплатить 30$.";
-const connectedText = "Добро пожаловать к самому лучшему провайдеру.\nВы подключились к интернету. С вас будет сниматься 5$ за каждый час работы до тех пор, пока вы не нажмёте «Отключиться».\n" +
-    "Теперь вы можете выйти в интернет и выбрать один из доступных сайтов.";
-const anecdoteAssets = {
-    random: "assets/data/internet_anecdotes_01.txt",
-    day: "assets/data/internet_anecdotes_02.txt",
-    week: "assets/data/internet_anecdotes_03.txt"
-};
-const computerAsset = "assets/data/internet_computer.txt";
 const VIRUS_EVENT_PERIOD_HOURS = 72;
 const VIRUS_MIN_STOLEN_MONEY = 5;
 const VIRUS_MAX_STOLEN_MONEY = 30;
@@ -42,7 +33,6 @@ let $virusDialog;
 let $virusKillButton;
 let $virusKillRequirement;
 let currentView = "provider";
-let textAssetPromises = {};
 let anecdoteDownloadInterval = null;
 
 function get_random_int(min, max) {
@@ -73,33 +63,15 @@ function finalize_anecdotes_download(options = {}) {
     }
 }
 
-function load_text_asset(path) {
-    if (!textAssetPromises[path]) {
-        textAssetPromises[path] = fetch(path)
-            .then(function(response) {
-                if (!response.ok) {
-                    throw new Error("HTTP " + response.status);
-                }
-                return response.text();
-            })
-            .then(function(text) {
-                return text
-                    .replace(/\r\n/g, "\n")
-                    .trim();
-            });
-    }
-    return textAssetPromises[path];
-}
-
 Interface.internet = {
     update_status_label: function() {
-        $("#internet_access").text(Player.internet.has_connected_once ? "Есть" : "Нет");
-        $("#internet_anecdotes_status").text(Player.internet.anecdotes_downloaded ? "Скачаны" : "Нет");
+        $("#internet_access").text(Player.internet.has_connected_once ? t("common.yes") : t("common.no"));
+        $("#internet_anecdotes_status").text(Player.internet.anecdotes_downloaded ? t("common.downloaded") : t("common.no"));
     },
     update_panel: function() {
-        $connectButton.text(Player.internet.connected ? "Отключиться" : "Подключение");
+        $connectButton.text(Player.internet.connected ? t("dom.internet.disconnect_button") : t("dom.internet.connect_button"));
         $enterButton.prop("disabled", !Player.internet.connected);
-        $infoText.text(Player.internet.connected ? connectedText : disconnectedText);
+        $infoText.text(Player.internet.connected ? t("js.internet.connected_text") : t("js.internet.disconnected_text"));
         if (!Player.internet.connected) {
             this.hide_sites_dialog();
         }
@@ -159,15 +131,15 @@ Interface.internet = {
         $anecdoteButtons.removeClass("is-active");
         $button.addClass("is-active");
         $anecdotePlaceholder.hide();
-        $anecdoteText.show().text("Загрузка...");
+        $anecdoteText.show().text(t("common.loading"));
     },
     show_download_progress: function() {
-        $downloadProgressLabel.text("::: Скачивание [0%] :::");
+        $downloadProgressLabel.text(t("js.internet.download_progress", { percent: 0 }));
         $downloadProgressBar.css("width", "0%");
         $downloadProgress.css("visibility", "visible");
     },
     set_download_progress: function(percent) {
-        $downloadProgressLabel.text("::: Скачивание [" + Math.floor(percent) + "%] :::");
+        $downloadProgressLabel.text(t("js.internet.download_progress", { percent: Math.floor(percent) }));
         $downloadProgressBar.css("width", percent + "%");
     },
     hide_download_progress: function() {
@@ -221,10 +193,10 @@ Player.internet = {
         let stolenMoney = get_random_int(VIRUS_MIN_STOLEN_MONEY, VIRUS_MAX_STOLEN_MONEY);
         Player.status.subtract_money(stolenMoney);
         this.finish_virus_event();
-        Interface.show_dialog("Вирус", messagePrefix + " Вирус украл " + stolenMoney + "$.");
+        Interface.show_dialog(t("dom.index.virus.title"), t("js.internet.virus_stole", { prefix: messagePrefix, amount: stolenMoney }));
     },
     let_virus_live: function() {
-        this.steal_money_by_virus("Вы оставили вирус в покое.");
+        this.steal_money_by_virus(t("js.internet.virus_spared"));
     },
     try_kill_virus: function() {
         let antivirus = Player.software.antivirus;
@@ -233,11 +205,11 @@ Player.internet = {
         let successProbability = antivirus.level >= 2 ? 1 : 0.5;
         if (Math.random() < successProbability) {
             this.finish_virus_event();
-            Interface.show_dialog("Вирус", "Поздравляем! Вирус был уничтожен.");
+            Interface.show_dialog(t("dom.index.virus.title"), t("js.internet.virus_killed"));
             return;
         }
 
-        this.steal_money_by_virus("Антивирус не справился.");
+        this.steal_money_by_virus(t("js.internet.virus_failed"));
     },
     maybe_trigger_virus_event: function() {
         if (!this.has_connected_once || this.virus_scheduled_hour === null) return;
@@ -250,11 +222,9 @@ Player.internet = {
         for (const requirement_key in requirements) {
             let requirement_val = requirements[requirement_key];
             if (!Player.check_requirement(requirement_key, requirement_val)) {
-                let html = "Вы не соответствуете требованиям для выхода в интернет:<br><br>" +
+                let html = t("js.internet.requirements_html") +
                     build_requirements_html(requirements);
-                $("#global_dialog_title").text("Не соответствуете требованиям");
-                $("#global_dialog_text").html(html);
-                $("#global_dialog").show();
+                Interface.show_dialog_html(t("common.requirements_not_met"), html);
                 return;
             }
         }
@@ -288,14 +258,13 @@ Player.internet = {
         }
     },
     disconnect_due_to_no_money: function() {
-        let message = "\u0423 \u0432\u0430\u0441 \u0437\u0430\u043a\u043e\u043d\u0447\u0438\u043b\u0438\u0441\u044c \u0434\u0435\u043d\u044c\u0433\u0438, \u043f\u043e\u044d\u0442\u043e\u043c\u0443 \u0438\u043d\u0442\u0435\u0440\u043d\u0435\u0442 \u0431\u044b\u043b \u043e\u0442\u043a\u043b\u044e\u0447\u0435\u043d.\n" +
-            "\u0412\u044b \u043f\u0440\u043e\u0441\u0438\u0434\u0435\u043b\u0438 \u0432 \u0438\u043d\u0442\u0435\u0440\u043d\u0435\u0442\u0435 " + this.session_hours_online + " \u0447.";
+        let message = t("js.internet.disconnected_no_money", { hours: this.session_hours_online });
         if (this.anecdotes_download_in_progress) {
-            message += "\n\u0421\u043a\u0430\u0447\u0438\u0432\u0430\u043d\u0438\u0435 \u0431\u0430\u0437\u044b \u0430\u043d\u0435\u043a\u0434\u043e\u0442\u043e\u0432 \u043f\u0440\u0435\u0440\u0432\u0430\u043d\u043e.";
+            message += "\n" + t("js.internet.download_interrupted_suffix");
         }
         this.disconnect({
             force: true,
-            dialog_title: "\u0418\u043d\u0442\u0435\u0440\u043d\u0435\u0442",
+            dialog_title: t("dom.buttons.internet"),
             dialog_text: message
         });
     }
@@ -323,15 +292,15 @@ function open_anecdotes_button_click_handler() {
 async function open_computer_button_click_handler() {
     if (Player.internet.anecdotes_download_in_progress) return;
     Interface.internet.show_view("computer");
-    $computerText.text("Загрузка...");
+    $computerText.text(t("common.loading"));
     try {
-        let text = await load_text_asset(computerAsset);
+        let text = get_label("content.internet.computer", "");
         if (currentView === "computer") {
             $computerText.text(text);
         }
     } catch (error) {
         if (currentView === "computer") {
-            $computerText.text("Не удалось загрузить страницу о компьютере.");
+            $computerText.text(t("js.internet.load_computer_error"));
         }
     }
 }
@@ -342,13 +311,13 @@ async function anecdote_button_click_handler() {
 
     Interface.internet.show_anecdote_loading($button);
     try {
-        let text = await load_text_asset(anecdoteAssets[kind]);
+        let text = get_label(`content.internet.anecdotes.${kind}`, "");
         if (currentView === "anecdotes") {
             $anecdoteText.text(text);
         }
     } catch (error) {
         if (currentView === "anecdotes") {
-            $anecdoteText.text("Не удалось загрузить анекдоты.");
+            $anecdoteText.text(t("js.internet.load_anecdotes_error"));
         }
     }
 }
@@ -356,7 +325,7 @@ async function anecdote_button_click_handler() {
 function anecdotes_download_button_click_handler() {
     if (Player.internet.anecdotes_download_in_progress) return;
     if (Player.internet.anecdotes_downloaded) {
-        Interface.show_dialog("Интернет", "База анекдотов уже скачана.");
+        Interface.show_dialog(t("dom.buttons.internet"), t("js.internet.anecdotes_already_downloaded"));
         return;
     }
 
@@ -376,7 +345,7 @@ function anecdotes_download_button_click_handler() {
 
         if (!hasDownloader && elapsed >= failAt) {
             finalize_anecdotes_download();
-            Interface.show_dialog("Скачивание прервано", "Скачивание оборвалось. Установите качалку FlashGet, чтобы докачать базу анекдотов до конца.");
+            Interface.show_dialog(t("js.internet.download_aborted_title"), t("js.internet.download_aborted_text"));
             return;
         }
 
@@ -384,7 +353,7 @@ function anecdotes_download_button_click_handler() {
             finalize_anecdotes_download({
                 downloaded: true
             });
-            Interface.show_dialog("Интернет", "База анекдотов успешно скачана.");
+            Interface.show_dialog(t("dom.buttons.internet"), t("js.internet.download_completed"));
         }
     }, 50);
 }

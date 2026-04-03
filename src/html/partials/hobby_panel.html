@@ -3,24 +3,24 @@
         <div class="hobby_left_col">
             <div class="hobby_section hobby_shop">
                 <fieldset>
-                    <legend>Рыболовный магазин</legend>
+                    <legend data-i18n="dom.hobby.shop_legend"></legend>
                     <div class="hobby_shop_layout">
                         <div class="hobby_shop_image">
                             <img id="hobby_shop_image" src="/assets/images/hobby/hobby_placeholder.png" alt="fish">
                         </div>
                         <div class="hobby_shop_buttons">
-                            <button id="buy_groundbait_button" name="groundbait">Купить пакет прикормки</button>
-                            <button id="buy_fishing_rod_button" name="fishing_rod">Купить удочку</button>
-                            <button id="buy_fishing_tackle_button" name="fishing_tackle">Купить снасти</button>
+                            <button id="buy_groundbait_button" name="groundbait" data-i18n="dom.hobby.buy_groundbait"></button>
+                            <button id="buy_fishing_rod_button" name="fishing_rod" data-i18n="dom.hobby.buy_fishing_rod"></button>
+                            <button id="buy_fishing_tackle_button" name="fishing_tackle" data-i18n="dom.hobby.buy_fishing_tackle"></button>
                         </div>
                     </div>
                 </fieldset>
             </div>
             <div class="hobby_section hobby_price">
                 <fieldset>
-                    <legend>Цена</legend>
+                    <legend data-i18n="dom.hobby.price_legend"></legend>
                     <div class="field-row">
-                        <label>Стоимость:</label>
+                        <label data-i18n="dom.hobby.price"></label>
                         <label id="hobby_panel_price_label">-</label>
                     </div>
                 </fieldset>
@@ -28,62 +28,62 @@
         </div>
         <div class="hobby_right_col">
             <div class="hobby_desc_box">
-                <label id="hobby_desc_label">Рыбалка - это отличный способ поднять себе настроение, утолить голод (рыбою, которую вы поймали) и просто хорошо и весело отдохнуть. Рыбачьте и вы не пожалеете.</label>
+                <label id="hobby_desc_label" data-i18n="dom.hobby.default_description"></label>
             </div>
         </div>
     </div>
     <div class="hobby_section hobby_inventory">
         <fieldset>
-            <legend>Ваш рыболовный ящик</legend>
+            <legend data-i18n="dom.hobby.inventory_legend"></legend>
             <div class="field-row">
-                <label>У вас</label>
+                <label data-i18n="dom.hobby.groundbait_prefix"></label>
                 <label id="hobby_panel_groundbait_amount_label">0</label>
-                <label>пакетов прикормки.</label>
+                <label data-i18n="dom.hobby.groundbait_suffix"></label>
             </div>
             <div class="field-row">
-                <label>Удочка:</label>
-                <label id="hobby_panel_fishing_rod_label">Нет</label>
+                <label data-i18n="dom.hobby.fishing_rod"></label>
+                <label id="hobby_panel_fishing_rod_label"></label>
             </div>
             <div class="field-row">
-                <label>Снасти:</label>
-                <label id="hobby_panel_fishing_tackle_label">Нет</label>
+                <label data-i18n="dom.hobby.fishing_tackle"></label>
+                <label id="hobby_panel_fishing_tackle_label"></label>
             </div>
             <div class="field-row">
-                <label>Общее кол-во пойманной рыбы:</label>
+                <label data-i18n="dom.hobby.total_fish"></label>
                 <label id="hobby_panel_fish_amount_label">0</label>
             </div>
         </fieldset>
     </div>
     <div class="hobby_go_fishing">
-        <button id="go_fishing_button" name="fishing">Отправиться на озеро "MAD FISH"</button>
+        <button id="go_fishing_button" name="fishing" data-i18n="dom.hobby.go_fishing"></button>
     </div>
     <div id="bus_confirm_dialog" class="confirm_dialog_overlay" style="display: none;">
         <div class="confirm_dialog">
             <div class="title-bar">
-                <div class="title-bar-text">Требуется машина</div>
+                <div class="title-bar-text" data-i18n="dom.hobby.bus_dialog.title"></div>
             </div>
             <div class="confirm_dialog_body">
-                <p>До озера Мад Фиш пешком не дойдёшь. Без машины вам не удастся добраться до него.</p>
-                <p>Но вы можете сесть на автобус, заплатив за билет 10$ и доехать до озера, либо купить собственную машину в магазине.</p>
-                <p><b>Хотите ли вы поехать на автобусе?</b></p>
+                <p data-i18n="dom.hobby.bus_dialog.line_1"></p>
+                <p data-i18n="dom.hobby.bus_dialog.line_2"></p>
+                <p><b data-i18n="dom.hobby.bus_dialog.line_3"></b></p>
             </div>
             <div class="confirm_dialog_buttons">
-                <button id="bus_confirm_yes">Да</button>
-                <button id="bus_confirm_no">Нет</button>
+                <button id="bus_confirm_yes" data-i18n="common.yes"></button>
+                <button id="bus_confirm_no" data-i18n="common.no"></button>
             </div>
         </div>
     </div>
     <div id="gas_confirm_dialog" class="confirm_dialog_overlay" style="display: none;">
         <div class="confirm_dialog">
             <div class="title-bar">
-                <div class="title-bar-text">Требуется бензин</div>
+                <div class="title-bar-text" data-i18n="dom.hobby.gas_dialog.title"></div>
             </div>
             <div class="confirm_dialog_body">
-                <p>Чтобы доехать до озера, вам требуется бензин. Хотите ли вы купить бензин (его цена 5$)?</p>
+                <p data-i18n="dom.hobby.gas_dialog.line_1"></p>
             </div>
             <div class="confirm_dialog_buttons">
-                <button id="gas_confirm_yes">Да</button>
-                <button id="gas_confirm_no">Нет</button>
+                <button id="gas_confirm_yes" data-i18n="common.yes"></button>
+                <button id="gas_confirm_no" data-i18n="common.no"></button>
             </div>
         </div>
     </div>
@@ -91,15 +91,11 @@
 
 <div id="fishing_game_panel" class="switchable panel" style="display: none;">
     <div id="fishing_game_intro">
-        <div class="info_box">Озеро "MAD FISH"</div>
+        <div class="info_box" data-i18n="dom.hobby.lake_title"></div>
         <div class="fishing_game_text">
-            <p>Добро пожаловать на озеро "MAD FISH". Сейчас вам предстоит
-            попытаться порыбачить. После того, как вы нажмете на кнопку
-            "НАЧАТЬ", в озере будут появляться рыбы, на которых
-            надо будет нажимать. Рыбалка будет продолжаться 30 секунд.
-            Если вы нажмете на рыбу, это значит, что вы ее поймали.</p>
+            <p data-i18n="dom.hobby.fishing_intro"></p>
         </div>
-        <button id="fishing_game_start_button">НАЧАТЬ</button>
+        <button id="fishing_game_start_button" data-i18n="dom.hobby.start_button"></button>
     </div>
 
     <div id="fishing_game_play" style="display: none;">
@@ -110,26 +106,26 @@
     </div>
 
     <div id="fishing_game_results" style="display: none;">
-        <div class="info_box">Результаты рыбалки</div>
+        <div class="info_box" data-i18n="dom.hobby.results_title"></div>
         <div class="fishing_game_text">
-            <p>Вам удалось поймать рыб: <label id="fishing_result_fish">0</label></p>
-            <p>У вас улучшилось настроение на: <label id="fishing_result_mood">0</label></p>
-            <p>Сила пойманной рыбы: сытость у вас увеличилась на: <label id="fishing_result_satiety">0</label></p>
+            <p data-i18n-html="dom.hobby.result_fish"></p>
+            <p data-i18n-html="dom.hobby.result_mood"></p>
+            <p data-i18n-html="dom.hobby.result_satiety"></p>
         </div>
-        <button id="fishing_game_home_button">Поехать домой</button>
+        <button id="fishing_game_home_button" data-i18n="dom.hobby.go_home"></button>
     </div>
 
     <div class="fishing_game_stats">
         <div class="price_box">
-            <label>Поймано рыбы</label>
+            <label data-i18n="dom.hobby.sidebar_caught"></label>
             <label id="fishing_game_caught_label" class="price">0</label>
         </div>
         <div class="price_box">
-            <label>Прикормка</label>
+            <label data-i18n="dom.hobby.sidebar_groundbait"></label>
             <label id="fishing_game_groundbait_label" class="price">0</label>
         </div>
         <div class="price_box">
-            <label>Время</label>
+            <label data-i18n="dom.hobby.sidebar_time"></label>
             <label id="fishing_game_time_label" class="price">30</label>
         </div>
     </div>

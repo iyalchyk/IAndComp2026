@@ -1,6 +1,7 @@
 import {
     World, Player, Interface
 } from "../global.js"
+import { t } from "../i18n.js";
 
 Interface.shop = {
     update_view_clothes: function() {
@@ -16,15 +17,15 @@ Interface.shop = {
     update_clothes_desc: function() {
         let cur = Player.shop["clothes"];
         let next = cur ? cur.next : World["shop"]["clothes"][0];
-        let desc = next ? next["long_desc"] : "Куплено всё";
+        let desc = next ? next["long_desc"] : t("js.shop.all_bought");
         $("#shop_clothes_desc_label").text(desc);
     },
     update_car_labels: function() {
         let cur = Player.shop["car"];
         let next = cur ? cur.next : World["shop"]["car"][0];
-        let brand = next ? next["long_desc"] : "Куплено всё";
+        let brand = next ? next["long_desc"] : t("js.shop.all_bought");
         let current_car = cur ? cur["long_desc"] : "";
-        let current_label = current_car || "Нет машины";
+        let current_label = current_car || t("js.shop.no_car");
         $("#shop_car_brand_label").text(brand);
         $("#shop_car_current_label").text(current_label);
         this.update_car_image(next);
@@ -94,7 +95,7 @@ Player.shop = {
         let food_price = food_obj["price"];
         let food_satiety = food_obj["satiety"];
         if (Player["status"].satiety > 100) {
-            Interface.show_dialog("Не хочу есть!", "Вы уже распухли от еды и не можете впихнуть в себя ещё.");
+            Interface.show_dialog(t("js.shop.full_title"), t("js.shop.full_text"));
             return;
         }
         if (Player["status"].money < food_price) {

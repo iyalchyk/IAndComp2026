@@ -18,12 +18,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yalchik/IAndComp2026.git"
+    "url": "git+https://github.com/iyalchyk/IAndComp2026.git"
   },
   "author": "Ilya Yalchyk",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/yalchik/IAndComp2026/issues"
+    "url": "https://github.com/iyalchyk/IAndComp2026/issues"
   },
-  "homepage": "https://yalchik.github.io/IAndComp2026/"
+  "homepage": "https://iyalchyk.github.io/IAndComp2026/"
 }

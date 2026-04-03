@@ -1,6 +1,8 @@
 body {
-    background-image: url('../../assets/images/background/win98ru_base.png');
+    background-image: url('../../assets/images/background/win98ru.png');
     background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
 }
 
 div.window {

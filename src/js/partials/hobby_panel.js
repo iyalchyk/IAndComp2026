@@ -264,14 +264,14 @@ function hobby_button_mouseenter_handler() {
     Interface.hobby.update_desc(this.name);
     let item = World["hobby"][this.name];
     if (item && item.image) {
-        $("#hobby_shop_image").attr("src", "/" + item.image);
+        $("#hobby_shop_image").attr("src", item.image);
     }
 }
 
 function hobby_button_mouseleave_handler() {
     Interface.hobby.reset_price_label();
     Interface.hobby.reset_desc();
-    $("#hobby_shop_image").attr("src", "/assets/images/hobby/hobby_placeholder.png");
+    $("#hobby_shop_image").attr("src", "assets/images/hobby/hobby_placeholder.png");
 }
 
 function go_fishing_button_click_handler () {

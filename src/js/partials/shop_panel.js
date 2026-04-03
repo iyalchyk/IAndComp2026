@@ -32,7 +32,7 @@ Interface.shop = {
     },
     update_car_image: function(next_car) {
         let level = next_car ? next_car["level"] : null;
-        let src = level ? `/assets/images/shop/car_${level}.png` : "/assets/images/shop/car_placeholder.png";
+        let src = level ? `assets/images/shop/car_${level}.png` : "assets/images/shop/car_placeholder.png";
         $("#shop_car_image").attr("src", src);
     },
     update_current_satiety: function() {

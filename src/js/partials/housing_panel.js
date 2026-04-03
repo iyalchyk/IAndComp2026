@@ -54,7 +54,7 @@ Interface.housing = {
         }
     },
     reset_preview: function () {
-        $("#housing_preview_image").attr("src", "/assets/images/housing/store.svg");
+        $("#housing_preview_image").attr("src", "assets/images/housing/store.svg");
     },
     update_desc: function (property_type) {
         let property_obj = Player.housing[property_type];

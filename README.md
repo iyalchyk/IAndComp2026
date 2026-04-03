@@ -87,12 +87,26 @@ The Gulp pipeline is intentionally simple:
 
 There is no bundler, minification, tree-shaking, or asset fingerprinting. The browser receives files almost exactly as written.
 
+## GitHub Pages Deployment
+
+This repository includes a GitHub Pages workflow at `.github/workflows/deploy-pages.yml`.
+
+- every push to `master` triggers a production build;
+- the workflow uploads `dist/` as the Pages artifact;
+- deployment is performed through GitHub Actions Pages.
+
+To enable it in GitHub:
+
+1. open the repository settings;
+2. go to `Pages`;
+3. set the source to `GitHub Actions`.
+
 ## Development Notes
 
 - The source of truth is `src/` and `assets/`. `dist/` is generated output.
 - If you change a panel or its button, you will usually need coordinated edits in HTML, CSS, JS, and gameplay data.
 - The original UI voice is Russian-first; preserve the existing tone unless a rewrite is intentional.
-- Some image paths in the UI are root-relative, such as `/assets/...`, which matters if the app is deployed under a subpath.
+- Asset paths are kept relative so the app can be hosted from a GitHub Pages repository subpath such as `/MeAndComp/`.
 - There is currently no automated test suite or linter, so manual browser verification is the main validation path.
 
 ## Manual Validation

@@ -49,12 +49,14 @@ let Interface = {
     },
     hide_dialog: function() {
         $("#global_dialog").hide();
+        $("#global_dialog").removeClass("global_dialog_language_mode");
         this._dialog_callback = null;
         this._dialog_actions = {};
     },
     reset_dialog_buttons: function() {
         $("#global_dialog_ok").show();
         $("#global_dialog_language_buttons").hide();
+        $("#global_dialog").removeClass("global_dialog_language_mode");
     },
     run_dialog_action: function(action_key) {
         let action = this._dialog_actions[action_key] || null;
@@ -81,6 +83,7 @@ let Interface = {
     },
     show_language_dialog: function(title, html, actions) {
         this.reset_dialog_buttons();
+        $("#global_dialog").addClass("global_dialog_language_mode");
         $("#global_dialog_title").text(title);
         $("#global_dialog_text").html(html);
         $("#global_dialog_ok").hide();

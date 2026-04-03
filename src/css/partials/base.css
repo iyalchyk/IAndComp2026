@@ -65,22 +65,35 @@ div.menu .menu_button:active {
 }
 
 .about_game_intro {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
 }
 
-.about_game_intro_section + .about_game_intro_section {
-    padding-top: 10px;
-    border-top: 1px solid #808080;
+.global_dialog_language_mode .confirm_dialog {
+    width: 760px;
 }
 
 .about_game_intro_title {
     margin: 0 0 6px;
 }
 
+.about_game_intro_section {
+    min-width: 0;
+}
+
 .about_game_intro_text {
     white-space: pre-line;
+}
+
+@media (max-width: 820px) {
+    .global_dialog_language_mode .confirm_dialog {
+        width: min(760px, calc(100vw - 32px));
+    }
+
+    .about_game_intro {
+        grid-template-columns: 1fr;
+    }
 }
 
 .virus_dialog {

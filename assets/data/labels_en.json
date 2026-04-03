@@ -353,8 +353,8 @@
   },
   "dom": {
     "index": {
-      "document_title": "Me and Computer",
-      "window_title": "Me and Computer",
+      "document_title": "I and Computer",
+      "window_title": "I and Computer",
       "new_game_button": "New game",
       "about_game_button": "About the game",
       "date_label": "Date: ",
@@ -668,7 +668,7 @@
       "hacking_requirements_html": "You do not meet the requirements for hacking:<br><br>",
       "buy_all_done_title": "Purchase complete",
       "buy_all_done_text": "The player received all items from the housing, shop, computer, and software sections.",
-      "about_game": "This is a browser remake of the old game \"I and Computer 2.2\", which circulated on computers in the early 2000s. In this game you will live through the path from an unemployed computer enthusiast to the computer president, earn money, watch your satiety and mood levels, and build your dream computer.\n\nGame author: Yury Leushev / GiNeag\nRemake author: Ilya Yalchik\n\nThe game is completely free.",
+      "about_game": "This is a browser remake of the old game \"I and Computer 2.2\", which circulated on computers in the early 2000s. In this game you will live through the path from an unemployed computer enthusiast to the computer president, earn money, watch your satiety and mood levels, and build your dream computer.\n\nGame author: Yury Leushev / GiNeag\nRemake author: Ilya Yalchyk\n\nThe game is completely free.",
       "taxi_accident": "An accident happened. The taxi driver got into a crash, and you were badly hurt. You had to spend a lot of money on treatment: $30",
       "court_title": "Court",
       "court_win": "Congratulations! You won the case and received $25 in compensation.",

@@ -1,0 +1,741 @@
+{
+  "meta": {
+    "lang": "en"
+  },
+  "world": {
+    "interface": {
+      "no_property": "None yet"
+    },
+    "housing": {
+      "apartment": {
+        "0": {
+          "long_desc": "One-room apartment"
+        },
+        "1": {
+          "long_desc": "Two-room apartment"
+        },
+        "2": {
+          "long_desc": "Three-room apartment"
+        },
+        "3": {
+          "long_desc": "Four-room apartment"
+        },
+        "4": {
+          "short_desc": "House",
+          "long_desc": "Country house"
+        },
+        "5": {
+          "short_desc": "Mansion",
+          "long_desc": "Mansion"
+        },
+        "6": {
+          "short_desc": "Palace",
+          "long_desc": "Palace"
+        }
+      },
+      "furniture": {
+        "0": {
+          "short_desc": "Used",
+          "long_desc": "Used"
+        },
+        "1": {
+          "short_desc": "Dacha-style",
+          "long_desc": "Dacha-style"
+        },
+        "2": {
+          "short_desc": "Chipboard",
+          "long_desc": "Chipboard"
+        },
+        "3": {
+          "short_desc": "Laminated",
+          "long_desc": "Laminated"
+        },
+        "4": {
+          "short_desc": "Office",
+          "long_desc": "Office"
+        },
+        "5": {
+          "short_desc": "Luxury",
+          "long_desc": "Luxury"
+        }
+      },
+      "kitchen": {
+        "0": {
+          "short_desc": "Small",
+          "long_desc": "Small"
+        },
+        "1": {
+          "short_desc": "Equipped",
+          "long_desc": "Equipped"
+        },
+        "2": {
+          "short_desc": "Comfortable",
+          "long_desc": "Comfortable"
+        },
+        "3": {
+          "short_desc": "Ultra-comfortable",
+          "long_desc": "Ultra-comfortable"
+        }
+      },
+      "bathroom": {
+        "0": {
+          "short_desc": "Bucket",
+          "long_desc": "Bucket"
+        },
+        "1": {
+          "short_desc": "Standard",
+          "long_desc": "Standard"
+        },
+        "2": {
+          "short_desc": "Jacuzzi",
+          "long_desc": "Jacuzzi"
+        },
+        "3": {
+          "short_desc": "Pool",
+          "long_desc": "Pool"
+        }
+      }
+    },
+    "shop": {
+      "clothes": {
+        "0": {
+          "short_desc": "Worn-out"
+        },
+        "1": {
+          "short_desc": "Tracksuit",
+          "long_desc": "Cheap tracksuit"
+        },
+        "2": {
+          "short_desc": "Summer",
+          "long_desc": "Summer clothes"
+        },
+        "3": {
+          "short_desc": "Jeans",
+          "long_desc": "New jeans and a T-shirt"
+        },
+        "4": {
+          "short_desc": "Suit",
+          "long_desc": "Suit (trousers and jacket)"
+        },
+        "5": {
+          "short_desc": "Jacket",
+          "long_desc": "Jacket"
+        },
+        "6": {
+          "short_desc": "Shirt and trousers",
+          "long_desc": "Nice shirt and trousers"
+        },
+        "7": {
+          "short_desc": "Super",
+          "long_desc": "Super T-shirt, cap, shorts, etc."
+        },
+        "8": {
+          "short_desc": "Latest fashion",
+          "long_desc": "Latest-fashion clothes"
+        }
+      },
+      "car": {
+        "0": {
+          "short_desc": "No car"
+        },
+        "1": {
+          "short_desc": "Lada 2105",
+          "long_desc": "Lada 2105"
+        },
+        "2": {
+          "short_desc": "Lada 21093",
+          "long_desc": "Lada 21093"
+        },
+        "3": {
+          "short_desc": "Lada 2110",
+          "long_desc": "Lada 2110"
+        },
+        "4": {
+          "short_desc": "Volga 3110",
+          "long_desc": "Volga 3110"
+        }
+      }
+    },
+    "education": {
+      "attending_true": "Attending",
+      "attending_false": "Not attending",
+      "finished_true": "Finished",
+      "school": {
+        "descriptions": {
+          "0": "Primary",
+          "1": "Incomplete secondary",
+          "2": "Secondary",
+          "3": "Incomplete higher",
+          "4": "Higher"
+        },
+        "button_false": "Enroll in evening school",
+        "button_true": "Stop attending evening school"
+      },
+      "english_course": {
+        "descriptions": {
+          "0": "Don't know it",
+          "1": "Level 1",
+          "2": "Level 2",
+          "3": "Level 3",
+          "4": "Level 4",
+          "5": "Level 5",
+          "6": "Level 6",
+          "7": "Level 7",
+          "8": "Level 8"
+        },
+        "button_false": "Enroll in English courses",
+        "button_true": "Stop attending English courses"
+      },
+      "computer_course": {
+        "descriptions": {
+          "0": "Newbie",
+          "1": "Amateur",
+          "2": "Beginner",
+          "3": "Programmer",
+          "4": "Almost a hacker",
+          "5": "Hacker",
+          "6": "Administrator",
+          "7": "Professional",
+          "8": "Super professional"
+        },
+        "button_false": "Enroll in computer courses",
+        "button_true": "Stop attending computer courses"
+      }
+    },
+    "job": {
+      "unemployed": {
+        "title": "Unemployed"
+      },
+      "porter": {
+        "title": "Porter",
+        "description": "This job is very simple. You just need to carry all kinds of heavy boxes."
+      },
+      "taxi_driver": {
+        "title": "Taxi driver",
+        "description": "Here you simply need to drive people around."
+      },
+      "gardener": {
+        "title": "Gardener",
+        "description": "You will need to plant flowers and so on."
+      },
+      "junior_dev": {
+        "title": "Junior developer",
+        "description": "This job is more serious than the others."
+      },
+      "middle_dev": {
+        "title": "Programmer",
+        "description": "At this job you will create software for different companies."
+      },
+      "internet_provider": {
+        "title": "Provider",
+        "description": "Here you need to work with the internet."
+      },
+      "web_master": {
+        "title": "Webmaster",
+        "description": "Create stylish, informative websites."
+      },
+      "hacker": {
+        "title": "Hacker",
+        "description": "Here your hacking jobs will become more difficult."
+      },
+      "graphical_designer": {
+        "title": "Graphic designer",
+        "description": "You will create textures, 3D objects, and other graphics."
+      },
+      "computer_president": {
+        "title": "Computer president",
+        "description": "This is the greatest job of all. You will be able to command all computer companies."
+      }
+    },
+    "hardware": {
+      "printer": {
+        "0": {
+          "short_desc": "dot-matrix"
+        },
+        "1": {
+          "short_desc": "inkjet"
+        },
+        "2": {
+          "short_desc": "laser"
+        }
+      },
+      "scanner": {
+        "0": {
+          "short_desc": "handheld"
+        },
+        "1": {
+          "short_desc": "flatbed"
+        }
+      }
+    },
+    "hacking": {
+      "tasks": {
+        "0": {
+          "description": "This is a very simple job. You just need to crack a program."
+        },
+        "1": {
+          "description": "You need to break the server's protection and download a file from the internet."
+        },
+        "2": {
+          "description": "You need to infect the computers of a large company with viruses."
+        },
+        "3": {
+          "description": "You need to format the disks of the banking system."
+        },
+        "4": {
+          "description": "You need to transfer money from a small shop to your own account."
+        },
+        "5": {
+          "description": "You need to download a database from a bank computer."
+        },
+        "6": {
+          "description": "You need to transfer money from a bank account."
+        },
+        "7": {
+          "description": "You need to delete a special file from the city's main computer."
+        },
+        "8": {
+          "description": "This is a very difficult job. You need to download a defense program for yourself."
+        }
+      }
+    }
+  },
+  "content": {
+    "internet": {
+      "computer": "COMPUTER (from the English word computer, from the Latin computo meaning \"I calculate\"), the same as an electronic computing machine; the term, which became widespread in popular-science and scientific literature, is a transcription of the English word computer, meaning calculator.\n\nPERSONAL COMPUTER (PC), a microcomputer for individual use. There are professional and home personal computers. Professional personal computers are comparable in functionality, capabilities, and software support to general-purpose medium-performance computers. They are used mainly as automated workplaces.\n\nHome personal computers are intended to solve tasks for non-specialists in computer technology; their software includes tools for teaching and self-teaching the user. Instead of a display, a television is usually used, and a tape recorder serves as external storage. The largest mass applications of home PCs are education and computer games.",
+      "anecdotes": {
+        "random": "On a tram, a woman hands a boy her ticket so he can punch it. She looks and sees it already has a hole.\n- But it has already been punched!\n- That's okay! There's still room left on it!\n\nA double-decker bus crashed into a lamppost.\n- How did you manage that? asks the policeman.\n- I was checking tickets on the upper deck...\n\n- I wonder why you never win at the races, but you're always lucky at cards?\n- Have you ever tried slipping a horse up your sleeve?\n\n- I highly recommend this lawyer.\n- Do you think he can get me acquitted?\n- Absolutely! Recently a dog bit me, and I sued the owner, whom this lawyer was defending. And imagine this: he managed to prove that I had bitten the mutt myself.\n\nA waiter runs up to a customer's table:\n- Please eat the fish I just brought you as quickly as possible...\n- Why quickly?\n- Because the health inspector has arrived.\n\nA bus is packed to the brim. One man is standing on the step and says:\n- Comrades, move over. Otherwise I'll walk over your heads!\nA bald man replies, stroking his wet bald spot with his palm:\n- I hope you slip!\n\nA husband and wife finished dinner at a restaurant. Paying the bill, the husband says to the waiter:\n- Instead of a tip, my wife will help you clear the table.\n\n- Orderly, where are we going?\n- To the morgue.\n- But I'm not dead yet!\n- We haven't arrived yet either...\n\n- Mike, is it true that you were wounded?\n- Yes, a bullet hit me in the chest.\n- How did it miss your heart?\n- It had dropped into my boots at the time.\n\nAt customs.\n- Please open your suitcase.\n- But I don't have a suitcase!\n- That doesn't matter. The rules are the same for everyone!",
+        "day": "- You're cheating!\n- Yes, Grandma!\n- Don't you know what happens to people who cheat?\n- I do, Grandma. They win!\n\nWaiter to a customer:\n- I'm in a hurry to bring you some good news. I was just in the kitchen, and they told me you were right: you weren't served soup, you were served slop!\n\nA doctor, leaving the ward:\n- Goodbye, everyone. Sidorov, farewell forever!\n\nA girl who recently got married asks her mother:\n- Mom, what did you do with dinner if Dad didn't like it?\n- I always saved it for supper.\n\n- Seventh, seventh! I'm eighth! There's a fight outside the Mir cinema. No help needed. I'll run away myself.\n\nAt a visit:\n- Did you wash your hands with soap?\n- With soap.\n- Then you'll be drinking tea without sugar.\n\nOne pilot says to another:\n- Tell the parachutists to stop jumping. We haven't taken off yet.\n\n- It's good that you stopped crying, son, says the mother to her capricious child.\n- I didn't stop, I'm just resting.\n\nA drunk man gets into a taxi. The driver asks:\n- Where to?\n- What business is it of yours?\n\nTeacher:\n- Which teeth appear last in a person?\nStudent:\n- Artificial ones, sir.",
+        "week": "A hare in a mask and flippers is walking through the desert. A camel comes toward him.\n- Camel, I was told there should be a lake here.\n- It's another 2,000 km that way. Keep walking.\n- That's one heck of a beach they built.\n\nTwo friends are talking.\n- Do you help your wife around the house? one asks.\n- No. I do everything myself.\n\nDespite the red traffic light, Masha drove through the intersection in her car and was stopped by a policeman.\n- Madam, didn't you see the red light? he asked.\n- Sorry, officer, she replies. I saw the red light, but I didn't notice you.\n\n- Waiter! You brought me a very old chicken. I could tell by the teeth.\n- But chickens don't have teeth.\n- I do.\n\nComing home after a night of card playing, the husband happily tells his wife:\n- Do you know how lucky I was at cards today? That blue suit you sewed me for a hundred rubles, I lost it as if it were worth six hundred.\n\nA husband and wife are pushing their car toward a repair shop. The husband says to his wife:\n- The guy who sold us this car was right about one thing...\n- And what was that?\n- This heap really does use almost no gasoline.\n\n- My wife behind the wheel is like lightning!\n- What, she drives that fast?\n- No, she hits trees.\n\nAfter a practical driving lesson, the instructor says to the student:\n- You need to learn to control the car better. Today you hit ten pedestrians.\n- Ten!? And how many do I need to get my license?\n\nOn a bus:\n- Why do you keep pushing me?\n- In a crowd this tight, you don't get much choice.\n\nA poker game dragged on until morning.\n- Will you finally stop these games in our house? the wife bursts out.\n- Sorry, darling, her husband calms her, but this house isn't ours anymore."
+      }
+    }
+  },
+  "common": {
+    "yes": "Yes",
+    "no": "No",
+    "ok": "OK",
+    "attention": "Attention",
+    "danger_title": "DANGER!!!",
+    "death_title": "+DEATH+",
+    "education": "Education",
+    "requirements_not_met": "Requirements not met",
+    "downloaded": "Downloaded",
+    "em_dash": "—",
+    "loading": "Loading...",
+    "requirement_titles": {
+      "school": "School",
+      "english_course": "English",
+      "computer_course": "Computer courses",
+      "clothes": "Clothes",
+      "car": "Car",
+      "apartment": "Apartment",
+      "furniture": "Furniture",
+      "kitchen": "Kitchen",
+      "bathroom": "Bathroom",
+      "compiler": "Compiler",
+      "graphics": "Graphics",
+      "browser": "Browser",
+      "dialer": "Dialer",
+      "downloader": "Downloader",
+      "modem": "Modem",
+      "scanner": "Scanner",
+      "fish": "Fish",
+      "CPU": "Processor",
+      "monitor": "Monitor",
+      "printer": "Printer",
+      "HDD": "Hard drive",
+      "CDROM": "CD-ROM",
+      "RAM": "RAM",
+      "sound_card": "Sound card",
+      "video_card": "Video card",
+      "OS": "System"
+    }
+  },
+  "dom": {
+    "index": {
+      "document_title": "Me and Computer",
+      "window_title": "Me and Computer",
+      "new_game_button": "New game",
+      "about_game_button": "About the game",
+      "date_label": "Date: ",
+      "time_label": "Time: ",
+      "home_button": "Back",
+      "taxi_court": {
+        "title": "Court?",
+        "line_1": "Your lawyer suggests that you sue the taxi driver.",
+        "line_2": "If you win in court, you may receive compensation for the damage.",
+        "line_3": "If you lose, however, you may have to pay a fine for wasting the court's time.",
+        "line_4": "Do you want to sue the taxi driver?"
+      },
+      "bank_taxi": {
+        "title": "Car required",
+        "line_1": "A bank is a great way to save and grow your money. Unfortunately, the bank is far from your home, and without a car you won't be able to get there.",
+        "line_2": "But you can take a taxi for $10 and get to the bank, or buy your own car in the shop.",
+        "line_3": "Do you want to take a taxi for $10 and go to the bank?"
+      },
+      "virus": {
+        "title": "Virus",
+        "message": "Your computer has been infected by a virus. What shall we do?",
+        "spare_button": "Let it<br>live",
+        "kill_button": "Kill",
+        "requirement": "Antivirus required."
+      }
+    },
+    "status": {
+      "personal_legend": "Personal status",
+      "money": "Money:",
+      "status": "Status:",
+      "job": "Job:",
+      "mood": "Mood:",
+      "satiety": "Satiety:",
+      "education": "Education:",
+      "english": "English:",
+      "computer_legend": "Computer",
+      "monitor": "Monitor:",
+      "printer": "Printer:",
+      "scanner": "Scanner:",
+      "modem": "Modem:",
+      "cpu": "Processor:",
+      "hdd": "Hard drive:",
+      "ram": "RAM:",
+      "sound_card": "Sound card:",
+      "video_card": "Video card:",
+      "housing_legend": "Home life",
+      "apartment": "Rooms:",
+      "furniture": "Furniture:",
+      "kitchen": "Kitchen:",
+      "bathroom": "Bathroom:",
+      "clothes": "Your clothes:",
+      "car": "Car:",
+      "software_legend": "Programs",
+      "os": "System:",
+      "compiler": "Programming:",
+      "graphics": "Graphics:",
+      "antivirus": "Antivirus:",
+      "internet_legend": "Internet",
+      "internet_access": "Access:",
+      "internet_anecdotes": "Jokes:",
+      "work_legend": "Work",
+      "salary": "Salary:",
+      "study_legend": "Study",
+      "school": "School",
+      "english_short": "English",
+      "computer_courses": "Comp. courses"
+    },
+    "buttons": {
+      "housing": "Apartment",
+      "shop": "Shop",
+      "entertainment": "Entertainment",
+      "hobby": "Hobby",
+      "education": "Education",
+      "job": "Work",
+      "bank": "Bank",
+      "hardware": "Computer",
+      "software": "Programs",
+      "internet": "Go online",
+      "hacking": "Hacking",
+      "buy_all": "Buy everything"
+    },
+    "bank": {
+      "operations_legend": "Operations",
+      "put_money": "Deposit",
+      "get_money": "Withdraw",
+      "info_legend": "Information",
+      "balance": "On your account:",
+      "growth": "Growth:",
+      "description": "Welcome to the bank! Here you can deposit money into your account or withdraw it. The deposit earns 5% per day."
+    },
+    "education": {
+      "legend": "Education",
+      "school_button": "Enroll in evening school",
+      "english_button": "Enroll in English courses",
+      "computer_button": "Enroll in computer courses",
+      "default_description": "You are already receiving a primary education at school. You can also enroll in English courses and computer courses.",
+      "info_legend": "Information",
+      "price": "Price per day:",
+      "brief": "Summary:"
+    },
+    "housing": {
+      "shop_legend": "Real estate",
+      "buy_apartment": "Buy a new apartment",
+      "buy_furniture": "Buy furniture",
+      "buy_kitchen": "Buy a kitchen",
+      "buy_bathroom": "Buy a bathroom",
+      "price_legend": "Price",
+      "price": "Cost:",
+      "default_description": "Buy and furnish your apartment. Upgrade furniture, kitchen, and bathroom for a comfortable life.",
+      "inventory_legend": "Your home",
+      "apartment": "Apartment:",
+      "furniture": "Furniture:",
+      "kitchen": "Kitchen:",
+      "bathroom": "Bathroom:"
+    },
+    "shop": {
+      "canteen_legend": "Canteen",
+      "buy_breakfast": "Buy breakfast",
+      "buy_lunch": "Buy lunch",
+      "buy_dinner": "Buy dinner",
+      "satiety_gain": "Satiety gain:",
+      "current_satiety": "Current satiety:",
+      "clothes_legend": "Clothes",
+      "buy_clothes": "Buy clothes",
+      "cars_legend": "Cars",
+      "buy_car": "Buy a car",
+      "brand": "Brand:",
+      "current_car": "You currently have:",
+      "price_legend": "Price",
+      "purchase_price": "Purchase cost:"
+    },
+    "job": {
+      "jobs_legend": "Vacancies",
+      "info_legend": "Information",
+      "current_job": "Current job:",
+      "salary": "Salary:",
+      "default_description": "Choose a vacancy from the list on the left to see its description and requirements. Get a job to receive a salary every day.",
+      "requirements_legend": "Requirements"
+    },
+    "software": {
+      "os_legend": "System",
+      "current_feminine": "Current:",
+      "compiler_legend": "Programming",
+      "current_masculine": "Current:",
+      "price_legend": "Price",
+      "price": "Cost:",
+      "graphics_legend": "Graphics",
+      "internet_legend": "Internet",
+      "browser_button": "Browser (IE)",
+      "dialer_button": "Dialer",
+      "downloader_button": "Downloader",
+      "antivirus_legend": "Antivirus",
+      "kaspersky_button": "Kaspersky AV",
+      "ivp_button": "AV IVP 100",
+      "check_viruses_button": "Scan for viruses",
+      "requirements_legend": "Requirements"
+    },
+    "hacking": {
+      "title": "HACKING",
+      "get_task_button": "Get task",
+      "execute_button": "Execute",
+      "no_task": "No task ..."
+    },
+    "hardware": {
+      "legend": "Hardware",
+      "buy_cpu": "Buy a processor",
+      "buy_monitor": "Buy a monitor",
+      "buy_printer": "Buy a printer",
+      "buy_scanner": "Buy a scanner",
+      "buy_modem": "Buy a modem",
+      "buy_hdd": "Buy a hard drive",
+      "buy_cdrom": "Buy a CD-ROM",
+      "buy_ram": "Buy RAM",
+      "buy_sound_card": "Buy a sound card",
+      "buy_video_card": "Buy a video card",
+      "info_legend": "Information",
+      "current": "You currently have:",
+      "price_legend": "Price",
+      "price": "Purchase cost:"
+    },
+    "internet": {
+      "provider_title": "Provider",
+      "connect_button": "Connect",
+      "enter_button": "Go online",
+      "open_anecdotes_button": "Jokes (www.IaC_jokes.ru)",
+      "open_computer_button": "Computer (www.IaC_comp.ru)",
+      "anecdotes_title": "JOKES",
+      "anecdotes_random": "RANDOM",
+      "anecdotes_day": "JOKE OF THE DAY",
+      "anecdotes_week": "JOKE OF THE WEEK",
+      "visitors": "Today we had<br>visitors:<br><span>1007 people</span>",
+      "download_anecdotes_button": "Download jokes database",
+      "anecdotes_hours": "Hours wasted: <span id=\"internet_anecdotes_hours_value\">0</span>",
+      "disconnect_button": "Disconnect",
+      "computer_title": "COMPUTER",
+      "computer_hours": "Hours spent:<span id=\"internet_computer_hours_value\">0</span>"
+    },
+    "hobby": {
+      "shop_legend": "Fishing shop",
+      "buy_groundbait": "Buy a pack of groundbait",
+      "buy_fishing_rod": "Buy a fishing rod",
+      "buy_fishing_tackle": "Buy tackle",
+      "price_legend": "Price",
+      "price": "Cost:",
+      "default_description": "Fishing is a great way to improve your mood, satisfy your hunger with the fish you catch, and simply have a good time. Go fishing and you won't regret it.",
+      "inventory_legend": "Your tackle box",
+      "groundbait_prefix": "You have",
+      "groundbait_suffix": "packs of groundbait.",
+      "fishing_rod": "Fishing rod:",
+      "fishing_tackle": "Tackle:",
+      "total_fish": "Total fish caught:",
+      "go_fishing": "Go to \"MAD FISH\" lake",
+      "bus_dialog": {
+        "title": "Car required",
+        "line_1": "You can't reach Mad Fish lake on foot. Without a car you won't be able to get there.",
+        "line_2": "But you can take a bus by paying $10 for a ticket and go to the lake, or buy your own car in the shop.",
+        "line_3": "Do you want to go by bus?"
+      },
+      "gas_dialog": {
+        "title": "Fuel required",
+        "line_1": "To get to the lake, you need fuel. Do you want to buy fuel (it costs $5)?"
+      },
+      "lake_title": "\"MAD FISH\" Lake",
+      "fishing_intro": "Welcome to \"MAD FISH\" lake. Now you are about to try fishing. After you press the \"START\" button, fish will begin appearing in the lake, and you will need to click on them. The fishing session lasts 30 seconds. If you click a fish, that means you caught it.",
+      "start_button": "START",
+      "results_title": "Fishing results",
+      "result_fish": "You managed to catch fish: <label id=\"fishing_result_fish\">0</label>",
+      "result_mood": "Your mood improved by: <label id=\"fishing_result_mood\">0</label>",
+      "result_satiety": "Strength of the caught fish: your satiety increased by: <label id=\"fishing_result_satiety\">0</label>",
+      "go_home": "Go home",
+      "sidebar_caught": "Fish caught",
+      "sidebar_groundbait": "Groundbait",
+      "sidebar_time": "Time"
+    },
+    "entertainment": {
+      "leisure_legend": "Leisure",
+      "party_button": "Go to a party",
+      "disco_button": "Go to the disco",
+      "casino_legend": "Casino",
+      "roulette_button": "Roulette",
+      "slot_button": "One-armed bandit",
+      "arcanoid_button": "Arcanoid arcade machine",
+      "default_description": "Here you can earn money, play arcade machines, improve your mood, and so on.",
+      "info_legend": "Information",
+      "price": "Price:",
+      "mood_change": "Increase mood by:",
+      "mood": "Mood:",
+      "roulette_title": "Roulette",
+      "roulette_number": "your number",
+      "roulette_bet": "bet",
+      "start_button": "START",
+      "roulette_winnings": "your winnings are: ",
+      "exit_button": "Exit",
+      "slot_title": "Roulette 2",
+      "slot_spin": "Spin",
+      "slot_paytable": "Winnings($):",
+      "slot_buy": "Buy 5 spins for $10",
+      "slot_spins_left_prefix": "Remaining ",
+      "slot_spins_left_suffix": " spins",
+      "slot_money": "Your money($): ",
+      "back_button": "<< Back",
+      "arcanoid_title": "Arcanoid",
+      "arcanoid_start": "Start game",
+      "arcanoid_time": "Time: ",
+      "arcanoid_paddle": "Paddle choice",
+      "arcanoid_ball": "Ball",
+      "arcanoid_rules": "Game rules. To start the game, press the \"Start game\" button. Control is performed with the arrow buttons or the keyboard (the right and left arrow keys). If the ball touches the floor, you lose $20 and your mood worsens. If you hold out and do not let the ball touch the floor, you receive $35 and your mood improves greatly."
+    }
+  },
+  "js": {
+    "status": {
+      "no_money": "You do not have enough money for this",
+      "death_mood": "Unfortunately, you died of melancholy.",
+      "danger_mood": "Danger warning! You need to have some fun. WARNING: if your mood reaches -40, any kind of death will overtake you!!!",
+      "death_satiety": "Unfortunately, you died of hunger.",
+      "danger_satiety": "Danger warning: hunger! You need to go to the household shop and eat your fill. WARNING: if your satiety reaches -30, a brutal death will overtake you!!!"
+    },
+    "bank": {
+      "no_money": "You do not have enough money in your account"
+    },
+    "housing": {
+      "descriptions": {
+        "apartment": "Apartment - your home. Upgrade your living space from a one-room apartment to a palace!",
+        "furniture": "Furniture - furnish your apartment so you can live comfortably.",
+        "kitchen": "Kitchen - from small to ultra-comfortable. Cook with pleasure!",
+        "bathroom": "Bathroom - from a bucket to a pool. Luxury starts small."
+      },
+      "default_description": "Buy and furnish your apartment. Upgrade furniture, kitchen, and bathroom for a comfortable life.",
+      "next_purchase": "Next purchase: {item}."
+    },
+    "shop": {
+      "all_bought": "Everything bought",
+      "no_car": "No car",
+      "full_title": "I don't want to eat!",
+      "full_text": "You are already stuffed with food and can't squeeze in any more."
+    },
+    "education": {
+      "descriptions": {
+        "school": "Evening school - get an education from primary to higher. This will open the way to better jobs.",
+        "english_course": "English courses - improve your level of English. Necessary for moving up the career ladder.",
+        "computer_course": "Computer courses - study computers from newbie to super professional. Essential for working with computers."
+      },
+      "default_description": "You are already receiving a primary education at school. You can also enroll in English courses and computer courses.",
+      "brief_finished": "You have finished studying. Level: {level}",
+      "brief_attending": "You are currently attending. Level: {level}",
+      "brief_not_attending": "Not attending. Level: {level}",
+      "max_level": "You have reached the maximum level!",
+      "new_level": "You gained a new level!"
+    },
+    "buttons": {
+      "hacking_requirements_html": "You do not meet the requirements for hacking:<br><br>",
+      "buy_all_done_title": "Purchase complete",
+      "buy_all_done_text": "The player received all items from the housing, shop, computer, and software sections.",
+      "about_game": "This is a browser remake of the old game \"I and Computer 2.2\", which circulated on computers in the early 2000s. In this game you will live through the path from an unemployed computer enthusiast to the computer president, earn money, watch your satiety and mood levels, and build your dream computer.\n\nGame author: Yury Leushev / GiNeag\nRemake author: Ilya Yalchik\n\nThe game is completely free.",
+      "taxi_accident": "An accident happened. The taxi driver got into a crash, and you were badly hurt. You had to spend a lot of money on treatment: $30",
+      "court_title": "Court",
+      "court_win": "Congratulations! You won the case and received $25 in compensation.",
+      "court_loss": "Unfortunately, you lost and had to pay a $15 fine for troubling the court.",
+      "court_draw": "You couldn't prove anything, but neither could the taxi driver. You were paid a small compensation of $10."
+    },
+    "job": {
+      "button_label": "{title} — {salary}$/day",
+      "salary_per_day": "{amount}$/day",
+      "requirements_not_met": "You do not meet the requirements for this vacancy"
+    },
+    "software": {
+      "invalid_config_title": "Computer configuration not suitable",
+      "invalid_config_text": "Your computer configuration is not suitable"
+    },
+    "hacking": {
+      "cancel": "Cancel",
+      "task_reward": "{description}\nReward: {reward}$",
+      "executing": "Executing task...",
+      "failed": "Task failed! You lost {penalty}$",
+      "completed": "Task completed! You received {reward}$"
+    },
+    "entertainment": {
+      "descriptions": {
+        "party": "Party - a great way to improve your mood and relax with friends.",
+        "disco": "Disco - dance and have fun at the club!",
+        "roulette": "Roulette - test your luck! Guess the number and win triple your bet.",
+        "slot_machine": "One-armed bandit - buy spins and try to assemble a winning combination.",
+        "arcanoid": "Arcanoid - keep the ball in the air for 30 seconds and get $35 plus a great mood boost!"
+      },
+      "default_description": "Here you can earn money, play arcade machines, improve your mood, and so on.",
+      "too_happy_title": "I don't want to go to the disco!",
+      "too_happy_text": "You are already bursting with joy.",
+      "roulette_number_error": "Enter a number from 0 to 13!",
+      "roulette_bet_error": "Enter a bet!",
+      "slot_title": "Slot machine",
+      "slot_win": "You won {payout}$!",
+      "arcanoid_win": "You held on! You get $35 and your mood improved!",
+      "arcanoid_loss": "The ball touched the floor! You lose $20 and your mood worsened."
+    },
+    "hobby": {
+      "descriptions": {
+        "groundbait": "Groundbait increases the number of fish in the lake. If you have groundbait, 2 fish will appear at once while fishing!",
+        "fishing_rod": "Fishing rod - an essential tool for fishing. You can't get to the lake without it.",
+        "fishing_tackle": "Tackle - necessary for fishing. Buy it before your trip to the lake.",
+        "fishing": "Go to \"MAD FISH\" lake and try to catch as many fish as possible in 30 seconds!"
+      },
+      "no_fishing_rod": "You don't have a fishing rod!",
+      "no_fishing_tackle": "You don't have tackle!"
+    },
+    "internet": {
+      "disconnected_text": "Welcome to the very best provider.\nHere you can connect to the internet for $5 per hour. We offer you the very best pages in the world.\nThe most famous jokes page and a page about computers. Connect now, you won't regret it. The first connection costs $30.",
+      "connected_text": "Welcome to the very best provider.\nYou are connected to the internet. $5 will be charged for every hour of use until you press \"Disconnect\".\nNow you can go online and choose one of the available sites.",
+      "download_progress": "::: Downloading [{percent}%] :::",
+      "virus_stole": "{prefix} The virus stole {amount}$.",
+      "virus_spared": "You left the virus alone.",
+      "virus_killed": "Congratulations! The virus has been destroyed.",
+      "virus_failed": "The antivirus failed.",
+      "requirements_html": "You do not meet the requirements for internet access:<br><br>",
+      "disconnected_no_money": "You ran out of money, so the internet was disconnected.\nYou spent {hours} h online.",
+      "download_interrupted_suffix": "Downloading the jokes database was interrupted.",
+      "load_computer_error": "Failed to load the computer page.",
+      "load_anecdotes_error": "Failed to load the jokes.",
+      "anecdotes_already_downloaded": "The jokes database has already been downloaded.",
+      "download_aborted_title": "Download interrupted",
+      "download_aborted_text": "The download was interrupted. Install the FlashGet downloader to finish downloading the jokes database.",
+      "download_completed": "The jokes database was downloaded successfully."
+    }
+  }
+}

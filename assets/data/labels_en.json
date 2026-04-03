@@ -339,6 +339,7 @@
       "downloader": "Downloader",
       "modem": "Modem",
       "scanner": "Scanner",
+      "anecdotes_downloaded": "Jokes",
       "fish": "Fish",
       "CPU": "Processor",
       "monitor": "Monitor",

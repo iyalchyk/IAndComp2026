@@ -709,7 +709,8 @@
         "compiler": 3,
         "graphics": 2,
         "modem": 3,
-        "scanner": 1
+        "scanner": 1,
+        "anecdotes_downloaded": 1
       }
     },
     "hacker": {
@@ -731,7 +732,8 @@
         "bathroom": 3,
         "compiler": 3,
         "modem": 3,
-        "fish": 40
+        "fish": 40,
+        "anecdotes_downloaded": 1
       }
     },
     "graphical_designer": {
@@ -752,7 +754,8 @@
         "furniture": 5,
         "kitchen": 3,
         "graphics": 3,
-        "scanner": 2
+        "scanner": 2,
+        "anecdotes_downloaded": 1
       }
     },
     "computer_president": {
@@ -776,7 +779,8 @@
         "compiler": 4,
         "graphics": 4,
         "modem": 3,
-        "fish": 70
+        "fish": 70,
+        "anecdotes_downloaded": 1
       }
     }
   },

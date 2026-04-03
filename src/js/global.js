@@ -18,7 +18,13 @@ let Player = {
             let module_attributes = this[module].get_attributes();
             if (module_attributes.includes(requirement_key)) {
                 let module_attribute_obj = this[module][requirement_key];
-                module_attribute_val = module_attribute_obj ? module_attribute_obj.level : null;
+                if (module_attribute_obj && typeof module_attribute_obj === "object" && "level" in module_attribute_obj) {
+                    module_attribute_val = module_attribute_obj.level;
+                } else if (typeof module_attribute_obj === "boolean") {
+                    module_attribute_val = module_attribute_obj ? 1 : 0;
+                } else {
+                    module_attribute_val = module_attribute_obj;
+                }
             }
         }
         return module_attribute_val && module_attribute_val >= requirement_val;

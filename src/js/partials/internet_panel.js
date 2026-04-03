@@ -159,7 +159,7 @@ Player.internet = {
     virus_scheduled_hour: null,
     virus_dialog_open: false,
     get_attributes: function() {
-        return [];
+        return ["anecdotes_downloaded"];
     },
     schedule_virus_event: function() {
         if (!this.has_connected_once || this.virus_window_start_hour === null) return;

@@ -20,12 +20,16 @@ const REQUIREMENT_SECTIONS = {
     downloader: "software",
     modem: "hardware",
     scanner: "hardware",
+    anecdotes_downloaded: "internet",
     fish: null
 };
 
 function get_requirement_short_desc(key, level) {
     let section = REQUIREMENT_SECTIONS[key];
     if (!section) return level;
+    if (key === "anecdotes_downloaded") {
+        return level ? t("common.downloaded") : t("common.no");
+    }
     if (section === "education") {
         return World.education[key].descriptions[level];
     }

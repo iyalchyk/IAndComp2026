@@ -129,6 +129,10 @@ function start_roulette() {
     let totalTicks = 15 + Math.floor(Math.random() * 10);
 
     rouletteAnimTimer = setInterval(function() {
+        if (Player.is_paused) {
+            return;
+        }
+
         let displayNum = Math.floor(Math.random() * 14);
         $rouletteDisplay.text(displayNum < 10 ? "0" + displayNum : "" + displayNum);
         ticks++;
@@ -237,6 +241,10 @@ function spin_slot_machine() {
     let totalTicks = 12 + Math.floor(Math.random() * 6);
 
     slotAnimTimer = setInterval(function() {
+        if (Player.is_paused) {
+            return;
+        }
+
         $slotReel1.text(slotSymbols[Math.floor(Math.random() * 3)]);
         $slotReel2.text(slotSymbols[Math.floor(Math.random() * 3)]);
         $slotReel3.text(slotSymbols[Math.floor(Math.random() * 3)]);
@@ -320,6 +328,10 @@ function arcanoid_draw() {
 function arcanoid_update() {
     const a = arcanoid;
     if (!a.running) return;
+    if (Player.is_paused) {
+        a.animFrame = requestAnimationFrame(arcanoid_update);
+        return;
+    }
 
     // Move paddle
     if (a.leftPressed && a.paddleX > 0) {
@@ -415,6 +427,10 @@ function arcanoid_end(won) {
 }
 
 function arcanoid_tick() {
+    if (Player.is_paused) {
+        return;
+    }
+
     const a = arcanoid;
     a.timeLeft--;
     $arcanoidTimeLabel.text(a.timeLeft);

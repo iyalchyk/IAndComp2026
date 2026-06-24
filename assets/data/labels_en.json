@@ -361,6 +361,11 @@
       "date_label": "Date: ",
       "time_label": "Time: ",
       "home_button": "Back",
+      "pause": {
+        "title": "Paused",
+        "message": "Game paused",
+        "hint": "Press Space to continue."
+      },
       "taxi_court": {
         "title": "Court?",
         "line_1": "Your lawyer suggests that you sue the taxi driver.",

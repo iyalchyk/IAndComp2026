@@ -72,7 +72,17 @@ function execute_button_click_handler() {
     $progress_bar.css("width", "0%");
 
     let start = Date.now();
+    let pausedAt = null;
     let progressInterval = setInterval(function() {
+        if (Player.is_paused) {
+            pausedAt = Date.now();
+            return;
+        }
+        if (pausedAt) {
+            start += Date.now() - pausedAt;
+            pausedAt = null;
+        }
+
         let elapsed = Date.now() - start;
         let percent = Math.min(100, (elapsed / duration) * 100);
         $progress_bar.css("width", percent + "%");

@@ -53,6 +53,20 @@
     {% include "partials/hacking_panel.html" %}
     {% include "partials/buttons_panel.html" %}
     <button id="home_button" data-i18n="dom.index.home_button"></button>
+    <div id="pause_overlay" class="pause_overlay" style="display: none;" aria-live="polite">
+        <div class="pause_dialog">
+            <div class="title-bar">
+                <div class="title-bar-text" data-i18n="dom.index.pause.title"></div>
+            </div>
+            <div class="pause_dialog_body">
+                <div class="pause_icon" aria-hidden="true">II</div>
+                <div>
+                    <p class="pause_message" data-i18n="dom.index.pause.message"></p>
+                    <p class="pause_hint" data-i18n="dom.index.pause.hint"></p>
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="taxi_court_dialog" class="confirm_dialog_overlay" style="display: none;">
         <div class="confirm_dialog">
             <div class="title-bar">

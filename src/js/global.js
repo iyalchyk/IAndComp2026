@@ -11,6 +11,7 @@ let World = {
 
 let Player = {
     // data is provided by partials
+    is_paused: false,
 
     check_requirement: function(requirement_key, requirement_val) {
         let module_attribute_val = null;

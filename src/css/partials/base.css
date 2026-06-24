@@ -55,6 +55,61 @@ div.menu .menu_button:active {
     padding: 0 8px;
 }
 
+#app.game_paused > :not(#pause_overlay) {
+    filter: blur(3px);
+    pointer-events: none;
+    user-select: none;
+}
+
+.pause_overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.pause_dialog {
+    width: 360px;
+    background: #c0c0c0;
+    box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #ffffff,
+                inset -2px -2px #808080, inset 2px 2px #dfdfdf;
+}
+
+.pause_dialog_body {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px;
+}
+
+.pause_icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: 48px;
+    height: 48px;
+    border: 1px solid #000000;
+    background: #000080;
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.pause_message {
+    margin: 0 0 8px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.pause_hint {
+    margin: 0;
+}
+
 #global_dialog_text {
     white-space: pre-line;
     max-height: 280px;

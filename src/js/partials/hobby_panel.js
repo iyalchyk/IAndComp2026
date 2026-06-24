@@ -181,6 +181,10 @@ function startFishingGame() {
     spawnFish();
 
     fishingGame.timer = setInterval(function() {
+        if (Player.is_paused) {
+            return;
+        }
+
         fishingGame.timeLeft--;
         $("#fishing_game_time_label").text(fishingGame.timeLeft);
         if (fishingGame.timeLeft <= 0) {
@@ -189,6 +193,10 @@ function startFishingGame() {
     }, 1000);
 
     fishingGame.fishTimer = setInterval(function() {
+        if (Player.is_paused) {
+            return;
+        }
+
         spawnFish();
     }, 600);
 }

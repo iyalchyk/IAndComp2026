@@ -1,4 +1,5 @@
 import { World } from "./global.js";
+import { Player } from "./global.js";
 import { Interface } from "./global.js";
 import { apply_world_data, load_world_data } from "./data.js";
 import { apply_translations, load_label_sets, set_locale } from "./i18n.js";
@@ -21,6 +22,10 @@ $(function () {
     let is_game_started = false;
 
     function next_hour_handler() {
+        if (Player.is_paused) {
+            return;
+        }
+
         update_time_state();
         update_status_state();
         update_education_state();
@@ -31,6 +36,39 @@ $(function () {
 
     function activate_ui() {
         $("#app").css("visibility", "visible");
+    }
+
+    function set_pause_state(is_paused) {
+        Player.is_paused = is_paused;
+        $("#app").toggleClass("game_paused", is_paused);
+        $("#pause_overlay").css("display", is_paused ? "flex" : "none");
+    }
+
+    function toggle_pause_state() {
+        set_pause_state(!Player.is_paused);
+    }
+
+    function pause_keydown_handler(event) {
+        if (!is_game_started || event.repeat || event.code !== "Space") {
+            return;
+        }
+
+        event.preventDefault();
+        toggle_pause_state();
+    }
+
+    function pause_keyup_handler(event) {
+        if (!is_game_started || event.code !== "Space") {
+            return;
+        }
+
+        event.preventDefault();
+    }
+
+    function pause_panel_setup() {
+        $("#pause_overlay").hide();
+        $(document).on("keydown.pause", pause_keydown_handler);
+        $(document).on("keyup.pause", pause_keyup_handler);
     }
 
     function init_game(world_data, locale) {
@@ -56,6 +94,7 @@ $(function () {
         software_panel_setup();
         internet_panel_setup();
         hacking_panel_setup();
+        pause_panel_setup();
 
         next_hour_handler();
         activate_ui();

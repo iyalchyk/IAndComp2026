@@ -333,12 +333,22 @@ function anecdotes_download_button_click_handler() {
     let duration = 10000;
     let failAt = hasDownloader ? null : Math.floor(Math.random() * 7000) + 1000;
     let start = Date.now();
+    let pausedAt = null;
 
     Player.internet.anecdotes_download_in_progress = true;
     Interface.internet.show_download_progress();
     Interface.internet.update_download_controls();
 
     anecdoteDownloadInterval = setInterval(function() {
+        if (Player.is_paused) {
+            pausedAt = Date.now();
+            return;
+        }
+        if (pausedAt) {
+            start += Date.now() - pausedAt;
+            pausedAt = null;
+        }
+
         let elapsed = Date.now() - start;
         let percent = Math.min(100, (elapsed / duration) * 100);
         Interface.internet.set_download_progress(percent);

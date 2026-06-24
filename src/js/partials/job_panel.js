@@ -21,6 +21,7 @@ const REQUIREMENT_SECTIONS = {
     modem: "hardware",
     scanner: "hardware",
     anecdotes_downloaded: "internet",
+    job: "job",
     fish: null
 };
 
@@ -31,6 +32,9 @@ function get_requirement_short_desc(key, level) {
     if (!section) return level;
     if (key === "anecdotes_downloaded") {
         return level ? t("common.downloaded") : t("common.no");
+    }
+    if (key === "job") {
+        return World.job[level] ? World.job[level].title : level;
     }
     if (section === "education") {
         return World.education[key].descriptions[level];

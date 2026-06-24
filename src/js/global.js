@@ -14,6 +14,12 @@ let Player = {
     is_paused: false,
 
     check_requirement: function(requirement_key, requirement_val) {
+        if (requirement_key === "job") {
+            let current_job = World.job[this.job.id];
+            let required_job = World.job[requirement_val];
+            return current_job && required_job && current_job.salary >= required_job.salary;
+        }
+
         let module_attribute_val = null;
         for (const module of World.get_modules()) {
             let module_attributes = this[module].get_attributes();

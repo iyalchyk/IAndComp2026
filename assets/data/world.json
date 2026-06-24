@@ -1314,7 +1314,8 @@
   },
   "hacking": {
     "requirements": {
-      "computer_course": 5
+      "computer_course": 5,
+      "job": "hacker"
     },
     "tasks": [
       {

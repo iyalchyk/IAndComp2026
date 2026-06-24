@@ -684,7 +684,11 @@
     "job": {
       "button_label": "{title} — {salary}$/day",
       "salary_per_day": "{amount}$/day",
-      "requirements_not_met": "You do not meet the requirements for this vacancy"
+      "requirements_not_met": "You do not meet the requirements for this vacancy",
+      "win_title": "Victory!",
+      "win_text": "Congratulations! You became the computer president and completed the game. You can start over or keep playing.",
+      "win_continue": "Continue",
+      "win_start_over": "Start over"
     },
     "software": {
       "invalid_config_title": "Computer configuration not suitable",

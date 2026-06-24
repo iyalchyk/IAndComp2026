@@ -24,6 +24,8 @@ const REQUIREMENT_SECTIONS = {
     fish: null
 };
 
+const FINAL_JOB_ID = "computer_president";
+
 function get_requirement_short_desc(key, level) {
     let section = REQUIREMENT_SECTIONS[key];
     if (!section) return level;
@@ -157,6 +159,20 @@ Player.job = {
         Player.job.set_title_salary(job_id, job_obj.salary);
         Interface.job.disable_prev_jobs(job_id);
         Interface.job.update_job_labels(job_id);
+        if (job_id === FINAL_JOB_ID) {
+            Interface.show_action_dialog(t("js.job.win_title"), t("js.job.win_text"), [
+                {
+                    label: t("js.job.win_continue"),
+                    callback: null
+                },
+                {
+                    label: t("js.job.win_start_over"),
+                    callback: function() {
+                        window.location.reload();
+                    }
+                }
+            ]);
+        }
     }
 };
 

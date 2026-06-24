@@ -121,6 +121,11 @@ div.menu .menu_button:active {
     gap: 8px;
 }
 
+#global_dialog_custom_buttons {
+    display: flex;
+    gap: 10px;
+}
+
 .about_game_intro {
     display: grid;
     grid-template-columns: 1fr 1fr;

@@ -62,6 +62,7 @@ let Interface = {
     },
     reset_dialog_buttons: function() {
         $("#global_dialog_ok").show();
+        $("#global_dialog_custom_buttons").hide().empty();
         $("#global_dialog_language_buttons").hide();
         $("#global_dialog").removeClass("global_dialog_language_mode");
     },
@@ -97,6 +98,27 @@ let Interface = {
         $("#global_dialog_language_buttons").show();
         this._dialog_callback = null;
         this._dialog_actions = actions || {};
+        $("#global_dialog").show();
+    },
+    show_action_dialog: function(title, text, actions) {
+        this.reset_dialog_buttons();
+        $("#global_dialog_title").text(title);
+        $("#global_dialog_text").text(text);
+        $("#global_dialog_ok").hide();
+        let $buttons = $("#global_dialog_custom_buttons");
+        this._dialog_callback = null;
+        this._dialog_actions = {};
+        for (const action of actions || []) {
+            let $button = $("<button>").text(action.label);
+            $button.on("click", () => {
+                this.hide_dialog();
+                if (action.callback) {
+                    action.callback();
+                }
+            });
+            $buttons.append($button);
+        }
+        $buttons.css("display", "flex");
         $("#global_dialog").show();
     }
 };
